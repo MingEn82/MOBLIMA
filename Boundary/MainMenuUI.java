@@ -10,21 +10,20 @@ public class MainMenuUI
     MovieGoerController movieGoerController = new MovieGoerController();
 
 
-    public static final Scanner scanner = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
     
 
     public MainMenuUI() {
     }
 
     public void displayMainMenu(){
-        
+        System.out.println(""); // print empty line
         System.out.println("Welcome to Moblima!");
         int choice;
 
         do
             {
                 
-                System.out.println(""); // print empty line
                 System.out.println("---------------------------------------------------------");
                 System.out.println("Main Menu:");
                 System.out.println("1. Movie Goer");
@@ -52,6 +51,7 @@ public class MainMenuUI
                     case 3:
                     System.out.println("Thank you for your time! See you again!");
                     System.out.println(""); // print empty line
+                    scanner.close();
                     System.exit(0);
                     break;
         
@@ -131,7 +131,7 @@ public class MainMenuUI
     }
 
     
-
+    
 }
 
     
