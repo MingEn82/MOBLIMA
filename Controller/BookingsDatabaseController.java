@@ -93,10 +93,7 @@ public class BookingsDatabaseController implements DatabaseController {
             pw = new PrintWriter(bf);
             String content = newBooking.toString();
 
-            if (bookings.size() > 0) {
-                pw.append("");
-            }
-
+            pw.append("\n");
             pw.append(content);
             pw.close();
 
