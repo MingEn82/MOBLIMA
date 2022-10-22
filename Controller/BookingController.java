@@ -11,7 +11,7 @@ import Entities.SeniorBooking;
 
 
 import java.util.Scanner;
-import Entities.SystemSettings;
+
 
 
 
@@ -98,7 +98,7 @@ public class BookingController {
                 newBooking = new AdultBooking(TID, phoneNumberOfMovieGoer, nameOfMovieGoer,emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, movieDuration, movieType, cinemaType, startDate, price);
                 newBooking.calBookingPrice();
                 //System.out.println("The new booking object is " +newBooking);
-                bookingsDatabaseController.addNewBooking(newBooking);
+                //bookingsDatabaseController.addNewBooking(newBooking);
                 System.out.println("Booking is successful!");
                 return true;
                 
