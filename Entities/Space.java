@@ -5,7 +5,7 @@ public class Space {
     public Space() {};
 
     public void print() {
-        System.out.print(" ");
+        System.out.print("   ");
     }
     
 }

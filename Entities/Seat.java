@@ -3,12 +3,12 @@ package Entities;
 public class Seat extends Space {
     private boolean isBooked;
     private String SeatNumber;
-    private char emptySquare = '\u25A1';
-    private char filledSquare = '\u25A0';
+    private String emptySquare = "[ ]";
+    private String filledSquare = "[x]";
 
     public Seat(String SeatNumber, boolean isBooked) {
-        this.isBooked = isBooked;
         this.SeatNumber = SeatNumber;
+        this.isBooked = isBooked;
     }
 
     public boolean getIsBooked() {
@@ -26,9 +26,9 @@ public class Seat extends Space {
     @Override
     public void print() {
         if (isBooked) {
-            System.out.print(emptySquare);
-        } else {
             System.out.print(filledSquare);
+        } else {
+            System.out.print(emptySquare);
         }
     }
 }

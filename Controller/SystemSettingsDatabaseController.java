@@ -1,4 +1,4 @@
-package Controller.DatabaseController;
+package Controller;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -7,12 +7,13 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.stream.Collectors;
+
+import Utils.DateParser;
 
 public class SystemSettingsDatabaseController extends DatabaseController {
     /*File Format
@@ -36,7 +37,7 @@ public class SystemSettingsDatabaseController extends DatabaseController {
      */
 
 
-    private String fileString = "./Database/SystemSettings.txt";
+    private String filePath = "Database/SystemSettingsDatabase.txt";
     private File file;
     private BufferedWriter bf;
     private PrintWriter pw;
@@ -59,13 +60,13 @@ public class SystemSettingsDatabaseController extends DatabaseController {
     private double IMAXAdditionalPrice;
 
     public SystemSettingsDatabaseController() {
-        file = new File(fileString);    
+        this.file = new File(filePath);    
         this.publicHolidays = new ArrayList<Date>();
         this.readFile();
     }
 
     public SystemSettingsDatabaseController(String filePath) {
-        file = new File(filePath);
+        this.file = new File(filePath);
         this.publicHolidays = new ArrayList<Date>();
         this.readFile();
     }
@@ -149,16 +150,12 @@ public class SystemSettingsDatabaseController extends DatabaseController {
         System.out.println("IMAXAdditionalPrice: " + IMAXAdditionalPrice);
     }
 
-    public static String dateToString(Date d) {
-        DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
-        return dateFormat.format(d);
-    }
-
     public void writeToDatabase() {
+        DateParser dp = new DateParser("yyyyMMdd");
         try {
             bf = new BufferedWriter(new FileWriter(file, false));
             pw = new PrintWriter(bf);
-            pw.println(this.publicHolidays.stream().map(date -> dateToString(date)).collect(Collectors.joining(", ")));
+            pw.println(this.publicHolidays.stream().map(date -> dp.formatDate(date)).collect(Collectors.joining(", ")));
             pw.println(this.mondayToWednesdayRegularTicketPrices);
             pw.println(this.thursdayRegularTicketPrices);
             pw.println(this.fridayRegularPeakTicketPrices);

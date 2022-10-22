@@ -1,9 +1,8 @@
-package Controller.DatabaseController;
+package Controller;
 
 import Entities.Booking;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -15,7 +14,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class BookingsDatabaseController extends DatabaseController {
-    private String fileString = "./Database/BookingDatabase.txt";
+    private String fileString = "./Database/BookingsDatabase.txt";
     private File file;
     private BufferedWriter bf;
     private PrintWriter pw;

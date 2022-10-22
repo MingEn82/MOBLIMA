@@ -3,6 +3,8 @@ package Entities;
 import java.util.ArrayList;
 import java.util.Date;
 
+import Utils.DateParser;
+
 public class Showing {
     private String movieTitle;
     private Date startDate;
@@ -26,10 +28,18 @@ public class Showing {
         return seatRows;
     }
 
-    public void printSeatRows() {
+    public void print(int aisleIndex) {
+        DateParser dp = new DateParser("dd-MM-YYYY HH:mm");
+        System.out.println("Showing: " + movieTitle);
+        System.out.println("Start date: " + dp.formatDate(startDate));
+        this.printSeatRows(aisleIndex);
+        System.out.println("");
+    }
+
+    public void printSeatRows(int aisleIndex) {
         for (SeatRow seatRow : seatRows) {
             System.out.print(seatRow.getRowID() + " ");
-            seatRow.printSeats();
+            seatRow.printSeats(aisleIndex);
             System.out.println(" " + seatRow.getRowID());
         }
     }

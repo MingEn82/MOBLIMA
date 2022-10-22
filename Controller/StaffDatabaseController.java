@@ -1,4 +1,4 @@
-package Controller.DatabaseController;
+package Controller;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -10,14 +10,14 @@ import java.util.Scanner;
 import java.util.HashMap;
 
 public class StaffDatabaseController extends DatabaseController {
-    private String fileString = "./Database/StaffDatabase.txt";
+    private String filePath = "Database/StaffDatabase.txt";
     private File file;
     private BufferedWriter bf;
     private PrintWriter pw;
     private HashMap<String, String> allStaff;
 
     public StaffDatabaseController() {
-        file = new File(fileString);    
+        file = new File(filePath);    
         this.allStaff = new HashMap<String, String>();
         this.readFile();
     }
@@ -50,13 +50,18 @@ public class StaffDatabaseController extends DatabaseController {
 
         System.out.println("Enter username:");
         username = sc.next();
-        System.out.println("Enter password");
+        System.out.println("Enter password:");
         password = sc.next();
 
         return allStaff.containsKey(username) && allStaff.get(username).equals(password);
     }
     
-    public void writeFile(String newUsername, String newPassword) {
+    public void createNewStaff(String newUsername, String newPassword) {
+        if (allStaff.containsKey(newUsername)) {
+            System.out.println("Error! User already exists!");
+            return;
+        }
+
         allStaff.put(newUsername, newPassword);
 
         try {
@@ -64,18 +69,9 @@ public class StaffDatabaseController extends DatabaseController {
             pw = new PrintWriter(bf);
             String content = "\n" + newUsername + ": " + newPassword;
 
-            if (allStaff.size() > 0) {
-                pw.println("");
-            }
-            pw.print(content);
+            pw.append(content);
 
-            // iterate map entries 
-            // for (Map.Entry<String, String> staff : allStaff.entrySet()) { 
-            //     output = output + staff.getKey() + ": " + staff.getValue() + "\n";
-            // }
-            // output = output.trim();
-            // bf.write(content);
-            // bf.flush();
+            System.out.println("Account successfully created for: " + newUsername);
 
         } catch (IOException e) {
             e.printStackTrace(); 
@@ -84,7 +80,5 @@ public class StaffDatabaseController extends DatabaseController {
                 pw.close();
             } catch (Exception e) {} 
         }
-        
-        System.out.println(allStaff);
     }
 }
