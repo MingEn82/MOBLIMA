@@ -1,8 +1,8 @@
 package Entities;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import Utils.DateParser;
 
 public class Booking {
     private String TID;
@@ -12,19 +12,14 @@ public class Booking {
     private String cineplexName;
     private String cinemaName;
     private String seatID;
+    private String cinemaType;
     private String movieTitle;
     private int movieDuration;
     private String movieType;
     private String cinemaType;
-    
-
-
     private Date startDate;
-    private double price;
-
-   
-
-
+    private float price;
+    
     public Booking(String TID, String phoneNumberOfMovieGoer, String nameOfMovieGoer, String emailOfMovieGoer, String cineplexName, String cinemaName, String seatID, String movieTitle, int movieDuration, String movieType, String cinemaType, Date startDate, double price) {
         this.TID = TID;
         this.phoneNumberOfMovieGoer = phoneNumberOfMovieGoer;
@@ -32,6 +27,7 @@ public class Booking {
         this.emailOfMovieGoer = emailOfMovieGoer;
         this.cineplexName = cineplexName;
         this.cinemaName = cinemaName;
+        this.cinemaType = cinemaType;
         this.seatID = seatID;
         this.movieTitle = movieTitle;
         this.movieDuration = movieDuration;
@@ -41,10 +37,7 @@ public class Booking {
         this.price = price;
     }
 
-
-    public Booking() {
-    }
-
+    public Booking() {}
 
     public void printBooking() {
         System.out.println("TID: " + TID);
@@ -53,6 +46,7 @@ public class Booking {
         System.out.println("Movie Duration: " + movieDuration + " mins");
         System.out.println("Location: " + cineplexName + ", " + cinemaName);
         System.out.println("Seat: " + seatID);
+        System.out.println("CinemaType: " + cinemaType);
         System.out.println("Name: " + nameOfMovieGoer);
         System.out.println("Phone Number: " + phoneNumberOfMovieGoer);
         System.out.println("Email Address: " + emailOfMovieGoer);
@@ -64,7 +58,8 @@ public class Booking {
     }
 
     public String toString() {
-        return TID + ", " + phoneNumberOfMovieGoer + ", " + nameOfMovieGoer + ", " + emailOfMovieGoer + ", " + cineplexName + ", " + cinemaName + ", " + seatID + ", " + movieTitle + ", " + movieDuration + ", " + dateToString(startDate) + ", " + price;
+        DateParser dp = new DateParser("yyyyMMddHHmm");
+        return TID + ", " + phoneNumberOfMovieGoer + ", " + nameOfMovieGoer + ", " + emailOfMovieGoer + ", " + cineplexName + ", " + cinemaName + ", " + seatID + ", " + cinemaType + ", " + movieTitle + ", " + movieDuration + ", " + dp.formatDate(startDate) + ", " + price;
     }
 
     public void calBookingPrice() {
@@ -203,5 +198,4 @@ public class Booking {
     public void setPrice(double price) {
         this.price = price;
     }
-
 }

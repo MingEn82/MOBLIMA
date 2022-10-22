@@ -12,7 +12,6 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.stream.Collectors;
 
 public class CineplexDatabaseController implements DatabaseController {
     private String filePath = "Database/CineplexDatabase.txt";
