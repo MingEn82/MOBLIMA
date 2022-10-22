@@ -3,6 +3,7 @@ package Controller;
 import java.util.ArrayList; // import the ArrayList class
 import Entities.Booking;
 import java.util.Scanner;
+import Entities.SystemSettings;
 
 
 
@@ -11,9 +12,10 @@ import java.util.Scanner;
  */
 public class BookingController {
     BookingsDatabaseController bookingsDatabaseController = new BookingsDatabaseController();
-
+    SystemSettingController systemSettingController = new SystemSettingController();
 
     ArrayList<Booking> bookings = new ArrayList<Booking>(); // Create an ArrayList object
+    //SystemSettings currentSettings = systemSettingController.getSystemSetting();
 
 
     BookingController(){

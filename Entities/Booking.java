@@ -14,10 +14,18 @@ public class Booking {
     private String seatID;
     private String movieTitle;
     private int movieDuration;
+    private String movieType;
+    private String cinemaType;
+    
+
+
     private Date startDate;
     private double price;
 
-    public Booking(String TID, String phoneNumberOfMovieGoer, String nameOfMovieGoer, String emailOfMovieGoer, String cineplexName, String cinemaName, String seatID, String movieTitle, int movieDuration, Date startDate, double price) {
+   
+
+
+    public Booking(String TID, String phoneNumberOfMovieGoer, String nameOfMovieGoer, String emailOfMovieGoer, String cineplexName, String cinemaName, String seatID, String movieTitle, int movieDuration, String movieType, String cinemaType, Date startDate, double price) {
         this.TID = TID;
         this.phoneNumberOfMovieGoer = phoneNumberOfMovieGoer;
         this.nameOfMovieGoer = nameOfMovieGoer;
@@ -27,6 +35,8 @@ public class Booking {
         this.seatID = seatID;
         this.movieTitle = movieTitle;
         this.movieDuration = movieDuration;
+        this.movieType = movieType;
+        this.cinemaType = cinemaType;
         this.startDate = startDate;
         this.price = price;
     }
@@ -57,13 +67,141 @@ public class Booking {
         return TID + ", " + phoneNumberOfMovieGoer + ", " + nameOfMovieGoer + ", " + emailOfMovieGoer + ", " + cineplexName + ", " + cinemaName + ", " + seatID + ", " + movieTitle + ", " + movieDuration + ", " + dateToString(startDate) + ", " + price;
     }
 
-    public void calculatePrice() {
+    public void calBookingPrice() {
         this.price = 0;
     }
 
     public static String dateToString(Date d) {
         DateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmm");
         return dateFormat.format(d);
+    }
+
+    //GETTER AND SETTERS FUNCTIONS
+    public String getTID() {
+        return TID;
+    }
+
+
+    public void setTID(String tID) {
+        TID = tID;
+    }
+
+
+    public String getPhoneNumberOfMovieGoer() {
+        return phoneNumberOfMovieGoer;
+    }
+
+
+    public void setPhoneNumberOfMovieGoer(String phoneNumberOfMovieGoer) {
+        this.phoneNumberOfMovieGoer = phoneNumberOfMovieGoer;
+    }
+
+
+    public String getNameOfMovieGoer() {
+        return nameOfMovieGoer;
+    }
+
+
+    public void setNameOfMovieGoer(String nameOfMovieGoer) {
+        this.nameOfMovieGoer = nameOfMovieGoer;
+    }
+
+
+    public String getEmailOfMovieGoer() {
+        return emailOfMovieGoer;
+    }
+
+
+    public void setEmailOfMovieGoer(String emailOfMovieGoer) {
+        this.emailOfMovieGoer = emailOfMovieGoer;
+    }
+
+
+    public String getCineplexName() {
+        return cineplexName;
+    }
+
+
+    public void setCineplexName(String cineplexName) {
+        this.cineplexName = cineplexName;
+    }
+
+
+    public String getCinemaName() {
+        return cinemaName;
+    }
+
+
+    public void setCinemaName(String cinemaName) {
+        this.cinemaName = cinemaName;
+    }
+
+
+    public String getSeatID() {
+        return seatID;
+    }
+
+
+    public void setSeatID(String seatID) {
+        this.seatID = seatID;
+    }
+
+
+    public String getMovieTitle() {
+        return movieTitle;
+    }
+
+
+    public void setMovieTitle(String movieTitle) {
+        this.movieTitle = movieTitle;
+    }
+
+
+    public int getMovieDuration() {
+        return movieDuration;
+    }
+
+
+    public void setMovieDuration(int movieDuration) {
+        this.movieDuration = movieDuration;
+    }
+
+    public String getMovieType() {
+        return movieType;
+    }
+
+
+    public void setMovieType(String movieType) {
+        this.movieType = movieType;
+    }
+
+
+    public String getCinemaType() {
+        return cinemaType;
+    }
+
+
+    public void setCinemaType(String cinemaType) {
+        this.cinemaType = cinemaType;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+
+    public double getPrice() {
+        return price;
+    }
+
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
 }
