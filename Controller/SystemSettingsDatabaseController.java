@@ -41,22 +41,22 @@ public class SystemSettingsDatabaseController implements DatabaseController {
     private BufferedWriter bf;
     private PrintWriter pw;
     private ArrayList<Date> publicHolidays;
-    private double mondayToWednesdayRegularTicketPrices;
-    private double thursdayRegularTicketPrices;
-    private double fridayRegularPeakTicketPrices;
-    private double fridayRegularNonPeakTicketPrices;
-    private double weekendRegularTicketPrices;
-    private double studentRegularTicketPrices;
-    private double seniorRegularTicketPrices;
-    private double mondayToWednesday3DTicketPrices;
-    private double thursday3DTicketPrices;
-    private double friday3DPeakTicketPrices;
-    private double friday3DNonPeakTicketPrices;
-    private double weekend3DTicketPrices;
-    private double student3DTicketPrices;
-    private double blockbusterAdditionalPrice;
-    private double platinumMovieSuiteAdditionalPrice;
-    private double IMAXAdditionalPrice;
+    private float mondayToWednesdayRegularTicketPrices;
+    private float thursdayRegularTicketPrices;
+    private float fridayRegularPeakTicketPrices;
+    private float fridayRegularNonPeakTicketPrices;
+    private float weekendRegularTicketPrices;
+    private float studentRegularTicketPrices;
+    private float seniorRegularTicketPrices;
+    private float mondayToWednesday3DTicketPrices;
+    private float thursday3DTicketPrices;
+    private float friday3DPeakTicketPrices;
+    private float friday3DNonPeakTicketPrices;
+    private float weekend3DTicketPrices;
+    private float student3DTicketPrices;
+    private float blockbusterAdditionalPrice;
+    private float platinumMovieSuiteAdditionalPrice;
+    private float IMAXAdditionalPrice;
 
     public SystemSettingsDatabaseController() {
         this.file = new File(filePath);    
@@ -83,22 +83,22 @@ public class SystemSettingsDatabaseController implements DatabaseController {
                 } catch (ParseException e) {}
             }
 
-            mondayToWednesdayRegularTicketPrices = Double.parseDouble(brStream.readLine());
-            thursdayRegularTicketPrices = Double.parseDouble(brStream.readLine());
-            fridayRegularPeakTicketPrices = Double.parseDouble(brStream.readLine());
-            fridayRegularNonPeakTicketPrices = Double.parseDouble(brStream.readLine());
-            weekendRegularTicketPrices = Double.parseDouble(brStream.readLine());
-            studentRegularTicketPrices = Double.parseDouble(brStream.readLine());
-            seniorRegularTicketPrices = Double.parseDouble(brStream.readLine());
-            mondayToWednesday3DTicketPrices = Double.parseDouble(brStream.readLine());
-            thursday3DTicketPrices = Double.parseDouble(brStream.readLine());
-            friday3DPeakTicketPrices = Double.parseDouble(brStream.readLine());
-            friday3DNonPeakTicketPrices = Double.parseDouble(brStream.readLine());
-            weekend3DTicketPrices = Double.parseDouble(brStream.readLine());
-            student3DTicketPrices = Double.parseDouble(brStream.readLine());
-            blockbusterAdditionalPrice = Double.parseDouble(brStream.readLine());
-            platinumMovieSuiteAdditionalPrice = Double.parseDouble(brStream.readLine());
-            IMAXAdditionalPrice = Double.parseDouble(brStream.readLine());
+            mondayToWednesdayRegularTicketPrices = Float.parseFloat(brStream.readLine());
+            thursdayRegularTicketPrices = Float.parseFloat(brStream.readLine());
+            fridayRegularPeakTicketPrices = Float.parseFloat(brStream.readLine());
+            fridayRegularNonPeakTicketPrices = Float.parseFloat(brStream.readLine());
+            weekendRegularTicketPrices = Float.parseFloat(brStream.readLine());
+            studentRegularTicketPrices = Float.parseFloat(brStream.readLine());
+            seniorRegularTicketPrices = Float.parseFloat(brStream.readLine());
+            mondayToWednesday3DTicketPrices = Float.parseFloat(brStream.readLine());
+            thursday3DTicketPrices = Float.parseFloat(brStream.readLine());
+            friday3DPeakTicketPrices = Float.parseFloat(brStream.readLine());
+            friday3DNonPeakTicketPrices = Float.parseFloat(brStream.readLine());
+            weekend3DTicketPrices = Float.parseFloat(brStream.readLine());
+            student3DTicketPrices = Float.parseFloat(brStream.readLine());
+            blockbusterAdditionalPrice = Float.parseFloat(brStream.readLine());
+            platinumMovieSuiteAdditionalPrice = Float.parseFloat(brStream.readLine());
+            IMAXAdditionalPrice = Float.parseFloat(brStream.readLine());
             
             brStream.close();
         } catch (IOException e) {
@@ -106,7 +106,7 @@ public class SystemSettingsDatabaseController implements DatabaseController {
         }
     }
 
-    public void writeFile(ArrayList<Date> publicHolidays, double mondayToWednesdayRegularTicketPrices, double thursdayRegularTicketPrices, double fridayRegularPeakTicketPrices, double fridayRegularNonPeakTicketPrices, double weekendRegularTicketPrices, double studentRegularTicketPrices, double seniorRegularTicketPrices, double mondayToWednesday3DTicketPrices, double thursday3DTicketPrices, double friday3DPeakTicketPrices, double friday3DNonPeakTicketPrices, double weekend3DTicketPrices, double student3DTicketPrices, double blockbusterAdditionalPrice, double platinumMovieSuiteAdditionalPrice, double IMAXAdditionalPrice) {
+    public void writeFile(ArrayList<Date> publicHolidays, float mondayToWednesdayRegularTicketPrices, float thursdayRegularTicketPrices, float fridayRegularPeakTicketPrices, float fridayRegularNonPeakTicketPrices, float weekendRegularTicketPrices, float studentRegularTicketPrices, float seniorRegularTicketPrices, float mondayToWednesday3DTicketPrices, float thursday3DTicketPrices, float friday3DPeakTicketPrices, float friday3DNonPeakTicketPrices, float weekend3DTicketPrices, float student3DTicketPrices, float blockbusterAdditionalPrice, float platinumMovieSuiteAdditionalPrice, float IMAXAdditionalPrice) {
         this.publicHolidays = publicHolidays;
         this.mondayToWednesdayRegularTicketPrices = mondayToWednesdayRegularTicketPrices;
         this.thursdayRegularTicketPrices = thursdayRegularTicketPrices;

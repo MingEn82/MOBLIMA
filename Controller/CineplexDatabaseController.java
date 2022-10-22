@@ -12,6 +12,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.stream.Collectors;
 
 public class CineplexDatabaseController implements DatabaseController {
     private String filePath = "Database/CineplexDatabase.txt";
@@ -63,7 +64,7 @@ public class CineplexDatabaseController implements DatabaseController {
     }
 
     // For creating a new cinema
-    public void createNewCinema(String cineplexName, String cineplexID, String cinemaName, String cinemaNumber, CinemaType cinemaType, ArrayList<SeatRow> seatRows, int aisleIndex) {
+    public void createNewCinema(String cineplexName, String cineplexID, String cinemaName, String cinemaNumber, CinemaDetails cinemaDetails) {
         for (Cineplex cineplex : cineplexes) {
             if (cineplex.getCineplexID().equals(cineplexID)) {
                 for (Cinema cinema : cineplex.getCinemas()) {
@@ -83,16 +84,11 @@ public class CineplexDatabaseController implements DatabaseController {
             outputArray.add(cineplexID);
             outputArray.add(cinemaName);
             outputArray.add(cinemaNumber);
-            outputArray.add(cinemaType.toString());
-            outputArray.add(String.valueOf(aisleIndex));
-            for (SeatRow seatrow : seatRows) {
-                outputArray.add(seatrow.toString());
-            }
+            outputArray.add(cinemaDetails.getType());
 
             String output = String.join(", ", outputArray);
             pw.append("\n");
             pw.append(output);
-
             pw.close();
 
             // Update cineplexes
@@ -109,25 +105,24 @@ public class CineplexDatabaseController implements DatabaseController {
         String cineplexID = cinemaData[1];
         String cinemaName = cinemaData[2];
         String cinemaNumber = cinemaData[3];
-        CinemaType cinemaType;
+        CinemaDetails cinemaDetails;
         switch (cinemaData[4]) {
             case "Standard":
-                cinemaType = CinemaType.STANDARD;
+                cinemaDetails = CinemaDetails.STANDARD;
                 break;
             case "IMAX":
-                cinemaType = CinemaType.IMAX;
+                cinemaDetails = CinemaDetails.IMAX;
                 break;
             case "Platinum Movie Suite":
-                cinemaType = CinemaType.PLATINUM_MOVIE_SUITE;
+                cinemaDetails = CinemaDetails.PLATINUM_MOVIE_SUITE;
                 break;
             default:
-                cinemaType = CinemaType.STANDARD;
+                cinemaDetails = CinemaDetails.STANDARD;
         }
-        int aisleIndex = Integer.parseInt(cinemaData[5]);
 
-        String[] seatsData = this.generateSeatsData(cinemaData);
+        String[] seatsData = cinemaDetails.getSeatArrangement();
         ArrayList<Showing> showings = this.generateShowings(cineplexName, cinemaName, seatsData);
-        Cinema cinema = new Cinema(cinemaType, showings, cinemaName, cinemaNumber, aisleIndex);
+        Cinema cinema = new Cinema(cinemaDetails, showings, cinemaName, cinemaNumber);
 
         int cineplexIndex = addedCineplexesID.indexOf(cineplexID);
         if (cineplexIndex > -1) {
@@ -140,11 +135,6 @@ public class CineplexDatabaseController implements DatabaseController {
             cineplexes.add(tmpCineplex);
             addedCineplexesID.add(cineplexID);
         }
-    }
-
-    // Helper function to parse seat data from string array
-    private String[] generateSeatsData(String[] cinemaData) {
-        return Arrays.copyOfRange(cinemaData, 6, cinemaData.length);
     }
 
     // Helper function to generate all showings for a particular cinema

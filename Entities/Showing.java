@@ -28,7 +28,7 @@ public class Showing {
         return seatRows;
     }
 
-    public void print(int aisleIndex) {
+    public void print(ArrayList<Integer> aisleIndex) {
         DateParser dp = new DateParser("dd-MM-YYYY HH:mm");
         System.out.println("Showing: " + movieTitle);
         System.out.println("Start date: " + dp.formatDate(startDate));
@@ -37,7 +37,7 @@ public class Showing {
         System.out.println("");
     }
 
-    public void printSeatRows(int aisleIndex) {
+    public void printSeatRows(ArrayList<Integer> aisleIndex) {
         for (SeatRow seatRow : seatRows) {
             System.out.print(seatRow.getRowID() + " ");
             seatRow.printSeats(aisleIndex);

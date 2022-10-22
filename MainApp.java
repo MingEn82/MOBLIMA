@@ -6,7 +6,7 @@ import Controller.CineplexDatabaseController;
 import Controller.ShowingsDatabaseController;
 import Controller.StaffDatabaseController;
 import Controller.SystemSettingsDatabaseController;
-import Entities.CinemaType;
+import Entities.CinemaDetails;
 import Entities.Seat;
 import Entities.SeatRow;
 
@@ -27,7 +27,7 @@ public class MainApp {
         String cinemaName = "Cinema 1";
         String cinemaNumber = "01";
         int aisleIndex = 5;
-        CinemaType cinemaType = CinemaType.IMAX;
+        CinemaDetails cinemaType = CinemaDetails.IMAX;
         ArrayList<SeatRow> seatRows = new ArrayList<SeatRow>();
         SeatRow rowA = new SeatRow("A");
         SeatRow rowB = new SeatRow("B");

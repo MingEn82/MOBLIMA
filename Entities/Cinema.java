@@ -3,40 +3,37 @@ package Entities;
 import java.util.ArrayList;
 
 public class Cinema {
-    private CinemaType cinemaType;
+    private CinemaDetails cinemaDetails;
     private ArrayList<Showing> showings;
     private String cinemaName;
     private String cinemaNumber;
-    private int aisleIndex;
 
-    public Cinema(CinemaType cinemaType, ArrayList<Showing> showings, String cinemaName, String cinemaNumber, int aisleIndex) {
-        this.cinemaType = cinemaType;
+    public Cinema(CinemaDetails cinemaDetails, ArrayList<Showing> showings, String cinemaName, String cinemaNumber) {
+        this.cinemaDetails = cinemaDetails;
         this.showings = showings;
         this.cinemaName = cinemaName;
         this.cinemaNumber = cinemaNumber;
-        this.aisleIndex = aisleIndex;
     }
 
     public void print() {
         System.out.println("--------- Cinema Details ---------");
-        System.out.println("Cinema Type: " + cinemaType.toString());
+        System.out.println("Cinema Type: " + cinemaDetails.getType());
         System.out.println("Cinema Name: " + cinemaName);
         System.out.println("Cinema Number: " + cinemaNumber);
         System.err.println("");
         System.out.println("--------- Showings Details ---------");
         if (showings.size() > 0) {
             for (Showing showing : showings) {
-                showing.print(aisleIndex);
+                showing.print(cinemaDetails.getAisles());
             }
         } else {
             System.out.println("No showings");
             System.out.println("");
         }
-        
     }
 
     public String getCinemaType() {
-        return this.cinemaType.toString();
+        return this.cinemaDetails.getType();
     }
 
     public String getCinemaName() {
@@ -47,8 +44,8 @@ public class Cinema {
         return this.cinemaNumber;
     }
 
-    public int getAisleIndex() {
-        return this.aisleIndex;
+    public ArrayList<Integer> getAisles() {
+        return this.cinemaDetails.getAisles();
     }
 
     public ArrayList<Showing> getShowings() {

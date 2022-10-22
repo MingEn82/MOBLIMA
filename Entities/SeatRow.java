@@ -29,9 +29,9 @@ public class SeatRow {
         seatArray.add(s);
     }
 
-    public void printSeats(int aisleIndex) {
+    public void printSeats(ArrayList<Integer> aisleArray) {
         for (int i = 0; i < seatArray.size(); i++) {
-            if (i == aisleIndex) {
+            if (aisleArray.contains(i)) {
                 System.out.print(" ");
             }
             seatArray.get(i).print();
