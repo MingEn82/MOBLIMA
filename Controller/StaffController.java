@@ -32,13 +32,6 @@ public class StaffController {
             sSCtrl.displaySystemSetting();
             break;
 
-            case 5:
-            System.out.println("Exisiting to homepage...");
-            MainMenuUI mMUI = new MainMenuUI();
-            mMUI.displayStaffMenu();
-            System.out.println("");
-            break;
-
             default:
             System.out.println("Please enter a valid choice");
             System.out.println("");

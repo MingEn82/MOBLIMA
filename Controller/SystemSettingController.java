@@ -108,7 +108,7 @@ public class SystemSettingController {
                     System.out.println("");
                     break;
             }
-        } while (choice != 0);
+        } while (choice != 6);
 
     }
 
@@ -373,7 +373,7 @@ public class SystemSettingController {
                     System.out.println("");
                     break;
             }
-        } while (choice != 0);
+        } while (choice != 10);
 
     }
 }
