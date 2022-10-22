@@ -54,7 +54,7 @@ public class MovieDatabaseController implements DatabaseController {
                 director = movieData[4];
                 cast = movieData[5].split(" & ");
 
-                if (size >= 5) {
+                if (size > 6) {
                     overallRating = Float.parseFloat(movieData[6]);
                     for (int i = 7; i < size; i++) {
                         reviewData = movieData[i].split(" & ");
@@ -69,7 +69,7 @@ public class MovieDatabaseController implements DatabaseController {
                 
                 movies.add(new Movie(movieTitle, showingStatus, synopsis, director, cast, duration, movieTitle, reviews, overallRating));
 
-                br.readLine();
+                movieLine = br.readLine();
             }
 
             br.close();
