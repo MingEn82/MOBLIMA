@@ -28,7 +28,6 @@ public class Booking {
         this.emailOfMovieGoer = emailOfMovieGoer;
         this.cineplexName = cineplexName;
         this.cinemaName = cinemaName;
-        this.cinemaType = cinemaType;
         this.seatID = seatID;
         this.movieTitle = movieTitle;
         this.movieDuration = movieDuration;
