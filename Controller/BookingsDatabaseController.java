@@ -32,12 +32,16 @@ public class BookingsDatabaseController implements DatabaseController {
         this.readFile();
     }
 
+    public ArrayList<Booking> fetchBookings(){
+        return this.bookings;
+    }
+
     public void readFile() {
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
             String line = br.readLine();
             String[] bookingLine;
-            String TID, phoneNumberOfMovieGoer, nameOfMovieGoer, emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, cinemaType;
+            String TID, phoneNumberOfMovieGoer, nameOfMovieGoer, emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, movieType, cinemaType;
             Date startDate;
             int movieDuration;
             float price;
@@ -51,13 +55,17 @@ public class BookingsDatabaseController implements DatabaseController {
                 cineplexName = bookingLine[4];
                 cinemaName = bookingLine[5];
                 seatID = bookingLine[6];
-                cinemaType = bookingLine[7];
-                movieTitle = bookingLine[8];
-                movieDuration = Integer.parseInt(bookingLine[9]);
-                DateParser dp = new DateParser("yyyyMMddHHmm");
-                startDate = dp.parseDate(bookingLine[10]);
-                price = Float.parseFloat(bookingLine[11]);
-                booking = new Booking(TID, phoneNumberOfMovieGoer, nameOfMovieGoer, emailOfMovieGoer, cineplexName, cinemaName, seatID, cinemaType, movieTitle, movieDuration, startDate, price);
+                movieTitle = bookingLine[7];
+                movieDuration = Integer.parseInt(bookingLine[8]);
+                movieType = bookingLine[9];
+                cinemaType = bookingLine[10];
+                try {
+                    startDate = new SimpleDateFormat("yyyyMMddHHmm").parse(bookingLine[9]);
+                } catch (ParseException e) {
+                    startDate = new Date();
+                }
+                price = Double.parseDouble(bookingLine[10]);
+                booking = new Booking(TID, phoneNumberOfMovieGoer, nameOfMovieGoer, emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, movieDuration,movieType, cinemaType, startDate, price);
                 bookings.add(booking);
                 line = br.readLine();
             }
@@ -75,8 +83,8 @@ public class BookingsDatabaseController implements DatabaseController {
     }
 
     // To include price calculation
-    public void addNewBooking(String TID, String phoneNumberOfMovieGoer, String nameOfMovieGoer, String emailOfMovieGoer, String cineplexName, String cinemaName, String seatID, String cinemaType, String movieTitle, int movieDuration, Date startDate, float price) {
-        Booking newBooking = new Booking(TID, phoneNumberOfMovieGoer, nameOfMovieGoer, emailOfMovieGoer, cineplexName, cinemaName, seatID, cinemaType, movieTitle, movieDuration, startDate, price);
+    public void addNewBooking(String TID, String phoneNumberOfMovieGoer, String nameOfMovieGoer, String emailOfMovieGoer, String cineplexName, String cinemaName, String seatID, String movieTitle, int movieDuration, String movieType, String cinemaType, Date startDate, double price) {
+        Booking newBooking = new Booking(TID, phoneNumberOfMovieGoer, nameOfMovieGoer, emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, movieDuration,movieType, cinemaType, startDate, price);
         bookings.add(newBooking);
 
         try {
