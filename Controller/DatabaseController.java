@@ -1,5 +1,5 @@
 package Controller;
 
-public abstract class DatabaseController {
-    public void readFile() {};
+public interface DatabaseController {
+    public void readFile();
 }

@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 import Utils.DateParser;
 
-public class SystemSettingsDatabaseController extends DatabaseController {
+public class SystemSettingsDatabaseController implements DatabaseController {
     /*File Format
      * publicHolidays
      * mondayToWednesdayRegularTicketPrices
@@ -34,8 +34,7 @@ public class SystemSettingsDatabaseController extends DatabaseController {
      * blockbusterAdditionalPrice
      * platinumMovieSuiteAdditionalPrice
      * IMAXAdditionalPrice
-     */
-
+    */
 
     private String filePath = "Database/SystemSettingsDatabase.txt";
     private File file;

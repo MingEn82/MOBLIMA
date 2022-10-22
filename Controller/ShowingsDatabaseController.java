@@ -10,7 +10,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class ShowingsDatabaseController extends DatabaseController {
+public class ShowingsDatabaseController implements DatabaseController {
     private String filePath = "Database/ShowingsDatabase.txt";
     private File file;
     private ArrayList<String[]> showingsData;

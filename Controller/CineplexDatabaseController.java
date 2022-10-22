@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 
-public class CineplexDatabaseController extends DatabaseController {
+public class CineplexDatabaseController implements DatabaseController {
     private String filePath = "Database/CineplexDatabase.txt";
     private File file;
     private ArrayList<Cineplex> cineplexes;
@@ -175,7 +175,7 @@ public class CineplexDatabaseController extends DatabaseController {
         int current = 0;
         ArrayList<SeatRow> seatRows = new ArrayList<SeatRow>();
         SeatRow seatRow = null;
-        Space space;
+        Seat seat;
 
         for (int i = 0; i < seatsData.length; i++) {
             currentString = seatsData[i];
@@ -189,14 +189,14 @@ public class CineplexDatabaseController extends DatabaseController {
             } else if (Integer.parseInt(currentString) == (current - rowStart)) {
                 paddedSeatNumber = String.format("%02d", Integer.parseInt(currentString));
                 if (bookedSeats == null) {
-                    space = new Seat(rowID+paddedSeatNumber, false);
+                    seat = new Seat(rowID+paddedSeatNumber, false);
                 } else {
-                    space = new Seat(rowID+paddedSeatNumber, Arrays.asList(bookedSeats).contains(rowID+paddedSeatNumber));
+                    seat = new Seat(rowID+paddedSeatNumber, Arrays.asList(bookedSeats).contains(rowID+paddedSeatNumber));
                 }
-                seatRow.addSpace(space);
+                seatRow.addSeat(seat);
             } else {
-                space = new Space();
-                seatRow.addSpace(space);
+                seat = new Seat(false);
+                seatRow.addSeat(seat);
                 i--;
             }
             current++;

@@ -32,6 +32,7 @@ public class Showing {
         DateParser dp = new DateParser("dd-MM-YYYY HH:mm");
         System.out.println("Showing: " + movieTitle);
         System.out.println("Start date: " + dp.formatDate(startDate));
+        System.out.println("");
         this.printSeatRows(aisleIndex);
         System.out.println("");
     }
@@ -40,7 +41,7 @@ public class Showing {
         for (SeatRow seatRow : seatRows) {
             System.out.print(seatRow.getRowID() + " ");
             seatRow.printSeats(aisleIndex);
-            System.out.println(" " + seatRow.getRowID());
+            System.out.println("");
         }
     }
 }

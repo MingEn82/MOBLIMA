@@ -13,7 +13,7 @@ import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-public class BookingsDatabaseController extends DatabaseController {
+public class BookingsDatabaseController implements DatabaseController {
     private String fileString = "./Database/BookingsDatabase.txt";
     private File file;
     private BufferedWriter bf;
@@ -23,17 +23,19 @@ public class BookingsDatabaseController extends DatabaseController {
     public BookingsDatabaseController() {
         file = new File(fileString);    
         this.bookings = new ArrayList<Booking>();
+        this.readFile();
     }
 
     public BookingsDatabaseController(String filePath) {
         file = new File(filePath);
         this.bookings = new ArrayList<Booking>();
+        this.readFile();
     }
 
     public void readFile() {
         try {
-            BufferedReader brStream = new BufferedReader(new FileReader(file));
-            String line = brStream.readLine();
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line = br.readLine();
             String[] bookingLine;
             String TID, phoneNumberOfMovieGoer, nameOfMovieGoer, emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle;
             Date startDate;
@@ -59,20 +61,23 @@ public class BookingsDatabaseController extends DatabaseController {
                 price = Double.parseDouble(bookingLine[10]);
                 booking = new Booking(TID, phoneNumberOfMovieGoer, nameOfMovieGoer, emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, movieDuration, startDate, price);
                 bookings.add(booking);
+                line = br.readLine();
             }
-            brStream.close();
+            br.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
+    
     public void printBookings() {
         for (Booking b : bookings) {
             b.printBooking();
+            System.out.println("");
         }
     }
 
-    public void writeFile(String TID, String phoneNumberOfMovieGoer, String nameOfMovieGoer, String emailOfMovieGoer, String cineplexName, String cinemaName, String seatID, String movieTitle, int movieDuration, Date startDate, double price) {
+    // To include price calculation
+    public void addNewBooking(String TID, String phoneNumberOfMovieGoer, String nameOfMovieGoer, String emailOfMovieGoer, String cineplexName, String cinemaName, String seatID, String movieTitle, int movieDuration, Date startDate, double price) {
         Booking newBooking = new Booking(TID, phoneNumberOfMovieGoer, nameOfMovieGoer, emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, movieDuration, startDate, price);
         bookings.add(newBooking);
 

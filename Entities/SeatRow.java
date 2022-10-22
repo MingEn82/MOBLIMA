@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public class SeatRow {
     private String rowID;
-    private ArrayList<Space> seatArray;
+    private ArrayList<Seat> seatArray;
 
     public SeatRow(String rowID) {
         this.rowID = rowID;
-        this.seatArray = new ArrayList<Space>();
+        this.seatArray = new ArrayList<Seat>();
     }
 
     public String getRowID() {
@@ -16,18 +16,16 @@ public class SeatRow {
     }
 
     public String toString() {
-        String s = this.getRowID() + ", ";
-        Seat seat;
-        for (Space space : seatArray) {
-            if (space instanceof Seat) {
-                seat = (Seat) space;
-                s += seat.getSeatNumber() + ", ";
+        String str = this.getRowID() + ", ";
+        for (Seat seat : seatArray) {
+            if (seat.getIsSeat()) {
+                str += seat.getSeatNumber() + ", ";
             }
         }
-        return s.substring(0, s.length()-2);
+        return str.substring(0, str.length()-2);
     }
 
-    public void addSpace(Space s) {
+    public void addSeat(Seat s) {
         seatArray.add(s);
     }
 

@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.HashMap;
 
-public class StaffDatabaseController extends DatabaseController {
+public class StaffDatabaseController implements DatabaseController {
     private String filePath = "Database/StaffDatabase.txt";
     private File file;
     private BufferedWriter bf;
@@ -43,7 +43,12 @@ public class StaffDatabaseController extends DatabaseController {
             e.printStackTrace();
         }
     }
+
+    public HashMap<String, String> getAllStaff() {
+        return allStaff;
+    }
     
+    // Login Controller will take over this part
     public boolean login() {
         Scanner sc = new Scanner(System.in);
         String username, password;
