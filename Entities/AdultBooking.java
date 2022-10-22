@@ -1,5 +1,7 @@
 package Entities;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import Controller.SystemSettingController;
 
@@ -19,9 +21,11 @@ public class AdultBooking extends Booking{
     public void calBookingPrice(){
         SystemSettings currentSettings = new SystemSettingController().getSystemSetting();
         //System.out.println("currentSettings = " + currentSettings.getSeniorRegularTicketPrices());
-        float price = 6;
-        switch(this.getMovieType()){
-            case "IMAX":
+        float price = 0;
+        
+        
+        switch(this.getDayOfWeek(getStartDate())){
+            case "Mon":
             
             break;
 
@@ -30,10 +34,11 @@ public class AdultBooking extends Booking{
 
             case "Platinum Movie Suite":
             break;
+            default:
+            break;
 
 
         }
-        this.setPrice(6);
 
 
 
