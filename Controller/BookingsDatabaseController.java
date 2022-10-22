@@ -48,6 +48,7 @@ public class BookingsDatabaseController implements DatabaseController {
             int movieDuration;
             float price;
             Booking booking;
+            DateParser dp = new DateParser("yyyyMMddHHmm");
             while (line != null) {
                 bookingLine = line.split(", ");
                 TID = bookingLine[0];
@@ -59,14 +60,10 @@ public class BookingsDatabaseController implements DatabaseController {
                 seatID = bookingLine[6];
                 movieTitle = bookingLine[7];
                 movieDuration = Integer.parseInt(bookingLine[8]);
-                movieType = bookingLine[9];
-                cinemaType = bookingLine[10];
-                try {
-                    startDate = new SimpleDateFormat("yyyyMMddHHmm").parse(bookingLine[9]);
-                } catch (ParseException e) {
-                    startDate = new Date();
-                }
-                price = Float.parseFloat(bookingLine[11]);
+                startDate = dp.parseDate(bookingLine[9]);
+                movieType = bookingLine[10];
+                cinemaType = bookingLine[11];
+                price = Float.parseFloat(bookingLine[12]);
                 booking = new Booking(TID, phoneNumberOfMovieGoer, nameOfMovieGoer, emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, movieDuration,movieType, cinemaType, startDate, price);
                 bookings.add(booking);
                 line = br.readLine();
