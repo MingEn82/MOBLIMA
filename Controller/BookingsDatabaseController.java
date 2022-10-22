@@ -12,8 +12,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
 
 public class BookingsDatabaseController implements DatabaseController {
     private String fileString = "./Database/BookingsDatabase.txt";
@@ -43,16 +42,16 @@ public class BookingsDatabaseController implements DatabaseController {
             BufferedReader br = new BufferedReader(new FileReader(file));
             String line = br.readLine();
             String[] bookingLine;
-            String TID, phoneNumberOfMovieGoer, nameOfMovieGoer, emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, movieType, cinemaType;
+            String TID, nameOfMovieGoer, emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, movieType, cinemaType;
             Date startDate;
-            int movieDuration;
+            int movieDuration, phoneNumberOfMovieGoer;
             float price;
             Booking booking;
             DateParser dp = new DateParser("yyyyMMddHHmm");
             while (line != null) {
                 bookingLine = line.split(", ");
                 TID = bookingLine[0];
-                phoneNumberOfMovieGoer = bookingLine[1];
+                phoneNumberOfMovieGoer = Integer.parseInt(bookingLine[1]);
                 nameOfMovieGoer = bookingLine[2];
                 emailOfMovieGoer = bookingLine[3];
                 cineplexName = bookingLine[4];
@@ -60,9 +59,10 @@ public class BookingsDatabaseController implements DatabaseController {
                 seatID = bookingLine[6];
                 movieTitle = bookingLine[7];
                 movieDuration = Integer.parseInt(bookingLine[8]);
-                startDate = dp.parseDate(bookingLine[9]);
-                movieType = bookingLine[10];
-                cinemaType = bookingLine[11];
+                
+                movieType = bookingLine[9];
+                cinemaType = bookingLine[10];
+                startDate = dp.parseDate(bookingLine[11]);
                 price = Float.parseFloat(bookingLine[12]);
                 booking = new Booking(TID, phoneNumberOfMovieGoer, nameOfMovieGoer, emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, movieDuration,movieType, cinemaType, startDate, price);
                 bookings.add(booking);
@@ -82,9 +82,11 @@ public class BookingsDatabaseController implements DatabaseController {
     }
 
     // To include price calculation
-    public void addNewBooking(String TID, String phoneNumberOfMovieGoer, String nameOfMovieGoer, String emailOfMovieGoer, String cineplexName, String cinemaName, String seatID, String movieTitle, int movieDuration, String movieType, String cinemaType, Date startDate, float price) {
-        Booking newBooking = new Booking(TID, phoneNumberOfMovieGoer, nameOfMovieGoer, emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, movieDuration,movieType, cinemaType, startDate, price);
+    public void addNewBooking(Booking bookingObject) {
+        Booking newBooking = bookingObject;
+        //System.out.println("The new booking object is " +newBooking);
         bookings.add(newBooking);
+        
 
         try {
             bf = new BufferedWriter(new FileWriter(file, true));
@@ -94,6 +96,7 @@ public class BookingsDatabaseController implements DatabaseController {
             if (bookings.size() > 0) {
                 pw.append("");
             }
+
             pw.append(content);
             pw.close();
 

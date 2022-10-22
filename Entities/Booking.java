@@ -8,7 +8,7 @@ import Utils.DateParser;
 
 public class Booking {
     private String TID;
-    private String phoneNumberOfMovieGoer;
+    private int phoneNumberOfMovieGoer;
     private String nameOfMovieGoer;
     private String emailOfMovieGoer;
     private String cineplexName;
@@ -21,7 +21,7 @@ public class Booking {
     private Date startDate;
     private float price;
     
-    public Booking(String TID, String phoneNumberOfMovieGoer, String nameOfMovieGoer, String emailOfMovieGoer, String cineplexName, String cinemaName, String seatID, String movieTitle, int movieDuration, String movieType, String cinemaType, Date startDate, float price) {
+    public Booking(String TID, int phoneNumberOfMovieGoer, String nameOfMovieGoer, String emailOfMovieGoer, String cineplexName, String cinemaName, String seatID, String movieTitle, int movieDuration, String movieType, String cinemaType, Date startDate, float price) {
         this.TID = TID;
         this.phoneNumberOfMovieGoer = phoneNumberOfMovieGoer;
         this.nameOfMovieGoer = nameOfMovieGoer;
@@ -48,6 +48,7 @@ public class Booking {
         System.out.println("Location: " + cineplexName + ", " + cinemaName);
         System.out.println("Seat: " + seatID);
         System.out.println("CinemaType: " + cinemaType);
+        System.out.println("MovieType: " + movieType);
         System.out.println("Name: " + nameOfMovieGoer);
         System.out.println("Phone Number: " + phoneNumberOfMovieGoer);
         System.out.println("Email Address: " + emailOfMovieGoer);
@@ -83,12 +84,12 @@ public class Booking {
     }
 
 
-    public String getPhoneNumberOfMovieGoer() {
+    public int getPhoneNumberOfMovieGoer() {
         return phoneNumberOfMovieGoer;
     }
 
 
-    public void setPhoneNumberOfMovieGoer(String phoneNumberOfMovieGoer) {
+    public void setPhoneNumberOfMovieGoer(int phoneNumberOfMovieGoer) {
         this.phoneNumberOfMovieGoer = phoneNumberOfMovieGoer;
     }
 

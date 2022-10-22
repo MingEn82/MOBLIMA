@@ -1,7 +1,15 @@
 package Controller;
 
 import java.util.ArrayList; // import the ArrayList class
+import java.util.Date;
+
+
 import Entities.Booking;
+import Entities.StudentBooking;
+import Entities.AdultBooking;
+import Entities.SeniorBooking;
+
+
 import java.util.Scanner;
 import Entities.SystemSettings;
 
@@ -55,19 +63,75 @@ public class BookingController {
      * He will also need to key in his/her name, email address and phone number.
      * Price will be calculated depending on the movie type, time/date of movie, cinema type and whether the type of ticket.
      */
-    public void newBooking()
+    public boolean newBooking(String TID, int phoneNumberOfMovieGoer, String nameOfMovieGoer, String emailOfMovieGoer, String cineplexName, String cinemaName, String seatID, String movieTitle, int movieDuration, String movieType, String cinemaType, Date startDate, float price)
     {
-        Booking newBooking = new Booking();
-        //need to first choose a movie.
-        //need to choose an available showing.
+        int choice;
+        //System.out.println("Date now is" + startDate);
+        Scanner scanner = new Scanner(System.in);
+        do
+        {
+            System.out.println(""); // print empty line
+            System.out.println("---------------------------------------------------------");
+            System.out.println("Are you a student/adult/senior?");
+            System.out.println("1. Student");
+            System.out.println("2. Adult");
+            System.out.println("3. Senior Citizen");
+            System.out.println("4. Exit Booking");
+            System.out.println("---------------------------------------------------------");
+            System.out.println(""); // print empty line
 
-        //set the attributes of newBooking such as movieName, seat, cinema etc.
-        //call BookingsDatabaseController.addNewBooking(newBooking);
+            choice = scanner.nextInt();
+
+            Booking newBooking;
+            switch(choice)
+            {
+                case 1:
+                newBooking = new StudentBooking(TID, phoneNumberOfMovieGoer, nameOfMovieGoer,emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, movieDuration, movieType, cinemaType, startDate, price);
+                newBooking.calBookingPrice();
+                
+                bookingsDatabaseController.addNewBooking(newBooking);
+                System.out.println("Booking is successful!");
+                return true;
+                
+                
+                case 2:
+                newBooking = new AdultBooking(TID, phoneNumberOfMovieGoer, nameOfMovieGoer,emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, movieDuration, movieType, cinemaType, startDate, price);
+                newBooking.calBookingPrice();
+                //System.out.println("The new booking object is " +newBooking);
+                bookingsDatabaseController.addNewBooking(newBooking);
+                System.out.println("Booking is successful!");
+                return true;
+                
+
+                case 3:
+                newBooking = new SeniorBooking(TID, phoneNumberOfMovieGoer, nameOfMovieGoer,emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, movieDuration, movieType, cinemaType, startDate, price);
+                newBooking.calBookingPrice();
+                bookingsDatabaseController.addNewBooking(newBooking);
+                System.out.println("Booking is successful!");
+                return true;
+                
+
+                case 4:
+                System.out.println("Exiting booking....");
+                System.out.println(""); // print empty line
+                return false;
+                
+                default:
+                System.out.println("You've entered an invalid choice. Please enter a choice again.");
+                System.out.println(""); // print empty line
+                break;
+            }
+        }
+        while (choice != 4);
+
+        
+        return false;
+
+
+        
     }
 
-    //need another method below here if the newBooking is made from the other controllers. 
-    //e.g. user find movie then book instead of book movie then find
-    //public void newBooking(some parameters here to overwrite the top method)
+
 
 
     
