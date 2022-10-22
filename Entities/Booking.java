@@ -1,5 +1,7 @@
 package Entities;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import Utils.DateParser;
@@ -12,7 +14,6 @@ public class Booking {
     private String cineplexName;
     private String cinemaName;
     private String seatID;
-    private String cinemaType;
     private String movieTitle;
     private int movieDuration;
     private String movieType;
@@ -20,7 +21,7 @@ public class Booking {
     private Date startDate;
     private float price;
     
-    public Booking(String TID, String phoneNumberOfMovieGoer, String nameOfMovieGoer, String emailOfMovieGoer, String cineplexName, String cinemaName, String seatID, String movieTitle, int movieDuration, String movieType, String cinemaType, Date startDate, double price) {
+    public Booking(String TID, String phoneNumberOfMovieGoer, String nameOfMovieGoer, String emailOfMovieGoer, String cineplexName, String cinemaName, String seatID, String movieTitle, int movieDuration, String movieType, String cinemaType, Date startDate, float price) {
         this.TID = TID;
         this.phoneNumberOfMovieGoer = phoneNumberOfMovieGoer;
         this.nameOfMovieGoer = nameOfMovieGoer;
@@ -190,12 +191,12 @@ public class Booking {
     }
 
 
-    public double getPrice() {
+    public float getPrice() {
         return price;
     }
 
 
-    public void setPrice(double price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 }
