@@ -27,9 +27,10 @@ public class SystemSettings {
     private float platinumMovieSuiteAdditionalPrice;
     private float IMAXAdditionalPrice;
 
-    public SystemSettings(){
-        
+    public SystemSettings() {
+
     }
+
     public SystemSettings(ArrayList<Date> publicHolidays, float mondayToWednesdayRegularTicketPrices,
             float thursdayRegularTicketPrices, float fridayRegularPeakTicketPrices,
             float fridayRegularNonPeakTicketPrices, float weekendRegularTicketPrices, float studentRegularTicketPrices,
@@ -54,6 +55,34 @@ public class SystemSettings {
         this.blockbusterAdditionalPrice = blockbusterAdditionalPrice;
         this.platinumMovieSuiteAdditionalPrice = platinumMovieSuiteAdditionalPrice;
         this.IMAXAdditionalPrice = IMAXAdditionalPrice;
+    }
+
+    public void printSettings() {
+        System.out.println("---------------------------------------------------------");
+        System.out.println("");
+        System.out.println("*** Regular Movie Ticket Pricing ***");
+        System.out.println("Monday to Wednesday: $" + mondayToWednesdayRegularTicketPrices);
+        System.out.println("Thursday: $" + thursdayRegularTicketPrices);
+        System.out.println("Friday (Peak): $" + fridayRegularPeakTicketPrices);
+        System.out.println("Friday (Non Peak): $" + fridayRegularNonPeakTicketPrices);
+        System.out.println("Weekends: $" + weekendRegularTicketPrices);
+        System.out.println("Student: $" + studentRegularTicketPrices);
+        System.out.println("Senior Citizen: $" + seniorRegularTicketPrices);
+        System.out.println("");
+        System.out.println("*** 3D Movie Ticket Pricing ***");
+        System.out.println("Monday to Wednesday: $" + mondayToWednesday3DTicketPrices);
+        System.out.println("Thursday: $" + thursday3DTicketPrices);
+        System.out.println("Friday (Peak): $" + friday3DPeakTicketPrices);
+        System.out.println("Friday (Non Peak): $" + friday3DNonPeakTicketPrices);
+        System.out.println("Weekends: $" + weekend3DTicketPrices);
+        System.out.println("Student: $" + student3DTicketPrices);
+        System.out.println("");
+        System.out.println("*** Other Additional Cost ***");
+        System.out.println("Blockbuster: $" + blockbusterAdditionalPrice);
+        System.out.println("Platinum Movie Suite: $" + platinumMovieSuiteAdditionalPrice);
+        System.out.println("IMAX:$" + IMAXAdditionalPrice);
+        System.out.println("");
+        System.out.println("---------------------------------------------------------");
     }
 
     public String getFilePath() {
