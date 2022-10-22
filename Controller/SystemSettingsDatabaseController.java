@@ -7,14 +7,18 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.stream.Collectors;
 
+import Entities.SystemSettings;
 import Utils.DateParser;
 
 public class SystemSettingsDatabaseController implements DatabaseController {
-    /*File Format
+    /*
+     * File Format
      * publicHolidays
      * mondayToWednesdayRegularTicketPrices
      * thursdayRegularTicketPrices
@@ -32,7 +36,7 @@ public class SystemSettingsDatabaseController implements DatabaseController {
      * blockbusterAdditionalPrice
      * platinumMovieSuiteAdditionalPrice
      * IMAXAdditionalPrice
-    */
+     */
 
     private String filePath = "Database/SystemSettingsDatabase.txt";
     private File file;
@@ -57,7 +61,7 @@ public class SystemSettingsDatabaseController implements DatabaseController {
     private float IMAXAdditionalPrice;
 
     public SystemSettingsDatabaseController() {
-        this.file = new File(filePath);    
+        this.file = new File(filePath);
         this.publicHolidays = new ArrayList<Date>();
         this.readFile();
     }
@@ -67,16 +71,19 @@ public class SystemSettingsDatabaseController implements DatabaseController {
         this.publicHolidays = new ArrayList<Date>();
         this.readFile();
     }
-    
+
     public void readFile() {
         try {
             BufferedReader brStream = new BufferedReader(new FileReader(file));
 
             // Add public holidays
             String[] dates = brStream.readLine().split(", ");
-            DateParser dp = new DateParser("yyyyMMdd");
+            SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyyMMdd");
             for (String date : dates) {
-                publicHolidays.add(dp.parseDate(date));
+                try {
+                    publicHolidays.add(dateFormatter.parse(date));
+                } catch (ParseException e) {
+                }
             }
 
             mondayToWednesdayRegularTicketPrices = Float.parseFloat(brStream.readLine());
@@ -95,34 +102,35 @@ public class SystemSettingsDatabaseController implements DatabaseController {
             blockbusterAdditionalPrice = Float.parseFloat(brStream.readLine());
             platinumMovieSuiteAdditionalPrice = Float.parseFloat(brStream.readLine());
             IMAXAdditionalPrice = Float.parseFloat(brStream.readLine());
-            
+
             brStream.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void writeFile(ArrayList<Date> publicHolidays, float mondayToWednesdayRegularTicketPrices, float thursdayRegularTicketPrices, float fridayRegularPeakTicketPrices, float fridayRegularNonPeakTicketPrices, float weekendRegularTicketPrices, float studentRegularTicketPrices, float seniorRegularTicketPrices, float mondayToWednesday3DTicketPrices, float thursday3DTicketPrices, float friday3DPeakTicketPrices, float friday3DNonPeakTicketPrices, float weekend3DTicketPrices, float student3DTicketPrices, float blockbusterAdditionalPrice, float platinumMovieSuiteAdditionalPrice, float IMAXAdditionalPrice) {
-        this.publicHolidays = publicHolidays;
-        this.mondayToWednesdayRegularTicketPrices = mondayToWednesdayRegularTicketPrices;
-        this.thursdayRegularTicketPrices = thursdayRegularTicketPrices;
-        this.fridayRegularPeakTicketPrices = fridayRegularPeakTicketPrices;
-        this.fridayRegularNonPeakTicketPrices = fridayRegularNonPeakTicketPrices;
-        this.weekendRegularTicketPrices = weekendRegularTicketPrices;
-        this.studentRegularTicketPrices = studentRegularTicketPrices;
-        this.seniorRegularTicketPrices = seniorRegularTicketPrices;
-        this.mondayToWednesday3DTicketPrices = mondayToWednesday3DTicketPrices;
-        this.thursday3DTicketPrices = thursday3DTicketPrices;
-        this.friday3DPeakTicketPrices = friday3DPeakTicketPrices;
-        this.friday3DNonPeakTicketPrices = friday3DNonPeakTicketPrices;
-        this.weekend3DTicketPrices = weekend3DTicketPrices;
-        this.student3DTicketPrices = student3DTicketPrices;
-        this.blockbusterAdditionalPrice = blockbusterAdditionalPrice;
-        this.platinumMovieSuiteAdditionalPrice = platinumMovieSuiteAdditionalPrice;
-        this.IMAXAdditionalPrice = IMAXAdditionalPrice;
+    public void writeFile(SystemSettings ss) {
+        this.publicHolidays = ss.getPublicHolidays();
+        this.mondayToWednesdayRegularTicketPrices = ss.getMondayToWednesday3DTicketPrices();
+        this.thursdayRegularTicketPrices = ss.getThursdayRegularTicketPrices();
+        this.fridayRegularPeakTicketPrices = ss.getFridayRegularPeakTicketPrices();
+        this.fridayRegularNonPeakTicketPrices = ss.getFridayRegularNonPeakTicketPrices();
+        this.weekendRegularTicketPrices = ss.getWeekendRegularTicketPrices();
+        this.studentRegularTicketPrices = ss.getStudentRegularTicketPrices();
+        this.seniorRegularTicketPrices = ss.getSeniorRegularTicketPrices();
+        this.mondayToWednesday3DTicketPrices = ss.getMondayToWednesday3DTicketPrices();
+        this.thursday3DTicketPrices = ss.getThursday3DTicketPrices();
+        this.friday3DPeakTicketPrices = ss.getFriday3DPeakTicketPrices();
+        this.friday3DNonPeakTicketPrices = ss.getFriday3DNonPeakTicketPrices();
+        this.weekend3DTicketPrices = ss.getWeekend3DTicketPrices();
+        this.student3DTicketPrices = ss.getStudent3DTicketPrices();
+        this.blockbusterAdditionalPrice = ss.getBlockbusterAdditionalPrice();
+        this.platinumMovieSuiteAdditionalPrice = ss.getPlatinumMovieSuiteAdditionalPrice();
+        this.IMAXAdditionalPrice = ss.getIMAXAdditionalPrice();
 
         this.writeToDatabase();
-        this.printSettings();
+
+        // this.printSettings();
     }
 
     public void printSettings() {
@@ -169,11 +177,149 @@ public class SystemSettingsDatabaseController implements DatabaseController {
             pw.print(this.IMAXAdditionalPrice);
 
         } catch (IOException e) {
-            e.printStackTrace(); 
+            e.printStackTrace();
         } finally {
-            try { 
+            try {
                 pw.close();
-            } catch (Exception e) {} 
+            } catch (Exception e) {
+            }
         }
     }
+
+    public ArrayList<Date> getPublicHolidays() {
+        return this.publicHolidays;
+    }
+
+    public void setPublicHolidays(ArrayList<Date> publicHolidays) {
+        this.publicHolidays = publicHolidays;
+    }
+
+    public float getMondayToWednesdayRegularTicketPrices() {
+        return this.mondayToWednesdayRegularTicketPrices;
+    }
+
+    public void setMondayToWednesdayRegularTicketPrices(float mondayToWednesdayRegularTicketPrices) {
+        this.mondayToWednesdayRegularTicketPrices = mondayToWednesdayRegularTicketPrices;
+    }
+
+    public float getThursdayRegularTicketPrices() {
+        return this.thursdayRegularTicketPrices;
+    }
+
+    public void setThursdayRegularTicketPrices(float thursdayRegularTicketPrices) {
+        this.thursdayRegularTicketPrices = thursdayRegularTicketPrices;
+    }
+
+    public float getFridayRegularPeakTicketPrices() {
+        return this.fridayRegularPeakTicketPrices;
+    }
+
+    public void setFridayRegularPeakTicketPrices(float fridayRegularPeakTicketPrices) {
+        this.fridayRegularPeakTicketPrices = fridayRegularPeakTicketPrices;
+    }
+
+    public float getFridayRegularNonPeakTicketPrices() {
+        return this.fridayRegularNonPeakTicketPrices;
+    }
+
+    public void setFridayRegularNonPeakTicketPrices(float fridayRegularNonPeakTicketPrices) {
+        this.fridayRegularNonPeakTicketPrices = fridayRegularNonPeakTicketPrices;
+    }
+
+    public float getWeekendRegularTicketPrices() {
+        return this.weekendRegularTicketPrices;
+    }
+
+    public void setWeekendRegularTicketPrices(float weekendRegularTicketPrices) {
+        this.weekendRegularTicketPrices = weekendRegularTicketPrices;
+    }
+
+    public float getStudentRegularTicketPrices() {
+        return this.studentRegularTicketPrices;
+    }
+
+    public void setStudentRegularTicketPrices(float studentRegularTicketPrices) {
+        this.studentRegularTicketPrices = studentRegularTicketPrices;
+    }
+
+    public float getSeniorRegularTicketPrices() {
+        return this.seniorRegularTicketPrices;
+    }
+
+    public void setSeniorRegularTicketPrices(float seniorRegularTicketPrices) {
+        this.seniorRegularTicketPrices = seniorRegularTicketPrices;
+    }
+
+    public float getMondayToWednesday3DTicketPrices() {
+        return this.mondayToWednesday3DTicketPrices;
+    }
+
+    public void setMondayToWednesday3DTicketPrices(float mondayToWednesday3DTicketPrices) {
+        this.mondayToWednesday3DTicketPrices = mondayToWednesday3DTicketPrices;
+    }
+
+    public float getThursday3DTicketPrices() {
+        return this.thursday3DTicketPrices;
+    }
+
+    public void setThursday3DTicketPrices(float thursday3DTicketPrices) {
+        this.thursday3DTicketPrices = thursday3DTicketPrices;
+    }
+
+    public float getFriday3DPeakTicketPrices() {
+        return this.friday3DPeakTicketPrices;
+    }
+
+    public void setFriday3DPeakTicketPrices(float friday3DPeakTicketPrices) {
+        this.friday3DPeakTicketPrices = friday3DPeakTicketPrices;
+    }
+
+    public float getFriday3DNonPeakTicketPrices() {
+        return this.friday3DNonPeakTicketPrices;
+    }
+
+    public void setFriday3DNonPeakTicketPrices(float friday3DNonPeakTicketPrices) {
+        this.friday3DNonPeakTicketPrices = friday3DNonPeakTicketPrices;
+    }
+
+    public float getWeekend3DTicketPrices() {
+        return this.weekend3DTicketPrices;
+    }
+
+    public void setWeekend3DTicketPrices(float weekend3DTicketPrices) {
+        this.weekend3DTicketPrices = weekend3DTicketPrices;
+    }
+
+    public float getStudent3DTicketPrices() {
+        return this.student3DTicketPrices;
+    }
+
+    public void setStudent3DTicketPrices(float student3DTicketPrices) {
+        this.student3DTicketPrices = student3DTicketPrices;
+    }
+
+    public float getBlockbusterAdditionalPrice() {
+        return this.blockbusterAdditionalPrice;
+    }
+
+    public void setBlockbusterAdditionalPrice(float blockbusterAdditionalPrice) {
+        this.blockbusterAdditionalPrice = blockbusterAdditionalPrice;
+    }
+
+    public float getPlatinumMovieSuiteAdditionalPrice() {
+        return this.platinumMovieSuiteAdditionalPrice;
+    }
+
+    public void setPlatinumMovieSuiteAdditionalPrice(float platinumMovieSuiteAdditionalPrice) {
+        this.platinumMovieSuiteAdditionalPrice = platinumMovieSuiteAdditionalPrice;
+    }
+
+    public float getIMAXAdditionalPrice() {
+        return this.IMAXAdditionalPrice;
+    }
+
+    public void setIMAXAdditionalPrice(float IMAXAdditionalPrice) {
+        this.IMAXAdditionalPrice = IMAXAdditionalPrice;
+    }
+
 }
