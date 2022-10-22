@@ -8,12 +8,42 @@ import Entities.SystemSettings;
 
 public class SystemSettingController {
 
-    SystemSettingsDatabaseController systemSettingsDBCtrl = new SystemSettingsDatabaseController();
+    SystemSettingsDatabaseController sSDBCtrl = new SystemSettingsDatabaseController();
+    // Create a temp ss object which will be used for modification later
+    SystemSettings ss = new SystemSettings();
 
     /**
-     * This method will call printSettings() method in
-     * SystemSettingsDatabaseController to print out the existing system settings in
-     * database
+     * This method temporary set ss object using the data retrieved from database
+     * So that this object can be modified and pass to ssDBCtrl for writing to DB
+     * 
+     * @param ss SystemSettings Entity Object
+     */
+    public void setSystemSetting(SystemSettings ss) {
+        // PH
+        ss.setPublicHolidays(sSDBCtrl.getPublicHolidays());
+        // Regular
+        ss.setMondayToWednesdayRegularTicketPrices(sSDBCtrl.getMondayToWednesdayRegularTicketPrices());
+        ss.setThursdayRegularTicketPrices(sSDBCtrl.getThursdayRegularTicketPrices());
+        ss.setFridayRegularPeakTicketPrices(sSDBCtrl.getFridayRegularPeakTicketPrices());
+        ss.setFridayRegularNonPeakTicketPrices(sSDBCtrl.getFridayRegularNonPeakTicketPrices());
+        ss.setWeekendRegularTicketPrices(sSDBCtrl.getWeekendRegularTicketPrices());
+        ss.setStudentRegularTicketPrices(sSDBCtrl.getStudentRegularTicketPrices());
+        ss.setSeniorRegularTicketPrices(sSDBCtrl.getSeniorRegularTicketPrices());
+        // 3D
+        ss.setMondayToWednesday3DTicketPrices(sSDBCtrl.getMondayToWednesday3DTicketPrices());
+        ss.setThursday3DTicketPrices(sSDBCtrl.getThursday3DTicketPrices());
+        ss.setFriday3DPeakTicketPrices(sSDBCtrl.getFriday3DPeakTicketPrices());
+        ss.setFriday3DNonPeakTicketPrices(sSDBCtrl.getFriday3DNonPeakTicketPrices());
+        ss.setWeekend3DTicketPrices(sSDBCtrl.getWeekend3DTicketPrices());
+        ss.setStudent3DTicketPrices(sSDBCtrl.getStudent3DTicketPrices());
+        // Others
+        ss.setBlockbusterAdditionalPrice(sSDBCtrl.getBlockbusterAdditionalPrice());
+        ss.setPlatinumMovieSuiteAdditionalPrice(sSDBCtrl.getPlatinumMovieSuiteAdditionalPrice());
+        ss.setIMAXAdditionalPrice(sSDBCtrl.getIMAXAdditionalPrice());
+    }
+
+    /**
+     * This method will display a menu of functions which staff has access to
      */
     public void displaySystemSetting() {
 
@@ -37,51 +67,20 @@ public class SystemSettingController {
                 case 1:
                     System.out.println("Displaying Ticket Prices...");
                     System.out.println(""); // print empty line
-                    systemSettingsDBCtrl.printSettings();
+                    sSDBCtrl.printSettings();
                     break;
 
                 case 2:
                     System.out.println("Entering Ticket Price Management System...");
                     System.out.println(""); // print empty line
-                    do {
-                        System.out.println("---------------------------------------------------------");
-                        System.out.println("Menu:");
-                        System.out.println("");
-                        System.out.println("1. Update");
-                        System.out.println("2. Update");
-                        System.out.println("3. Update");
-                        System.out.println("---------------------------------------------------------");
-                        System.out.println("");
-                        choice = scanner.nextInt();
-
-                        switch (choice) {
-                            case 1:
-                                System.out.println("Exisiting Price for ");
-                                System.out.println(""); // print empty line
-                                systemSettingsDBCtrl.printSettings();
-                                break;
-
-                            case 3:
-                                System.out.println("Thank you for your time! See you again!");
-                                System.out.println(""); // print empty line
-                                System.exit(0);
-                                break;
-
-                            default:
-                                System.out.println(
-                                        "You have not selected the right option. Please re-enter your option.");
-                                System.out.println(""); // print empty line
-                                break;
-                        }
-                    } while (choice != 0);
-
-                    SystemSettings systemSettings = new SystemSettings();
-                    //systemSettingsDBCtrl.writeFile();
+                    // Call updateSystemSetting method in this class
+                    updateSystemSetting();
                     break;
 
                 case 3:
                     System.out.println("Thank you for your time! See you again!");
                     System.out.println(""); // print empty line
+                    scanner.close();
                     System.exit(0);
                     break;
 
@@ -94,49 +93,83 @@ public class SystemSettingController {
 
     }
 
-    /**
-     * This method will call writeFile() method in SystemSettingsDatabaseController
-     * to update the database using the params given
-     * 
-     * @param publicHolidays                       an array of date of public
-     *                                             holidays
-     * @param mondayToWednesdayRegularTicketPrices Regular tickets price for Monday
-     *                                             to Wednesday
-     * @param thursdayRegularTicketPrices          Regular ticket price for Thursday
-     * @param fridayRegularPeakTicketPrices        Regular ticket price for Friday
-     *                                             Peak
-     * @param fridayRegularNonPeakTicketPrices     Regular ticket price for Friday
-     *                                             Non Peak
-     * @param weekendRegularTicketPrices           Regular ticket price for Weekends
-     * @param studentRegularTicketPrices           Regular ticket price for Students
-     * @param seniorRegularTicketPrices            Regular ticket price for Seniors
-     * @param mondayToWednesday3DTicketPrices      3D ticket price for Monday to
-     *                                             Wednesday
-     * @param thursday3DTicketPrices               3D ticket price for Thursday
-     * @param friday3DPeakTicketPrices             3D ticket price for Friday Peak
-     * @param friday3DNonPeakTicketPrices          3D ticket price for Friday Non
-     *                                             Peak
-     * @param weekend3DTicketPrices                3D ticket price for Weekends
-     * @param student3DTicketPrices                3D ticket price for Students
-     * @param blockbusterAdditionalPrice           Blockbuster additional price
-     *                                             charges
-     * @param platinumMovieSuiteAdditionalPrice    Platinium Suite additional price
-     *                                             charges
-     * @param IMAXAdditionalPrice                  IMAX additional price charges
-     */
-    public void updateSystemSetting(ArrayList<Date> publicHolidays, float mondayToWednesdayRegularTicketPrices,
-            float thursdayRegularTicketPrices, float fridayRegularPeakTicketPrices,
-            float fridayRegularNonPeakTicketPrices, float weekendRegularTicketPrices,
-            float studentRegularTicketPrices, float seniorRegularTicketPrices, float mondayToWednesday3DTicketPrices,
-            float thursday3DTicketPrices, float friday3DPeakTicketPrices, float friday3DNonPeakTicketPrices,
-            float weekend3DTicketPrices, float student3DTicketPrices, float blockbusterAdditionalPrice,
-            float platinumMovieSuiteAdditionalPrice, float IMAXAdditionalPrice) {
+    public SystemSettings getSystemSetting() {
+        // SystemSettingController tempSSCtrl = new SystemSettingController();
+        setSystemSetting(ss);
+        return this.ss;
+    }
 
-        systemSettingsDBCtrl.writeFile(publicHolidays, mondayToWednesdayRegularTicketPrices,
-                thursdayRegularTicketPrices, fridayRegularPeakTicketPrices, fridayRegularNonPeakTicketPrices,
-                weekendRegularTicketPrices, studentRegularTicketPrices, seniorRegularTicketPrices,
-                mondayToWednesday3DTicketPrices, thursday3DTicketPrices, friday3DPeakTicketPrices,
-                friday3DNonPeakTicketPrices, weekend3DTicketPrices, student3DTicketPrices, blockbusterAdditionalPrice,
-                platinumMovieSuiteAdditionalPrice, IMAXAdditionalPrice);
+    public void updateSystemSetting() {
+        // Create a temp ss object which will be used for modification later
+        SystemSettings ss = new SystemSettings();
+        // Temp set ss object using data from database
+        this.setSystemSetting(ss);
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+
+        do {
+            System.out.println("---------------------------------------------------------");
+            System.out.println("Menu:");
+            System.out.println("");
+            System.out.println("1. Update Public Holidays");
+            System.out.println("2. Update Regular Ticket Pricing - Monday to Wednesday");
+            System.out.println("3. Update Regular Ticket Pricing - Thursday");
+            System.out.println("4. Update Regular Ticket Pricing - Friday (Peak)");
+            System.out.println("5. Update Regular Ticket Pricing - Friday (Non Peak)");
+            System.out.println("6. Update Regular Ticket Pricing - Weekends");
+            System.out.println("7. Update Regular Ticket Pricing - Student");
+            System.out.println("8. Update Regular Ticket Pricing - Senior Citizen");
+            System.out.println("9. Update 3D Ticket Pricing - Monday to Wednesday");
+            System.out.println("10. Update 3D Ticket Pricing - Thursday");
+            System.out.println("11. Update 3D Ticket Pricing - Friday (Peak)");
+            System.out.println("12. Update 3D Ticket Pricing - Friday (Non Peak)");
+            System.out.println("13. Update 3D Ticket Pricing - Weekends");
+            System.out.println("14. Update 3D Ticket Pricing - Student");
+            System.out.println("15. Update Addittional Charges for Blockbuster");
+            System.out.println("16. Update Addittional Charges for Platinun Movie Suite");
+            System.out.println("17. Update Addittional Charges for IMAX");
+            System.out.println("18. Return to Staff Portal");
+            System.out.println("---------------------------------------------------------");
+            System.out.println("");
+            choice = scanner.nextInt();
+            float newPrice;
+            float oldPrice;
+
+            switch (choice) {
+                case 2:
+                    oldPrice = ss.getMondayToWednesdayRegularTicketPrices();
+                    System.out.println("Exisiting Price for Regular Ticket - Monday to Wednesday: $" + oldPrice);
+                    System.out.println("");
+                    System.out.println("Please enter the updated price:");
+                    System.out.println("Press any character to return to the previous menu.");
+
+                    // User enter float
+                    if (scanner.hasNextFloat()) {
+                        newPrice = scanner.nextFloat();
+                        ss.setMondayToWednesdayRegularTicketPrices(newPrice);
+                        // Write to DB using udpated ss
+                        sSDBCtrl.writeFile(ss);
+                        System.out.println("Price has been updated sucessfully from $" + oldPrice + " --> $"
+                                + ss.getMondayToWednesday3DTicketPrices());
+                    } else {
+                        System.out.println("Returning to previous menu...");
+                        updateSystemSetting();
+                    }
+                    break;
+
+                case 18:
+                    System.out.println("Returning to Staff Portal...");
+                    System.out.println(""); // print empty line
+                    displaySystemSetting();
+                    break;
+
+                default:
+                    System.out.println(
+                            "You have not selected the right option. Please re-enter your option.");
+                    System.out.println(""); // print empty line
+                    break;
+            }
+        } while (choice != 0);
+
     }
 }
