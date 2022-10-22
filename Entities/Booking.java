@@ -32,6 +32,10 @@ public class Booking {
     }
 
 
+    public Booking() {
+    }
+
+
     public void printBooking() {
         System.out.println("TID: " + TID);
         System.out.println("Movie: " + movieTitle);

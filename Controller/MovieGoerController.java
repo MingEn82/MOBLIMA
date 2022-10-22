@@ -17,12 +17,12 @@ public class MovieGoerController {
             break;
 
             case 2:
-            System.out.println("Executing bookingController.bookMovie()");
-            //bookingController.bookMovie();
+            System.out.println("Executing bookingController.newBooking");
+            bookingController.newBooking();
             break;
 
             case 3:
-            System.out.println("Executing bookingController.viewBookingHistory()");
+            //System.out.println("Executing bookingController.viewBookingHistory()");
             bookingController.viewBookingHistory();
             break;
 
