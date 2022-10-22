@@ -93,6 +93,7 @@ public class MainMenuUI
             System.out.println(""); // print empty line
 
             choice = scanner.nextInt();
+            
 
             if (choice != 5)
             {
