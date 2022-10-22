@@ -61,7 +61,7 @@ public class Booking {
 
     public String toString() {
         DateParser dp = new DateParser("yyyyMMddHHmm");
-        return TID + ", " + phoneNumberOfMovieGoer + ", " + nameOfMovieGoer + ", " + emailOfMovieGoer + ", " + cineplexName + ", " + cinemaName + ", " + seatID + ", " + cinemaType + ", " + movieTitle + ", " + movieDuration + ", " + dp.formatDate(startDate) + ", " + price;
+        return TID + ", " + phoneNumberOfMovieGoer + ", " + nameOfMovieGoer + ", " + emailOfMovieGoer + ", " + cineplexName + ", " + cinemaName + ", " + seatID + ", " + movieTitle + ", " + movieDuration + ", " + movieType + ", " + cinemaType + ", " + dp.formatDate(startDate) + ", " + price;
     }
 
     public void calBookingPrice() {

@@ -2,7 +2,7 @@ package Entities;
 
 import java.util.ArrayList;
 
-public class Movie {
+public class Movie implements Comparable<Movie> {
     private String movieTitle;
     private String showingStatus;
     private String synopsis;
@@ -112,6 +112,20 @@ public class Movie {
             s += getReviews();
         }
         return s;
+    }
+
+    public void print() {
+        System.out.println("Movie Title: " + movieTitle);
+        System.out.println("Duration: " + duration + " mins");
+        System.out.println("Synopsis: " + synopsis);
+        System.out.println("Director: " + director);
+        System.out.println("Cast: " + String.join(", ", cast));
+        System.out.println("");
+    }
+
+    @Override
+    public int compareTo(Movie compareMovie) {
+        return overallRating - compareMovie.getOverallRating() > 0 ? 1 : -1;
     }
 
 }
