@@ -20,15 +20,6 @@ public class MainMenuUI
         System.out.println("Welcome to Moblima!");
         int choice;
 
-        while(!staffController.checkLoggedin())
-        {
-            System.out.println(""); // print empty line
-            System.out.println("Directing to login page for staff.");
-            System.out.println(""); // print empty line
-            staffController.triggerLogin();
-        }
-
-        
         do
             {
                 
@@ -37,7 +28,7 @@ public class MainMenuUI
                 System.out.println("Main Menu:");
                 System.out.println("1. Movie Goer");
                 System.out.println("2. Cinema Staff");
-                System.out.println("3. Exit");
+                System.out.println("3. Exit Program");
                 System.out.println("---------------------------------------------------------");
                 System.out.println(""); // print empty line
 
@@ -48,14 +39,13 @@ public class MainMenuUI
                     case 1:
                     System.out.println("Entering Movie Goer's portal...");
                     System.out.println(""); // print empty line
-                    
-                    System.exit(0);
+                    displayMovieGoerMenu();
                     break;
         
                     case 2:
                     System.out.println("Entering Cinema's Staff portal...");
                     System.out.println(""); // print empty line
-                    System.exit(0);
+                    displayStaffMenu();
                     break;
         
                     case 3:
@@ -67,7 +57,6 @@ public class MainMenuUI
                     default:
                     System.out.println("You have not selected the right option. Please re-enter your option.");
                     System.out.println(""); // print empty line
-                    System.exit(0);
                     break;
                 }
             }
@@ -77,10 +66,17 @@ public class MainMenuUI
         
     }
 
-    public void displayStaffLogin(){
+    public void displayStaffMenu(){
 
         int choice;
         
+        while(!staffController.checkLoggedin())
+        {
+            System.out.println(""); // print empty line
+            System.out.println("Directing to login page for staff.");
+            System.out.println(""); // print empty line
+            staffController.triggerLogin();
+        }
 
         do
         {
@@ -109,7 +105,28 @@ public class MainMenuUI
 
     public void displayMovieGoerMenu()
     {
+        int choice;
+        do
+        {
+            System.out.println(""); // print empty line
+            System.out.println("---------------------------------------------------------");
+            System.out.println("Movie Goer Menu:");
+            System.out.println("1. Find movies");
+            System.out.println("2. Book a movie");
+            System.out.println("3. View booking history");
+            System.out.println("4. List Top 5 Movies");
+            System.out.println("5. Exit to homepage");
+            System.out.println("---------------------------------------------------------");
+            System.out.println(""); // print empty line
 
+            choice = scanner.nextInt();
+
+            if (choice != 5)
+            {
+                movieGoerController.processMovieGoerChoice(choice);
+            }
+        }
+        while (choice != 5);
     }
 
 }

@@ -8,7 +8,7 @@ public class StaffController {
 
     public void processStaffChoice(int choice)
     {
-
+        System.out.println("OK staff choice works, choice is "+ choice);
     }
 
     public boolean checkLoggedin(){
