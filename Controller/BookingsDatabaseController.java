@@ -64,7 +64,7 @@ public class BookingsDatabaseController implements DatabaseController {
                 } catch (ParseException e) {
                     startDate = new Date();
                 }
-                price = Double.parseDouble(bookingLine[10]);
+                price = Double.parseDouble(bookingLine[11]);
                 booking = new Booking(TID, phoneNumberOfMovieGoer, nameOfMovieGoer, emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, movieDuration,movieType, cinemaType, startDate, price);
                 bookings.add(booking);
                 line = br.readLine();
