@@ -120,12 +120,21 @@ public class Movie implements Comparable<Movie> {
         System.out.println("Synopsis: " + synopsis);
         System.out.println("Director: " + director);
         System.out.println("Cast: " + String.join(", ", cast));
+        if (overallRating >= 0) {
+            System.out.println("Overall Rating: " + overallRating);
+        } else {
+            System.out.println("Overall Rating: N/A");
+        }
         System.out.println("");
     }
 
     @Override
     public int compareTo(Movie compareMovie) {
-        return overallRating - compareMovie.getOverallRating() > 0 ? 1 : -1;
+        return overallRating - compareMovie.getOverallRating() > 0 ? -1 : 1;
+    }
+
+    public Movie clone() {
+        return new Movie(movieTitle, showingStatus, synopsis, director, cast, duration, movieType, reviews, overallRating);
     }
 
 }

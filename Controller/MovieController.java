@@ -1,6 +1,7 @@
 package Controller;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 import Entities.Movie;
@@ -45,27 +46,40 @@ public abstract class MovieController {
 
     public void findMovies() {};
 
-    public void viewTopMovies() {};
+    public void viewTopMovies() {
+        // Create deep copy of allMovies
+        ArrayList<Movie> sortedMovies = new ArrayList<Movie>();
+        for (Movie m : filterCurrentMovies()) {
+            sortedMovies.add(m.clone());
+        }
+        int end = sortedMovies.size() > 5 ? 5 : sortedMovies.size();
+        Collections.sort(sortedMovies);
+        for (int i = 0; i < end; i++) {
+            sortedMovies.get(i).print();
+        }
+    };
 
     private void printMovies(ArrayList<Movie> movies) {
         Scanner sc = new Scanner(System.in);
         int i = 1;
 
-        for (Movie movie : allMovies) {
-            System.out.println(i + ". " + movie.getMovieTitle() + " (" + movie.getShowingStatus() + ")");
-            System.out.println("");
-            i++;
+        if (movies.size() == 0) {
+            System.out.println("No movies found");
+        } else {
+            for (Movie movie : movies) {
+                System.out.println(i + ". " + movie.getMovieTitle() + " (" + movie.getShowingStatus() + ")");
+                i++;
+            }
+    
+            System.out.println("Choose a movie (Enter 0 to exit)");
+            int movieIdx = sc.nextInt();
+            if (movieIdx == 0)
+                return;
+            else if (movieIdx < 0 || movieIdx > allMovies.size())
+                return;
+            Movie movie = allMovies.get(movieIdx-1);
+            movie.print();
         }
-
-        System.out.println("Choose a movie (Enter 0 to exit)");
-        int movieIdx = sc.nextInt();
-        if (movieIdx == 0)
-            return;
-        else if (movieIdx < 0 || movieIdx >= allMovies.size())
-            return;
-        Movie movie = allMovies.get(movieIdx-1);
-        movie.print();
-        return;
     }
 
     public ArrayList<Movie> filterMoviesByShowingStatus(String showingStatus) {
@@ -73,6 +87,18 @@ public abstract class MovieController {
 
         for (Movie movie : allMovies) {
             if (movie.getShowingStatus().equals(showingStatus)) {
+                filteredMovies.add(movie);
+            }
+        }
+        
+        return filteredMovies;
+    }
+
+    public ArrayList<Movie> filterCurrentMovies() {
+        ArrayList<Movie> filteredMovies = new ArrayList<Movie>();
+
+        for (Movie movie : allMovies) {
+            if (movie.getShowingStatus().equals("Now Showing") || movie.getShowingStatus().equals("Preview")) {
                 filteredMovies.add(movie);
             }
         }

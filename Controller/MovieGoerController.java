@@ -1,6 +1,5 @@
 package Controller;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class MovieGoerController {
@@ -14,7 +13,7 @@ public class MovieGoerController {
         switch(choice){
             case 1:
             System.out.println("Executing movieGoerMovieController.findMovies()");
-            //movieGoerMovieController.findMovies();
+            movieGoerMovieController.findMovies();
             break;
 
             case 2:
@@ -33,7 +32,7 @@ public class MovieGoerController {
 
             case 4:
             System.out.println("Executing movieGoerMovieController.viewTopMovies()");
-            //movieGoerMovieController.viewTopMovies();
+            movieGoerMovieController.viewTopMovies();
             break;
 
             default:

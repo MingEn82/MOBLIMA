@@ -37,7 +37,7 @@ public class MovieDatabaseController implements DatabaseController {
             String movieTitle, showingStatus, synopsis, director;
             String[] cast;
             int duration, size;
-            float overallRating = -1;
+            float overallRating;
             ArrayList<Review> reviews;
             String[] movieData;
             String[] reviewData;
@@ -45,6 +45,7 @@ public class MovieDatabaseController implements DatabaseController {
             while (movieLine != null) {
                 movieData = movieLine.split(", ");
                 size = movieData.length;
+                overallRating = -1;
                 reviews = new ArrayList<Review>();
 
                 movieTitle = movieData[0];
