@@ -1,9 +1,12 @@
 package Controller;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import Entities.Movie;
@@ -75,12 +78,62 @@ public class MovieDatabaseController implements DatabaseController {
         }
     }
 
+    public ArrayList<Movie> getMovies() {
+        return movies;
+    }
+
     public void addNewMovie(String movieTitle, String showingStatus, String synopsis, String director, String[] cast, int duration, String movieType, ArrayList<Review> reviews, float overallRating) {
         Movie newMovie = new Movie(movieTitle, showingStatus, synopsis, director, cast, duration, movieType, reviews, overallRating);
         movies.add(newMovie);
+        try {
+            BufferedWriter bf = new BufferedWriter(new FileWriter(file, true));
+            PrintWriter pw = new PrintWriter(bf);
+            pw.append("\n");
+            pw.append(newMovie.toString());
+
+            pw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void changeShowingStatus(String movieTitle, String showingStatus) {
+        for (Movie movie : movies) {
+            if (movie.getMovieTitle().equals(movieTitle)) {
+                movie.setShowingStatus(showingStatus);
+                this.updateDatabase();
+                return;
+            }
+        }
+
+        System.out.println("Movie was not found!");
+        return;
+    }
+
+    public void addReview(String movieTitle, Review review) {
+        for (Movie movie : movies) {
+            if (movie.getMovieTitle().equals(movieTitle)) {
+                movie.addReview(review);
+                this.updateDatabase();
+                return;
+            }
+        }
+
+        System.out.println("Movie was not found!");
+        return;
     }
 
     private void updateDatabase() {
-        
+        try {
+            BufferedWriter bf = new BufferedWriter(new FileWriter(file, false));
+            PrintWriter pw = new PrintWriter(bf);
+            for (Movie movie : movies) {
+                pw.println(movie.toString());
+            }
+            pw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
 }
