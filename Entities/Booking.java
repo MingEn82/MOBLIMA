@@ -72,6 +72,13 @@ public class Booking {
         return dateFormat.format(d);
     }
 
+    public String getDayOfWeek(Date d)
+    {
+        
+        DateFormat df = new SimpleDateFormat("E");
+        return df.format(d);
+    }
+
     //GETTER AND SETTERS FUNCTIONS
     public String getTID() {
         return TID;
