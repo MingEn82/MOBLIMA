@@ -10,7 +10,8 @@ public class MainMenuUI
     MovieGoerController movieGoerController = new MovieGoerController();
 
 
-    Scanner scanner = new Scanner(System.in);
+    public static final Scanner scanner = new Scanner(System.in);
+    
 
     public MainMenuUI() {
     }
@@ -128,6 +129,8 @@ public class MainMenuUI
         }
         while (choice != 5);
     }
+
+    
 
 }
 

@@ -1,10 +1,10 @@
 package Controller;
 
-import Controller.MovieGoerMovieController;
-import Controller.BookingController;
+
 
 public class MovieGoerController {
     MovieController movieGoerMovieController = new MovieGoerMovieController();
+    BookingController bookingController = new BookingController();
 
 
     public void processMovieGoerChoice(int choice)
@@ -23,7 +23,7 @@ public class MovieGoerController {
 
             case 3:
             System.out.println("Executing bookingController.viewBookingHistory()");
-            //bookingController.viewBookingHistory();
+            bookingController.viewBookingHistory();
             break;
 
             case 4:

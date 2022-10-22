@@ -51,6 +51,7 @@ public class StaffDatabaseController implements DatabaseController {
     // Login Controller will take over this part
     public boolean login() {
         Scanner sc = new Scanner(System.in);
+
         String username, password;
 
         System.out.println("Enter username:");

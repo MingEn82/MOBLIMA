@@ -32,6 +32,10 @@ public class BookingsDatabaseController implements DatabaseController {
         this.readFile();
     }
 
+    public ArrayList<Booking> fetchBookings(){
+        return this.bookings;
+    }
+
     public void readFile() {
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));

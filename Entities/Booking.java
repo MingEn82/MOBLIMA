@@ -45,6 +45,10 @@ public class Booking {
         System.out.println("Cost: " + price);
     }
 
+    public String getEmailAddressOfMovieGoer(){
+        return this.emailOfMovieGoer;
+    }
+
     public String toString() {
         return TID + ", " + phoneNumberOfMovieGoer + ", " + nameOfMovieGoer + ", " + emailOfMovieGoer + ", " + cineplexName + ", " + cinemaName + ", " + seatID + ", " + movieTitle + ", " + movieDuration + ", " + dateToString(startDate) + ", " + price;
     }
