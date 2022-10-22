@@ -26,8 +26,7 @@ public class MainApp {
         String cineplexID = "4";
         String cinemaName = "Cinema 1";
         String cinemaNumber = "01";
-        int aisleIndex = 5;
-        CinemaDetails cinemaType = CinemaDetails.IMAX;
+        CinemaDetails cinemaDetails = CinemaDetails.IMAX;
         ArrayList<SeatRow> seatRows = new ArrayList<SeatRow>();
         SeatRow rowA = new SeatRow("A");
         SeatRow rowB = new SeatRow("B");
@@ -38,7 +37,7 @@ public class MainApp {
         }
         seatRows.add(rowA);
         seatRows.add(rowB);
-        cineplexDC.createNewCinema(cineplexName, cineplexID, cinemaName, cinemaNumber, cinemaType, seatRows, aisleIndex);
+        cineplexDC.createNewCinema(cineplexName, cineplexID, cinemaName, cinemaNumber, cinemaDetails);
         cineplexDC.printAllCineplexes();
 
         // StaffDatabaseController StaffDC = new StaffDatabaseController();

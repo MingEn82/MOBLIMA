@@ -7,8 +7,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.stream.Collectors;
@@ -76,11 +74,9 @@ public class SystemSettingsDatabaseController implements DatabaseController {
 
             // Add public holidays
             String[] dates = brStream.readLine().split(", ");
-            SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyyMMdd");
+            DateParser dp = new DateParser("yyyyMMdd");
             for (String date : dates) {
-                try {
-                    publicHolidays.add(dateFormatter.parse(date));
-                } catch (ParseException e) {}
+                publicHolidays.add(dp.parseDate(date));
             }
 
             mondayToWednesdayRegularTicketPrices = Float.parseFloat(brStream.readLine());

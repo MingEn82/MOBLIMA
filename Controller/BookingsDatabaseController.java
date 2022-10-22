@@ -1,6 +1,8 @@
 package Controller;
 
 import Entities.Booking;
+import Utils.DateParser;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.io.BufferedReader;
@@ -10,8 +12,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 public class BookingsDatabaseController implements DatabaseController {
     private String fileString = "./Database/BookingsDatabase.txt";
@@ -37,10 +37,10 @@ public class BookingsDatabaseController implements DatabaseController {
             BufferedReader br = new BufferedReader(new FileReader(file));
             String line = br.readLine();
             String[] bookingLine;
-            String TID, phoneNumberOfMovieGoer, nameOfMovieGoer, emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle;
+            String TID, phoneNumberOfMovieGoer, nameOfMovieGoer, emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, cinemaType;
             Date startDate;
             int movieDuration;
-            double price;
+            float price;
             Booking booking;
             while (line != null) {
                 bookingLine = line.split(", ");
@@ -51,15 +51,13 @@ public class BookingsDatabaseController implements DatabaseController {
                 cineplexName = bookingLine[4];
                 cinemaName = bookingLine[5];
                 seatID = bookingLine[6];
-                movieTitle = bookingLine[7];
-                movieDuration = Integer.parseInt(bookingLine[8]);
-                try {
-                    startDate = new SimpleDateFormat("yyyyMMddHHmm").parse(bookingLine[9]);
-                } catch (ParseException e) {
-                    startDate = new Date();
-                }
-                price = Double.parseDouble(bookingLine[10]);
-                booking = new Booking(TID, phoneNumberOfMovieGoer, nameOfMovieGoer, emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, movieDuration, startDate, price);
+                cinemaType = bookingLine[7];
+                movieTitle = bookingLine[8];
+                movieDuration = Integer.parseInt(bookingLine[9]);
+                DateParser dp = new DateParser("yyyyMMddHHmm");
+                startDate = dp.parseDate(bookingLine[10]);
+                price = Float.parseFloat(bookingLine[11]);
+                booking = new Booking(TID, phoneNumberOfMovieGoer, nameOfMovieGoer, emailOfMovieGoer, cineplexName, cinemaName, seatID, cinemaType, movieTitle, movieDuration, startDate, price);
                 bookings.add(booking);
                 line = br.readLine();
             }
@@ -77,8 +75,8 @@ public class BookingsDatabaseController implements DatabaseController {
     }
 
     // To include price calculation
-    public void addNewBooking(String TID, String phoneNumberOfMovieGoer, String nameOfMovieGoer, String emailOfMovieGoer, String cineplexName, String cinemaName, String seatID, String movieTitle, int movieDuration, Date startDate, double price) {
-        Booking newBooking = new Booking(TID, phoneNumberOfMovieGoer, nameOfMovieGoer, emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, movieDuration, startDate, price);
+    public void addNewBooking(String TID, String phoneNumberOfMovieGoer, String nameOfMovieGoer, String emailOfMovieGoer, String cineplexName, String cinemaName, String seatID, String cinemaType, String movieTitle, int movieDuration, Date startDate, float price) {
+        Booking newBooking = new Booking(TID, phoneNumberOfMovieGoer, nameOfMovieGoer, emailOfMovieGoer, cineplexName, cinemaName, seatID, cinemaType, movieTitle, movieDuration, startDate, price);
         bookings.add(newBooking);
 
         try {
@@ -87,16 +85,13 @@ public class BookingsDatabaseController implements DatabaseController {
             String content = newBooking.toString();
 
             if (bookings.size() > 0) {
-                pw.println("");
+                pw.append("");
             }
-            pw.print(content);
+            pw.append(content);
+            pw.close();
 
         } catch (IOException e) {
             e.printStackTrace(); 
-        } finally {
-            try { 
-                pw.close();
-            } catch (Exception e) {} 
         }
     }
 }
