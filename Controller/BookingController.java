@@ -63,6 +63,10 @@ public class BookingController {
         //call BookingsDatabaseController.addNewBooking(newBooking);
     }
 
+    //need another method below here if the newBooking is made from the other controllers. 
+    //e.g. user find movie then book instead of book movie then find
+    //public void newBooking(some parameters here to overwrite the top method)
+
 
     
 }
