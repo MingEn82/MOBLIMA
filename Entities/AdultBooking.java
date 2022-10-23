@@ -80,6 +80,7 @@ public class AdultBooking extends Booking{
             break;
             
             case "Standard":
+            case "2D":
             default:
             priceOfTicket += 0;
             break;

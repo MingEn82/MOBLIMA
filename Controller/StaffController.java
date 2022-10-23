@@ -1,10 +1,12 @@
 package Controller;
 
-import Boundary.MainMenuUI;
 
 public class StaffController {
 
     LoginController loginController = new LoginController();
+    MovieController adminMovieController = new AdminMovieController();
+    ShowingController showingController = new ShowingController();
+    SystemSettingController systemSettingController = new SystemSettingController();
     
 
     public void processStaffChoice(int choice)
@@ -24,12 +26,12 @@ public class StaffController {
             System.out.println("Showing Top 5 Movies...");
             
             break;
-
+            
             case 4:
             System.out.println("Entering System Configuration...");
             System.out.println("");
-            SystemSettingController sSCtrl = new SystemSettingController();
-            sSCtrl.displaySystemSetting();
+            
+            systemSettingController.displaySystemSetting();
             break;
 
             default:
