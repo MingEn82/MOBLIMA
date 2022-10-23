@@ -29,6 +29,10 @@ public class SeatRow {
         seatArray.add(s);
     }
 
+    public ArrayList<Seat> getSeats() {
+        return this.seatArray;
+    }
+
     public void printSeats(ArrayList<Integer> aisleArray) {
         for (int i = 0; i < seatArray.size(); i++) {
             if (aisleArray.contains(i)) {

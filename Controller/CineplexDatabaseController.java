@@ -102,10 +102,9 @@ public class CineplexDatabaseController implements DatabaseController {
      * Function to get the unique code for a cinema
      * @param cineplexName
      * @param cinemaName
-     * @return
+     * @return              UID of cinema
      */
     public String getIDs(String cineplexName, String cinemaName) {
-        String s = "";
         for (Cineplex cineplex : cineplexes) {
             if (!cineplex.getCineplexName().equals(cineplexName))
                 continue;
@@ -118,6 +117,50 @@ public class CineplexDatabaseController implements DatabaseController {
 
         System.out.println("Couldn't find this cinema!");
         return "";
+    }
+
+    /**
+     * Returns showing information for booking tickets
+     * @param cineplexName
+     * @param cinemaName
+     * @param movieTitle
+     * @param startDate
+     * @return              ArrayList of String containing CinemaType, UID and MovieType
+     */
+    public String[] getShowingInformation(String cineplexName, String cinemaName, String movieTitle, Date startDate) {
+        ArrayList<String> info = new ArrayList<String>();
+        DateParser dp = new DateParser("YYYYMMddHHmm");
+
+        for (Cineplex cineplex : cineplexes) {
+            if (!cineplex.getCineplexName().equals(cineplexName))
+                continue;
+            for (Cinema cinema : cineplex.getCinemas()) {
+                if (!cinema.getCinemaName().equals(cinemaName))
+                    continue;
+                // Add Cinema Type
+                info.add(cinema.getCinemaType());
+                // Add UID
+                info.add(cineplex.getCineplexID() + cinema.getCinemaNumber() + dp.formatDate(new Date()));
+                for (Showing showing : cinema.getShowings()) {
+                    if (showing.getStartDate().compareTo(startDate) == 0 && showing.getMovieTitle().equals(movieTitle)) {
+                        // Add Movie Type
+                        info.add(showing.getMovieType());
+                        // Print seats
+                        showing.print(cinema.getAisleArray());
+
+
+
+                        return info.toArray(new String[0]);
+                    }
+                }
+            }
+        }
+
+        return null;
+    }
+
+    public ArrayList<Cineplex> getCineplexes() {
+        return cineplexes;
     }
 
     // Helper function to add a new cinema to cineplexes array
@@ -158,8 +201,8 @@ public class CineplexDatabaseController implements DatabaseController {
         }
     }
 
-    // Function to generate all showings for a particular cinema
-    public ArrayList<Showing> generateShowings(String cineplexName, String cinemaName, String[] seatsData) {
+    // Helper function to generate all showings for a particular cinema
+    private ArrayList<Showing> generateShowings(String cineplexName, String cinemaName, String[] seatsData) {
         ArrayList<Showing> showings = new ArrayList<Showing>();
         ShowingsDatabaseController sdc = new ShowingsDatabaseController();
         ArrayList<String[]> allShowings = sdc.filterShowings(cineplexName, cinemaName);
@@ -167,12 +210,13 @@ public class CineplexDatabaseController implements DatabaseController {
             String movieTitle = showingData[0];
             DateParser dp = new DateParser("YYYYMMddHHmm");
             Date startDate = dp.parseDate(showingData[3]);
+            String movieType = showingData[4];
             String[] bookedSeats = null;
             if (showingData.length > 4) {
-                bookedSeats = Arrays.copyOfRange(showingData, 4, showingData.length);
+                bookedSeats = Arrays.copyOfRange(showingData, 5, showingData.length);
             }
             ArrayList<SeatRow> seatRows = this.generateSeatRows(seatsData, bookedSeats);
-            Showing showing = new Showing(movieTitle, startDate, seatRows);
+            Showing showing = new Showing(movieTitle, movieType, startDate, seatRows);
             showings.add(showing);
         }
 

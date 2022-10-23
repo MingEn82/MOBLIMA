@@ -1,3 +1,4 @@
+
 package Entities;
 
 import java.util.ArrayList;
@@ -7,11 +8,13 @@ import Utils.DateParser;
 
 public class Showing {
     private String movieTitle;
+    private String movieType;
     private Date startDate;
     private ArrayList<SeatRow> seatRows;
 
-    public Showing(String movieTitle, Date startDate, ArrayList<SeatRow> seatRows) {
+    public Showing(String movieTitle, String movieType, Date startDate, ArrayList<SeatRow> seatRows) {
         this.movieTitle = movieTitle;
+        this.movieType = movieType;
         this.startDate = startDate;
         this.seatRows = seatRows;
     }
@@ -20,12 +23,31 @@ public class Showing {
         return movieTitle;
     }
 
+    public String getMovieType() {
+        return movieType;
+    }
+
     public Date getStartDate() {
         return startDate;
     }
 
     public ArrayList<SeatRow> getSeatRows() {
         return seatRows;
+    }
+
+    public boolean isSeatBooked(String seatID) {
+        String row = seatID.substring(0, 1).toUpperCase();
+        for (SeatRow seatRow : seatRows) {
+            if (!seatRow.getRowID().equals(row))
+                continue;
+            for (Seat seat : seatRow.getSeats()) {
+                if (!seat.getSeatNumber().equals(seatID)) {
+                    return seat.getIsSeat() && seat.getIsBooked();
+                }
+            }
+        }
+
+        return true;
     }
 
     public void print(ArrayList<Integer> aisleIndex) {

@@ -9,18 +9,16 @@ public class Movie implements Comparable<Movie> {
     private String director;
     private String[] cast;
     private int duration;
-    private String movieType;
     private ArrayList<Review> reviews;
     private float overallRating;
 
-    public Movie(String movieTitle, String showingStatus, String synopsis, String director, String[] cast, int duration, String movieType, ArrayList<Review> reviews, float overallRating) {
+    public Movie(String movieTitle, String showingStatus, String synopsis, String director, String[] cast, int duration, ArrayList<Review> reviews, float overallRating) {
         this.movieTitle = movieTitle;
         this.showingStatus = showingStatus;
         this.synopsis = synopsis;
         this.director = director;
         this.cast = cast;
         this.duration = duration;
-        this.movieType = movieType;
         this.reviews = reviews;
         this.overallRating = overallRating;
     }
@@ -71,14 +69,6 @@ public class Movie implements Comparable<Movie> {
 
     public void setDuration(int duration) {
         this.duration = duration;
-    }
-
-    public String getMovieType() {
-        return this.movieType;
-    }
-
-    public void setMovieType(String movieType) {
-        this.movieType = movieType;
     }
 
     public String getReviews() {
@@ -134,7 +124,7 @@ public class Movie implements Comparable<Movie> {
     }
 
     public Movie clone() {
-        return new Movie(movieTitle, showingStatus, synopsis, director, cast, duration, movieType, reviews, overallRating);
+        return new Movie(movieTitle, showingStatus, synopsis, director, cast, duration, reviews, overallRating);
     }
 
 }
