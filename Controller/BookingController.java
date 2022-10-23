@@ -20,10 +20,8 @@ import java.util.Scanner;
  */
 public class BookingController {
     BookingsDatabaseController bookingsDatabaseController = new BookingsDatabaseController();
-    SystemSettingController systemSettingController = new SystemSettingController();
-
     ArrayList<Booking> bookings = new ArrayList<Booking>(); // Create an ArrayList object
-    //SystemSettings currentSettings = systemSettingController.getSystemSetting();
+
 
 
     BookingController(){
