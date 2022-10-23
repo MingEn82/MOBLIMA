@@ -14,32 +14,29 @@ public class SystemSettings {
     private float pHPrices;
     private float studentDiscount;
     private float seniorDiscount;
-    private float threeeDAddOn;
+    private float threeDAddOn;
     private float blockbusterAddOn;
     private float IMAXAddOn;
     private float platinumAddOn;
 
-    public SystemSettings() {
-
-    }
-
     public SystemSettings(ArrayList<Date> publicHolidays, float weekdayPrices,
             float weekendPrices, float pHPrices,
-            float studentDiscount, float seniorDiscount, float threeeDAddOn,
-            float blockbusterAddOn, float IMAXAddOn, float platinumAddOn,
-            float friday3DPeakTicketPrices, float friday3DNonPeakTicketPrices, float weekend3DTicketPrices,
-            float student3DTicketPrices, float blockbusterAdditionalPrice, float platinumMovieSuiteAdditionalPrice,
-            float IMAXAdditionalPrice) {
+            float studentDiscount, float seniorDiscount, float threeDAddOn,
+            float blockbusterAddOn, float IMAXAddOn, float platinumAddOn) {
         this.publicHolidays = publicHolidays;
         this.weekdayPrices = weekdayPrices;
         this.weekendPrices = weekendPrices;
         this.pHPrices = pHPrices;
         this.studentDiscount = studentDiscount;
         this.seniorDiscount = seniorDiscount;
-        this.threeeDAddOn = threeeDAddOn;
+        this.threeDAddOn = threeDAddOn;
         this.blockbusterAddOn = blockbusterAddOn;
         this.IMAXAddOn = IMAXAddOn;
         this.platinumAddOn = platinumAddOn;
+    }
+
+    public SystemSettings() {
+
     }
 
     public void printTicketSettings() {
@@ -55,12 +52,15 @@ public class SystemSettings {
         System.out.println("Senior Citizen Discount:           -$" + String.format("%.2f", seniorDiscount));
         System.out.println("");
         System.out.println("************ Additional Charges ***********");
-        System.out.println("3D Movie:                          +$" + String.format("%.2f", threeeDAddOn));
+        System.out.println("3D Movie:                          +$" + String.format("%.2f", threeDAddOn));
         System.out.println("Blockbuster Movie:                 +$" + String.format("%.2f", blockbusterAddOn));
         System.out.println("IMAX Movie:                        +$" + String.format("%.2f", IMAXAddOn));
         System.out.println("Platinum Movie Suite:              +$" + String.format("%.2f", platinumAddOn));
         System.out.println("");
         System.out.println("---------------------------------------------------------");
+        System.out.println("");
+        System.out.println("Returning to previous menu...");
+        System.out.println("");
     }
 
     public void printPHSettings() {
@@ -72,11 +72,7 @@ public class SystemSettings {
         for (int i = 1; i <= getPublicHolidays().size(); i++ ){
             System.out.println(i + ". " + dateFormatter.format(getPublicHolidays().get(i-1)));
         }
-        System.out.println("");
-        System.out.println("---------------------------------------------------------");
-        System.out.println("");
-        System.out.println("Returning to previous menu...");
-        System.out.println("");
+        
     }
 
     public String getFilePath() {
@@ -105,6 +101,7 @@ public class SystemSettings {
         this.publicHolidays.remove(index-1);    
         System.out.println("[" + dateString + "] has been sucessfully removed from the system.");
     }
+
 
     public ArrayList<Date> getPublicHolidays() {
         return this.publicHolidays;
@@ -154,12 +151,12 @@ public class SystemSettings {
         this.seniorDiscount = seniorDiscount;
     }
 
-    public float getthreeeDAddOn() {
-        return this.threeeDAddOn;
+    public float getthreeDAddOn() {
+        return this.threeDAddOn;
     }
 
-    public void setthreeeDAddOn(float threeeDAddOn) {
-        this.threeeDAddOn = threeeDAddOn;
+    public void setthreeDAddOn(float threeDAddOn) {
+        this.threeDAddOn = threeDAddOn;
     }
 
     public float getblockbusterAddOn() {

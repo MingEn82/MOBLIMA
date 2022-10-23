@@ -26,13 +26,13 @@ public class StaffController {
 
             case 3:
             System.out.println("Showing Top 5 Movies...");
+            System.out.println("");
             adminMovieController.viewTopMovies();
             break;
             
             case 4:
             System.out.println("Entering System Configuration...");
             System.out.println("");
-            
             systemSettingController.displaySystemSetting();
             break;
 

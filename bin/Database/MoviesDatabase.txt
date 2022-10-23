@@ -1,2 +1,2 @@
-Minority Report, Now Showing, 145, Synopsis_Of_Minority_Report, Steven Spielberg, Tom Cruise & Colin Farrell, 5.0, 98765432 & 5.0 & Best Movie I have ever watched!, 91234567 & 5.0 & I love Tom Cruise as much as I love NTU!
-Minions 2, Now Showing, 87, Synopsis_Of_Minions_2, Kyle Balda, Steve Carell & Pierre Coffin
+Minority Report, Now Showing, 145, Synopsis_Of_Minority_Report, Steven Spielberg, Tom Cruise & Colin Farrell, 5.0, 9.8765432E7 & 5.0 & Best Movie I have ever watched!, 9.1234568E7 & 5.0 & I love Tom Cruise as much as I love NTU!
+Minions 2, Preview, 87, Synopsis_Of_Minions_2, Kyle Balda, Steve Carell & Pierre Coffin

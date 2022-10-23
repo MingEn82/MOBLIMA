@@ -127,7 +127,7 @@ public class ShowingsDatabaseController implements DatabaseController {
         this.updateDatabase();
     }
 
-    public boolean updateDatabase(String movieTitle, String cineplexName, String cinemaName, String date) {
+    public boolean addNewShowing(String movieTitle, String cineplexName, String cinemaName, String date, String movieType) {
         ArrayList<String[]> updatedShowings = new ArrayList<String[]>();
 
         for (String[] showing : showingsData) {
@@ -138,7 +138,7 @@ public class ShowingsDatabaseController implements DatabaseController {
             }
         }
 
-        String[] newShowing = { movieTitle, cineplexName, cinemaName, date };
+        String[] newShowing = { movieTitle, cineplexName, cinemaName, date, movieType };
         updatedShowings.add(newShowing);
 
         this.showingsData = updatedShowings;

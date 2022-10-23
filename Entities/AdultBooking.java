@@ -71,7 +71,7 @@ public class AdultBooking extends Booking{
         switch(this.getMovieType())
         {
             case "3D":
-            priceOfTicket += currentSettings.getthreeeDAddOn();
+            priceOfTicket += currentSettings.getthreeDAddOn();
             break;
 
             case "Blockbuster":
