@@ -114,21 +114,20 @@ public class MainMenuUI
             System.out.println("---------------------------------------------------------");
             System.out.println("Movie Goer Menu:");
             System.out.println("1. Find movies");
-            System.out.println("2. Book a movie");
-            System.out.println("3. View booking history");
-            System.out.println("4. List Top 5 Movies");
-            System.out.println("5. Exit to homepage");
+            System.out.println("2. View booking history");
+            System.out.println("3. List Top 5 Movies");
+            System.out.println("4. Exit to homepage");
             System.out.println("---------------------------------------------------------");
             System.out.println(""); // print empty line
 
             choice = scanner.nextInt();
 
-            if (choice != 5)
+            if (choice != 4)
             {
                 movieGoerController.processMovieGoerChoice(choice);
             }
         }
-        while (choice != 5);
+        while (choice != 4);
     }
 
     
