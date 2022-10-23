@@ -36,6 +36,10 @@ public class Cinema {
         return this.cinemaDetails.getType();
     }
 
+    public ArrayList<Integer> getAisleArray() {
+        return this.cinemaDetails.getAisles();
+    }
+
     public String getCinemaName() {
         return this.cinemaName;
     }

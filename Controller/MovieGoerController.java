@@ -3,8 +3,8 @@ package Controller;
 import java.util.Date;
 
 public class MovieGoerController {
-    MovieController movieGoerMovieController = new MovieGoerMovieController();
-    BookingController bookingController = new BookingController();
+    private MovieController movieGoerMovieController = new MovieGoerMovieController();
+    private BookingController bookingController = new BookingController();
 
 
     public void processMovieGoerChoice(int choice)
@@ -30,7 +30,6 @@ public class MovieGoerController {
             default:
             System.out.println("Please enter a valid choice");
             break;
-
 
         }
     }

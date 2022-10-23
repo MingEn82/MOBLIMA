@@ -68,7 +68,7 @@ public class MovieDatabaseController implements DatabaseController {
                     }
                 }
                 
-                movies.add(new Movie(movieTitle, showingStatus, synopsis, director, cast, duration, movieTitle, reviews, overallRating));
+                movies.add(new Movie(movieTitle, showingStatus, synopsis, director, cast, duration, reviews, overallRating));
 
                 movieLine = br.readLine();
             }
@@ -83,8 +83,8 @@ public class MovieDatabaseController implements DatabaseController {
         return movies;
     }
 
-    public void addNewMovie(String movieTitle, String showingStatus, String synopsis, String director, String[] cast, int duration, String movieType, ArrayList<Review> reviews, float overallRating) {
-        Movie newMovie = new Movie(movieTitle, showingStatus, synopsis, director, cast, duration, movieType, reviews, overallRating);
+    public void addNewMovie(String movieTitle, String showingStatus, String synopsis, String director, String[] cast, int duration, ArrayList<Review> reviews, float overallRating) {
+        Movie newMovie = new Movie(movieTitle, showingStatus, synopsis, director, cast, duration, reviews, overallRating);
         movies.add(newMovie);
         try {
             BufferedWriter bf = new BufferedWriter(new FileWriter(file, true));
@@ -122,6 +122,15 @@ public class MovieDatabaseController implements DatabaseController {
 
         System.out.println("Movie was not found!");
         return;
+    }
+
+    public int getMovieDuration(String movieTitle) {
+        for (Movie movie : movies) {
+            if (!movie.getMovieTitle().equals(movieTitle))
+                continue;
+            return movie.getDuration();
+        }
+        return -1;
     }
 
     private void updateDatabase() {

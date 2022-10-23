@@ -70,8 +70,8 @@ public class BookingController {
      * @param movieType
      * @param cinemaType
      * @param startDate
-     * @param price
-     * @return
+     * @param price             
+     * @return                  true if successful, false if unsuccessful
      */
     public boolean newBooking(String TID, String cineplexName, String cinemaName, String seatID, String movieTitle, int movieDuration, String movieType, String cinemaType, Date startDate, float price)
     {
