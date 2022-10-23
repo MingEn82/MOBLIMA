@@ -64,7 +64,7 @@ public class StudentBooking extends Booking {
 
         switch (this.getMovieType()) {
             case "3D":
-                priceOfTicket += currentSettings.getthreeeDAddOn();
+                priceOfTicket += currentSettings.getthreeDAddOn();
                 break;
 
             case "Blockbuster":

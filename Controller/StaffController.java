@@ -14,23 +14,25 @@ public class StaffController {
         switch(choice){
             case 1:
             System.out.println("Entering Movie Mangement System...");
+            System.out.println("");
 
             break;
 
             case 2:
             System.out.println("Entering Showing Mangement System...");
+            System.out.println("");
             
             break;
 
             case 3:
             System.out.println("Showing Top 5 Movies...");
+            System.out.println("");
             
             break;
             
             case 4:
             System.out.println("Entering System Configuration...");
             System.out.println("");
-            
             systemSettingController.displaySystemSetting();
             break;
 
