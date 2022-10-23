@@ -212,7 +212,7 @@ public class CineplexDatabaseController implements DatabaseController {
             Date startDate = dp.parseDate(showingData[3]);
             String movieType = showingData[4];
             String[] bookedSeats = null;
-            if (showingData.length > 4) {
+            if (showingData.length > 5) {
                 bookedSeats = Arrays.copyOfRange(showingData, 5, showingData.length);
             }
             ArrayList<SeatRow> seatRows = this.generateSeatRows(seatsData, bookedSeats);
