@@ -9,11 +9,14 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 import java.util.HashMap;
 
+import Entities.Staff;
+
 public class StaffDatabaseController implements DatabaseController {
     private String filePath = "Database/StaffDatabase.txt";
     private File file;
     private BufferedWriter bf;
     private PrintWriter pw;
+    private Staff staff;
     private HashMap<String, String> allStaff;
 
     public StaffDatabaseController() {
@@ -49,27 +52,30 @@ public class StaffDatabaseController implements DatabaseController {
     }
     
     // Login Controller will take over this part
-    public boolean login() {
-        Scanner sc = new Scanner(System.in);
+    public boolean login(String username, String password) {
+        // Scanner sc = new Scanner(System.in);
 
-        String username, password;
+        // String username, password;
 
-        System.out.println("Enter username:");
-        username = sc.next();
-        System.out.println("Enter password:");
-        password = sc.next();
+        // System.out.println("Enter username:");
+        // username = sc.next();
+        // System.out.println("Enter password:");
+        // password = sc.next();
 
         return allStaff.containsKey(username) && allStaff.get(username).equals(password);
     }
     
-    public void createNewStaff(String newUsername, String newPassword) {
+    public void addNewStaff(String newUsername, String newPassword) {
+        // username can be found
         if (allStaff.containsKey(newUsername)) {
             System.out.println("Error! User already exists!");
             return;
         }
 
+        // insert the mapping into allStaff map
         allStaff.put(newUsername, newPassword);
 
+        // write into file
         try {
             bf = new BufferedWriter(new FileWriter(file, true));
             pw = new PrintWriter(bf);
@@ -77,7 +83,7 @@ public class StaffDatabaseController implements DatabaseController {
 
             pw.append(content);
 
-            System.out.println("Account successfully created for: " + newUsername);
+            System.out.println("Account successfully created for: [" + newUsername + "]");
 
         } catch (IOException e) {
             e.printStackTrace(); 
