@@ -2,7 +2,6 @@ package Controller;
 
 import java.util.Scanner;
 import Entities.SystemSettings;
-import Boundary.MainMenuUI;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
 
@@ -11,6 +10,7 @@ public class SystemSettingController {
     SystemSettingsDatabaseController sSDBCtrl = new SystemSettingsDatabaseController();
     // Create a temp ss object which will be used for modification later
     SystemSettings ss = new SystemSettings();
+    Scanner scanner = new Scanner(System.in);
 
     /**
      * This method fetch the existing system settings from db and store in systemSettings object
@@ -34,8 +34,6 @@ public class SystemSettingController {
     public void displaySystemSetting() {
 
         int choice;
-        Scanner scanner = new Scanner(System.in);
-
         System.out.println("Welcome to System Configuration");
 
         do {
@@ -93,8 +91,6 @@ public class SystemSettingController {
                 case 6:
                     System.out.println("Returning to Staff Portal...");
                     System.out.println(""); // print empty line
-                    MainMenuUI mMUI = new MainMenuUI();
-                    mMUI.displayStaffMenu();
                     break;
 
 
@@ -110,7 +106,6 @@ public class SystemSettingController {
     public void addPHSetting() {
         System.out.println("Please enter a new public holiday to be added in yyyyMMdd format:");
         System.out.println("");
-        Scanner scanner = new Scanner(System.in);
         String dateString = scanner.next();
         SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyyMMdd");
         try {
@@ -128,7 +123,6 @@ public class SystemSettingController {
         System.out.println("Please select the date to be removed from the system::");
         System.out.println("");
         ss.printPHSettings();
-        Scanner scanner = new Scanner(System.in);
         int index = scanner.nextInt();
         ss.removePublicHolidays(index);
         sSDBCtrl.writeFile(ss);
@@ -140,7 +134,6 @@ public class SystemSettingController {
 
 
     public void updateTicketSetting() {
-        Scanner scanner = new Scanner(System.in);
         int choice;
 
         do {
