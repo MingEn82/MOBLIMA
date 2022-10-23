@@ -83,9 +83,16 @@ public class MovieDatabaseController implements DatabaseController {
         return movies;
     }
 
-    public void addNewMovie(String movieTitle, String showingStatus, String synopsis, String director, String[] cast, int duration, ArrayList<Review> reviews, float overallRating) {
-        Movie newMovie = new Movie(movieTitle, showingStatus, synopsis, director, cast, duration, reviews, overallRating);
+    public void addNewMovie(String movieTitle, String showingStatus, String synopsis, String director, String[] cast, int duration) {
+        // Check for duplicate movie
+        if (!movieExists(movieTitle)) {
+            System.out.println("Movie Not Found");
+            return;
+        }
+
+        Movie newMovie = new Movie(movieTitle, showingStatus, synopsis, director, cast, duration, null, -1);
         movies.add(newMovie);
+
         try {
             BufferedWriter bf = new BufferedWriter(new FileWriter(file, true));
             PrintWriter pw = new PrintWriter(bf);
@@ -96,6 +103,22 @@ public class MovieDatabaseController implements DatabaseController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void deleteMovie(String movieTitle) {
+        ArrayList<Movie> filteredMovies = new ArrayList<Movie>();
+        if (!movieExists(movieTitle)) {
+            System.out.println("Movie Not Found");
+            return;
+        }
+
+        for (Movie m : movies) {
+            if (!m.getMovieTitle().equals(movieTitle))
+                filteredMovies.add(m);
+        }
+        
+        movies = filteredMovies;
+        this.updateDatabase();
     }
 
     public boolean changeShowingStatus(String movieTitle, String showingStatus) {
@@ -144,6 +167,15 @@ public class MovieDatabaseController implements DatabaseController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private boolean movieExists(String movieTitle) {
+        for (Movie m : movies) {
+            if (m.getMovieTitle().equals(movieTitle)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

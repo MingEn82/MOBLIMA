@@ -74,6 +74,7 @@ public class ShowingController {
         }
     }
 
+    // Not sure if correct implementation
     public void updateShowing() {
         sc.nextLine();
         System.out.println("Enter movie Title: ");
