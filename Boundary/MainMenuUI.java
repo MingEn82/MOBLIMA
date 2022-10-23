@@ -71,36 +71,38 @@ public class MainMenuUI
 
         int choice;
         
-        while(!staffController.checkLoggedin())
-        {
-            System.out.println(""); // print empty line
-            System.out.println("Directing to login page for staff.");
+
+        do {
+            System.out.println("Redirecting to login page for staff....");
             System.out.println(""); // print empty line
             staffController.triggerLogin();
         }
+        while(!staffController.checkLoggedin());
 
         do
         {
             System.out.println(""); // print empty line
+            System.out.println("Welcome to Staff Portal");
             System.out.println("---------------------------------------------------------");
             System.out.println("Staff Menu:");
             System.out.println("1. Create/Update/Remove Movie Listings");
             System.out.println("2. Create/Update/Remove Showings");
             System.out.println("3. Show top 5 movies");
             System.out.println("4. Configure System Settings");
-            System.out.println("5. Exit to homepage");
+            System.out.println("5. Register New Staff Account");
+            System.out.println("6. Logout and return to homepage");
             System.out.println("---------------------------------------------------------");
             System.out.println(""); // print empty line
 
             choice = scanner.nextInt();
             
 
-            if (choice != 5)
+            if (choice != 6)
             {
                 staffController.processStaffChoice(choice);
             }
         }
-        while (choice != 5);
+        while (choice != 6);
         
         
     }

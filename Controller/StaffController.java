@@ -36,6 +36,17 @@ public class StaffController {
             systemSettingController.displaySystemSetting();
             break;
 
+            case 5:
+            System.out.println("Entering Staff Registration System...");
+            System.out.println("");
+            loginController.displaySignup();
+            break;
+
+            case 6:
+            System.out.println("Logging out and returning to homepage...");
+            System.out.println("");
+            break;
+
             default:
             System.out.println("Please enter a valid choice");
             System.out.println("");
@@ -44,10 +55,19 @@ public class StaffController {
     }
 
     public boolean checkLoggedin(){
-        return loginController.getIsLoggedIn();
+        if (loginController.getIsLoggedIn() == true) {
+            System.out.println("Loggin Successful!");
+            System.out.println("You are currently logged in as [" + loginController.currentStaff.getUsername() + "]");
+            System.out.println("");
+            return true;
+        }
+        System.out.println("Loggin Unsuccessful. Please Try Again.");
+        System.out.println("");
+        return false;
     }
 
     public void triggerLogin(){
-        //display login stuff then trigger login from logincontroller;
+        loginController.displayLogin();
     }
 }
+
