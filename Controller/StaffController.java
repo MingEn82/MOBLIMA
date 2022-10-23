@@ -14,17 +14,19 @@ public class StaffController {
         switch(choice){
             case 1:
             System.out.println("Entering Movie Mangement System...");
+            System.out.println("");
 
             break;
 
             case 2:
             System.out.println("Entering Showing Mangement System...");
-            
+            System.out.println("");
+            showingController.displayMenu();
             break;
 
             case 3:
             System.out.println("Showing Top 5 Movies...");
-            
+            adminMovieController.viewTopMovies();
             break;
             
             case 4:

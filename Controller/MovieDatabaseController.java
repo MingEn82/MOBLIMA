@@ -98,17 +98,17 @@ public class MovieDatabaseController implements DatabaseController {
         }
     }
 
-    public void changeShowingStatus(String movieTitle, String showingStatus) {
+    public boolean changeShowingStatus(String movieTitle, String showingStatus) {
         for (Movie movie : movies) {
             if (movie.getMovieTitle().equals(movieTitle)) {
                 movie.setShowingStatus(showingStatus);
                 this.updateDatabase();
-                return;
+                return true;
             }
         }
 
         System.out.println("Movie was not found!");
-        return;
+        return false;
     }
 
     public void addReview(String movieTitle, Review review) {

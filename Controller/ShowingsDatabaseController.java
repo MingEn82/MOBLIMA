@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 
 public class ShowingsDatabaseController implements DatabaseController {
     private String filePath = "Database/ShowingsDatabase.txt";
@@ -87,6 +88,20 @@ public class ShowingsDatabaseController implements DatabaseController {
         this.updateDatabase();
     }
 
+    public void deleteShowing(String movieTitle, String cineplexName, String cinemaName, String date) {
+        ArrayList<String[]> remainingShowings = new ArrayList<String[]>();
+
+        for (String[] showing : showingsData) {
+            if (showing[0].equals(movieTitle) && showing[1].equals(cineplexName) && showing[2].equals(cinemaName) && showing[3].equals(date)) {
+                continue;
+            }
+            remainingShowings.add(showing);
+        }
+
+        this.showingsData = remainingShowings;
+        this.updateDatabase();
+    }   
+
     public void updateDatabase(String movieTitle, String cineplexName, String cinemaName, String date, String seatID) {
         boolean isNewShowing = true;
         ArrayList<String[]> updatedShowings = new ArrayList<String[]>();
@@ -112,13 +127,12 @@ public class ShowingsDatabaseController implements DatabaseController {
         this.updateDatabase();
     }
 
-    public void updateDatabase(String movieTitle, String cineplexName, String cinemaName, String date) {
+    public boolean updateDatabase(String movieTitle, String cineplexName, String cinemaName, String date) {
         ArrayList<String[]> updatedShowings = new ArrayList<String[]>();
 
         for (String[] showing : showingsData) {
             if (showing[0].equals(movieTitle) && showing[1].equals(cineplexName) && showing[2].equals(cinemaName) && showing[3].equals(date)) {
-                System.out.println("Error! Showing already exists!");
-                return;
+                return false;
             } else {
                 updatedShowings.add(showing);
             }
@@ -129,6 +143,7 @@ public class ShowingsDatabaseController implements DatabaseController {
 
         this.showingsData = updatedShowings;
         this.updateDatabase();
+        return true;
     }
 
     public void updateDatabase() {
