@@ -115,7 +115,7 @@ public class Movie implements Comparable<Movie> {
     }
 
     public void print() {
-        System.out.println("Movie Title: " + movieTitle);
+        System.out.println("Movie Title: " + movieTitle + " (" + showingStatus + ")");
         System.out.println("Duration: " + duration + " mins");
         System.out.println("Synopsis: " + synopsis);
         System.out.println("Director: " + director);

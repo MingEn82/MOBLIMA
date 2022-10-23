@@ -15,32 +15,29 @@ public abstract class MovieController {
         allMovies = movieDC.getMovies();
     }
 
-    public void displayMovies(int choice) {
+    public Movie displayMovies(int choice) {
         Scanner sc = new Scanner(System.in);
         ArrayList<Movie> filteredMovies;
 
         switch (choice) {
             case 1:
-                printMovies(allMovies);
-                break;
+                return printMovies(allMovies);
             case 2:
                 filteredMovies = filterMoviesByShowingStatus("Coming Soon");
-                printMovies(filteredMovies);
-                break;
+                return printMovies(filteredMovies);
             case 3:
                 filteredMovies = filterMoviesByShowingStatus("Preview");
-                printMovies(filteredMovies);
-                break;
+                return printMovies(filteredMovies);
             case 4:
                 filteredMovies = filterMoviesByShowingStatus("Now Showing");
-                printMovies(filteredMovies);
-                break;
+                return printMovies(filteredMovies);
             case 5:
                 System.out.println("Enter movie name: ");
                 String movieTitle = sc.nextLine();
                 filteredMovies = filterMoviesByName(movieTitle);
-                printMovies(filteredMovies);
-                break;
+                return printMovies(filteredMovies);
+            default:
+                return null;
         }
     }
 
@@ -59,9 +56,10 @@ public abstract class MovieController {
         }
     };
 
-    private void printMovies(ArrayList<Movie> movies) {
+    private Movie printMovies(ArrayList<Movie> movies) {
         Scanner sc = new Scanner(System.in);
         int i = 1;
+        Movie m = null;
 
         if (movies.size() == 0) {
             System.out.println("No movies found");
@@ -74,12 +72,16 @@ public abstract class MovieController {
             System.out.println("Choose a movie (Enter 0 to exit)");
             int movieIdx = sc.nextInt();
             if (movieIdx == 0)
-                return;
+                ;
             else if (movieIdx < 0 || movieIdx > allMovies.size())
-                return;
-            Movie movie = allMovies.get(movieIdx-1);
-            movie.print();
+                ;
+            else {
+                m = allMovies.get(movieIdx-1);
+                m.print();
+            }
         }
+        
+        return m;
     }
 
     public ArrayList<Movie> filterMoviesByShowingStatus(String showingStatus) {

@@ -52,6 +52,28 @@ public class ShowingsDatabaseController implements DatabaseController {
         return filteredShowings;
     }
 
+    public ArrayList<String[]> filterShowings(String movieName) {
+        ArrayList<String[]> filteredShowings = new ArrayList<String[]>();
+        for (String[] showing : showingsData) {
+            if (showing[0].equals(movieName)) {
+                filteredShowings.add(showing);
+            }
+        }
+
+        return filteredShowings;
+    }
+
+    public ArrayList<String[]> filterShowings(String cineplexName, String cinemaName, String movieName) {
+        ArrayList<String[]> filteredShowings = new ArrayList<String[]>();
+        for (String[] showing : showingsData) {
+            if (showing[0].equals(movieName) && showing[1].equals(cineplexName) && showing[2].equals(cinemaName)) {
+                filteredShowings.add(showing);
+            }
+        }
+
+        return filteredShowings;
+    }
+
     public void deleteShowings(String movieTitle) {
         ArrayList<String[]> remainingShowings = new ArrayList<String[]>();
 

@@ -98,6 +98,28 @@ public class CineplexDatabaseController implements DatabaseController {
         }
     }
 
+    /**
+     * Function to get the unique code for a cinema
+     * @param cineplexName
+     * @param cinemaName
+     * @return
+     */
+    public String getIDs(String cineplexName, String cinemaName) {
+        String s = "";
+        for (Cineplex cineplex : cineplexes) {
+            if (!cineplex.getCineplexName().equals(cineplexName))
+                continue;
+            for (Cinema cinema : cineplex.getCinemas()) {
+                if (!cinema.getCinemaName().equals(cinemaName))
+                    continue;
+                return cineplex.getCineplexID() + cinema.getCinemaNumber();
+            }
+        }
+
+        System.out.println("Couldn't find this cinema!");
+        return "";
+    }
+
     // Helper function to add a new cinema to cineplexes array
     private void addNewCinema(String[] cinemaData) {
         String cineplexName = cinemaData[0];
@@ -136,8 +158,8 @@ public class CineplexDatabaseController implements DatabaseController {
         }
     }
 
-    // Helper function to generate all showings for a particular cinema
-    private ArrayList<Showing> generateShowings(String cineplexName, String cinemaName, String[] seatsData) {
+    // Function to generate all showings for a particular cinema
+    public ArrayList<Showing> generateShowings(String cineplexName, String cinemaName, String[] seatsData) {
         ArrayList<Showing> showings = new ArrayList<Showing>();
         ShowingsDatabaseController sdc = new ShowingsDatabaseController();
         ArrayList<String[]> allShowings = sdc.filterShowings(cineplexName, cinemaName);

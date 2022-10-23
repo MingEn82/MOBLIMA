@@ -26,7 +26,24 @@ public class DateParser {
         return d;
     }
 
+    public Date parseDate(String s, String format) {
+        setFormat(format);
+        Date d = null;
+        try{
+            d = parser.parse(s);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return d;
+    }
+
     public String formatDate(Date d) {
+        return parser.format(d);
+    }
+
+    public String formatDate(Date d, String format) {
+        setFormat(format);
         return parser.format(d);
     }
 }
