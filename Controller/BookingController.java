@@ -47,7 +47,7 @@ public class BookingController {
         System.out.println("Your bookings are as follows: ");
         System.out.println("---------------------------------------------------------");
         for (Booking b : bookings) {
-            if (b.getEmailAddressOfMovieGoer().toLowerCase().trim().equals(emailAddress.toLowerCase().trim()))
+            if (b.getEmailOfMovieGoer().toLowerCase().trim().equals(emailAddress.toLowerCase().trim()))
             {
                 b.printBooking();
                 System.out.println("");
