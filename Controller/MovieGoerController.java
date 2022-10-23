@@ -16,7 +16,6 @@ public class MovieGoerController {
             movieGoerMovieController.findMovies();
             break;
 
-
             case 2:
             //System.out.println("Executing bookingController.viewBookingHistory()");
             bookingController.viewBookingHistory();

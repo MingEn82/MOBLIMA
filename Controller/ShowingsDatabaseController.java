@@ -146,6 +146,24 @@ public class ShowingsDatabaseController implements DatabaseController {
         return true;
     }
 
+    public void addBooking(String movieTitle, String cineplexName, String cinemaName, String date, String seatID) {
+        ArrayList<String[]> updatedShowings = new ArrayList<String[]>();
+        System.out.println("Adding booking to showings database...");
+
+        for (String[] showing : showingsData) {
+            if (showing[0].equals(movieTitle) && showing[1].equals(cineplexName) && showing[2].equals(cinemaName) && showing[3].equals(date)) {
+                String updatedShowing = String.join(", ", showing) + ", " + seatID;
+                updatedShowings.add(updatedShowing.split(", "));
+                System.out.println("Added!");
+            } else {
+                updatedShowings.add(showing);
+            }
+        }
+        this.showingsData = updatedShowings;
+        this.updateDatabase();
+        System.out.println("Exiting...");
+    }
+
     public void updateDatabase() {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(file));

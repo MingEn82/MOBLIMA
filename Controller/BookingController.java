@@ -99,6 +99,7 @@ public class BookingController {
         }
 
         // Get email address of user
+        scanner.nextLine();
         tries = 3;
         while (tries > 0) {
             System.out.println("Enter your email address:");

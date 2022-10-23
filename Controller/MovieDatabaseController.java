@@ -45,6 +45,9 @@ public class MovieDatabaseController implements DatabaseController {
             while (movieLine != null) {
                 movieData = movieLine.split(", ");
                 size = movieData.length;
+                if (size < 5) {
+                    continue;
+                }
                 overallRating = -1;
                 reviews = new ArrayList<Review>();
 

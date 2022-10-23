@@ -110,7 +110,7 @@ public abstract class MovieController {
             else if (movieIdx < 0 || movieIdx > allMovies.size())
                 ;
             else {
-                m = allMovies.get(movieIdx-1);
+                m = movies.get(movieIdx-1);
                 m.print();
             }
         }

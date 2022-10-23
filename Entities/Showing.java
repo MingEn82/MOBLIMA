@@ -41,7 +41,7 @@ public class Showing {
             if (!seatRow.getRowID().equals(row))
                 continue;
             for (Seat seat : seatRow.getSeats()) {
-                if (!seat.getSeatNumber().equals(seatID)) {
+                if (seat != null && !seat.getSeatNumber().equals(seatID)) {
                     return seat.getIsSeat() && seat.getIsBooked();
                 }
             }

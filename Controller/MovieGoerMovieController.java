@@ -66,8 +66,8 @@ public class MovieGoerMovieController extends MovieController {
                                 if (showingIdx >= 0 && showingIdx <= filteredShowings.size()) {
                                     String[] showingChoice = filteredShowings.get(showingIdx-1);
                                     DateParser dp = new DateParser("YYYYMMddHHmm");
-                                    if (!bookTicket(cineplexDC.getCineplexes(), cineplexName, cinemaName, movieChoice.getMovieTitle(), dp.parseDate(showingChoice[3])))
-                                        System.out.println("Error!");
+                                    if (!bookTicket(cineplexDC.getCineplexes(), cineplexName, cinemaName, movieChoice.getMovieTitle(), showingChoice[3]));
+                                        System.out.println("Error booking ticket!");
                                     // bookingController.newBooking(info[1], cineplexName, cinemaName, seatID, movieChoice.getMovieTitle(), movieDuration, info[2], info[0], dp.parseDate(showingChoice[3]), price)
                                     break;
                                 } else {
@@ -99,21 +99,22 @@ public class MovieGoerMovieController extends MovieController {
             String cineplexName = s[1];
             String cinemaName = s[2];
             Date showingTime = dp.parseDate(s[3], "YYYYMMddhhmm");
-            System.out.println(i + ") Location: " + cineplexName + ", " + cinemaName);
+            System.out.println(i + ") Location: " + cineplexName + ", " + cinemaName + " (" + s[4] + ")");
             System.out.println("   When: " + dp.formatDate(showingTime, "dd/MM/YYYY HH:mm"));
             System.out.println("");
+            i++;
         }
     }
 
     /**
-     * Returns showing information for booking tickets
+     * Books a ticket
      * @param cineplexName
      * @param cinemaName
      * @param movieTitle
      * @param startDate
-     * @return              ArrayList of String containing CinemaType, UID and MovieType
+     * @return              true if booking is successful, false otherwise
      */
-    private boolean bookTicket(ArrayList<Cineplex> cineplexes, String cineplexName, String cinemaName, String movieTitle, Date startDate) {
+    private boolean bookTicket(ArrayList<Cineplex> cineplexes, String cineplexName, String cinemaName, String movieTitle, String startDate) {
         DateParser dp = new DateParser("YYYYMMddHHmm");
 
         for (Cineplex cineplex : cineplexes) {
@@ -127,7 +128,7 @@ public class MovieGoerMovieController extends MovieController {
                 // Add UID
                 String TID = cineplex.getCineplexID() + cinema.getCinemaNumber() + dp.formatDate(new Date());
                 for (Showing showing : cinema.getShowings()) {
-                    if (showing.getStartDate().compareTo(startDate) == 0 && showing.getMovieTitle().equals(movieTitle)) {
+                    if (showing.getStartDate().compareTo(dp.parseDate(startDate)) == 0 && showing.getMovieTitle().equals(movieTitle)) {
                         // Add Movie Type
                         String movieType = showing.getMovieType();
                         // Print seats
@@ -140,7 +141,8 @@ public class MovieGoerMovieController extends MovieController {
                         sc.nextLine();
                         String seatID = sc.nextLine();
                         if (!showing.isSeatBooked(seatID)) {
-                            return bookingController.newBooking(TID, cineplexName, cinemaName, seatID, movieTitle, movieDuration, movieType, cinemaType, startDate, -1);
+                            showingsDC.addBooking(movieTitle, cineplexName, cinemaName, startDate, seatID);
+                            return bookingController.newBooking(TID, cineplexName, cinemaName, seatID, movieTitle, movieDuration, movieType, cinemaType, dp.parseDate(startDate), -1);
                         }
                     }
                 }
