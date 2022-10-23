@@ -1,7 +1,6 @@
 package Entities;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import Controller.SystemSettingController;
 
@@ -21,30 +20,75 @@ public class AdultBooking extends Booking{
     public void calBookingPrice(){
         SystemSettings currentSettings = new SystemSettingController().getSystemSetting();
         //System.out.println("currentSettings = " + currentSettings.getSeniorRegularTicketPrices());
-        float price = 0;
+        float priceOfTicket;
+        
+        ArrayList<Date> publicHolidays = currentSettings.getPublicHolidays();
+        if (publicHolidays.contains(this.getStartDate()))
+        {
+            switch(this.getDayOfWeek(getStartDate())){
+                case "Mon":
+                case "Tue":
+                case "Wed":
+                case "Thu":
+                priceOfTicket = currentSettings.getweekdayPrices();
+                break;
+    
+                case "Fri":
+                case "Sat":
+                case "Sun":
+                priceOfTicket = currentSettings.getweekendPrices();
+                break;
+    
+                default:
+                //this case should not happen since there are only 7 days in a week.
+                priceOfTicket = 0;
+                break;
+            }
+        }
+        else
+        {
+            priceOfTicket = currentSettings.getpHPrices();
+        }
         
         
-        switch(this.getDayOfWeek(getStartDate())){
-            case "Mon":
-            
-            break;
 
-            case "Standard":
+        switch(this.getCinemaType())
+        {
+            case "IMAX":
+            priceOfTicket += currentSettings.getIMAXAddOn();
             break;
 
             case "Platinum Movie Suite":
+            priceOfTicket += currentSettings.getplatinumAddOn();
             break;
+            
+            case "Standard":
             default:
+            priceOfTicket += 0;
             break;
-
-
         }
 
+        switch(this.getMovieType())
+        {
+            case "3D":
+            priceOfTicket += currentSettings.getthreeeDAddOn();
+            break;
 
+            case "Blockbuster":
+            case "BlockBuster":
+            priceOfTicket += currentSettings.getblockbusterAddOn();
+            break;
+            
+            case "Standard":
+            default:
+            priceOfTicket += 0;
+            break;
+        }
 
+        //since im an adult booking class.
+        //there will be no discount
 
-        
-        this.setPrice(10);
+        this.setPrice(priceOfTicket);
     }
     
 }
