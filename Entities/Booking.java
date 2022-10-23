@@ -54,9 +54,6 @@ public class Booking {
         System.out.println("Cost: " + price);
     }
 
-    public String getEmailAddressOfMovieGoer(){
-        return this.emailOfMovieGoer;
-    }
 
     public String toString() {
         DateParser dp = new DateParser("yyyyMMddHHmm");
