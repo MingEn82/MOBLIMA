@@ -35,16 +35,16 @@ public class AdminMovieController extends MovieController{
 
             switch (choice) {
                 case 1:
-                    this.createMovie();
+                    this.displayMovies(1);
                     break;
                 case 2:
-                    this.updateMovie();
+                    this.createMovie();
                     break;
                 case 3:
-                    this.deleteMovie();
+                    this.updateMovie();
                     break;
                 case 4:
-                    this.createMovie();
+                    this.deleteMovie();
                     break;
                 case 5:
                     break;
@@ -58,13 +58,17 @@ public class AdminMovieController extends MovieController{
         sc.nextLine();
         System.out.println("Enter movie title: ");
         String movieTitle = sc.nextLine();
-        System.out.println("Enter showing status: ");
-        String showingStatus = sc.nextLine();
+        String showingStatus;
+        do {
+            System.out.println("Enter showing status (Coming Soon, Preview, Now Showing): ");
+            showingStatus = sc.nextLine();
+        } while (!showingStatus.equals("Coming Soon") && !showingStatus.equals("Preview") && !showingStatus.equals("Now Showing"));
         System.out.println("Enter movie duration (in mins): ");
         int movieDuration = sc.nextInt();
+        sc.nextLine();
         System.out.println("Enter movie synopsis: ");
         String synopsis = sc.nextLine();
-        System.out.println("Enter movie Title: ");
+        System.out.println("Enter director: ");
         String director = sc.nextLine();
         ArrayList<String> casts = new ArrayList<String>();
         String cast;
@@ -82,7 +86,7 @@ public class AdminMovieController extends MovieController{
         sc.nextLine();
         System.out.println("Enter movie title: ");
         String movieTitle = sc.nextLine();
-        System.out.println("Enter new showing status (Coming soon, Preview, Now Showing, End of Showing): ");
+        System.out.println("Enter new showing status (Coming Soon, Preview, Now Showing, End of Showing): ");
         String newShowingStatus = sc.nextLine();
 
         if (moviesDC.changeShowingStatus(movieTitle, newShowingStatus)) {

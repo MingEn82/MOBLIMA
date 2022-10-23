@@ -15,7 +15,7 @@ public class StaffController {
             case 1:
             System.out.println("Entering Movie Mangement System...");
             System.out.println("");
-
+            adminMovieController.displayMenu();
             break;
 
             case 2:

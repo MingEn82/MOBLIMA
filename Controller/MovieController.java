@@ -15,6 +15,8 @@ public abstract class MovieController {
         allMovies = movieDC.getMovies();
     }
 
+    public void displayMenu() {}
+
     public Movie displayMovies(int choice) {
         Scanner sc = new Scanner(System.in);
         ArrayList<Movie> filteredMovies;

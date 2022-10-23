@@ -85,8 +85,8 @@ public class MovieDatabaseController implements DatabaseController {
 
     public void addNewMovie(String movieTitle, String showingStatus, String synopsis, String director, String[] cast, int duration) {
         // Check for duplicate movie
-        if (!movieExists(movieTitle)) {
-            System.out.println("Movie Not Found");
+        if (movieExists(movieTitle)) {
+            System.out.println("Movie already exists!");
             return;
         }
 
