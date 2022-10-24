@@ -158,25 +158,36 @@ public class SystemSettingController {
             System.out.print("Choice chosen is: "); 
 
             choice = scanner.nextInt();
+            System.out.print("");
             float newPrice;
             float oldPrice;
 
             switch (choice) {
                 case 1:
                     oldPrice = ss.getweekdayPrices();
-                    System.out.println("Exisiting Price for Weekday Ticket: $" + String.format("%.2f", oldPrice));
-                    System.out.println("");
-                    System.out.println("Please enter the updated price or any character to return to previous menu.");
-                    System.out.println("");
+                    System.out.println(""); 
+                    System.out.println("+-------------------------------------------------------+");
+                    System.out.println("|            Please enter the updated price             |");
+                    System.out.println("---------------------------------------------------------");
+                    System.out.println("|                                                       |");
+                    System.out.println("| Existing Price for Weekday Ticket:              $ " + String.format("%.2f", oldPrice) + "|");
+                    System.out.println("|                                                       |");
+                    System.out.println("---------------------------------------------------------");
+                    System.out.println("|    Enter any character to return to previous menu     |");
+                    System.out.println("+-------------------------------------------------------+");
+                    System.out.println(""); 
+                    System.out.print("Updated Price: $ ");
                     if (scanner.hasNextFloat()) {
                         newPrice = scanner.nextFloat();
                         ss.setweekdayPrices(newPrice);
                         sSDBCtrl.writeFile(ss);
                         System.out.println("Price has been updated sucessfully from $" + String.format("%.2f", oldPrice) + " --> $" + String.format("%.2f", ss.getweekdayPrices()));
+                        System.out.println("");
                         System.out.println("Returning to previous menu...");
                         System.out.println("");
                         updateTicketSetting();
                     } else {
+                        scanner.next().charAt(0);
                         System.out.println("Returning to previous menu...");
                         System.out.println("");
                         updateTicketSetting();
@@ -185,10 +196,11 @@ public class SystemSettingController {
                     
                 case 2:
                     oldPrice = ss.getweekendPrices();
-                    System.out.println("Exisiting Price for Weekend Ticket: $" + String.format("%.2f", oldPrice));
+                    System.out.println("Existing Price for Weekend Ticket: $" + String.format("%.2f", oldPrice));
                     System.out.println("");
                     System.out.println("Please enter the updated price or any character to return to previous menu.");
                     System.out.println("");
+                    System.out.print("Updated Price: $");
                     if (scanner.hasNextFloat()) {
                         newPrice = scanner.nextFloat();
                         ss.setweekendPrices(newPrice);
@@ -206,7 +218,7 @@ public class SystemSettingController {
 
                 case 3:
                     oldPrice = ss.getpHPrices();
-                    System.out.println("Exisiting Price for Weekend Ticket: $" + String.format("%.2f", oldPrice));
+                    System.out.println("Existing Price for Weekend Ticket: $" + String.format("%.2f", oldPrice));
                     System.out.println("");
                     System.out.println("Please enter the updated price or any character to return to previous menu.");
                     System.out.println("");
@@ -227,7 +239,7 @@ public class SystemSettingController {
 
                 case 4:
                     oldPrice = ss.getstudentDiscount();
-                    System.out.println("Exisiting Discount for Student: $" + String.format("%.2f", oldPrice));
+                    System.out.println("Existing Discount for Student: $" + String.format("%.2f", oldPrice));
                     System.out.println("");
                     System.out.println("Please enter the updated price or any character to return to previous menu.");
                     System.out.println("");
@@ -248,7 +260,7 @@ public class SystemSettingController {
 
                 case 5:
                     oldPrice = ss.getseniorDiscount();
-                    System.out.println("Exisiting Discount for Senior Citizen: $" + String.format("%.2f", oldPrice));
+                    System.out.println("Existing Discount for Senior Citizen: $" + String.format("%.2f", oldPrice));
                     System.out.println("");
                     System.out.println("Please enter the updated price or any character to return to previous menu.");
                     System.out.println("");
@@ -269,7 +281,7 @@ public class SystemSettingController {
 
                 case 6:
                     oldPrice = ss.getthreeDAddOn();
-                    System.out.println("Exisiting Charges for 3D Movie: $" + String.format("%.2f", oldPrice));
+                    System.out.println("Existing Charges for 3D Movie: $" + String.format("%.2f", oldPrice));
                     System.out.println("");
                     System.out.println("Please enter the updated price or any character to return to previous menu.");
                     System.out.println("");
@@ -290,7 +302,7 @@ public class SystemSettingController {
 
                 case 7:
                     oldPrice = ss.getblockbusterAddOn();
-                    System.out.println("Exisiting Charges for Blockbuster Movie: $" + String.format("%.2f", oldPrice));
+                    System.out.println("Existing Charges for Blockbuster Movie: $" + String.format("%.2f", oldPrice));
                     System.out.println("");
                     System.out.println("Please enter the updated price or any character to return to previous menu.");
                     System.out.println("");
@@ -311,7 +323,7 @@ public class SystemSettingController {
 
                 case 8:
                     oldPrice = ss.getIMAXAddOn();
-                    System.out.println("Exisiting Charges for IMAX Movie: $" + String.format("%.2f", oldPrice));
+                    System.out.println("Existing Charges for IMAX Movie: $" + String.format("%.2f", oldPrice));
                     System.out.println("");
                     System.out.println("Please enter the updated price or any character to return to previous menu.");
                     System.out.println("");
@@ -332,7 +344,7 @@ public class SystemSettingController {
 
                 case 9:
                     oldPrice = ss.getplatinumAddOn();
-                    System.out.println("Exisiting Charges for Platinum Movie Suite: $" + String.format("%.2f", oldPrice));
+                    System.out.println("Existing Charges for Platinum Movie Suite: $" + String.format("%.2f", oldPrice));
                     System.out.println("");
                     System.out.println("Please enter the updated price or any character to return to previous menu.");
                     System.out.println("");
