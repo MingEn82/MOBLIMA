@@ -103,29 +103,15 @@ public class BookingsDatabaseController implements DatabaseController {
     }
 
     public void deleteBookings(String movieTitle) {
-        ArrayList<Booking> remainingBookings = new ArrayList<Booking>();
-
-        for (Booking b : bookings) {
-            if (!b.getMovieTitle().equals(movieTitle))
-                remainingBookings.add(b);
-        }
-
-        bookings = remainingBookings;
+        bookings.removeIf(b -> b.getMovieTitle().equals(movieTitle));
         this.updateDatabase();
     }
 
     public void deleteBookings(String movieTitle, String cineplexName, String cinemaName, String date) {
-        ArrayList<Booking> remainingBookings = new ArrayList<Booking>();
         DateParser dp = new DateParser("YYYYMMddHHmm");
         Date startDate = dp.parseDate(date);
 
-        for (Booking b : bookings) {
-            if (b.getMovieTitle().equals(movieTitle) && b.getCineplexName().equals(cineplexName) && b.getCinemaName().equals(cinemaName) && b.getStartDate().compareTo(startDate) == 0)
-                continue;
-            remainingBookings.add(b);
-        }
-
-        bookings = remainingBookings;
+        bookings.removeIf(b -> b.getMovieTitle().equals(movieTitle) && b.getCineplexName().equals(cineplexName) && b.getCinemaName().equals(cinemaName) && b.getStartDate().compareTo(startDate) == 0);
         this.updateDatabase();
     }
 

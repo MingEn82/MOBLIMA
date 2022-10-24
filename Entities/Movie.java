@@ -79,12 +79,44 @@ public class Movie implements Comparable<Movie> {
         return s.substring(0, s.length() - 2);
     }
 
+    public void printReviews() {
+        for (Review r : reviews) {
+            r.printReview();
+        }
+    }
+
+    public void printReviews(int phoneNumber) {
+        for (Review r : reviews) {
+            if (r.getPhoneNumber() == phoneNumber) {
+                r.printReview();
+            }
+        }
+    }
+
+    public boolean hasReview(int phoneNumber) {
+        for (Review r : reviews) {
+            if (r.getPhoneNumber() == phoneNumber) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void setReviews(ArrayList<Review> reviews) {
         this.reviews = reviews;
     }
     
     public void addReview(Review review) {
+        overallRating = (overallRating * reviews.size() + review.getRating()) / (reviews.size() + 1);
         reviews.add(review);
+    }
+
+    public void updateReview(Review review) {
+        reviews.removeIf(r -> r.getPhoneNumber() == review.getPhoneNumber());
+        reviews.add(review);
+        overallRating = 0;
+        for (Review r : reviews) { overallRating += r.getRating(); }
+        overallRating /= reviews.size();
     }
 
     public float getOverallRating() {

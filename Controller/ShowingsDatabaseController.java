@@ -75,30 +75,24 @@ public class ShowingsDatabaseController implements DatabaseController {
         return filteredShowings;
     }
 
+    /**
+     * Deletes all showings of movie
+     * @param movieTitle
+     */
     public void deleteShowings(String movieTitle) {
-        ArrayList<String[]> remainingShowings = new ArrayList<String[]>();
-
-        for (String[] showing : showingsData) {
-            if (!showing[0].equals(movieTitle)) {
-                remainingShowings.add(showing);
-            }
-        }
-
-        this.showingsData = remainingShowings;
+        showingsData.removeIf(showing -> showing[0].equals(movieTitle));
         this.updateDatabase();
     }
 
+    /**
+     * Deletes a particular showing
+     * @param movieTitle
+     * @param cineplexName
+     * @param cinemaName
+     * @param date
+     */
     public void deleteShowing(String movieTitle, String cineplexName, String cinemaName, String date) {
-        ArrayList<String[]> remainingShowings = new ArrayList<String[]>();
-
-        for (String[] showing : showingsData) {
-            if (showing[0].equals(movieTitle) && showing[1].equals(cineplexName) && showing[2].equals(cinemaName) && showing[3].equals(date)) {
-                continue;
-            }
-            remainingShowings.add(showing);
-        }
-
-        this.showingsData = remainingShowings;
+        showingsData.removeIf(showing -> showing[0].equals(movieTitle) && showing[1].equals(cineplexName) && showing[2].equals(cinemaName) && showing[3].equals(date));
         this.updateDatabase();
     }   
 

@@ -64,9 +64,9 @@ public class MovieDatabaseController implements DatabaseController {
                         reviewData = movieData[i].split(" & ");
                         // Checks whether there is a review text body
                         if (reviewData.length == 3) {
-                            reviews.add(new Review(Float.parseFloat(reviewData[0]), reviewData[1], reviewData[2]));
+                            reviews.add(new Review(Float.parseFloat(reviewData[0]), Integer.parseInt(reviewData[1]), reviewData[2]));
                         } else {
-                            reviews.add(new Review(Float.parseFloat(reviewData[0]), reviewData[1]));
+                            reviews.add(new Review(Float.parseFloat(reviewData[0]), Integer.parseInt(reviewData[1])));
                         }
                     }
                 }
@@ -137,10 +137,50 @@ public class MovieDatabaseController implements DatabaseController {
         return false;
     }
 
+    public void printReviews(String movieTitle) {
+        for (Movie movie : movies) {
+            if (movie.getMovieTitle().equals(movieTitle)) {
+                movie.printReviews();
+                return;
+            }
+        }
+    }
+
+    public void printReviews(String movieTitle, int phoneNumber) {
+        for (Movie movie : movies) {
+            if (movie.getMovieTitle().equals(movieTitle)) {
+                movie.printReviews(phoneNumber);
+                return;
+            }
+        }
+    }
+
+    public boolean hasReview(String movieTitle, int phoneNumber) {
+        for (Movie movie : movies) {
+            if (movie.getMovieTitle().equals(movieTitle)) {
+                return movie.hasReview(phoneNumber);
+            }
+        }
+        return false;
+    }
+
     public void addReview(String movieTitle, Review review) {
         for (Movie movie : movies) {
             if (movie.getMovieTitle().equals(movieTitle)) {
                 movie.addReview(review);
+                this.updateDatabase();
+                return;
+            }
+        }
+
+        System.out.println("Movie was not found!");
+        return;
+    }
+
+    public void updateReview(String movieTitle, Review review) {
+        for (Movie movie : movies) {
+            if (movie.getMovieTitle().equals(movieTitle)) {
+                movie.updateReview(review);
                 this.updateDatabase();
                 return;
             }
