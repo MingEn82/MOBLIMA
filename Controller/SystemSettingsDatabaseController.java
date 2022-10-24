@@ -16,6 +16,10 @@ import java.util.stream.Collectors;
 import Entities.SystemSettings;
 import Utils.DateParser;
 
+/**
+ * This is an controller class that handles the reading and writing of database
+ * for SystemSetings
+ */
 public class SystemSettingsDatabaseController implements DatabaseController {
     /*
      * File Format
@@ -36,34 +40,40 @@ public class SystemSettingsDatabaseController implements DatabaseController {
     private BufferedWriter bf;
     private PrintWriter pw;
     private SystemSettings ss;
-    // private ArrayList<Date> publicHolidays;
-    // private float weekdayPrices;
-    // private float weekendPrices;
-    // private float pHPrices;
-    // private float studentDiscount;
-    // private float seniorDiscount;
-    // private float threeDAddOn;
-    // private float blockbusterAddOn;
-    // private float IMAXAddOn;
-    // private float platinumAddOn;
 
+    /**
+     * Constructor
+     */
     public SystemSettingsDatabaseController() {
         this.file = new File(filePath);
         this.ss = new SystemSettings();
         this.readFile();
     }
 
+    /**
+     * Constructor with filePath string
+     * 
+     * @param filePath filepath string of the text file
+     */
     public SystemSettingsDatabaseController(String filePath) {
         this.file = new File(filePath);
         this.ss = new SystemSettings();
         this.readFile();
     }
 
-    public SystemSettings fetchSystemSettings () {
+    /**
+     * This method returns the ss SystemSettings object
+     * 
+     * @return ss SystemSettings object
+     */
+    public SystemSettings fetchSystemSettings() {
         // this.readFile();
         return this.ss;
     }
 
+    /**
+     * This method will read the text file and store into ss SystemSettings object
+     */
     public void readFile() {
         try {
             BufferedReader brStream = new BufferedReader(new FileReader(file));
@@ -100,7 +110,8 @@ public class SystemSettingsDatabaseController implements DatabaseController {
             platinumAddOn = Float.parseFloat(brStream.readLine());
 
             // Construct ss using the variables above
-            this.ss = new SystemSettings(publicHolidays, weekdayPrices, weekendPrices, pHPrices, studentDiscount, seniorDiscount, threeDAddOn, blockbusterAddOn, IMAXAddOn, platinumAddOn);
+            this.ss = new SystemSettings(publicHolidays, weekdayPrices, weekendPrices, pHPrices, studentDiscount,
+                    seniorDiscount, threeDAddOn, blockbusterAddOn, IMAXAddOn, platinumAddOn);
 
             brStream.close();
         } catch (IOException e) {
@@ -108,6 +119,14 @@ public class SystemSettingsDatabaseController implements DatabaseController {
         }
     }
 
+    /**
+     * This method will take in SystemSettings ss object and store into the existing
+     * SystemSettings object
+     * and call writeToDatabase() to write to database using the existing updated
+     * SystemSettings ss object
+     * 
+     * @param ss SystemSettings object
+     */
     public void writeFile(SystemSettings ss) {
         this.ss.setPublicHolidays(ss.getPublicHolidays());
         this.ss.setweekdayPrices(ss.getweekdayPrices());
@@ -123,12 +142,17 @@ public class SystemSettingsDatabaseController implements DatabaseController {
 
     }
 
+    /**
+     * This method will write the informaion of the SystemSettings ss object to the
+     * database file
+     */
     public void writeToDatabase() {
         DateParser dp = new DateParser("yyyyMMdd");
         try {
             bf = new BufferedWriter(new FileWriter(file, false));
             pw = new PrintWriter(bf);
-            pw.println(this.ss.getPublicHolidays().stream().map(date -> dp.formatDate(date)).collect(Collectors.joining(", ")));
+            pw.println(this.ss.getPublicHolidays().stream().map(date -> dp.formatDate(date))
+                    .collect(Collectors.joining(", ")));
             pw.println(this.ss.getweekdayPrices());
             pw.println(this.ss.getweekendPrices());
             pw.println(this.ss.getpHPrices());
@@ -148,6 +172,5 @@ public class SystemSettingsDatabaseController implements DatabaseController {
             }
         }
     }
-
 
 }
