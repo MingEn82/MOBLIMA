@@ -19,7 +19,7 @@ import java.util.Scanner;
  * BookingController is a controller class that holds the logic to view bookings and make new booking.
  */
 public class BookingController {
-    BookingsDatabaseController bookingsDatabaseController = new BookingsDatabaseController();
+    DatabaseController bookingsDatabaseController = new BookingsDatabaseController();
     ArrayList<Booking> bookings = new ArrayList<Booking>(); // Create an ArrayList object
 
 
