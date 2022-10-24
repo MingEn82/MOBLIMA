@@ -1,4 +1,5 @@
 package Controller;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -6,21 +7,17 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Scanner;
 import java.util.HashMap;
-
-import Entities.Staff;
 
 public class StaffDatabaseController implements DatabaseController {
     private String filePath = "Database/StaffDatabase.txt";
     private File file;
     private BufferedWriter bf;
     private PrintWriter pw;
-    private Staff staff;
     private HashMap<String, String> allStaff;
 
     public StaffDatabaseController() {
-        file = new File(filePath);    
+        file = new File(filePath);
         this.allStaff = new HashMap<String, String>();
         this.readFile();
     }
@@ -50,21 +47,13 @@ public class StaffDatabaseController implements DatabaseController {
     public HashMap<String, String> getAllStaff() {
         return allStaff;
     }
-    
+
     // Login Controller will take over this part
     public boolean login(String username, String password) {
-        // Scanner sc = new Scanner(System.in);
-
-        // String username, password;
-
-        // System.out.println("Enter username:");
-        // username = sc.next();
-        // System.out.println("Enter password:");
-        // password = sc.next();
 
         return allStaff.containsKey(username) && allStaff.get(username).equals(password);
     }
-    
+
     public void addNewStaff(String newUsername, String newPassword) {
         // username can be found
         if (allStaff.containsKey(newUsername)) {
@@ -86,11 +75,12 @@ public class StaffDatabaseController implements DatabaseController {
             System.out.println("Account successfully created for: [" + newUsername + "]");
 
         } catch (IOException e) {
-            e.printStackTrace(); 
+            e.printStackTrace();
         } finally {
-            try { 
+            try {
                 pw.close();
-            } catch (Exception e) {} 
+            } catch (Exception e) {
+            }
         }
     }
 }
