@@ -20,17 +20,25 @@ public abstract class MovieController {
     public Movie displayMovies(int choice) {
         Scanner sc = new Scanner(System.in);
         ArrayList<Movie> filteredMovies;
-
+        
         switch (choice) {
             case 1:
+                System.out.println("");
+                System.out.println("================== List All Movies =====================");
                 return printMovies(allMovies);
             case 2:
+                System.out.println("");
+                System.out.println("================== Movies Coming Soon ==================");
                 filteredMovies = filterMoviesByShowingStatus("Coming Soon");
                 return printMovies(filteredMovies);
             case 3:
+                System.out.println("");
+                System.out.println("================= Movies in Preview ====================");
                 filteredMovies = filterMoviesByShowingStatus("Preview");
                 return printMovies(filteredMovies);
             case 4:
+                System.out.println("");
+                System.out.println("=============== Movies (Now Showing) ===================");
                 filteredMovies = filterMoviesByShowingStatus("Now Showing");
                 return printMovies(filteredMovies);
             case 5:
@@ -55,10 +63,13 @@ public abstract class MovieController {
             System.out.println("4. Now Showing");
             System.out.println("5. Search movie by title");
             System.out.println("6. Back to Customer Main Menu");
-            System.out.println("=======================================================");
+            System.out.println("========================================================");
             System.out.println("");
 
+            System.out.print("Choice chosen is: ");
+            
             choice = sc.nextInt();
+            System.out.println("");
 
             switch (choice) {
                 case 1:
@@ -102,8 +113,10 @@ public abstract class MovieController {
                 System.out.println(i + ". " + movie.getMovieTitle() + " (" + movie.getShowingStatus() + ")");
                 i++;
             }
-    
+            System.out.println("========================================================");
+            System.out.println("");
             System.out.println("Choose a movie (Enter 0 to exit)");
+            System.out.print("Choice is: ");
             int movieIdx = sc.nextInt();
             if (movieIdx == 0)
                 ;
