@@ -58,12 +58,11 @@ public class StaffController {
 
     public boolean checkLoggedin(){
         if (loginController.getIsLoggedIn() == true) {
-            System.out.println("Loggin Successful!");
             System.out.println("You are currently logged in as [" + loginController.currentStaff.getUsername() + "]");
             System.out.println("");
             return true;
         }
-        System.out.println("Loggin Unsuccessful. Please Try Again.");
+        System.out.println("Login Unsuccessful. Please Try Again.");
         System.out.println("");
         return false;
     }
