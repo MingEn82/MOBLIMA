@@ -1,3 +1,2 @@
-# MOBLIMA
+# MOBLIMA - SC2002 Project
 
-SC2002 Project
