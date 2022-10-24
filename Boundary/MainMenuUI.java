@@ -75,24 +75,25 @@ public class MainMenuUI {
 
         do {
             System.out.println(""); // print empty line
-            System.out.println("Welcome to Staff Portal");
+            System.out.println("+-------------------------------------------------------+");
+            System.out.println("|               Welcome to Staff Portal                 |");
             System.out.println("---------------------------------------------------------");
-            System.out.println("Staff Menu:");
-            System.out.println("1. Create/Update/Remove Movie Listings");
-            System.out.println("2. Create/Update/Remove Showings");
-            System.out.println("3. Show top 5 movies");
-            System.out.println("4. Configure System Settings");
-            System.out.println("5. Register New Staff Account");
-            System.out.println("6. Return to homepage");
+            System.out.println("| 1. Create/Update/Remove Movie Listings                |");               
+            System.out.println("| 2. Create/Update/Remove Showings                      |");                     
+            System.out.println("| 3. Show top 5 movies                                  |");
+            System.out.println("| 4. Configure System Settings                          |");
+            System.out.println("| 5. Register New Staff Account                         |");
             System.out.println("---------------------------------------------------------");
+            System.out.println("|             Enter 0 to go back to Main Menu           |");
+            System.out.println("+-------------------------------------------------------+");
             System.out.println(""); // print empty line
 
             choice = scanner.nextInt();
 
-            if (choice != 6) {
+            if (choice != 0) {
                 staffController.processStaffChoice(choice);
             }
-        } while (choice != 6);
+        } while (choice != 0);
 
     }
 
@@ -100,6 +101,7 @@ public class MainMenuUI {
         int choice;
         do {
             System.out.println(""); // print empty line
+            System.out.println("+-------------------------------------------------------+");
             System.out.println("---------------------------------------------------------");
             System.out.println("Movie Goer Menu:");
             System.out.println("1. Find movies");
