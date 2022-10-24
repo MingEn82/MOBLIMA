@@ -85,7 +85,7 @@ public class MainMenuUI {
             staffController.triggerLogin();
         }
 
-        System.out.println("User is logged in.");
+        
 
         do {
             System.out.println(""); // print empty line

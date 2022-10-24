@@ -72,7 +72,6 @@ public class StaffController {
             System.out.println("");
             return true;
         }
-        System.out.println("Login Unsuccessful. Please Try Again.");
         System.out.println("");
         return false;
     }
