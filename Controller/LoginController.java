@@ -28,9 +28,9 @@ public class LoginController {
         System.out.println("Welcome Staff Login Portal");
         System.out.println("---------------------------------------------------------");
         System.out.println("");
-        System.out.println("Enter Username: ");
+        System.out.print("Enter Username: ");
         username = sc.next();
-        System.out.println("Enter Password: ");
+        System.out.print("Enter Password: ");
         password = sc.next();
         System.out.println("");
         System.out.println("---------------------------------------------------------");
@@ -46,9 +46,9 @@ public class LoginController {
         System.out.println("Register New Staff Account");
         System.out.println("---------------------------------------------------------");
         System.out.println("");
-        System.out.println("Enter Username: ");
+        System.out.print("Enter Username: ");
         username = sc.next();
-        System.out.println("Enter Password: ");
+        System.out.print("Enter Password: ");
         password = sc.next();
         System.out.println("");
         System.out.println("---------------------------------------------------------");
