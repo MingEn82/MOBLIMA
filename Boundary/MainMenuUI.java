@@ -4,76 +4,67 @@ import java.util.Scanner;
 import Controller.StaffController;
 import Controller.MovieGoerController;
 
-public class MainMenuUI
-{
+public class MainMenuUI {
     StaffController staffController = new StaffController();
     MovieGoerController movieGoerController = new MovieGoerController();
 
-
     Scanner scanner = new Scanner(System.in);
-    
 
     public MainMenuUI() {
     }
 
-    public void displayMainMenu(){
+    public void displayMainMenu() {
         System.out.println(""); // print empty line
         System.out.println("Welcome to Moblima!");
         int choice;
 
-        do
-            {
-                
-                System.out.println("---------------------------------------------------------");
-                System.out.println("Main Menu:");
-                System.out.println("1. Movie Goer");
-                System.out.println("2. Cinema Staff");
-                System.out.println("3. Exit Program");
-                System.out.println("---------------------------------------------------------");
-                System.out.println(""); // print empty line
+        do {
 
-                choice = scanner.nextInt();
-                System.out.println("Choice chosen is: " + choice);
+            System.out.println("---------------------------------------------------------");
+            System.out.println("Main Menu:");
+            System.out.println("1. Movie Goer");
+            System.out.println("2. Cinema Staff");
+            System.out.println("3. Exit Program");
+            System.out.println("---------------------------------------------------------");
+            System.out.println(""); // print empty line
 
-                switch(choice){
-                    case 1:
+            choice = scanner.nextInt();
+            System.out.println("Choice chosen is: " + choice);
+
+            switch (choice) {
+                case 1:
                     System.out.println("Entering Movie Goer's portal...");
                     System.out.println(""); // print empty line
                     displayMovieGoerMenu();
                     break;
-        
-                    case 2:
+
+                case 2:
                     System.out.println("Entering Cinema's Staff portal...");
                     System.out.println(""); // print empty line
                     displayStaffMenu();
                     break;
-        
-                    case 3:
+
+                case 3:
                     System.out.println("Thank you for your time! See you again!");
                     System.out.println(""); // print empty line
                     scanner.close();
                     System.exit(0);
                     break;
-        
-                    default:
+
+                default:
                     System.out.println("You have not selected the right option. Please re-enter your option.");
                     System.out.println(""); // print empty line
                     break;
-                }
             }
-            while (choice != 0);
+        } while (choice != 0);
 
-        
-        
     }
 
-    public void displayStaffMenu(){
+    public void displayStaffMenu() {
 
         int choice;
-        
 
-        while(!staffController.checkLoggedin())
-        {
+        while (!staffController.checkLoggedin()) {
             System.out.println("You are not logged in.");
             System.out.println("Redirecting to login page for staff....");
             System.out.println(""); // print empty line
@@ -82,8 +73,7 @@ public class MainMenuUI
 
         System.out.println("User is logged in.");
 
-        do
-        {
+        do {
             System.out.println(""); // print empty line
             System.out.println("Welcome to Staff Portal");
             System.out.println("---------------------------------------------------------");
@@ -93,28 +83,22 @@ public class MainMenuUI
             System.out.println("3. Show top 5 movies");
             System.out.println("4. Configure System Settings");
             System.out.println("5. Register New Staff Account");
-            System.out.println("6. Logout and return to homepage");
+            System.out.println("6. Return to homepage");
             System.out.println("---------------------------------------------------------");
             System.out.println(""); // print empty line
 
             choice = scanner.nextInt();
-            
 
-            if (choice != 6)
-            {
+            if (choice != 6) {
                 staffController.processStaffChoice(choice);
             }
-        }
-        while (choice != 6);
-        
-        
+        } while (choice != 6);
+
     }
 
-    public void displayMovieGoerMenu()
-    {
+    public void displayMovieGoerMenu() {
         int choice;
-        do
-        {
+        do {
             System.out.println(""); // print empty line
             System.out.println("---------------------------------------------------------");
             System.out.println("Movie Goer Menu:");
@@ -127,16 +111,10 @@ public class MainMenuUI
 
             choice = scanner.nextInt();
 
-            if (choice != 4)
-            {
+            if (choice != 4) {
                 movieGoerController.processMovieGoerChoice(choice);
             }
-        }
-        while (choice != 4);
+        } while (choice != 4);
     }
 
-    
-    
 }
-
-    

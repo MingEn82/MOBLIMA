@@ -50,7 +50,7 @@ public class StaffController {
                 break;
 
             case 6:
-                System.out.println("Logging out and returning to homepage...");
+                System.out.println("Returning to homepage...");
                 System.out.println("");
                 break;
 
