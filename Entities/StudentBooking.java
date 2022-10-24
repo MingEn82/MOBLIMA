@@ -5,6 +5,9 @@ import java.util.Date;
 
 import Controller.SystemSettingController;
 
+/**
+ * This class extends the existing booking class and implement its own calculate price method.
+ */
 public class StudentBooking extends Booking {
 
     public StudentBooking(String tID, int phoneNumberOfMovieGoer, String nameOfMovieGoer, String emailOfMovieGoer,
@@ -15,7 +18,9 @@ public class StudentBooking extends Booking {
                 movieTitle, movieDuration, movieType, cinemaType, startDate, price);
     }
 
-    // override super class method
+    /**
+     * Overwrites the existing Booking class calBookingPrice method to calculate its own price for an student booking.
+     */
     public void calBookingPrice() {
         SystemSettings currentSettings = new SystemSettingController().getSystemSetting();
         // System.out.println("currentSettings = " +

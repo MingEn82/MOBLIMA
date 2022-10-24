@@ -58,6 +58,27 @@ public class BookingController {
 
 
     /**
+     * This function checks whether if a booking already exist for a particular showing.
+     * Staff is not supposed to update an existing showing details such as showtime once booking has happened.
+     * Returns false if no booking is found. Else, returns true.
+     * @param cineplexName
+     * @param cinemaName
+     * @param movieTitle
+     * @param startDate
+     * @return
+     */
+    public boolean bookingExistForShowing(String cineplexName, String cinemaName, String movieTitle, Date startDate)
+    {
+        for (Booking b : bookings) {
+            if (b.getCineplexName().toLowerCase().trim().equals(cineplexName.toLowerCase().trim()) && b.getCinemaName().toLowerCase().trim().equals(cinemaName.toLowerCase().trim()) && b.getMovieTitle().toLowerCase().trim().equals(movieTitle.toLowerCase().trim()) && b.getStartDate() == startDate)
+            {
+                return true;
+            }
+            
+        }
+        return false;
+    }
+    /**
      * This function prompts the user to select a movie, a cinema and choose one of the available showing.
      * He will also need to key in his/her name, email address and phone number.
      * Price will be calculated depending on the movie type, time/date of movie, cinema type and whether the type of ticket.

@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import Controller.SystemSettingController;
 
+/**
+ * This class extends the existing booking class and implement its own calculate price method.
+ */
 public class AdultBooking extends Booking{
 
     public AdultBooking(String tID, int phoneNumberOfMovieGoer, String nameOfMovieGoer, String emailOfMovieGoer,
@@ -13,10 +16,9 @@ public class AdultBooking extends Booking{
             super(tID, phoneNumberOfMovieGoer, nameOfMovieGoer, emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, movieDuration, movieType, cinemaType, startDate, price);
     }
 
-    //override super class method
-    //need to first check system settings for variables such as price for cinematype etc etc.
-    //afterwards, use TID(for date), cinemaType, movieType + the discount for a child price.
-    //then set the price as accordingly.
+    /**
+     * Overwrites the existing Booking class calBookingPrice method to calculate its own price for an adult booking.
+     */
     public void calBookingPrice(){
         SystemSettings currentSettings = new SystemSettingController().getSystemSetting();
         //System.out.println("currentSettings = " + currentSettings.getSeniorRegularTicketPrices());

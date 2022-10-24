@@ -14,6 +14,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 
+/**
+ * BookingsDatabaseController is a controller that is used to write and read from the booking text file.
+ */
 public class BookingsDatabaseController implements DatabaseController {
     private String fileString = "./Database/BookingsDatabase.txt";
     private File file;
@@ -37,6 +40,9 @@ public class BookingsDatabaseController implements DatabaseController {
         return this.bookings;
     }
 
+    /**
+     * This function reads the file from the bookings text file.
+     */
     public void readFile() {
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
@@ -74,6 +80,9 @@ public class BookingsDatabaseController implements DatabaseController {
         }
     }
     
+    /**
+     * This function prints all the bookings.
+     */
     public void printBookings() {
         for (Booking b : bookings) {
             b.printBooking();
@@ -81,7 +90,10 @@ public class BookingsDatabaseController implements DatabaseController {
         }
     }
 
-    // To include price calculation
+    /**
+     * This function takes in a booking object and add the new booking object into database by writing into the text file.
+     * @param bookingObject
+     */
     public void addNewBooking(Booking bookingObject) {
         Booking newBooking = bookingObject;
         //System.out.println("The new booking object is " +newBooking);
@@ -102,11 +114,19 @@ public class BookingsDatabaseController implements DatabaseController {
         }
     }
 
+    /**
+     * This function deletes bookings if the bookings has the relevant movieTitle.
+     * @param movieTitle
+     */
     public void deleteBookings(String movieTitle) {
         bookings.removeIf(b -> b.getMovieTitle().equals(movieTitle));
         this.updateDatabase();
     }
 
+    /**
+     * This function deletes bookings if movie title, cineplex name, cinema name and date is the same.
+     * @param movieTitle
+     */
     public void deleteBookings(String movieTitle, String cineplexName, String cinemaName, String date) {
         DateParser dp = new DateParser("YYYYMMddHHmm");
         Date startDate = dp.parseDate(date);
@@ -115,6 +135,9 @@ public class BookingsDatabaseController implements DatabaseController {
         this.updateDatabase();
     }
 
+    /**
+     * This function writes the entire booking object held by controller into database when needed.
+     */
     public void updateDatabase() {
         try {
             bf = new BufferedWriter(new FileWriter(file, false));
