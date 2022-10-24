@@ -79,8 +79,7 @@ public class MainMenuUI {
         int choice;
 
         while (!staffController.checkLoggedin()) {
-            System.out.println("You are not logged in.");
-            System.out.println("Redirecting to login page for staff....");
+            System.out.println("Redirecting to login page for staff login");
             System.out.println(""); // print empty line
             staffController.triggerLogin();
         }
