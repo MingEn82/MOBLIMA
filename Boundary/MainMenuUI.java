@@ -50,8 +50,8 @@ public class MainMenuUI {
                     break;
 
                 case 2:
-                    System.out.println("Entering Cinema's Staff portal...");
                     System.out.println(""); // print empty line
+                    System.out.println("Entering Cinema's Staff portal...");
                     displayStaffMenu();
                     break;
 
@@ -79,7 +79,7 @@ public class MainMenuUI {
         int choice;
 
         while (!staffController.checkLoggedin()) {
-            System.out.println("Redirecting to login page for staff login");
+            System.out.println("Redirecting to Staff Portal Login Page");
             System.out.println(""); // print empty line
             staffController.triggerLogin();
         }

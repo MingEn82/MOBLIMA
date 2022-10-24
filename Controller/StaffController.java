@@ -20,24 +20,28 @@ public class StaffController {
     public void processStaffChoice(int choice) {
         switch (choice) {
             case 1:
+                System.out.println("");
                 System.out.println("Entering Movie Mangement System...");
                 System.out.println("");
                 adminMovieController.displayMenu();
                 break;
 
             case 2:
+                System.out.println("");
                 System.out.println("Entering Showing Mangement System...");
                 System.out.println("");
                 showingController.displayMenu();
                 break;
 
             case 3:
+                System.out.println("");
                 System.out.println("Showing Top 5 Movies...");
                 System.out.println("");
                 adminMovieController.viewTopMovies();
                 break;
 
             case 4:
+                System.out.println("");
                 System.out.println("Entering System Configuration...");
                 System.out.println("");
                 systemSettingController.displaySystemSetting();
@@ -50,11 +54,13 @@ public class StaffController {
                 break;
 
             case 6:
+                System.out.println("");
                 System.out.println("Returning to homepage...");
                 System.out.println("");
                 break;
 
             default:
+                System.out.println("");
                 System.out.println("Please enter a valid choice");
                 System.out.println("");
                 break;
@@ -68,8 +74,8 @@ public class StaffController {
      */
     public boolean checkLoggedin() {
         if (loginController.getIsLoggedIn() == true) {
-            System.out.println("You are currently logged in as [" + loginController.currentStaff.getUsername() + "]");
             System.out.println("");
+            System.out.println("You are currently logged in as [" + loginController.currentStaff.getUsername() + "]");
             return true;
         }
         System.out.println("");

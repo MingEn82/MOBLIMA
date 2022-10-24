@@ -25,15 +25,16 @@ public class LoginController {
      */
     public void displayLogin() {
         String username, password;
-        System.out.println("Welcome Staff Login Portal");
-        System.out.println("---------------------------------------------------------");
+        System.out.println("+-------------------------------------------------------+");
+        System.out.println("|               Welcome to Staff Portal                 |");
+        System.out.println("+-------------------------------------------------------+");
         System.out.println("");
-        System.out.print("Enter Username: ");
+        System.out.print("  Enter Username: ");
         username = sc.next();
-        System.out.print("Enter Password: ");
+        System.out.println("");
+        System.out.print("  Enter Password: ");
         password = sc.next();
         System.out.println("");
-        System.out.println("---------------------------------------------------------");
         
         if (loginUser(username, password) == true)
         {
@@ -42,11 +43,17 @@ public class LoginController {
         }
         else
         {
-            System.out.println("Login unsuccessful.");
+            System.out.println("Login unsuccessful. Please try again.");
         }
 
     }
 
+    /**
+     * This method will call Staff DB Controller to login
+     * @param username username input
+     * @param password password input
+     * @return True if login successful, else False if login unsuccessful
+     */
     public boolean loginUser(String username, String password)
     {
         return sDBCtrl.login(username, password);
@@ -58,15 +65,16 @@ public class LoginController {
      */
     public void displaySignup() {
         String username, password;
-        System.out.println("Register New Staff Account");
-        System.out.println("---------------------------------------------------------");
+        System.out.println("+-------------------------------------------------------+");
+        System.out.println("|              Staff Account Registration               |");
+        System.out.println("+-------------------------------------------------------+");
         System.out.println("");
-        System.out.print("Enter Username: ");
+        System.out.print("  Enter Username: ");
         username = sc.next();
-        System.out.print("Enter Password: ");
+        System.out.println("");
+        System.out.print("  Enter Password: ");
         password = sc.next();
         System.out.println("");
-        System.out.println("---------------------------------------------------------");
         this.newStaff = new Staff(username, password);
         createNewStaff();
     }
@@ -76,7 +84,6 @@ public class LoginController {
      * on the database
      */
     public void createNewStaff() {
-        System.out.println("");
         System.out.println("Registering a new account for [" + newStaff.getUsername() + "] ...");
         System.out.println("");
         sDBCtrl.addNewStaff(newStaff.getUsername(), newStaff.getPassword());
