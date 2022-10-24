@@ -19,14 +19,17 @@ public class MainMenuUI {
         int choice;
 
         do {
-
-            System.out.println("---------------------------------------------------------");
-            System.out.println("Main Menu:");
-            System.out.println("1. Movie Goer");
-            System.out.println("2. Cinema Staff");
-            System.out.println("3. Exit Program");
-            System.out.println("---------------------------------------------------------");
             System.out.println(""); // print empty line
+            System.out.println("+-------------------------------------------------------+");
+            System.out.println("|               Welcome to Main Menu                    |");
+            System.out.println("|-------------------------------------------------------|");
+            System.out.println("| 1. Movie Goer                                         |");               
+            System.out.println("| 2. Cinema Staff                                       |");                     
+            System.out.println("|-------------------------------------------------------|");
+            System.out.println("|             Enter 0 to Exit Program                   |");
+            System.out.println("+-------------------------------------------------------+");
+            System.out.println(""); // print empty line
+
 
             choice = scanner.nextInt();
             System.out.println("Choice chosen is: " + choice);
@@ -44,7 +47,7 @@ public class MainMenuUI {
                     displayStaffMenu();
                     break;
 
-                case 3:
+                case 0:
                     System.out.println("Thank you for your time! See you again!");
                     System.out.println(""); // print empty line
                     scanner.close();
@@ -77,13 +80,13 @@ public class MainMenuUI {
             System.out.println(""); // print empty line
             System.out.println("+-------------------------------------------------------+");
             System.out.println("|               Welcome to Staff Portal                 |");
-            System.out.println("---------------------------------------------------------");
+            System.out.println("|-------------------------------------------------------|");
             System.out.println("| 1. Create/Update/Remove Movie Listings                |");               
             System.out.println("| 2. Create/Update/Remove Showings                      |");                     
             System.out.println("| 3. Show top 5 movies                                  |");
             System.out.println("| 4. Configure System Settings                          |");
             System.out.println("| 5. Register New Staff Account                         |");
-            System.out.println("---------------------------------------------------------");
+            System.out.println("|-------------------------------------------------------|");
             System.out.println("|             Enter 0 to go back to Main Menu           |");
             System.out.println("+-------------------------------------------------------+");
             System.out.println(""); // print empty line
@@ -102,21 +105,22 @@ public class MainMenuUI {
         do {
             System.out.println(""); // print empty line
             System.out.println("+-------------------------------------------------------+");
-            System.out.println("---------------------------------------------------------");
-            System.out.println("Movie Goer Menu:");
-            System.out.println("1. Find movies");
-            System.out.println("2. View booking history");
-            System.out.println("3. List Top 5 Movies");
-            System.out.println("4. Exit to homepage");
-            System.out.println("---------------------------------------------------------");
+            System.out.println("|              Welcome to Movie Goer Menu               |");
+            System.out.println("|-------------------------------------------------------|");
+            System.out.println("| 1. Find movies                                        |");
+            System.out.println("| 2. View booking history                               |");
+            System.out.println("| 3. List Top 5 Movies                                  |");
+            System.out.println("|-------------------------------------------------------|");
+            System.out.println("|             Enter 0 to go back to Main Menu           |");
+            System.out.println("+-------------------------------------------------------+");
             System.out.println(""); // print empty line
 
             choice = scanner.nextInt();
 
-            if (choice != 4) {
+            if (choice != 0) {
                 movieGoerController.processMovieGoerChoice(choice);
             }
-        } while (choice != 4);
+        } while (choice != 0);
     }
 
 }
