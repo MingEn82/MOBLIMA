@@ -1,6 +1,8 @@
 package Controller;
 
-
+/**
+ * This class is a controller class that is designed to handle the different options of a cinema staff.
+ */
 public class StaffController {
 
     LoginController loginController = new LoginController();
