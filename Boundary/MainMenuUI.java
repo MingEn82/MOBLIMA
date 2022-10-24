@@ -56,7 +56,11 @@ public class MainMenuUI {
                     break;
 
                 case 0:
-                    System.out.println("Thank you for your time! See you again!");
+                    System.out.println("Thank you for your time!");
+                    System.out.println("░█▀▀░█▀▀░█▀▀░░░█░█░█▀█░█░█░░░█▀█░█▀▀░█▀█░▀█▀░█▀█");
+                    System.out.println("░▀▀█░█▀▀░█▀▀░░░░█░░█░█░█░█░░░█▀█░█░█░█▀█░░█░░█░█");
+                    System.out.println("░▀▀▀░▀▀▀░▀▀▀░░░░▀░░▀▀▀░▀▀▀░░░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░▀");
+
                     System.out.println(""); // print empty line
                     scanner.close();
                     System.exit(0);
