@@ -30,9 +30,9 @@ public class MainMenuUI {
             System.out.println("+-------------------------------------------------------+");
             System.out.println(""); // print empty line
 
-
+            System.out.print("Choice chosen is: ");
             choice = scanner.nextInt();
-            System.out.println("Choice chosen is: " + choice);
+            
 
             switch (choice) {
                 case 1:
@@ -79,7 +79,7 @@ public class MainMenuUI {
         do {
             System.out.println(""); // print empty line
             System.out.println("+-------------------------------------------------------+");
-            System.out.println("|               Welcome to Staff Portal                 |");
+            System.out.println("|                   Staff Portal                        |");
             System.out.println("|-------------------------------------------------------|");
             System.out.println("| 1. Create/Update/Remove Movie Listings                |");               
             System.out.println("| 2. Create/Update/Remove Showings                      |");                     
@@ -87,10 +87,10 @@ public class MainMenuUI {
             System.out.println("| 4. Configure System Settings                          |");
             System.out.println("| 5. Register New Staff Account                         |");
             System.out.println("|-------------------------------------------------------|");
-            System.out.println("|             Enter 0 to go back to Main Menu           |");
+            System.out.println("|           Enter 0 to go back to Main Menu             |");
             System.out.println("+-------------------------------------------------------+");
             System.out.println(""); // print empty line
-
+            System.out.print("Choice chosen is: ");
             choice = scanner.nextInt();
 
             if (choice != 0) {
@@ -105,7 +105,7 @@ public class MainMenuUI {
         do {
             System.out.println(""); // print empty line
             System.out.println("+-------------------------------------------------------+");
-            System.out.println("|              Welcome to Movie Goer Menu               |");
+            System.out.println("|                   Movie Goer Menu                     |");
             System.out.println("|-------------------------------------------------------|");
             System.out.println("| 1. Find movies                                        |");
             System.out.println("| 2. View booking history                               |");
@@ -114,8 +114,9 @@ public class MainMenuUI {
             System.out.println("|             Enter 0 to go back to Main Menu           |");
             System.out.println("+-------------------------------------------------------+");
             System.out.println(""); // print empty line
-
+            System.out.print("Choice chosen is: ");
             choice = scanner.nextInt();
+
 
             if (choice != 0) {
                 movieGoerController.processMovieGoerChoice(choice);

@@ -12,17 +12,14 @@ public class MovieGoerController {
         //System.out.println("OK movie goer choice works, choice is "+ choice);
         switch(choice){
             case 1:
-            System.out.println("Executing movieGoerMovieController.findMovies()");
             movieGoerMovieController.findMovies();
             break;
 
             case 2:
-            //System.out.println("Executing bookingController.viewBookingHistory()");
             bookingController.viewBookingHistory();
             break;
 
             case 3:
-            System.out.println("Executing movieGoerMovieController.viewTopMovies()");
             movieGoerMovieController.viewTopMovies();
             break;
 
