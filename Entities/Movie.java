@@ -137,16 +137,26 @@ public class Movie implements Comparable<Movie> {
     }
 
     public void print() {
+        System.out.println(""); // print empty line
+        System.out.println("---------------------------------------------------------");
         System.out.println("Movie Title: " + movieTitle + " (" + showingStatus + ")");
-        System.out.println("Duration: " + duration + " mins");
-        System.out.println("Synopsis: " + synopsis);
+        System.out.println("---------------------------------------------------------");
+        System.out.println("Duration: " + duration + " mins");               
+        System.out.println("Synopsis: " + synopsis);                    
         System.out.println("Director: " + director);
         System.out.println("Cast: " + String.join(", ", cast));
+        
+        
+        
+        
+        
+        
         if (overallRating >= 0) {
             System.out.println("Overall Rating: " + overallRating);
         } else {
             System.out.println("Overall Rating: N/A");
         }
+        System.out.println("---------------------------------------------------------");
         System.out.println("");
     }
 

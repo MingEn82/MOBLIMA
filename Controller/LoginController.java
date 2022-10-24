@@ -28,13 +28,28 @@ public class LoginController {
         System.out.println("Welcome Staff Login Portal");
         System.out.println("---------------------------------------------------------");
         System.out.println("");
-        System.out.println("Enter Username: ");
+        System.out.print("Enter Username: ");
         username = sc.next();
-        System.out.println("Enter Password: ");
+        System.out.print("Enter Password: ");
         password = sc.next();
         System.out.println("");
         System.out.println("---------------------------------------------------------");
-        this.currentStaff = new Staff(username, password);
+        
+        if (loginUser(username, password) == true)
+        {
+            this.currentStaff = new Staff(username, password);
+            System.out.println("Login successful!");
+        }
+        else
+        {
+            System.out.println("Login unsuccessful.");
+        }
+
+    }
+
+    public boolean loginUser(String username, String password)
+    {
+        return sDBCtrl.login(username, password);
     }
 
     /**
@@ -46,9 +61,9 @@ public class LoginController {
         System.out.println("Register New Staff Account");
         System.out.println("---------------------------------------------------------");
         System.out.println("");
-        System.out.println("Enter Username: ");
+        System.out.print("Enter Username: ");
         username = sc.next();
-        System.out.println("Enter Password: ");
+        System.out.print("Enter Password: ");
         password = sc.next();
         System.out.println("");
         System.out.println("---------------------------------------------------------");
@@ -77,6 +92,10 @@ public class LoginController {
         if (currentStaff == null) {
             return false;
         }
-        return sDBCtrl.login(this.currentStaff.getUsername(), this.currentStaff.getPassword());
+        else
+        {
+            return true;
+        }
+        
     }
 }

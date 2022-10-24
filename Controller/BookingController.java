@@ -35,6 +35,7 @@ public class BookingController {
      */
     public void viewBookingHistory(){
         Scanner scanner = new Scanner(System.in);
+        System.out.println();
         System.out.println("Please enter your email address: ");
         System.out.println();
         System.out.print("Email address: ");
@@ -48,12 +49,12 @@ public class BookingController {
             if (b.getEmailOfMovieGoer().toLowerCase().trim().equals(emailAddress.toLowerCase().trim()))
             {
                 b.printBooking();
+                System.out.println("---------------------------------------------------------");
                 System.out.println("");
             }
             
         }
-        System.out.println("---------------------------------------------------------");
-        System.out.println();
+
     }
 
 
@@ -105,7 +106,7 @@ public class BookingController {
         // Get phone number of user
         tries = 3;
         while (tries > 0) {
-            System.out.println("Enter your phone number:");
+            System.out.print("Enter your phone number:");
             phoneNumberOfMovieGoer = scanner.nextInt();
             if (phoneNumberOfMovieGoer > 9999999 && phoneNumberOfMovieGoer < 100000000) {
                 break;
@@ -123,7 +124,7 @@ public class BookingController {
         scanner.nextLine();
         tries = 3;
         while (tries > 0) {
-            System.out.println("Enter your email address:");
+            System.out.print("Enter your email address:");
             emailOfMovieGoer = scanner.nextLine();
             if (emailOfMovieGoer.contains("@")) {
                 break;
@@ -138,7 +139,7 @@ public class BookingController {
         }
 
         // Get name of user
-        System.out.println("Enter your name:");
+        System.out.print("Enter your name:");
         nameOfMovieGoer = scanner.nextLine();
 
         do
@@ -146,6 +147,7 @@ public class BookingController {
             System.out.println(""); // print empty line
             System.out.println("---------------------------------------------------------");
             System.out.println("Are you a student/adult/senior?");
+            System.out.println("---------------------------------------------------------");
             System.out.println("1. Student");
             System.out.println("2. Adult");
             System.out.println("3. Senior Citizen");

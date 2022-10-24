@@ -1,29 +1,38 @@
 package Entities;
 
-public class Staff implements User {
-    private String username;
+/**
+ * Staff class that extend user.
+ */
+public class Staff extends User {
     private String password;
 
     public Staff () {
 
     }
-
+    /**
+     * Constructor for Staff Class.
+     * @param username
+     * @param password
+     */
     public Staff (String username, String password){
-        this.username = username;
+        this.setUsername(username);
         this.password = password;
     }
 
-    public String getUsername() {
-        return this.username;
-    }
-    public void setUsername(String username) {
-        this.username = username;
-    }
+    /**
+     * Getter method for password.
+     * @return
+     */
     public String getPassword() {
         return this.password;
     }
+    /**
+     * Setter method for password.
+     * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
     }
+
 
 }

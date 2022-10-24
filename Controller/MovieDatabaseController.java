@@ -138,12 +138,16 @@ public class MovieDatabaseController implements DatabaseController {
     }
 
     public void printReviews(String movieTitle) {
+        System.out.println("|-------------------------------------------------------|");
+        System.out.println("|                       Reviews                         |");
+        System.out.println("|-------------------------------------------------------|");
         for (Movie movie : movies) {
             if (movie.getMovieTitle().equals(movieTitle)) {
                 movie.printReviews();
                 return;
             }
         }
+        System.out.println("|-------------------------------------------------------|");
     }
 
     public void printReviews(String movieTitle, int phoneNumber) {
