@@ -61,41 +61,44 @@ public class SystemSettings {
 
     /** This method prints out the existing ticket prices */
     public void printTicketSettings() {
+        System.out.println(""); 
+        System.out.println("+-------------------------------------------------------+");
+        System.out.println("|               Ticket Price Information                |");
         System.out.println("---------------------------------------------------------");
-        System.out.println("");
-        System.out.println("************** Ticket Prices **************");
-        System.out.println("Weekday Ticket:                     $" + String.format("%.2f", weekdayPrices));
-        System.out.println("Weekend Ticket:                     $" + String.format("%.2f", weekendPrices));
-        System.out.println("Public Holiday Ticket:              $" + String.format("%.2f", pHPrices));
-        System.out.println("");
-        System.out.println("**************** Discounts ****************");
-        System.out.println("Student Discount:                  -$" + String.format("%.2f", studentDiscount));
-        System.out.println("Senior Citizen Discount:           -$" + String.format("%.2f", seniorDiscount));
-        System.out.println("");
-        System.out.println("************ Additional Charges ***********");
-        System.out.println("3D Movie:                          +$" + String.format("%.2f", threeDAddOn));
-        System.out.println("Blockbuster Movie:                 +$" + String.format("%.2f", blockbusterAddOn));
-        System.out.println("IMAX Movie:                        +$" + String.format("%.2f", IMAXAddOn));
-        System.out.println("Platinum Movie Suite:              +$" + String.format("%.2f", platinumAddOn));
-        System.out.println("");
-        System.out.println("---------------------------------------------------------");
-        System.out.println("");
-        System.out.println("Returning to previous menu...");
-        System.out.println("");
+        System.out.println("|==================== Ticket Prices ====================|");
+        System.out.println("| Weekday Ticket:                                $  " + String.format("%.2f", weekdayPrices) + "|");               
+        System.out.println("| Weekend Ticket:                                $  " + String.format("%.2f", weekendPrices) + "|"); 
+        System.out.println("| Public Holiday Ticket:                         $ " + String.format("%.2f", pHPrices) + "|");
+        System.out.println("|======================= Discounts =====================|");
+        System.out.println("| Student Discount:                            - $  " + String.format("%.2f", studentDiscount) + "|"); 
+        System.out.println("| Senior Citizen Discount:                     - $  " + String.format("%.2f", seniorDiscount) + "|");
+        System.out.println("|================== Additional Charges =================|"); 
+        System.out.println("| 3D Movie:                                    + $  " + String.format("%.2f", threeDAddOn) + "|"); 
+        System.out.println("| Blockbuster Movie:                           + $  " + String.format("%.2f", blockbusterAddOn) + "|"); 
+        System.out.println("| IMAX Movie:                                  + $  " + String.format("%.2f", IMAXAddOn) + "|"); 
+        System.out.println("| Platinum Movie Suite:                        + $  " + String.format("%.2f", platinumAddOn) + "|");  
+        System.out.println("+-------------------------------------------------------+");
+        System.out.println(""); 
     }
 
     /**
      * This method prints out the list of public holidays
      */
     public void printPHSettings() {
+        System.out.println("+-------------------------------------------------------+");
+        System.out.println("|              Public Holiday Information               |");
         System.out.println("---------------------------------------------------------");
-        System.out.println("");
-        System.out.println("************** Exisitng Public Holidays **************");
-        System.out.println("");
         SimpleDateFormat dateFormatter = new SimpleDateFormat("EEE dd MMM yyyy");
         for (int i = 1; i <= getPublicHolidays().size(); i++) {
-            System.out.println(i + ". " + dateFormatter.format(getPublicHolidays().get(i - 1)));
+            if(i>=10){
+                System.out.println("| " + i + ". " + dateFormatter.format(getPublicHolidays().get(i - 1))+"                                   |");
+            }
+            else {
+                System.out.println("| " + i + ". " + dateFormatter.format(getPublicHolidays().get(i - 1))+"                                    |");
+
+            }
         }
+        System.out.println("+-------------------------------------------------------+");
 
     }
 

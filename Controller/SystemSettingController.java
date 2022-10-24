@@ -37,18 +37,19 @@ public class SystemSettingController {
         System.out.println("Welcome to System Configuration");
 
         do {
+            System.out.println("+-------------------------------------------------------+");
+            System.out.println("|             Please select the your option             |");
             System.out.println("---------------------------------------------------------");
-            System.out.println("Menu:");
-            System.out.println("");
-            System.out.println("1. Display Public Holidays");
-            System.out.println("2. Add Public Holidays");
-            System.out.println("3. Remove Public Holidays");
-            System.out.println("4. Display Ticket Prices");
-            System.out.println("5. Edit Ticket Prices");
-            System.out.println("6. Return to Staff Portal");
-            System.out.println("");
+            System.out.println("| 1. Display Public Holidays                            |");
+            System.out.println("| 2. Add Public Holidays                                |");
+            System.out.println("| 3. Remove Public Holidays                             |");
+            System.out.println("| 4. Display Ticket Prices                              |");
+            System.out.println("| 5. Edit Ticket Prices                                 |");
             System.out.println("---------------------------------------------------------");
-            System.out.println("");
+            System.out.println("|           Enter 0 to return to Staff Portal           |");
+            System.out.println("+-------------------------------------------------------+");
+            System.out.println(""); 
+            System.out.print("Choice chosen is: "); 
             choice = scanner.nextInt();
 
             switch (choice) {
@@ -56,9 +57,6 @@ public class SystemSettingController {
                     System.out.println("Displaying Public Holidays...");
                     System.out.println(""); // print empty line
                     ss.printPHSettings();
-                    System.out.println("");
-                    System.out.println("---------------------------------------------------------");
-                    System.out.println("");
                     System.out.println("Returning to previous menu...");
                     System.out.println("");
                     break;
@@ -88,7 +86,7 @@ public class SystemSettingController {
                     updateTicketSetting();
                     break;
 
-                case 6:
+                case 0:
                     System.out.println("Returning to Staff Portal...");
                     System.out.println(""); // print empty line
                     break;
@@ -99,13 +97,12 @@ public class SystemSettingController {
                     System.out.println("");
                     break;
             }
-        } while (choice != 6);
+        } while (choice != 0);
 
     }
 
     public void addPHSetting() {
-        System.out.println("Please enter a new public holiday to be added in yyyyMMdd format:");
-        System.out.println("");
+        System.out.print("Please enter a new public holiday to be added in yyyyMMdd format: ");
         String dateString = scanner.next();
         SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyyMMdd");
         try {
@@ -120,10 +117,11 @@ public class SystemSettingController {
     }
 
     public void removePHSetting() {
-        System.out.println("Please select the date to be removed from the system::");
-        System.out.println("");
+        System.out.println("Please select the date to be removed from the system: ");
         ss.printPHSettings();
+        System.out.print("Choice chosen is: ");
         int index = scanner.nextInt();
+        
         ss.removePublicHolidays(index);
         sSDBCtrl.writeFile(ss);
         System.out.println("");
@@ -137,27 +135,28 @@ public class SystemSettingController {
         int choice;
 
         do {
+            System.out.println(""); 
+            System.out.println("+-------------------------------------------------------+");
+            System.out.println("|         Please select the item to be edited           |");
             System.out.println("---------------------------------------------------------");
-            System.out.println("Please select the item to be edited:");
-            System.out.println("");
-            System.out.println("************** Ticket Prices **************");
-            System.out.println("1. Weekday Ticket:                  $" + String.format("%.2f", ss.getweekdayPrices()));
-            System.out.println("2. Weekend Ticket:                  $" + String.format("%.2f", ss.getweekendPrices()));
-            System.out.println("3. Public Holiday Ticket:           $" + String.format("%.2f", ss.getpHPrices()));
-            System.out.println("");
-            System.out.println("**************** Discounts ****************");
-            System.out.println("4. Student Discount:               -$" + String.format("%.2f", ss.getstudentDiscount()));
-            System.out.println("5. Senior Citizen Discount:        -$" + String.format("%.2f", ss.getseniorDiscount()));
-            System.out.println("");
-            System.out.println("************ Additional Charges ***********");
-            System.out.println("6. 3D Movie:                       +$" + String.format("%.2f", ss.getthreeDAddOn()));
-            System.out.println("7. Blockbuster Movie:              +$" + String.format("%.2f", ss.getblockbusterAddOn()));
-            System.out.println("8. IMAX Movie:                     +$" + String.format("%.2f", ss.getIMAXAddOn()));
-            System.out.println("9. Platinum Movie Suite:           +$" + String.format("%.2f", ss.getplatinumAddOn()));
-            System.out.println("");
-            System.out.println("10. Return to previous menu");
+            System.out.println("|==================== Ticket Prices ====================|");
+            System.out.println("| 1. Weekday Ticket:                             $  " + String.format("%.2f", ss.getweekdayPrices()) + "|");               
+            System.out.println("| 2. Weekend Ticket:                             $  " + String.format("%.2f", ss.getweekendPrices()) + "|"); 
+            System.out.println("| 3. Public Holiday Ticket:                      $ " + String.format("%.2f", ss.getpHPrices()) + "|");
+            System.out.println("|======================= Discounts =====================|");
+            System.out.println("| 4. Student Discount:                         - $  " + String.format("%.2f", ss.getstudentDiscount()) + "|"); 
+            System.out.println("| 5. Senior Citizen Discount:                  - $  " + String.format("%.2f", ss.getseniorDiscount()) + "|");
+            System.out.println("|================== Additional Charges =================|"); 
+            System.out.println("| 6. 3D Movie:                                 + $  " + String.format("%.2f", ss.getthreeDAddOn()) + "|"); 
+            System.out.println("| 7. Blockbuster Movie:                        + $  " + String.format("%.2f", ss.getblockbusterAddOn()) + "|"); 
+            System.out.println("| 8. IMAX Movie:                               + $  " + String.format("%.2f", ss.getIMAXAddOn()) + "|"); 
+            System.out.println("| 9. Platinum Movie Suite:                     + $  " + String.format("%.2f", ss.getplatinumAddOn()) + "|");  
             System.out.println("---------------------------------------------------------");
-            System.out.println("");
+            System.out.println("|           Enter 0 to return to previous menu          |");
+            System.out.println("+-------------------------------------------------------+");
+            System.out.println(""); 
+            System.out.print("Choice chosen is: "); 
+
             choice = scanner.nextInt();
             float newPrice;
             float oldPrice;
@@ -352,7 +351,7 @@ public class SystemSettingController {
                     }
                     break;
 
-                case 10:
+                case 0:
                     System.out.println("Returning to previous menu...");
                     System.out.println(""); // print empty line
                     displaySystemSetting();
@@ -363,7 +362,7 @@ public class SystemSettingController {
                     System.out.println("");
                     break;
             }
-        } while (choice != 10);
+        } while (choice != 0);
 
     }
 }
