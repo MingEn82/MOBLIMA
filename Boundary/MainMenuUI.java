@@ -60,7 +60,6 @@ public class MainMenuUI {
                     System.out.println("░█▀▀░█▀▀░█▀▀░░░█░█░█▀█░█░█░░░█▀█░█▀▀░█▀█░▀█▀░█▀█");
                     System.out.println("░▀▀█░█▀▀░█▀▀░░░░█░░█░█░█░█░░░█▀█░█░█░█▀█░░█░░█░█");
                     System.out.println("░▀▀▀░▀▀▀░▀▀▀░░░░▀░░▀▀▀░▀▀▀░░░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░▀");
-
                     System.out.println(""); // print empty line
                     scanner.close();
                     System.exit(0);
