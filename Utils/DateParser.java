@@ -16,26 +16,22 @@ public class DateParser {
     }
 
     public Date parseDate(String s) {
-        Date d = null;
         try{
-            d = parser.parse(s);
+            Date d = parser.parse(s);
+            return d;
         } catch (ParseException e) {
-            e.printStackTrace();
+            return null;
         }
-
-        return d;
     }
 
     public Date parseDate(String s, String format) {
         setFormat(format);
-        Date d = null;
         try{
-            d = parser.parse(s);
+            Date d = parser.parse(s);
+            return d;
         } catch (ParseException e) {
-            e.printStackTrace();
+            return null;
         }
-
-        return d;
     }
 
     public String formatDate(Date d) {

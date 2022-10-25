@@ -1,8 +1,9 @@
 package Controller;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
+
+import Entities.AgeRating;
 
 public class AdminMovieController extends MovieController{
     private ShowingsDatabaseController showingsDC;
@@ -58,18 +59,34 @@ public class AdminMovieController extends MovieController{
         sc.nextLine();
         System.out.println("Enter movie title: ");
         String movieTitle = sc.nextLine();
+        
         String showingStatus;
         do {
             System.out.println("Enter showing status (Coming Soon, Preview, Now Showing): ");
             showingStatus = sc.nextLine();
         } while (!showingStatus.equals("Coming Soon") && !showingStatus.equals("Preview") && !showingStatus.equals("Now Showing"));
+        
         System.out.println("Enter movie duration (in mins): ");
         int movieDuration = sc.nextInt();
         sc.nextLine();
+        
+        AgeRating ageRating = null;
+        do {
+            System.out.println("Enter movie rating (G, PG, PG13, NC16, M18, R21): ");
+            try {
+                ageRating = AgeRating.valueOf(sc.nextLine());
+            } catch (IllegalArgumentException e) {
+                ageRating = null;
+                System.out.println("Invalid movie rating entered");
+            }
+        } while (ageRating == null);
+        
         System.out.println("Enter movie synopsis: ");
         String synopsis = sc.nextLine();
+        
         System.out.println("Enter director: ");
         String director = sc.nextLine();
+        
         ArrayList<String> casts = new ArrayList<String>();
         String cast;
         do {
@@ -78,7 +95,7 @@ public class AdminMovieController extends MovieController{
             if (!cast.equals("0"))
                 casts.add(cast);
         } while (!cast.equals("0"));
-        moviesDC.addNewMovie(movieTitle, showingStatus, synopsis, director, casts.toArray(new String[0]), movieDuration);
+        moviesDC.addNewMovie(movieTitle, showingStatus, synopsis, ageRating, director, casts.toArray(new String[0]), movieDuration);
     }
 
     // Not sure if correct implementation

@@ -63,7 +63,7 @@ public class CineplexDatabaseController implements DatabaseController {
     }
 
     // For creating a new cinema
-    public void createNewCinema(String cineplexName, String cineplexID, String cinemaName, String cinemaNumber, CinemaDetails cinemaDetails) {
+    public void createNewCinema(String cineplexName, String cineplexID, String cinemaName, String cinemaNumber, CinemaType cinemaDetails) {
         for (Cineplex cineplex : cineplexes) {
             if (cineplex.getCineplexID().equals(cineplexID)) {
                 for (Cinema cinema : cineplex.getCinemas()) {
@@ -83,7 +83,7 @@ public class CineplexDatabaseController implements DatabaseController {
             outputArray.add(cineplexID);
             outputArray.add(cinemaName);
             outputArray.add(cinemaNumber);
-            outputArray.add(cinemaDetails.getType());
+            outputArray.add(cinemaDetails.toString());
 
             String output = String.join(", ", outputArray);
             pw.append("\n");
@@ -129,7 +129,7 @@ public class CineplexDatabaseController implements DatabaseController {
      */
     public String[] getShowingInformation(String cineplexName, String cinemaName, String movieTitle, Date startDate) {
         ArrayList<String> info = new ArrayList<String>();
-        DateParser dp = new DateParser("YYYYMMddHHmm");
+        DateParser dp = new DateParser("yyyyMMddHHmm");
 
         for (Cineplex cineplex : cineplexes) {
             if (!cineplex.getCineplexName().equals(cineplexName))
@@ -145,11 +145,10 @@ public class CineplexDatabaseController implements DatabaseController {
                     if (showing.getStartDate().compareTo(startDate) == 0 && showing.getMovieTitle().equals(movieTitle)) {
                         // Add Movie Type
                         info.add(showing.getMovieType());
-                        // Print seats
-                        showing.print(cinema.getAisleArray());
-
-
-
+                        // Print cinema arrangement for this showing
+                        System.out.println(cinema.getScreenLayout());
+                        showing.printSeats(cinema.getAisles());
+                        System.out.println(cinema.getEntranceLayout());
                         return info.toArray(new String[0]);
                     }
                 }
@@ -169,33 +168,30 @@ public class CineplexDatabaseController implements DatabaseController {
         String cineplexID = cinemaData[1];
         String cinemaName = cinemaData[2];
         String cinemaNumber = cinemaData[3];
-        CinemaDetails cinemaDetails;
+        Cinema newCinema = null;
         switch (cinemaData[4]) {
             case "Standard":
-                cinemaDetails = CinemaDetails.STANDARD;
+                newCinema = new StandardCinema(null, cinemaName, cinemaNumber);
                 break;
             case "IMAX":
-                cinemaDetails = CinemaDetails.IMAX;
+                newCinema = new IMAXCinema(null, cinemaName, cinemaNumber);
                 break;
             case "Platinum Movie Suite":
-                cinemaDetails = CinemaDetails.PLATINUM_MOVIE_SUITE;
+                newCinema = new PlatinumMovieSuitesCinema(null, cinemaName, cinemaNumber);
                 break;
-            default:
-                cinemaDetails = CinemaDetails.STANDARD;
         }
 
-        String[] seatsData = cinemaDetails.getSeatArrangement();
-        ArrayList<Showing> showings = this.generateShowings(cineplexName, cinemaName, seatsData);
-        Cinema cinema = new Cinema(cinemaDetails, showings, cinemaName, cinemaNumber);
+        ArrayList<Showing> showings = this.generateShowings(cineplexName, cinemaName, newCinema.getSeatArrangement().split(", "));
+        newCinema.setShowings(showings);
 
         int cineplexIndex = addedCineplexesID.indexOf(cineplexID);
         if (cineplexIndex > -1) {
             Cineplex tmpCineplex = cineplexes.get(cineplexIndex);
-            tmpCineplex.addCinema(cinema);
+            tmpCineplex.addCinema(newCinema);
             cineplexes.set(cineplexIndex, tmpCineplex);
         } else {
             Cineplex tmpCineplex = new Cineplex(cineplexName, cineplexID);
-            tmpCineplex.addCinema(cinema);
+            tmpCineplex.addCinema(newCinema);
             cineplexes.add(tmpCineplex);
             addedCineplexesID.add(cineplexID);
         }
@@ -208,7 +204,7 @@ public class CineplexDatabaseController implements DatabaseController {
         ArrayList<String[]> allShowings = sdc.filterShowings(cineplexName, cinemaName);
         for (String[] showingData : allShowings) {
             String movieTitle = showingData[0];
-            DateParser dp = new DateParser("YYYYMMddHHmm");
+            DateParser dp = new DateParser("yyyyMMddHHmm");
             Date startDate = dp.parseDate(showingData[3]);
             String movieType = showingData[4];
             String[] bookedSeats = null;

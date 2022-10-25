@@ -106,7 +106,7 @@ public class BookingController {
         // Get phone number of user
         tries = 3;
         while (tries > 0) {
-            System.out.print("Enter your phone number:");
+            System.out.print("Enter your phone number: ");
             phoneNumberOfMovieGoer = scanner.nextInt();
             if (phoneNumberOfMovieGoer > 9999999 && phoneNumberOfMovieGoer < 100000000) {
                 break;
@@ -124,7 +124,7 @@ public class BookingController {
         scanner.nextLine();
         tries = 3;
         while (tries > 0) {
-            System.out.print("Enter your email address:");
+            System.out.print("Enter your email address: ");
             emailOfMovieGoer = scanner.nextLine();
             if (emailOfMovieGoer.contains("@")) {
                 break;
@@ -139,7 +139,7 @@ public class BookingController {
         }
 
         // Get name of user
-        System.out.print("Enter your name:");
+        System.out.print("Enter your name: ");
         nameOfMovieGoer = scanner.nextLine();
 
         do
@@ -167,7 +167,6 @@ public class BookingController {
                 bookingsDatabaseController.addNewBooking(newBooking);
                 System.out.println("Booking is successful!");
                 return true;
-                
                 
                 case 2:
                 newBooking = new AdultBooking(TID, phoneNumberOfMovieGoer, nameOfMovieGoer,emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, movieDuration, movieType, cinemaType, startDate, price);
@@ -202,9 +201,4 @@ public class BookingController {
         
         return false;
     }
-
-
-
-
-    
 }

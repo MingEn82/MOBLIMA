@@ -56,6 +56,9 @@ public class BookingsDatabaseController implements DatabaseController {
             DateParser dp = new DateParser("yyyyMMddHHmm");
             while (line != null) {
                 bookingLine = line.split(", ");
+                if (bookingLine.length < 12)
+                    continue;
+
                 TID = bookingLine[0];
                 phoneNumberOfMovieGoer = Integer.parseInt(bookingLine[1]);
                 nameOfMovieGoer = bookingLine[2];
@@ -65,13 +68,14 @@ public class BookingsDatabaseController implements DatabaseController {
                 seatID = bookingLine[6];
                 movieTitle = bookingLine[7];
                 movieDuration = Integer.parseInt(bookingLine[8]);
-                
                 movieType = bookingLine[9];
                 cinemaType = bookingLine[10];
                 startDate = dp.parseDate(bookingLine[11]);
                 price = Float.parseFloat(bookingLine[12]);
+
                 booking = new Booking(TID, phoneNumberOfMovieGoer, nameOfMovieGoer, emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, movieDuration,movieType, cinemaType, startDate, price);
                 bookings.add(booking);
+
                 line = br.readLine();
             }
             br.close();
@@ -128,7 +132,7 @@ public class BookingsDatabaseController implements DatabaseController {
      * @param movieTitle
      */
     public void deleteBookings(String movieTitle, String cineplexName, String cinemaName, String date) {
-        DateParser dp = new DateParser("YYYYMMddHHmm");
+        DateParser dp = new DateParser("yyyyMMddHHmm");
         Date startDate = dp.parseDate(date);
 
         bookings.removeIf(b -> b.getMovieTitle().equals(movieTitle) && b.getCineplexName().equals(cineplexName) && b.getCinemaName().equals(cinemaName) && b.getStartDate().compareTo(startDate) == 0);
@@ -149,5 +153,14 @@ public class BookingsDatabaseController implements DatabaseController {
         } catch (IOException e) {
             e.printStackTrace(); 
         }
+    }
+
+    public int getTotalSales(String movieTitle) {
+        int totalSales = 0;
+        for (Booking b : bookings) {
+            if (b.getMovieTitle().equals(movieTitle))
+                totalSales += 1;
+        }
+        return totalSales;
     }
 }

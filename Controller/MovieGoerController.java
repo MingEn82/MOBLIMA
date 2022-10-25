@@ -1,7 +1,5 @@
 package Controller;
 
-import java.util.Date;
-
 public class MovieGoerController {
     private MovieController movieGoerMovieController = new MovieGoerMovieController();
     private BookingController bookingController = new BookingController();

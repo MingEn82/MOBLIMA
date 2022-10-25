@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import Entities.AgeRating;
 import Entities.Movie;
 import Entities.Review;
 
@@ -16,16 +17,19 @@ public class MovieDatabaseController implements DatabaseController {
     private String filePath = "Database/MoviesDatabase.txt";
     private File file;
     private ArrayList<Movie> movies;
+    private BookingsDatabaseController bookingsDC;
 
     public MovieDatabaseController() {
         this.file = new File(filePath);
         this.movies = new ArrayList<Movie>();
+        bookingsDC = new BookingsDatabaseController();
         this.readFile();
     }
 
     public MovieDatabaseController(String filePath) {
         this.file = new File(filePath);
         this.movies = new ArrayList<Movie>();
+        bookingsDC = new BookingsDatabaseController();
         this.readFile();
     }
     
@@ -35,19 +39,20 @@ public class MovieDatabaseController implements DatabaseController {
 
             String movieLine = br.readLine();
             String movieTitle, showingStatus, synopsis, director;
+            AgeRating ageRating;
             String[] cast;
-            int duration, size;
+            int duration, totalSales, size;
             float overallRating;
             ArrayList<Review> reviews;
-            String[] movieData;
-            String[] reviewData;
+            String[] movieData, reviewData;
 
             while (movieLine != null) {
                 movieData = movieLine.split(", ");
                 size = movieData.length;
-                if (size < 5) {
+                if (size < 6) {
                     continue;
                 }
+
                 overallRating = -1;
                 reviews = new ArrayList<Review>();
 
@@ -55,12 +60,14 @@ public class MovieDatabaseController implements DatabaseController {
                 showingStatus = movieData[1];
                 duration = Integer.parseInt(movieData[2]);
                 synopsis = movieData[3];
-                director = movieData[4];
-                cast = movieData[5].split(" & ");
+                ageRating = AgeRating.valueOf(movieData[4]);
+                director = movieData[5];
+                cast = movieData[6].split(" & ");
+                totalSales = bookingsDC.getTotalSales(movieTitle);
 
-                if (size > 6) {
-                    overallRating = Float.parseFloat(movieData[6]);
-                    for (int i = 7; i < size; i++) {
+                if (size > 7) {
+                    overallRating = Float.parseFloat(movieData[7]);
+                    for (int i = 8; i < size; i++) {
                         reviewData = movieData[i].split(" & ");
                         // Checks whether there is a review text body
                         if (reviewData.length == 3) {
@@ -71,7 +78,7 @@ public class MovieDatabaseController implements DatabaseController {
                     }
                 }
                 
-                movies.add(new Movie(movieTitle, showingStatus, synopsis, director, cast, duration, reviews, overallRating));
+                movies.add(new Movie(movieTitle, showingStatus, synopsis, ageRating, director, cast, duration, reviews, overallRating, totalSales));
 
                 movieLine = br.readLine();
             }
@@ -86,14 +93,14 @@ public class MovieDatabaseController implements DatabaseController {
         return movies;
     }
 
-    public void addNewMovie(String movieTitle, String showingStatus, String synopsis, String director, String[] cast, int duration) {
+    public void addNewMovie(String movieTitle, String showingStatus, String synopsis, AgeRating ageRating, String director, String[] cast, int duration) {
         // Check for duplicate movie
         if (movieExists(movieTitle)) {
             System.out.println("Movie already exists!");
             return;
         }
 
-        Movie newMovie = new Movie(movieTitle, showingStatus, synopsis, director, cast, duration, null, -1);
+        Movie newMovie = new Movie(movieTitle, showingStatus, synopsis, ageRating, director, cast, duration, null, -1, 0);
         movies.add(newMovie);
 
         try {
@@ -109,19 +116,18 @@ public class MovieDatabaseController implements DatabaseController {
     }
 
     public void deleteMovie(String movieTitle) {
-        ArrayList<Movie> filteredMovies = new ArrayList<Movie>();
-        if (!movieExists(movieTitle)) {
-            System.out.println("Movie Not Found");
-            return;
+        boolean isMovieRemoved = movies.removeIf(m -> m.getMovieTitle().equals(movieTitle));
+        if (isMovieRemoved) {
+            System.out.println(movieTitle + " removed from database");
+            this.updateDatabase();
+        } else {
+            System.out.println("Movie not found");
         }
+    }
 
-        for (Movie m : movies) {
-            if (!m.getMovieTitle().equals(movieTitle))
-                filteredMovies.add(m);
-        }
-        
-        movies = filteredMovies;
-        this.updateDatabase();
+    public void updateMovie(String oldMovieTitle, Movie updatedMovie) {
+        movies.removeIf(m -> m.getMovieTitle().equals(oldMovieTitle));
+        movies.add(updatedMovie);
     }
 
     public boolean changeShowingStatus(String movieTitle, String showingStatus) {
@@ -133,7 +139,7 @@ public class MovieDatabaseController implements DatabaseController {
             }
         }
 
-        System.out.println("Movie was not found!");
+        System.out.println("Movie was not found");
         return false;
     }
 

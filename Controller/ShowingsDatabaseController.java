@@ -76,6 +76,37 @@ public class ShowingsDatabaseController implements DatabaseController {
     }
 
     /**
+     * Returns showing string array
+     * @param cineplexName
+     * @param cinemaName
+     * @param movieName
+     * @param date
+     * @return                  String[] showing
+     */
+    public String[] getShowing(String cineplexName, String cinemaName, String movieName, String date) {
+        System.out.println(cineplexName + " " + cinemaName + " " + movieName + " " + date);
+        for (String[] showing : showingsData) {
+            if (showing[0].equals(movieName) && showing[1].equals(cineplexName) && showing[2].equals(cinemaName) && showing[3].equals(date)) {
+                return showing;
+            }
+        }
+
+        return null;
+    }
+
+    public void updateShowing(String[] oldShowing, String[] newShowing) {
+        showingsData.removeIf(showing -> 
+            showing[0].equals(oldShowing[0]) && 
+            showing[1].equals(oldShowing[1]) && 
+            showing[2].equals(oldShowing[2]) && 
+            showing[3].equals(oldShowing[3])
+        );
+
+        showingsData.add(newShowing);
+        this.updateDatabase();
+    }
+
+    /**
      * Deletes all showings of movie
      * @param movieTitle
      */
@@ -95,31 +126,6 @@ public class ShowingsDatabaseController implements DatabaseController {
         showingsData.removeIf(showing -> showing[0].equals(movieTitle) && showing[1].equals(cineplexName) && showing[2].equals(cinemaName) && showing[3].equals(date));
         this.updateDatabase();
     }   
-
-    public void updateDatabase(String movieTitle, String cineplexName, String cinemaName, String date, String seatID) {
-        boolean isNewShowing = true;
-        ArrayList<String[]> updatedShowings = new ArrayList<String[]>();
-
-        for (String[] showing : showingsData) {
-            if (showing[0].equals(movieTitle) && showing[1].equals(cineplexName) && showing[2].equals(cinemaName) && showing[3].equals(date)) {
-                isNewShowing = false;
-                ArrayList<String> tmpArray = new ArrayList<String>(Arrays.asList(showing));
-                tmpArray.add(seatID);
-                String[] updatedshowing = tmpArray.toArray(new String[0]);
-                updatedShowings.add(updatedshowing);
-            } else {
-                updatedShowings.add(showing);
-            }
-        }
-
-        if (isNewShowing) {
-            String[] newShowing = { movieTitle, cineplexName, cinemaName, date, seatID };
-            updatedShowings.add(newShowing);
-        }
-
-        this.showingsData = updatedShowings;
-        this.updateDatabase();
-    }
 
     public boolean addNewShowing(String movieTitle, String cineplexName, String cinemaName, String date, String movieType) {
         ArrayList<String[]> updatedShowings = new ArrayList<String[]>();
@@ -142,22 +148,22 @@ public class ShowingsDatabaseController implements DatabaseController {
 
     public void addBooking(String movieTitle, String cineplexName, String cinemaName, String date, String seatID) {
         ArrayList<String[]> updatedShowings = new ArrayList<String[]>();
-        System.out.println("Adding booking to showings database...");
 
         for (String[] showing : showingsData) {
             if (showing[0].equals(movieTitle) && showing[1].equals(cineplexName) && showing[2].equals(cinemaName) && showing[3].equals(date)) {
                 String updatedShowing = String.join(", ", showing) + ", " + seatID;
                 updatedShowings.add(updatedShowing.split(", "));
-                System.out.println("Added!");
             } else {
                 updatedShowings.add(showing);
             }
         }
         this.showingsData = updatedShowings;
         this.updateDatabase();
-        System.out.println("Exiting...");
     }
 
+    /**
+     * Updates ShowingsDatabase.txt
+     */
     public void updateDatabase() {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(file));

@@ -50,12 +50,16 @@ public class Showing {
         return true;
     }
 
-    public void print(ArrayList<Integer> aisleIndex) {
-        DateParser dp = new DateParser("dd-MM-YYYY HH:mm");
-        System.out.println("Showing: " + movieTitle);
-        System.out.println("Start date: " + dp.formatDate(startDate));
-        System.out.println("");
+    public void printSeats(ArrayList<Integer> aisleIndex) {
         this.printSeatRows(aisleIndex);
+        System.out.println("");
+    }
+
+    public void printShowingDetails() {
+        DateParser dp = new DateParser("dd-MM-yyyy HH:mm");
+        System.out.println("");
+        System.out.println("Movie: " + movieTitle);
+        System.out.println("Start date: " + dp.formatDate(startDate));
         System.out.println("");
     }
 

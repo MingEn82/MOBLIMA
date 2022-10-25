@@ -2,6 +2,7 @@ package Controller;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 import Entities.Movie;
@@ -95,10 +96,39 @@ public abstract class MovieController {
             sortedMovies.add(m.clone());
         }
         int end = sortedMovies.size() > 5 ? 5 : sortedMovies.size();
-        Collections.sort(sortedMovies);
-        for (int i = 0; i < end; i++) {
-            sortedMovies.get(i).print();
-        }
+        int choice;
+        Scanner sc = new Scanner(System.in);
+        do {
+            System.out.println("""
+                +-------------------------------------------------------+
+                |                 Viewing Top Movies                    |
+                |-------------------------------------------------------|
+                | 1. Sort by total sales                                |
+                | 2. Sort by overall rating                             |
+                |-------------------------------------------------------|
+                |         Enter 0 to go back to Movie Goer Menu         |
+                +-------------------------------------------------------+
+                """);
+            choice = sc.nextInt();
+            switch (choice) {
+                case 1:
+                    Collections.sort(sortedMovies, Comparator.comparingInt(m -> ((Movie) m).getTotalSales()).reversed());
+                    for (int i = 0; i < end; i++) {
+                        sortedMovies.get(i).print();
+                    }
+                    break;
+                case 2:
+                    Collections.sort(sortedMovies, Comparator.comparingDouble(m -> ((Movie) m).getOverallRating()).reversed());
+                    for (int i = 0; i < end; i++) {
+                        sortedMovies.get(i).print();
+                    }
+                    break;
+                case 0:
+                    break;
+                default:
+                    System.out.println("Invalid Input!");
+            }
+        } while (choice != 0);
     };
 
     private Movie printMovies(ArrayList<Movie> movies) {

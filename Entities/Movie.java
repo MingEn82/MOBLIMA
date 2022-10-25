@@ -2,25 +2,29 @@ package Entities;
 
 import java.util.ArrayList;
 
-public class Movie implements Comparable<Movie> {
+public class Movie {
     private String movieTitle;
     private String showingStatus;
     private String synopsis;
+    private AgeRating ageRating;
     private String director;
     private String[] cast;
     private int duration;
     private ArrayList<Review> reviews;
     private float overallRating;
+    private int totalSales;
 
-    public Movie(String movieTitle, String showingStatus, String synopsis, String director, String[] cast, int duration, ArrayList<Review> reviews, float overallRating) {
+    public Movie(String movieTitle, String showingStatus, String synopsis, AgeRating ageRating, String director, String[] cast, int duration, ArrayList<Review> reviews, float overallRating, int totalSales) {
         this.movieTitle = movieTitle;
         this.showingStatus = showingStatus;
         this.synopsis = synopsis;
+        this.ageRating = ageRating;
         this.director = director;
         this.cast = cast;
         this.duration = duration;
         this.reviews = reviews;
         this.overallRating = overallRating;
+        this.totalSales = totalSales;
     }
 
     public String getMovieTitle() {
@@ -127,8 +131,20 @@ public class Movie implements Comparable<Movie> {
         this.overallRating = overallRating;
     }
 
+    public int getTotalSales() {
+        return this.totalSales;
+    }
+
+    public void addOneSale() {
+        this.totalSales += 1; 
+    }
+
+    public void removeOneSale() {
+        this.totalSales -= 1;
+    }
+
     public String toString() {
-        String s = movieTitle + ", " + showingStatus + ", " + duration + ", " + synopsis + ", " + director + ", " + getCast();
+        String s = movieTitle + ", " + showingStatus + ", " + duration + ", " + ageRating.toString() + ", " + synopsis + ", " + director + ", " + getCast();
         if (overallRating >= 0) {
             s += ", " + overallRating;
             s += getReviews();
@@ -141,17 +157,14 @@ public class Movie implements Comparable<Movie> {
         System.out.println("---------------------------------------------------------");
         System.out.println("Movie Title: " + movieTitle + " (" + showingStatus + ")");
         System.out.println("---------------------------------------------------------");
-        System.out.println("Duration: " + duration + " mins");               
+        System.out.println("Duration: " + duration + " mins");     
+        System.out.println("Age Rating: " + ageRating.toString());          
         System.out.println("Synopsis: " + synopsis);                    
         System.out.println("Director: " + director);
         System.out.println("Cast: " + String.join(", ", cast));
+        System.out.println("Total Sales: " + totalSales);
         
-        
-        
-        
-        
-        
-        if (overallRating >= 0) {
+        if (overallRating >= 1) {
             System.out.println("Overall Rating: " + overallRating);
         } else {
             System.out.println("Overall Rating: N/A");
@@ -160,13 +173,8 @@ public class Movie implements Comparable<Movie> {
         System.out.println("");
     }
 
-    @Override
-    public int compareTo(Movie compareMovie) {
-        return overallRating - compareMovie.getOverallRating() > 0 ? -1 : 1;
-    }
-
     public Movie clone() {
-        return new Movie(movieTitle, showingStatus, synopsis, director, cast, duration, reviews, overallRating);
+        return new Movie(movieTitle, showingStatus, synopsis, ageRating, director, cast, duration, reviews, overallRating, totalSales);
     }
 
 }

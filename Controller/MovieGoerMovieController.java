@@ -74,9 +74,7 @@ public class MovieGoerMovieController extends MovieController {
                                 int showingIdx = sc.nextInt();
                                 if (showingIdx >= 0 && showingIdx <= filteredShowings.size()) {
                                     String[] showingChoice = filteredShowings.get(showingIdx-1);
-                                    DateParser dp = new DateParser("YYYYMMddHHmm");
-                                    if (!bookTicket(cineplexDC.getCineplexes(), cineplexName, cinemaName, movieTitle, showingChoice[3]));
-                                        System.out.println("Error booking ticket!");
+                                    bookTicket(cineplexDC.getCineplexes(), cineplexName, cinemaName, movieTitle, showingChoice[3]);
                                     // bookingController.newBooking(info[1], cineplexName, cinemaName, seatID, movieChoice.getMovieTitle(), movieDuration, info[2], info[0], dp.parseDate(showingChoice[3]), price)
                                     break;
                                 } else {
@@ -226,7 +224,10 @@ public class MovieGoerMovieController extends MovieController {
                         // Add Movie Type
                         String movieType = showing.getMovieType();
                         // Print seats
-                        showing.print(cinema.getAisleArray());
+                        showing.printShowingDetails();
+                        cinema.printScreenLayout();
+                        showing.printSeats(cinema.getAisles());
+                        cinema.printEntranceLayout();
                         // Get Movie Duration
                         int movieDuration = movieDC.getMovieDuration(movieTitle);
 

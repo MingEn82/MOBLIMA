@@ -2,14 +2,14 @@ package Entities;
 
 import java.util.ArrayList;
 
-public class Cinema {
-    private CinemaDetails cinemaDetails;
-    private ArrayList<Showing> showings;
-    private String cinemaName;
-    private String cinemaNumber;
+public abstract class Cinema {
+    protected CinemaType cinemaType;
+    protected ArrayList<Showing> showings;
+    protected String cinemaName;
+    protected String cinemaNumber;
 
-    public Cinema(CinemaDetails cinemaDetails, ArrayList<Showing> showings, String cinemaName, String cinemaNumber) {
-        this.cinemaDetails = cinemaDetails;
+    public Cinema(CinemaType cinemaType, ArrayList<Showing> showings, String cinemaName, String cinemaNumber) {
+        this.cinemaType = cinemaType;
         this.showings = showings;
         this.cinemaName = cinemaName;
         this.cinemaNumber = cinemaNumber;
@@ -17,14 +17,14 @@ public class Cinema {
 
     public void print() {
         System.out.println("--------- Cinema Details ---------");
-        System.out.println("Cinema Type: " + cinemaDetails.getType());
+        System.out.println("Cinema Type: " + cinemaType.toString());
         System.out.println("Cinema Name: " + cinemaName);
         System.out.println("Cinema Number: " + cinemaNumber);
         System.err.println("");
         System.out.println("--------- Showings Details ---------");
         if (showings.size() > 0) {
             for (Showing showing : showings) {
-                showing.print(cinemaDetails.getAisles());
+                showing.printSeats(getAisles());
             }
         } else {
             System.out.println("No showings");
@@ -33,11 +33,7 @@ public class Cinema {
     }
 
     public String getCinemaType() {
-        return this.cinemaDetails.getType();
-    }
-
-    public ArrayList<Integer> getAisleArray() {
-        return this.cinemaDetails.getAisles();
+        return this.cinemaType.toString();
     }
 
     public String getCinemaName() {
@@ -46,10 +42,6 @@ public class Cinema {
 
     public String getCinemaNumber() {
         return this.cinemaNumber;
-    }
-
-    public ArrayList<Integer> getAisles() {
-        return this.cinemaDetails.getAisles();
     }
 
     public ArrayList<Showing> getShowings() {
@@ -79,4 +71,11 @@ public class Cinema {
             showings.remove(idx);
         }
     }
+
+    abstract public ArrayList<Integer> getAisles();
+    abstract public String getSeatArrangement();
+    abstract public String getScreenLayout();
+    abstract public String getEntranceLayout();
+    abstract public void printScreenLayout();
+    abstract public void printEntranceLayout();
 }
