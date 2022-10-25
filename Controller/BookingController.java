@@ -201,4 +201,12 @@ public class BookingController {
         
         return false;
     }
+
+    /**
+     * Deletes all bookings of movie
+     * @param movieTitle
+     */
+    public void deleteBookings(String movieTitle) {
+        bookingsDatabaseController.deleteBookings(movieTitle);
+    }
 }

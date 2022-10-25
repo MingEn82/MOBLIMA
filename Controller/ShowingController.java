@@ -7,14 +7,12 @@ import Utils.DateParser;
 
 public class ShowingController {
     private ShowingsDatabaseController showingsDC;
-    private BookingsDatabaseController bookingsDC;
     private BookingController bookingsController;
     Scanner sc;
     DateParser dp;
 
     public ShowingController() {
         showingsDC = new ShowingsDatabaseController();
-        bookingsDC = new BookingsDatabaseController();
         bookingsController = new BookingController();
         sc = new Scanner(System.in);
         dp = new DateParser("yyyyMMddHHmm");

@@ -185,14 +185,14 @@ public class MovieGoerMovieController extends MovieController {
     }
 
     private void printShowings(ArrayList<String[]> filteredShowings) {
-        DateParser dp = new DateParser("YYYYMMddhhmm");
+        DateParser dp = new DateParser("yyyyMMddhhmm");
         int i = 1;
         for (String[] s : filteredShowings) {
             String cineplexName = s[1];
             String cinemaName = s[2];
-            Date showingTime = dp.parseDate(s[3], "YYYYMMddhhmm");
+            Date showingTime = dp.parseDate(s[3], "yyyyMMddhhmm");
             System.out.println(i + ") Location: " + cineplexName + ", " + cinemaName + " (" + s[4] + ")");
-            System.out.println("   When: " + dp.formatDate(showingTime, "dd/MM/YYYY HH:mm"));
+            System.out.println("   When: " + dp.formatDate(showingTime, "dd/MM/yyyy HH:mm"));
             System.out.println("");
             i++;
         }
@@ -207,7 +207,7 @@ public class MovieGoerMovieController extends MovieController {
      * @return              true if booking is successful, false otherwise
      */
     private boolean bookTicket(ArrayList<Cineplex> cineplexes, String cineplexName, String cinemaName, String movieTitle, String startDate) {
-        DateParser dp = new DateParser("YYYYMMddHHmm");
+        DateParser dp = new DateParser("yyyyMMddHHmm");
 
         for (Cineplex cineplex : cineplexes) {
             if (!cineplex.getCineplexName().equals(cineplexName))

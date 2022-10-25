@@ -1,6 +1,8 @@
 package Entities;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Movie {
     private String movieTitle;
@@ -51,6 +53,14 @@ public class Movie {
         this.synopsis = synopsis;
     }
 
+    public AgeRating getAgeRating() {
+        return this.ageRating;
+    }
+
+    public void setAgeRating(AgeRating ageRating) {
+        this.ageRating = ageRating;
+    }
+
     public String getDirector() {
         return this.director;
     }
@@ -63,8 +73,12 @@ public class Movie {
         return String.join(" & ", cast);
     }
 
-    public void setCast(String[] cast) {
-        this.cast = cast;
+    public List<String> getAllCast() {
+        return Arrays.asList(cast);
+    }
+
+    public void setCast(List<String> cast) {
+        this.cast = cast.toArray(new String[0]);
     }
 
     public int getDuration() {
@@ -81,6 +95,10 @@ public class Movie {
             s += r.toString() + ", ";
         }
         return s.substring(0, s.length() - 2);
+    }
+
+    public ArrayList<Review> getReviewArray() {
+        return this.reviews;
     }
 
     public void printReviews() {

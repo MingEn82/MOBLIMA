@@ -21,12 +21,13 @@ public abstract class MovieController {
     public Movie displayMovies(int choice) {
         Scanner sc = new Scanner(System.in);
         ArrayList<Movie> filteredMovies;
+        movieDC.readFile();
         
         switch (choice) {
             case 1:
                 System.out.println("");
                 System.out.println("================== List All Movies =====================");
-                return printMovies(allMovies);
+                return printMovies(movieDC.getMovies());
             case 2:
                 System.out.println("");
                 System.out.println("================== Movies Coming Soon ==================");

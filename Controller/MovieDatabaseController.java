@@ -34,6 +34,7 @@ public class MovieDatabaseController implements DatabaseController {
     }
     
     public void readFile() {
+        this.movies = new ArrayList<Movie>();
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
 
@@ -59,8 +60,8 @@ public class MovieDatabaseController implements DatabaseController {
                 movieTitle = movieData[0];
                 showingStatus = movieData[1];
                 duration = Integer.parseInt(movieData[2]);
-                synopsis = movieData[3];
-                ageRating = AgeRating.valueOf(movieData[4]);
+                ageRating = AgeRating.valueOf(movieData[3]);
+                synopsis = movieData[4];
                 director = movieData[5];
                 cast = movieData[6].split(" & ");
                 totalSales = bookingsDC.getTotalSales(movieTitle);
@@ -102,27 +103,23 @@ public class MovieDatabaseController implements DatabaseController {
 
         Movie newMovie = new Movie(movieTitle, showingStatus, synopsis, ageRating, director, cast, duration, null, -1, 0);
         movies.add(newMovie);
-
-        try {
-            BufferedWriter bf = new BufferedWriter(new FileWriter(file, true));
-            PrintWriter pw = new PrintWriter(bf);
-            pw.append("\n");
-            pw.append(newMovie.toString());
-
-            pw.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        this.updateDatabase();
     }
 
+    /**
+     * Deletes movie by setting the showing status to End of Showing
+     * @param movieTitle
+     */
     public void deleteMovie(String movieTitle) {
-        boolean isMovieRemoved = movies.removeIf(m -> m.getMovieTitle().equals(movieTitle));
-        if (isMovieRemoved) {
-            System.out.println(movieTitle + " removed from database");
-            this.updateDatabase();
-        } else {
-            System.out.println("Movie not found");
+        for (Movie m : movies) {
+            if (m.getMovieTitle().equals(movieTitle)) {
+                m.setShowingStatus("End of Showing");
+                System.out.println(movieTitle + " removed from database");
+                this.updateDatabase();
+                return;
+            }
         }
+        System.out.println("Movie not found");
     }
 
     public void updateMovie(String oldMovieTitle, Movie updatedMovie) {
@@ -200,6 +197,12 @@ public class MovieDatabaseController implements DatabaseController {
         return;
     }
 
+    public void updateMovie(Movie oldMovie, Movie newMovie) {
+        movies.removeIf(m -> m.getMovieTitle().equals(oldMovie.getMovieTitle()));
+        movies.add(newMovie);
+        this.updateDatabase();
+    }
+
     public int getMovieDuration(String movieTitle) {
         for (Movie movie : movies) {
             if (!movie.getMovieTitle().equals(movieTitle))
@@ -222,7 +225,7 @@ public class MovieDatabaseController implements DatabaseController {
         }
     }
 
-    private boolean movieExists(String movieTitle) {
+    public boolean movieExists(String movieTitle) {
         for (Movie m : movies) {
             if (m.getMovieTitle().equals(movieTitle)) {
                 return true;
