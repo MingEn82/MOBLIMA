@@ -20,6 +20,7 @@ import java.util.Scanner;
  */
 public class BookingController {
     BookingsDatabaseController bookingsDatabaseController =  new BookingsDatabaseController();
+    CineplexController cineplexController = new CineplexController();
     ArrayList<Booking> bookings = new ArrayList<Booking>(); // Create an ArrayList object
 
 
@@ -165,6 +166,7 @@ public class BookingController {
                 newBooking.calBookingPrice();
                 
                 bookingsDatabaseController.addNewBooking(newBooking);
+                cineplexController.bookSeat(cineplexName, cinemaName, movieTitle, startDate, seatID);
                 System.out.println("Booking is successful!");
                 return true;
                 
@@ -173,6 +175,7 @@ public class BookingController {
                 newBooking.calBookingPrice();
                 //System.out.println("The new booking object is " +newBooking);
                 bookingsDatabaseController.addNewBooking(newBooking);
+                cineplexController.bookSeat(cineplexName, cinemaName, movieTitle, startDate, seatID);
                 System.out.println("Booking is successful!");
                 return true;
                 
@@ -181,6 +184,7 @@ public class BookingController {
                 newBooking = new SeniorBooking(TID, phoneNumberOfMovieGoer, nameOfMovieGoer,emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, movieDuration, movieType, cinemaType, startDate, price);
                 newBooking.calBookingPrice();
                 bookingsDatabaseController.addNewBooking(newBooking);
+                cineplexController.bookSeat(cineplexName, cinemaName, movieTitle, startDate, seatID);
                 System.out.println("Booking is successful!");
                 return true;
                 

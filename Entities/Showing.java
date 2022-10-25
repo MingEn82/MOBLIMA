@@ -50,6 +50,20 @@ public class Showing {
         return true;
     }
 
+    public void bookSeat(String seatID) {
+        String row = seatID.substring(0, 1).toUpperCase();
+        for (SeatRow seatRow : seatRows) {
+            if (!seatRow.getRowID().equals(row))
+                continue;
+            for (Seat seat : seatRow.getSeats()) {
+                if (seat != null && !seat.getSeatNumber().equals(seatID)) {
+                    seat.setIsBooked(true);
+                }
+            }
+        }
+
+    }
+
     public void printSeats(ArrayList<Integer> aisleIndex) {
         this.printSeatRows(aisleIndex);
         System.out.println("");

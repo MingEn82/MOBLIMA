@@ -5,7 +5,6 @@ import java.util.Date;
 import java.util.Scanner;
 
 import Entities.Cinema;
-import Entities.Cineplex;
 import Entities.Movie;
 import Entities.Review;
 import Entities.Showing;
@@ -14,8 +13,8 @@ import Utils.DateParser;
 public class MovieGoerMovieController extends MovieController {
     private Scanner sc;
     private BookingController bookingController = new BookingController();
+    private CineplexController cineplexController = new CineplexController();
     private ShowingsDatabaseController showingsDC = new ShowingsDatabaseController();
-    private CineplexDatabaseController cineplexDC = new CineplexDatabaseController();
     private MovieDatabaseController movieDC = new MovieDatabaseController();
     ArrayList<String[]> filteredShowings;
 
@@ -30,15 +29,17 @@ public class MovieGoerMovieController extends MovieController {
 
         if (movieChoice != null) {
             String movieTitle = movieChoice.getMovieTitle();
+            int subChoice;
+            String[] showingChoice;
 
             do {
                 System.out.println("===================== Movie Options =====================");
-                System.out.println("1. Display all showings");
-                System.out.println("2. Book a ticket");
-                System.out.println("3. View reviews");
-                System.out.println("4. Leave a review");
-                System.out.println("5. View my reviews");
-                System.out.println("6. Back to Customer Main Menu");
+                System.out.println("1. Display all showings / Book a ticket");
+                System.out.println("2. View reviews");
+                System.out.println("3. Leave a review");
+                System.out.println("4. View my reviews");
+                System.out.println("=========================================================");
+                System.out.println("              Enter 0 to return to main menu");
                 System.out.println("=========================================================");
                 System.out.println("");
 
@@ -54,42 +55,33 @@ public class MovieGoerMovieController extends MovieController {
                         filteredShowings = showingsDC.filterShowings(movieTitle);
                         System.out.println(movieTitle + " is showing at these locations!");
                         printShowings(filteredShowings);
-                        break;
-
-                    case 2:
-                        // Book a ticket
-                        sc.nextLine();
-                        System.out.println("Enter Cineplex Name:");
-                        String cineplexName = sc.nextLine();
-                        System.out.println("Enter Cinema Name");
-                        String cinemaName = sc.nextLine();
-                        filteredShowings = showingsDC.filterShowings(cineplexName, cinemaName, movieTitle);
-                        if (filteredShowings.size() == 0) {
-                            System.out.println("Error! No showings found for " + cineplexName + " and " + cinemaName);
-                        } else {
-                            System.out.println("Available showings for " + movieTitle + " at " + cineplexName + " and " + cinemaName);
-                            printShowings(filteredShowings);
-                            while (true) {
-                                System.out.println("Enter which showing to book for");
-                                int showingIdx = sc.nextInt();
-                                if (showingIdx >= 0 && showingIdx <= filteredShowings.size()) {
-                                    String[] showingChoice = filteredShowings.get(showingIdx-1);
-                                    bookTicket(cineplexDC.getCineplexes(), cineplexName, cinemaName, movieTitle, showingChoice[3]);
-                                    // bookingController.newBooking(info[1], cineplexName, cinemaName, seatID, movieChoice.getMovieTitle(), movieDuration, info[2], info[0], dp.parseDate(showingChoice[3]), price)
-                                    break;
-                                } else {
-                                    System.out.println("Invalid choice. Please reenter");
-                                }
+                    
+                        
+                        do {
+                            System.out.println("Which showing do you want to book for ? (type 0 to quit)");
+                            subChoice = sc.nextInt();
+                            if (subChoice < 0 || subChoice > filteredShowings.size()) {
+                                System.out.println("Invalid showing");
                             }
+                        } while (subChoice < 0 || subChoice > filteredShowings.size());
+
+                        if (subChoice == 0) {
+                            System.out.println("No tickets booked");
+                            break;
                         }
+
+                        showingChoice = filteredShowings.get(subChoice-1);
+                        bookTicket(showingChoice[1], showingChoice[2], movieTitle, showingChoice[3]);
+
                         break;
 
-                    case 3:
+                        
+                        case 2:
                         // View reviews
                         movieDC.printReviews(movieTitle);
                         break;
-
-                    case 4:
+                        
+                        case 3:
                         // Leave a review
                         sc.nextLine();
                         System.out.println("Enter phone number: ");
@@ -103,7 +95,7 @@ public class MovieGoerMovieController extends MovieController {
                         if (movieDC.hasReview(movieTitle, phoneNumber)) {
                             System.out.println("You have already left a review for this movie");
                             System.out.println("Do you want to change your review instead?");
-
+                            
                             do {
                                 System.out.println("1. Change review");
                                 System.out.println("2. Go back");
@@ -128,19 +120,19 @@ public class MovieGoerMovieController extends MovieController {
                                     }
                                     movieDC.updateReview(movieTitle, newReview);
                                     break;
-
+                                    
                                     case 2:
-                                        System.out.println("Review not changed. Goodbye!");
-                                        break;
+                                    System.out.println("Review not changed. Goodbye!");
+                                    break;
                                     
                                     default:
-                                        System.out.println("Invalid choice. Try again!");
+                                    System.out.println("Invalid choice. Try again!");
                                 }
                             } while (choice < 1 || choice > 2);
 
                             break;
                         }
-
+                        
                         System.out.println("Enter rating (0 - 5)");
                         rating = sc.nextFloat();
                         while (rating < 0 || rating > 5) {
@@ -160,7 +152,7 @@ public class MovieGoerMovieController extends MovieController {
                         movieDC.addReview(movieTitle, newReview);
                         break;
 
-                    case 5:
+                        case 4:
                         sc.nextLine();
                         System.out.println("Enter phone number: ");
                         phoneNumber = sc.nextInt();
@@ -172,13 +164,13 @@ public class MovieGoerMovieController extends MovieController {
                         movieDC.printReviews(movieTitle, phoneNumber);
                         break;
 
-                    case 6:
+                    case 0:
                         // Go back
                         break;
                     default:
                         System.out.println("Invalid choice! Try again");
                 }
-            } while (choice != 6);
+            } while (choice != 0);
         }
 
         return null;
@@ -186,12 +178,14 @@ public class MovieGoerMovieController extends MovieController {
 
     private void printShowings(ArrayList<String[]> filteredShowings) {
         DateParser dp = new DateParser("yyyyMMddhhmm");
+        
         int i = 1;
         for (String[] s : filteredShowings) {
             String cineplexName = s[1];
             String cinemaName = s[2];
             Date showingTime = dp.parseDate(s[3], "yyyyMMddhhmm");
-            System.out.println(i + ") Location: " + cineplexName + ", " + cinemaName + " (" + s[4] + ")");
+            System.out.println(i + ") Location: " + cineplexName + ", " + cinemaName + " (" + cineplexController.getCinemaType(cineplexName, cinemaName) + ")");
+            System.out.println("   Movie Type: " + s[4]);
             System.out.println("   When: " + dp.formatDate(showingTime, "dd/MM/yyyy HH:mm"));
             System.out.println("");
             i++;
@@ -206,40 +200,41 @@ public class MovieGoerMovieController extends MovieController {
      * @param startDate
      * @return              true if booking is successful, false otherwise
      */
-    private boolean bookTicket(ArrayList<Cineplex> cineplexes, String cineplexName, String cinemaName, String movieTitle, String startDate) {
+    private boolean bookTicket(String cineplexName, String cinemaName, String movieTitle, String startDate) {
         DateParser dp = new DateParser("yyyyMMddHHmm");
 
-        for (Cineplex cineplex : cineplexes) {
-            if (!cineplex.getCineplexName().equals(cineplexName))
-                continue;
-            for (Cinema cinema : cineplex.getCinemas()) {
-                if (!cinema.getCinemaName().equals(cinemaName))
-                    continue;
-                // Add Cinema Type
-                String cinemaType = cinema.getCinemaType();
-                // Add UID
-                String TID = cineplex.getCineplexID() + cinema.getCinemaNumber() + dp.formatDate(new Date());
-                for (Showing showing : cinema.getShowings()) {
-                    if (showing.getStartDate().compareTo(dp.parseDate(startDate)) == 0 && showing.getMovieTitle().equals(movieTitle)) {
-                        // Add Movie Type
-                        String movieType = showing.getMovieType();
-                        // Print seats
-                        showing.printShowingDetails();
-                        cinema.printScreenLayout();
-                        showing.printSeats(cinema.getAisles());
-                        cinema.printEntranceLayout();
-                        // Get Movie Duration
-                        int movieDuration = movieDC.getMovieDuration(movieTitle);
+        cineplexController.refreshData();
+        Cinema cinema = cineplexController.findCinema(cineplexName, cinemaName);
+        if (cinema == null) {
+            System.out.println("Cinema not found. Something went wrong in MovieGoerMovieController.bookticket");
+            return false;
+        }
 
-                        // Get SeatID
-                        System.out.println("Enter SeatID (e.g. A09): ");
-                        sc.nextLine();
-                        String seatID = sc.nextLine();
-                        if (!showing.isSeatBooked(seatID)) {
-                            showingsDC.addBooking(movieTitle, cineplexName, cinemaName, startDate, seatID);
-                            return bookingController.newBooking(TID, cineplexName, cinemaName, seatID, movieTitle, movieDuration, movieType, cinemaType, dp.parseDate(startDate), -1);
-                        }
-                    }
+        // Get cinema type
+        String cinemaType = cinema.getCinemaType();
+        // Get UID
+        String UID = cineplexController.generateUID(cineplexName, cinemaName);
+
+        for (Showing showing : cinema.getShowings()) {
+            if (showing.getStartDate().compareTo(dp.parseDate(startDate)) == 0 && showing.getMovieTitle().equals(movieTitle)) {
+                // Add Movie Type
+                String movieType = showing.getMovieType();
+                // Print seats
+                showing.printShowingDetails();
+                cinema.printScreenLayout();
+                showing.printSeats(cinema.getAisles());
+                cinema.printEntranceLayout();
+                // Get Movie Duration
+                int movieDuration = movieDC.getMovieDuration(movieTitle);
+
+                // Get SeatID
+                System.out.println("Enter SeatID (e.g. A09): ");
+                sc.nextLine();
+                String seatID = sc.nextLine();
+                if (!showing.isSeatBooked(seatID)) {
+                    showingsDC.addBooking(movieTitle, cineplexName, cinemaName, startDate, seatID);
+                    addOneToTotalSales(movieTitle);
+                    return bookingController.newBooking(UID, cineplexName, cinemaName, seatID, movieTitle, movieDuration, movieType, cinemaType, dp.parseDate(startDate), -1);
                 }
             }
         }

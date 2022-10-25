@@ -197,4 +197,8 @@ public abstract class MovieController {
 
         return filteredMovies;
     }
+
+    public void addOneToTotalSales(String movieTitle) {
+        movieDC.addOneToTotalSales(movieTitle);
+    }
 }

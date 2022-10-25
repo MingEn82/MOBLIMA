@@ -5,8 +5,8 @@ import java.util.Arrays;
 
 public class PlatinumMovieSuitesCinema extends Cinema{
     private String screenLayout = """
-            |         Screen         |
-            |________________________|
+             |       Screen       |
+             |____________________|
             """;
     private String seatArrangement = 
         "A, 1, 2, 3, 4, 5, 6, "+
@@ -16,8 +16,8 @@ public class PlatinumMovieSuitesCinema extends Cinema{
         "E, 1, 2, 3, 4, 5, 6, "+
         "F, 1, 2, 3, 4, 5, 6";
     private String entranceLayout = """
-                    _________________
-                    |   Entrance    |
+            _________________
+            |   Entrance    |
             """;
     private ArrayList<Integer> aisles = new ArrayList<Integer>(Arrays.asList(3));
 

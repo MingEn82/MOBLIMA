@@ -234,4 +234,11 @@ public class MovieDatabaseController implements DatabaseController {
         return false;
     }
 
+    public void addOneToTotalSales(String movieTitle) {
+        for (Movie m : movies) {
+            if (m.getMovieTitle().equals(movieTitle)) {
+                m.addOneSale();
+            }
+        }
+    }
 }

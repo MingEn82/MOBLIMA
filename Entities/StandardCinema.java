@@ -5,8 +5,8 @@ import java.util.Arrays;
 
 public class StandardCinema extends Cinema{
     private String screenLayout = """
-                |       Standard Screen       |
-                |_____________________________|
+               |          Screen          |
+               |__________________________|
             """;
     private String seatArrangement = 
         "A, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "+

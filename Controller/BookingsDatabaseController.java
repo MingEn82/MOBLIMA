@@ -99,23 +99,9 @@ public class BookingsDatabaseController implements DatabaseController {
      * @param bookingObject
      */
     public void addNewBooking(Booking bookingObject) {
-        Booking newBooking = bookingObject;
         //System.out.println("The new booking object is " +newBooking);
-        bookings.add(newBooking);
-        
-
-        try {
-            bf = new BufferedWriter(new FileWriter(file, true));
-            pw = new PrintWriter(bf);
-            String content = newBooking.toString();
-
-            pw.append("\n");
-            pw.append(content);
-            pw.close();
-
-        } catch (IOException e) {
-            e.printStackTrace(); 
-        }
+        bookings.add(bookingObject);
+        this.updateDatabase();
     }
 
     /**
@@ -149,6 +135,8 @@ public class BookingsDatabaseController implements DatabaseController {
             for (Booking b : bookings) {
                 pw.println(b.toString());
             }
+            pw.println("hello?");
+            pw.close();
 
         } catch (IOException e) {
             e.printStackTrace(); 
