@@ -2,6 +2,9 @@ package Entities;
 
 import java.util.ArrayList;
 
+/**
+ * This is an abstract class for the Cinema. 
+ */
 public abstract class Cinema {
     protected CinemaType cinemaType;
     protected ArrayList<Showing> showings;
@@ -15,6 +18,9 @@ public abstract class Cinema {
         this.cinemaNumber = cinemaNumber;
     }
 
+    /**
+     * This method prints the details of the cinemas.
+     */
     public void print() {
         System.out.println("--------- Cinema Details ---------");
         System.out.println("Cinema Type: " + cinemaType.toString());
@@ -32,30 +38,57 @@ public abstract class Cinema {
         }
     }
 
-    public String getCinemaType() {
+    /**
+     * This is a getter function for the Cinema Type.
+     */
+    String getCinemaType() {
         return this.cinemaType.toString();
     }
 
+    /**
+     * This is a getter function for the Cinema Name.
+     * @return
+     */
     public String getCinemaName() {
         return this.cinemaName;
     }
 
+    /**
+     * This is a getter function for the Cinema Number.
+     * @return
+     */
     public String getCinemaNumber() {
         return this.cinemaNumber;
     }
 
+    /**
+     * This is a getter function for the showings.
+     * @return
+     */
     public ArrayList<Showing> getShowings() {
         return this.showings;
     }
 
+    /**
+     * This is a setter function for setting the showings list.
+     * @param showings
+     */
     public void setShowings(ArrayList<Showing> showings) {
         this.showings = showings;
     }
 
+    /**
+     * This is a function to add a new showing into the showing list.
+     * @param s
+     */
     public void addShowing(Showing s) {
         showings.add(s);
     }
 
+    /**
+     * This is a function to remove a showing from the showing list.
+     * @param s
+     */
     public void removeShowing(Showing s) {
         int idx = -1;
         int i = 0;

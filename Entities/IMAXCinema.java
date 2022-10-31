@@ -3,6 +3,9 @@ package Entities;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * This is a concrete class that extends the abstract Cinema class to implement it's own methods.
+ */
 public class IMAXCinema extends Cinema {
     private String screenLayout = """
             |               IMAX Screen               |
@@ -28,46 +31,86 @@ public class IMAXCinema extends Cinema {
         super(CinemaType.IMAX, showings, cinemaName, cinemaNumber);
     }
 
+    /**
+     * This is a getter function for retrieving Screen Layout.
+     */
     public String getScreenLayout() {
         return this.screenLayout;
     }
 
+    /**
+     * This is a setter function for setting a new Screen Layout.
+     * @param screenLayout
+     */
     public void setScreenLayout(String screenLayout) {
         this.screenLayout = screenLayout;
     }
 
+    /**
+     * This is a function for printing the Screen Layout.
+     */
     public void printScreenLayout() {
         System.out.println(screenLayout);
     }
 
+    /**
+     * This is a getter function for retrieving the Seat Arrangement.
+     * @return
+     */
     public String getSeatArrangement() {
         return this.seatArrangement;
     }
 
+    /**
+     * This is a setter function for setting the Seat Arrangement.
+     * @param seatArrangement
+     */
     public void setSeatArrangement(String seatArrangement) {
         this.seatArrangement = seatArrangement;
     }
 
+    /**
+     * This is a getter function for getting the Entrance Layout.
+     * @return
+     */
     public String getEntranceLayout() {
         return this.entranceLayout;
     }
 
+    /**
+     * This is a setter function for setting the Entrance Layout.
+     * @param entranceLayout
+     */
     public void setEntranceLayout(String entranceLayout) {
         this.entranceLayout = entranceLayout;
     }
 
+    /**
+     * This is a function to print the Entrance Layout.
+     */
     public void printEntranceLayout() {
         System.out.println(entranceLayout);
     }
 
+    /**
+     * This is the getter function for retrieving Aisles.
+     * @return
+     */
     public ArrayList<Integer> getAisles() {
         return this.aisles;
     }
 
+    /**
+     * This is a setter function for setting Aisles.
+     * @param aisles
+     */
     public void setAisles(ArrayList<Integer> aisles) {
         this.aisles = aisles;
     }
 
+    /**
+     * This function is used to print the cinema details and showing details.
+     */
     public void print() {
         System.out.println("--------- Cinema Details ---------");
         System.out.println("Cinema Type: " + cinemaType.toString());
