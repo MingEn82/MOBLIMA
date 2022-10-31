@@ -30,6 +30,7 @@ public class StandardCinema extends Cinema{
 
     /**
      * Getter function for ScreenLayout
+     * @return
      */
     public String getScreenLayout() {
         return this.screenLayout;
@@ -37,6 +38,7 @@ public class StandardCinema extends Cinema{
 
     /**
      * Setter function for ScreenLayout
+     * @param screenLayout
      */
     public void setScreenLayout(String screenLayout) {
         this.screenLayout = screenLayout;
@@ -51,6 +53,7 @@ public class StandardCinema extends Cinema{
 
     /**
      * Getter functino for SeatArrangement
+     * @return
      */
     public String getSeatArrangement() {
         return this.seatArrangement;
@@ -58,6 +61,7 @@ public class StandardCinema extends Cinema{
 
     /**
      * Setter function for SeatArrangement
+     * @param seatArrangement
      */
     public void setSeatArrangement(String seatArrangement) {
         this.seatArrangement = seatArrangement;
@@ -65,6 +69,7 @@ public class StandardCinema extends Cinema{
 
     /**
      * Getter function for EntranceLayout
+     * @return
      */
     public String getEntranceLayout() {
         return this.entranceLayout;
@@ -72,6 +77,7 @@ public class StandardCinema extends Cinema{
 
     /**
      * Setter function for EntranceLayout
+     * @param entranceLayout
      */
     public void setEntranceLayout(String entranceLayout) {
         this.entranceLayout = entranceLayout;
@@ -86,6 +92,7 @@ public class StandardCinema extends Cinema{
 
     /**
      * Getter function for Aisles
+     * @return
      */
     public ArrayList<Integer> getAisles() {
         return this.aisles;
@@ -93,6 +100,7 @@ public class StandardCinema extends Cinema{
 
     /**
      * Setter function for Aisles
+     * @param aisles
      */
     public void setAisles(ArrayList<Integer> aisles) {
         this.aisles = aisles;
