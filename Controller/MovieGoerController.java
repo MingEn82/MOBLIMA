@@ -1,30 +1,33 @@
 package Controller;
 
+/**
+ * MovieGoerController class handles the choice of the movie goer
+ */
 public class MovieGoerController {
     private MovieController movieGoerMovieController = new MovieGoerMovieController();
-    private BookingController bookingController = new BookingController();
 
-
+    /**
+     * Handles the choice of movie goer
+     * @param choice
+     */
     public void processMovieGoerChoice(int choice)
     {
-        //System.out.println("OK movie goer choice works, choice is "+ choice);
         switch(choice){
             case 1:
-            movieGoerMovieController.findMovies();
-            break;
+                movieGoerMovieController.displayMenu();
+                break;
 
             case 2:
-            bookingController.viewBookingHistory();
-            break;
+                new BookingController().viewBookingHistory();
+                break;
 
             case 3:
-            movieGoerMovieController.viewTopMovies();
-            break;
+                movieGoerMovieController.viewTopMovies();
+                break;
 
             default:
-            System.out.println("Please enter a valid choice");
-            break;
-
+                System.out.println("Please enter a valid choice");
+                break;
         }
     }
 

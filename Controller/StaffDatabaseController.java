@@ -78,7 +78,6 @@ public class StaffDatabaseController implements DatabaseController {
      *         else False
      */
     public boolean login(String username, String password) {
-
         return allStaff.containsKey(username) && allStaff.get(username).equals(password);
     }
 

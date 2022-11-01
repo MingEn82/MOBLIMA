@@ -3,7 +3,7 @@ Golden Village Bedok, A, Cinema 2, 02, IMAX
 Golden Village Bedok, A, Cinema 2, 03, Platinum Movie Suite
 Golden Village Paya Lebar, B, Cinema 1, 01, Standard
 Golden Village Paya Lebar, B, Cinema 2, 02, IMAX
-Golden Village Paya Lebar, B, Cinema 2, 03, Platinum Movie Suite
+Golden Village Paya Lebar, B, Cinema 3, 03, Platinum Movie Suite
 Golden Village Jurong Point, C, Cinema 1, 01, Standard
-Golden Village Jurong Point, C, Cinema 1, 02, IMAX
-Golden Village Jurong Point, C, Cinema 1, 03, Platinum Movie Suite
+Golden Village Jurong Point, C, Cinema 2, 02, IMAX
+Golden Village Jurong Point, C, Cinema 3, 03, Platinum Movie Suite

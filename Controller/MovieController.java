@@ -16,8 +16,13 @@ public abstract class MovieController {
         allMovies = movieDC.getMovies();
     }
 
-    public void displayMenu() {}
+    public abstract void displayMenu();
 
+    /**
+     * Displays movies using choice and returns the movie chosen
+     * @param choice
+     * @return chosen movie, null if no movie was chosen
+     */
     public Movie displayMovies(int choice) {
         Scanner sc = new Scanner(System.in);
         ArrayList<Movie> filteredMovies;
@@ -53,19 +58,25 @@ public abstract class MovieController {
         }
     }
 
+    /**
+     * finds movies and return chosen movie
+     * @return chosen movie, null otherwise
+     */
     public Movie findMovies() {
         Scanner sc = new Scanner(System.in);
         int choice;
         Movie movie = null;
         do {
-            System.out.println("================ Find Movies (Customer) ================");
-            System.out.println("1. List all movies");
-            System.out.println("2. Coming Soon");
-            System.out.println("3. Preview");
-            System.out.println("4. Now Showing");
-            System.out.println("5. Search movie by title");
-            System.out.println("6. Back to Customer Main Menu");
-            System.out.println("========================================================");
+            System.out.println("+-------------------------------------------------------+");
+            System.out.println("|                      Find Movies                      |");
+            System.out.println("+-------------------------------------------------------+");
+            System.out.println("| 1. List all movies                                    |");
+            System.out.println("| 2. Coming Soon                                        |");
+            System.out.println("| 3. Preview                                            |");
+            System.out.println("| 4. Now Showing                                        |");
+            System.out.println("| 5. Search movie by title                              |");
+            System.out.println("| 6. Back to Main Menu                                  |");
+            System.out.println("+-------------------------------------------------------+");
             System.out.println("");
 
             System.out.print("Choice chosen is: ");
@@ -90,6 +101,9 @@ public abstract class MovieController {
         return movie;
     };
 
+    /**
+     * View top movies by either total sales or overall rating
+     */
     public void viewTopMovies() {
         // Create deep copy of allMovies
         ArrayList<Movie> sortedMovies = new ArrayList<Movie>();
@@ -132,6 +146,11 @@ public abstract class MovieController {
         } while (choice != 0);
     };
 
+    /**
+     * Prints all movies and returns chosen movie
+     * @param movies
+     * @return chosen movie object, null otherwise
+     */
     private Movie printMovies(ArrayList<Movie> movies) {
         Scanner sc = new Scanner(System.in);
         int i = 1;
@@ -162,6 +181,11 @@ public abstract class MovieController {
         return m;
     }
 
+    /**
+     * filters movies by showing status
+     * @param showingStatus
+     * @return ArrayList of Movies
+     */
     public ArrayList<Movie> filterMoviesByShowingStatus(String showingStatus) {
         ArrayList<Movie> filteredMovies = new ArrayList<Movie>();
 
@@ -174,7 +198,12 @@ public abstract class MovieController {
         return filteredMovies;
     }
 
+    /**
+     * Filters movies with showing status of "Now Showing" and "Preview"
+     * @return ArrayList of Movies
+     */
     public ArrayList<Movie> filterCurrentMovies() {
+        allMovies = new MovieDatabaseController().getMovies();
         ArrayList<Movie> filteredMovies = new ArrayList<Movie>();
 
         for (Movie movie : allMovies) {
@@ -186,6 +215,11 @@ public abstract class MovieController {
         return filteredMovies;
     }
 
+    /**
+     * Filters movies with movie name
+     * @param movieName
+     * @return ArrayList of Movies
+     */
     public ArrayList<Movie> filterMoviesByName(String movieName) {
         ArrayList<Movie> filteredMovies = new ArrayList<Movie>();
 
@@ -198,6 +232,10 @@ public abstract class MovieController {
         return filteredMovies;
     }
 
+    /**
+     * Adds a sale to movie
+     * @param movieTitle
+     */
     public void addOneToTotalSales(String movieTitle) {
         movieDC.addOneToTotalSales(movieTitle);
     }

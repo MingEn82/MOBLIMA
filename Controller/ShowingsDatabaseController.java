@@ -10,6 +10,9 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * ShowingsDatabaseController is a controller class that is used to write and read from the showing text file.
+ */
 public class ShowingsDatabaseController implements DatabaseController {
     private String filePath = "Database/ShowingsDatabase.txt";
     private File file;
@@ -27,6 +30,9 @@ public class ShowingsDatabaseController implements DatabaseController {
         this.readFile();
     }
 
+    /**
+     * This function reads the file from the showings text file.
+     */
     public void readFile() {
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
@@ -41,6 +47,12 @@ public class ShowingsDatabaseController implements DatabaseController {
         }
     }
 
+    /**
+     * This function filters the showings for a particular cinema
+     * @param cineplexName
+     * @param cinemaName
+     * @return ArrayList of showings details
+     */
     public ArrayList<String[]> filterShowings(String cineplexName, String cinemaName) {
         ArrayList<String[]> filteredShowings = new ArrayList<String[]>();
         for (String[] showing : showingsData) {
@@ -52,6 +64,11 @@ public class ShowingsDatabaseController implements DatabaseController {
         return filteredShowings;
     }
 
+    /**
+     * This function filters the showings for a particular movie
+     * @param movieName
+     * @return ArrayList of showings details
+     */
     public ArrayList<String[]> filterShowings(String movieName) {
         ArrayList<String[]> filteredShowings = new ArrayList<String[]>();
         for (String[] showing : showingsData) {
@@ -63,6 +80,13 @@ public class ShowingsDatabaseController implements DatabaseController {
         return filteredShowings;
     }
 
+    /**
+     * This function filters the showings for a particular movie in a particular cinema
+     * @param cineplexName
+     * @param cinemaName
+     * @param movieTitle ArrayList of showings details
+     * @return
+     */
     public ArrayList<String[]> filterShowings(String cineplexName, String cinemaName, String movieTitle) {
         ArrayList<String[]> filteredShowings = new ArrayList<String[]>();
         for (String[] showing : showingsData) {
@@ -75,12 +99,12 @@ public class ShowingsDatabaseController implements DatabaseController {
     }
 
     /**
-     * Returns showing string array
+     * This function eturns showing details
      * @param cineplexName
      * @param cinemaName
      * @param movieTitle
      * @param date
-     * @return                  String[] showing
+     * @return String[] showing
      */
     public String[] getShowing(String cineplexName, String cinemaName, String movieTitle, String date) {
         System.out.println(cineplexName + " " + cinemaName + " " + movieTitle + " " + date);
@@ -93,6 +117,11 @@ public class ShowingsDatabaseController implements DatabaseController {
         return null;
     }
 
+    /**
+     * This function updates a showing details
+     * @param oldShowing
+     * @param newShowing
+     */
     public void updateShowing(String[] oldShowing, String[] newShowing) {
         showingsData.removeIf(showing -> 
             showing[0].equals(oldShowing[0]) && 
@@ -106,7 +135,7 @@ public class ShowingsDatabaseController implements DatabaseController {
     }
 
     /**
-     * Deletes all showings of movie
+     * This function deletes all showings of movie
      * @param movieTitle
      */
     public void deleteShowings(String movieTitle) {
@@ -115,7 +144,7 @@ public class ShowingsDatabaseController implements DatabaseController {
     }
 
     /**
-     * Deletes a particular showing
+     * This function deletes a particular showing
      * @param movieTitle
      * @param cineplexName
      * @param cinemaName
@@ -145,6 +174,14 @@ public class ShowingsDatabaseController implements DatabaseController {
         return true;
     }
 
+    /**
+     * This function adds a new booking to the database
+     * @param movieTitle
+     * @param cineplexName
+     * @param cinemaName
+     * @param date
+     * @param seatID
+     */
     public void addBooking(String movieTitle, String cineplexName, String cinemaName, String date, String seatID) {
         ArrayList<String[]> updatedShowings = new ArrayList<String[]>();
 
@@ -161,7 +198,7 @@ public class ShowingsDatabaseController implements DatabaseController {
     }
 
     /**
-     * Updates ShowingsDatabase.txt
+     * This functions updates Showings Database
      */
     public void updateDatabase() {
         try {
@@ -173,12 +210,6 @@ public class ShowingsDatabaseController implements DatabaseController {
             pw.close();
         } catch (IOException e) {
             e.printStackTrace();
-        }
-    }
-
-    public void displayAllShowings() {
-        for (String[] showing : showingsData) {
-            System.out.println(Arrays.toString(showing));
         }
     }
 }

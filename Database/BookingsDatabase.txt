@@ -2,3 +2,5 @@ A01202210192250, 98765432, Subra Suresh, NTU-President@ntu.edu.sg, Golden Villag
 A02202210202250, 98765432, Subra Suresh, NTU-President@ntu.edu.sg, Golden Village Bedok, Cinema 2, A09, Minions 2, 87,  2D, IMAX, 202210231900, 11.0
 B01202210212250, 91234567, Ling San, NTU-Provost@ntu.edu.sg, Golden Village Paya Lebar, Cinema 1, D10, Minority Report, 145,  2D, Standard, 202210231400, 11.0
 C02202210222250, 91234567, Ling San, NTU-Provost@ntu.edu.sg, Golden Village Jurong Point, Cinema 2, B08, Minions 2, 87,  3D, Standard, 202210241900, 8.5
+A02202211020034, 92315166, mingen, mingen@test.com, Golden Village Bedok, Cinema 2, A03, Minions 2, 87, 2D, IMAX, 202210231900, 13.5
+A02202211020034, 92315166, mingen, mingen@test.com, Golden Village Bedok, Cinema 2, H01, Minions 2, 87, 2D, IMAX, 202210231900, 13.5

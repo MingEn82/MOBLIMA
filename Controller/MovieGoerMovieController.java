@@ -9,21 +9,28 @@ import Entities.Movie;
 import Entities.Review;
 import Entities.Showing;
 import Utils.DateParser;
+import Utils.InputGetter;
 
+/**
+ * MovieGoerMovieController is a controller class that handles the movie goer
+ */
 public class MovieGoerMovieController extends MovieController {
     private Scanner sc;
-    private BookingController bookingController = new BookingController();
+    private InputGetter ip;
     private CineplexController cineplexController = new CineplexController();
     private ShowingsDatabaseController showingsDC = new ShowingsDatabaseController();
     private MovieDatabaseController movieDC = new MovieDatabaseController();
     ArrayList<String[]> filteredShowings;
 
-
     public MovieGoerMovieController() {
         sc = new Scanner(System.in);
+        ip = new InputGetter();
     }
 
-    public Movie findMovies() {
+    /**
+     * Function that handles booking tickets and reviews
+     */
+    public void displayMenu() {
         int choice;
         Movie movieChoice = super.findMovies();
 
@@ -33,14 +40,16 @@ public class MovieGoerMovieController extends MovieController {
             String[] showingChoice;
 
             do {
-                System.out.println("===================== Movie Options =====================");
-                System.out.println("1. Display all showings / Book a ticket");
-                System.out.println("2. View reviews");
-                System.out.println("3. Leave a review");
-                System.out.println("4. View my reviews");
-                System.out.println("=========================================================");
-                System.out.println("              Enter 0 to return to main menu");
-                System.out.println("=========================================================");
+                System.out.println("+-------------------------------------------------------+");
+                System.out.println("|                    Movie Options                      |");
+                System.out.println("+-------------------------------------------------------+");
+                System.out.println("| 1. Display all showings / Book a ticket               |");
+                System.out.println("| 2. View reviews                                       |");
+                System.out.println("| 3. Leave a review                                     |");
+                System.out.println("| 4. View my reviews                                    |");
+                System.out.println("+-------------------------------------------------------+");
+                System.out.println("|             Enter 0 to return to main menu            |");
+                System.out.println("+-------------------------------------------------------+");
                 System.out.println("");
 
                 choice = sc.nextInt();
@@ -53,13 +62,19 @@ public class MovieGoerMovieController extends MovieController {
                     case 1:
                         // Display All Showings
                         filteredShowings = showingsDC.filterShowings(movieTitle);
-                        System.out.println(movieTitle + " is showing at these locations!");
+
+                        // Return if no showings are found
+                        if (filteredShowings.size() == 0) {
+                            System.out.println("No showings found for " + movieTitle + "\n");
+                            break;
+                        }
+
+                        System.out.println(movieTitle + " is showing at these locations");
                         printShowings(filteredShowings);
-                    
-                        
+
                         do {
                             System.out.println("Which showing do you want to book for ? (type 0 to quit)");
-                            subChoice = sc.nextInt();
+                            subChoice = ip.getInt();
                             if (subChoice < 0 || subChoice > filteredShowings.size()) {
                                 System.out.println("Invalid showing");
                             }
@@ -70,79 +85,76 @@ public class MovieGoerMovieController extends MovieController {
                             break;
                         }
 
-                        showingChoice = filteredShowings.get(subChoice-1);
+                        showingChoice = filteredShowings.get(subChoice - 1);
                         bookTicket(showingChoice[1], showingChoice[2], movieTitle, showingChoice[3]);
-
                         break;
 
-                        
-                        case 2:
+                    case 2:
                         // View reviews
                         movieDC.printReviews(movieTitle);
                         break;
-                        
-                        case 3:
+
+                    case 3:
                         // Leave a review
                         sc.nextLine();
                         System.out.println("Enter phone number: ");
-                        phoneNumber = sc.nextInt();
+                        phoneNumber = ip.getInt();
                         while (phoneNumber < 9999999 || phoneNumber > 100000000) {
                             System.out.println("Invalid phone number");
                             System.out.println("Enter phone number: ");
-                            phoneNumber = sc.nextInt();
+                            phoneNumber = ip.getInt();
                         }
 
                         if (movieDC.hasReview(movieTitle, phoneNumber)) {
                             System.out.println("You have already left a review for this movie");
                             System.out.println("Do you want to change your review instead?");
-                            
+
                             do {
                                 System.out.println("1. Change review");
                                 System.out.println("2. Go back");
-                                choice = sc.nextInt();
+                                choice = ip.getInt();
                                 switch (choice) {
                                     case 1:
-                                    System.out.println("Enter rating (0 - 5)");
-                                    rating = sc.nextFloat();
-                                    while (rating < 0 || rating > 5) {
-                                        System.out.println("Invalid rating");
-                                        System.out.println("Enter rating (0 - 5): ");
-                                        rating = sc.nextFloat();
-                                    }
-                                    rating = Math.round(rating * 100) / 100;
-                                    System.out.println("Enter comments (0 to not leave a comment): ");
-                                    sc.nextLine();
-                                    reviewText = sc.nextLine();
-                                    if (reviewText.equals("0")) {
-                                        newReview = new Review(rating, phoneNumber);
-                                    } else {
-                                        newReview = new Review(rating, phoneNumber, reviewText);
-                                    }
-                                    movieDC.updateReview(movieTitle, newReview);
-                                    break;
-                                    
+                                        System.out.println("Enter rating (1 - 5)");
+                                        rating = ip.getFloat();
+                                        while (rating < 1 || rating > 5) {
+                                            System.out.println("Invalid rating");
+                                            System.out.println("Enter rating (1 - 5): ");
+                                            rating = ip.getFloat();
+                                        }
+                                        rating = Math.round(rating * 100) / 100;
+                                        System.out.println("Enter comments (0 to not leave a comment): ");
+                                        sc.nextLine();
+                                        reviewText = sc.nextLine();
+                                        if (reviewText.equals("0")) {
+                                            newReview = new Review(rating, phoneNumber);
+                                        } else {
+                                            newReview = new Review(rating, phoneNumber, reviewText);
+                                        }
+                                        movieDC.updateReview(movieTitle, newReview);
+                                        break;
+
                                     case 2:
-                                    System.out.println("Review not changed. Goodbye!");
-                                    break;
-                                    
+                                        System.out.println("Review not changed. Goodbye!");
+                                        break;
+
                                     default:
-                                    System.out.println("Invalid choice. Try again!");
+                                        System.out.println("Invalid choice. Try again!");
                                 }
                             } while (choice < 1 || choice > 2);
 
                             break;
                         }
-                        
+
                         System.out.println("Enter rating (0 - 5)");
-                        rating = sc.nextFloat();
-                        while (rating < 0 || rating > 5) {
+                        rating = ip.getFloat();
+                        while (rating < 1 || rating > 5) {
                             System.out.println("Invalid rating");
-                            System.out.println("Enter rating (0 - 5): ");
-                            rating = sc.nextFloat();
+                            System.out.println("Enter rating (1 - 5): ");
+                            rating = ip.getFloat();
                         }
                         rating = Math.round(rating * 100) / 100;
                         System.out.println("Enter comments (0 to not leave a comment): ");
-                        sc.nextLine();
                         reviewText = sc.nextLine();
                         if (reviewText.equals("0")) {
                             newReview = new Review(rating, phoneNumber);
@@ -152,14 +164,14 @@ public class MovieGoerMovieController extends MovieController {
                         movieDC.addReview(movieTitle, newReview);
                         break;
 
-                        case 4:
+                    case 4:
                         sc.nextLine();
                         System.out.println("Enter phone number: ");
-                        phoneNumber = sc.nextInt();
+                        phoneNumber = ip.getInt();
                         while (phoneNumber < 9999999 || phoneNumber > 100000000) {
                             System.out.println("Invalid phone number");
                             System.out.println("Enter phone number: ");
-                            phoneNumber = sc.nextInt();
+                            phoneNumber = ip.getInt();
                         }
                         movieDC.printReviews(movieTitle, phoneNumber);
                         break;
@@ -167,24 +179,29 @@ public class MovieGoerMovieController extends MovieController {
                     case 0:
                         // Go back
                         break;
+
                     default:
                         System.out.println("Invalid choice! Try again");
                 }
             } while (choice != 0);
         }
-
-        return null;
     }
 
+    /**
+     * Helper function to print all showings of a movie
+     * @param filteredShowings
+     */
     private void printShowings(ArrayList<String[]> filteredShowings) {
         DateParser dp = new DateParser("yyyyMMddhhmm");
-        
+
         int i = 1;
         for (String[] s : filteredShowings) {
             String cineplexName = s[1];
             String cinemaName = s[2];
+            System.out.println(cinemaName);
             Date showingTime = dp.parseDate(s[3], "yyyyMMddhhmm");
-            System.out.println(i + ") Location: " + cineplexName + ", " + cinemaName + " (" + cineplexController.getCinemaType(cineplexName, cinemaName) + ")");
+            System.out.println(i + ") Location: " + cineplexName + ", " + cinemaName + " ("
+                    + cineplexController.getCinemaType(cineplexName, cinemaName) + ")");
             System.out.println("   Movie Type: " + s[4]);
             System.out.println("   When: " + dp.formatDate(showingTime, "dd/MM/yyyy HH:mm"));
             System.out.println("");
@@ -194,16 +211,17 @@ public class MovieGoerMovieController extends MovieController {
 
     /**
      * Books a ticket
+     * 
      * @param cineplexName
      * @param cinemaName
      * @param movieTitle
      * @param startDate
-     * @return              true if booking is successful, false otherwise
+     * @return true if booking is successful, false otherwise
      */
     private boolean bookTicket(String cineplexName, String cinemaName, String movieTitle, String startDate) {
         DateParser dp = new DateParser("yyyyMMddHHmm");
-
         cineplexController.refreshData();
+
         Cinema cinema = cineplexController.findCinema(cineplexName, cinemaName);
         if (cinema == null) {
             System.out.println("Cinema not found. Something went wrong in MovieGoerMovieController.bookticket");
@@ -216,26 +234,43 @@ public class MovieGoerMovieController extends MovieController {
         String UID = cineplexController.generateUID(cineplexName, cinemaName);
 
         for (Showing showing : cinema.getShowings()) {
-            if (showing.getStartDate().compareTo(dp.parseDate(startDate)) == 0 && showing.getMovieTitle().equals(movieTitle)) {
+            if (showing.getStartDate().compareTo(dp.parseDate(startDate)) == 0
+                    && showing.getMovieTitle().equals(movieTitle)) {
                 // Add Movie Type
                 String movieType = showing.getMovieType();
-                // Print seats
-                showing.printShowingDetails();
-                cinema.printScreenLayout();
-                showing.printSeats(cinema.getAisles());
-                cinema.printEntranceLayout();
                 // Get Movie Duration
                 int movieDuration = movieDC.getMovieDuration(movieTitle);
-
                 // Get SeatID
-                System.out.println("Enter SeatID (e.g. A09): ");
-                sc.nextLine();
-                String seatID = sc.nextLine();
-                if (!showing.isSeatBooked(seatID)) {
-                    showingsDC.addBooking(movieTitle, cineplexName, cinemaName, startDate, seatID);
-                    addOneToTotalSales(movieTitle);
-                    return bookingController.newBooking(UID, cineplexName, cinemaName, seatID, movieTitle, movieDuration, movieType, cinemaType, dp.parseDate(startDate), -1);
-                }
+                int choice;
+                do {
+                    // Print seats
+                    showing.printShowingDetails();
+                    cinema.printScreenLayout();
+                    showing.printSeats(cinema.getAisles());
+                    cinema.printSeatNumbers();
+                    cinema.printEntranceLayout();
+
+                    System.out.println("Enter SeatID (e.g. A09): ");
+                    String seatID = ip.getString();
+
+                    if (!showing.isSeatBooked(seatID)) {
+                        showingsDC.addBooking(movieTitle, cineplexName, cinemaName, startDate, seatID);
+                        addOneToTotalSales(movieTitle);
+                        new BookingController().newBooking(UID, cineplexName, cinemaName, seatID, movieTitle,
+                                movieDuration, movieType, cinemaType, dp.parseDate(startDate), -1);
+                        break;
+                    } else {
+                        System.out.println("Invalid seat chosen!");
+                        System.out.println("Type 1 to choose a different seat (0 to exit booking):");
+                        choice = ip.getInt();
+                        while (choice != 0 && choice != 1) {
+                            System.out.println("Invalid choice! Try again");
+                            choice = ip.getInt();
+                        }
+                        if (choice == 0) { break; }
+                    }
+                } while (true);
+                
             }
         }
 

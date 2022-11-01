@@ -8,6 +8,9 @@ import Entities.Cineplex;
 import Entities.Showing;
 import Utils.DateParser;
 
+/**
+ * Controller for cineplexes
+ */
 public class CineplexController {
     CineplexDatabaseController cineplexDC;
     ArrayList<Cineplex> cineplexes;
@@ -17,6 +20,12 @@ public class CineplexController {
         cineplexes = cineplexDC.getCineplexes();
     }
 
+    /**
+     * Finds Cinema using cineplex name and cinema name
+     * @param cineplexName
+     * @param cinemaName
+     * @return Cinema object if found, null otherwise
+     */
     public Cinema findCinema(String cineplexName, String cinemaName) {
         for (Cineplex cineplex : cineplexes) {
             if (!cineplex.getCineplexName().equals(cineplexName))
@@ -29,6 +38,12 @@ public class CineplexController {
         return null;
     }
 
+    /**
+     * Generates UID String using cineplex name and cinema name 
+     * @param cineplexName
+     * @param cinemaName
+     * @return UID String if found, empty string otherwise
+     */
     public String generateUID(String cineplexName, String cinemaName) {
         DateParser dp = new DateParser("yyyyMMddHHmm");
         String UID = "";
@@ -46,6 +61,12 @@ public class CineplexController {
         return UID;
     }
 
+    /**
+     * Returns cinema type using cineplex name and cinema name
+     * @param cineplexName
+     * @param cinemaName
+     * @return cinemax type if found, null otherwise
+     */
     public String getCinemaType(String cineplexName, String cinemaName) {
         for (Cineplex cineplex : cineplexes) {
             if (!cineplex.getCineplexName().equals(cineplexName))
@@ -58,6 +79,14 @@ public class CineplexController {
         return null;
     }
 
+    /**
+     * Books seat for a particular showing
+     * @param cineplexName
+     * @param cinemaName
+     * @param movieTitle
+     * @param startDate
+     * @param seatID
+     */
     public void bookSeat(String cineplexName, String cinemaName, String movieTitle, Date startDate, String seatID) {
         for (Cineplex cineplex : cineplexes) {
             if (!cineplex.getCineplexName().equals(cineplexName))
@@ -79,6 +108,9 @@ public class CineplexController {
         this.refreshData();
     }
 
+    /**
+     * Refreshes cineplexes
+     */
     public void refreshData() {
         cineplexDC = new CineplexDatabaseController();
         cineplexes = cineplexDC.getCineplexes();

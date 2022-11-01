@@ -7,6 +7,9 @@ import java.util.Scanner;
 import Entities.AgeRating;
 import Entities.Movie;
 
+/**
+ * This class extends the MovieController class and implements additional functionalities for admin staff only
+ */
 public class AdminMovieController extends MovieController{
     private ShowingsDatabaseController showingsDC;
     private MovieDatabaseController moviesDC;
@@ -21,6 +24,9 @@ public class AdminMovieController extends MovieController{
         sc = new Scanner(System.in);
     }
 
+    /**
+     * Main menu UI for AdminMovieController
+     */
     public void displayMenu() {
         int choice;
 
@@ -57,6 +63,9 @@ public class AdminMovieController extends MovieController{
         } while (choice != 5);
     }
 
+    /**
+     * Creates a new movie
+     */
     public void createMovie() {
         sc.nextLine();
         System.out.println("Enter movie title: ");
@@ -160,7 +169,9 @@ public class AdminMovieController extends MovieController{
         moviesDC.addNewMovie(movieTitle, showingStatus, synopsis, ageRating, director, casts.toArray(new String[0]), movieDuration);
     }
 
-    // Not sure if correct implementation
+    /**
+     * Updates current movie
+     */
     public void updateMovie() {   
         ArrayList<Movie> movies = moviesDC.getMovies();
         Movie oldMovie = null;
@@ -337,6 +348,9 @@ public class AdminMovieController extends MovieController{
         } while (choice != 0);
     }
 
+    /**
+     * Delete movie
+     */
     public void deleteMovie() {
         ArrayList<Movie> movies = moviesDC.getMovies();
         Movie movieToDelete = null;

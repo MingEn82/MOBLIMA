@@ -13,6 +13,9 @@ import Entities.AgeRating;
 import Entities.Movie;
 import Entities.Review;
 
+/**
+ * MovieDatabaseController is a controller that is used to write and read from the movie text file.
+ */
 public class MovieDatabaseController implements DatabaseController {
     private String filePath = "Database/MoviesDatabase.txt";
     private File file;
@@ -30,6 +33,9 @@ public class MovieDatabaseController implements DatabaseController {
         this.readFile();
     }
     
+    /**
+     * Reads database and creates ArrayList of Movies
+     */
     public void readFile() {
         this.movies = new ArrayList<Movie>();
         BookingsDatabaseController bookingsDC = new BookingsDatabaseController();
@@ -88,6 +94,10 @@ public class MovieDatabaseController implements DatabaseController {
         }
     }
 
+    /**
+     * This function gets the ArrayList of Movies
+     * @return ArrayList of Movies
+     */
     public ArrayList<Movie> getMovies() {
         return movies;
     }
@@ -120,20 +130,16 @@ public class MovieDatabaseController implements DatabaseController {
         System.out.println("Movie not found");
     }
 
-    // public boolean changeShowingStatus(String movieTitle, String showingStatus) {
-    //     for (Movie movie : movies) {
-    //         if (movie.getMovieTitle().equals(movieTitle)) {
-    //             movie.setShowingStatus(showingStatus);
-    //             this.updateDatabase();
-    //             return true;
-    //         }
-    //     }
-
-    //     System.out.println("Movie was not found");
-    //     return false;
-    // }
-
+    /**
+     * Prints all reviews of the movie
+     * @param movieTitle
+     */
     public void printReviews(String movieTitle) {
+        if (!hasReview(movieTitle)) {
+            System.out.println("No reviews found for " + movieTitle + "\n");
+            return;
+        }
+
         System.out.println("|-------------------------------------------------------|");
         System.out.println("|                       Reviews                         |");
         System.out.println("|-------------------------------------------------------|");
@@ -146,7 +152,17 @@ public class MovieDatabaseController implements DatabaseController {
         }
     }
 
+    /**
+     * Prints review of movie, filtered by phone number
+     * @param movieTitle
+     * @param phoneNumber
+     */
     public void printReviews(String movieTitle, int phoneNumber) {
+        if (!hasReview(movieTitle)) {
+            System.out.println("No reviews found for " + movieTitle + "\n");
+            return;
+        }
+
         for (Movie movie : movies) {
             if (movie.getMovieTitle().equals(movieTitle)) {
                 movie.printReviews(phoneNumber);
@@ -155,6 +171,12 @@ public class MovieDatabaseController implements DatabaseController {
         }
     }
 
+    /**
+     * Checks whether person with phone number has left a review on movie
+     * @param movieTitle
+     * @param phoneNumber
+     * @return
+     */
     public boolean hasReview(String movieTitle, int phoneNumber) {
         for (Movie movie : movies) {
             if (movie.getMovieTitle().equals(movieTitle)) {
@@ -164,6 +186,23 @@ public class MovieDatabaseController implements DatabaseController {
         return false;
     }
 
+    /**
+     * Checks whether movie has at least one review
+     */
+    public boolean hasReview(String movieTitle) {
+        for (Movie movie : movies) {
+            if (movie.getMovieTitle().equals(movieTitle)) {
+                return movie.hasReview();
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Adds a review to movie
+     * @param movieTitle
+     * @param review
+     */
     public void addReview(String movieTitle, Review review) {
         for (Movie movie : movies) {
             if (movie.getMovieTitle().equals(movieTitle)) {
@@ -177,6 +216,11 @@ public class MovieDatabaseController implements DatabaseController {
         return;
     }
 
+    /**
+     * Updates review of movie
+     * @param movieTitle
+     * @param review
+     */
     public void updateReview(String movieTitle, Review review) {
         for (Movie movie : movies) {
             if (movie.getMovieTitle().equals(movieTitle)) {
@@ -190,12 +234,22 @@ public class MovieDatabaseController implements DatabaseController {
         return;
     }
 
+    /**
+     * Updates movie details
+     * @param oldMovie
+     * @param newMovie
+     */
     public void updateMovie(Movie oldMovie, Movie newMovie) {
         movies.removeIf(m -> m.getMovieTitle().equals(oldMovie.getMovieTitle()));
         movies.add(newMovie);
         this.updateDatabase();
     }
 
+    /**
+     * Getter function for movie duration
+     * @param movieTitle
+     * @return movie duration in minutes
+     */
     public int getMovieDuration(String movieTitle) {
         for (Movie movie : movies) {
             if (!movie.getMovieTitle().equals(movieTitle))
@@ -205,6 +259,9 @@ public class MovieDatabaseController implements DatabaseController {
         return -1;
     }
 
+    /**
+     * Updates database
+     */
     private void updateDatabase() {
         try {
             BufferedWriter bf = new BufferedWriter(new FileWriter(file, false));
@@ -218,6 +275,11 @@ public class MovieDatabaseController implements DatabaseController {
         }
     }
 
+    /**
+     * Checks whether movie exists
+     * @param movieTitle
+     * @return true if movie exists, false otherwise
+     */
     public boolean movieExists(String movieTitle) {
         for (Movie m : movies) {
             if (m.getMovieTitle().equals(movieTitle)) {
@@ -227,6 +289,10 @@ public class MovieDatabaseController implements DatabaseController {
         return false;
     }
 
+    /**
+     * Adds one to total sales
+     * @param movieTitle
+     */
     public void addOneToTotalSales(String movieTitle) {
         for (Movie m : movies) {
             if (m.getMovieTitle().equals(movieTitle)) {

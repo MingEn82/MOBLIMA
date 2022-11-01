@@ -1,5 +1,8 @@
 package Entities;
 
+/**
+ * This is a enumeration for Age Rating.
+ */
 public enum AgeRating {
     G( "G" ),
     PG( "PG" ),
@@ -14,6 +17,9 @@ public enum AgeRating {
         this.ageRating = ageRating;
     }
 
+    /**
+     * This method is used to return a string output of the corresponding enum type.
+     */
     public String toString() {
         return this.ageRating;
     }

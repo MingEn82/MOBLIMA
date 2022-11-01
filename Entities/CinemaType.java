@@ -1,5 +1,8 @@
 package Entities;
 
+/**
+ * This is an enumeration for the Cinema Type.
+ */
 public enum CinemaType {
     STANDARD( "Standard" ),
     IMAX( "IMAX" ),
@@ -11,6 +14,9 @@ public enum CinemaType {
         this.type = type;
     }
 
+    /**
+     * This method returns the string of the Cinema Type.
+     */
     public String toString() {
         return this.type;
     }

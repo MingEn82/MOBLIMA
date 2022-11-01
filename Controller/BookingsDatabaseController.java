@@ -36,7 +36,8 @@ public class BookingsDatabaseController implements DatabaseController {
         this.readFile();
     }
 
-    public ArrayList<Booking> fetchBookings(){
+    public ArrayList<Booking> fetchBookings() {
+        this.readFile();
         return this.bookings;
     }
 
@@ -101,7 +102,15 @@ public class BookingsDatabaseController implements DatabaseController {
     public void addNewBooking(Booking bookingObject) {
         //System.out.println("The new booking object is " +newBooking);
         bookings.add(bookingObject);
-        this.updateDatabase();
+        try {
+            bf = new BufferedWriter(new FileWriter(file, true));
+            pw = new PrintWriter(bf);
+            pw.println(bookingObject.toString());
+            pw.close();
+
+        } catch (IOException e) {
+            e.printStackTrace(); 
+        }
     }
 
     /**
@@ -135,7 +144,6 @@ public class BookingsDatabaseController implements DatabaseController {
             for (Booking b : bookings) {
                 pw.println(b.toString());
             }
-            pw.println("hello?");
             pw.close();
 
         } catch (IOException e) {
@@ -143,6 +151,11 @@ public class BookingsDatabaseController implements DatabaseController {
         }
     }
 
+    /**
+     * Get the total sales of the movie
+     * @param movieTitle
+     * @return total sales
+     */
     public int getTotalSales(String movieTitle) {
         int totalSales = 0;
         for (Booking b : bookings) {

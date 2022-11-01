@@ -34,14 +34,30 @@ public class BookingController {
     /**
      * This function allows the user to view his/her booking history by typing in his email address.
      */
-    public void viewBookingHistory(){
+    public void viewBookingHistory() {
+        // update bookings
+        this.bookings = bookingsDatabaseController.fetchBookings();
+
         Scanner scanner = new Scanner(System.in);
         System.out.println();
         System.out.println("Please enter your email address: ");
         System.out.println();
         System.out.print("Email address: ");
-
         String emailAddress = scanner.nextLine();
+
+        boolean hasBookings = false;
+        for (Booking b : bookings) {
+            if (b.getEmailOfMovieGoer().toLowerCase().trim().equals(emailAddress.toLowerCase().trim()))
+            {
+                hasBookings = true;
+                break;
+            }
+        }
+        if (!hasBookings) {
+            System.out.println("No bookings found!\n");
+            return;
+        }
+
         System.out.println();
         System.out.println("---------------------------------------------------------");
         System.out.println("Your bookings are as follows: ");
@@ -167,7 +183,7 @@ public class BookingController {
                 
                 bookingsDatabaseController.addNewBooking(newBooking);
                 cineplexController.bookSeat(cineplexName, cinemaName, movieTitle, startDate, seatID);
-                System.out.println("Booking is successful!");
+                System.out.println("Booking is successful!\n");
                 return true;
                 
                 case 2:
@@ -176,7 +192,7 @@ public class BookingController {
                 //System.out.println("The new booking object is " +newBooking);
                 bookingsDatabaseController.addNewBooking(newBooking);
                 cineplexController.bookSeat(cineplexName, cinemaName, movieTitle, startDate, seatID);
-                System.out.println("Booking is successful!");
+                System.out.println("Booking is successful!\n");
                 return true;
                 
 
@@ -185,7 +201,7 @@ public class BookingController {
                 newBooking.calBookingPrice();
                 bookingsDatabaseController.addNewBooking(newBooking);
                 cineplexController.bookSeat(cineplexName, cinemaName, movieTitle, startDate, seatID);
-                System.out.println("Booking is successful!");
+                System.out.println("Booking is successful!\n");
                 return true;
                 
 

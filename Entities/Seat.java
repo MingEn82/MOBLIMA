@@ -1,7 +1,7 @@
 package Entities;
 
 /**
- * Seat Class
+ * This class is the Seat class entity for defining the seat object attributes and methods.
  */
 public class Seat {
     private boolean isBooked;
@@ -11,8 +11,8 @@ public class Seat {
     private String filledSquare = "[x]";
 
     /**
-     * Creates a new seat with the given seat number and booking status
-     * @param seatNumber
+     * Constructor for seat
+     * @param SeatNumber
      * @param isBooked
      */
     public Seat(String seatNumber, boolean isBooked) {
@@ -22,7 +22,7 @@ public class Seat {
     }
 
     /**
-     * Creates an empty space
+     * Constructor for Seat
      */
     public Seat() {
         this.seatNumber = null;
@@ -31,39 +31,39 @@ public class Seat {
     }
 
     /**
-     * Checks booking status of seat
-     * @return  true if seat is booked, false otherwise
+     * Getter function for IsBooked
+     * @return
      */
     public boolean getIsBooked() {
         return this.isBooked;
     }
 
     /**
-     * Sets booked status of seat
-     * @param isBooked
-     */
-    public void setIsBooked(boolean isBooked) {
-        this.isBooked = isBooked;
-    }
-    
-    /**
-     * Checks whether seat is a seat
-     * @return  true if is seat, false otherwise
+     * Getter function for IsSeat
+     * @return
      */
     public boolean getIsSeat() {
         return this.isSeat;
     }
 
     /**
-     * Gets seat number of seat
-     * @return seat number
+     * Setter function for IsBooked
+     * @param isBooked
+     */
+    public void setIsBooked(boolean isBooked) {
+        this.isBooked = isBooked;
+    }
+
+    /**
+     * Getter function for SeatNumber
+     * @return
      */
     public String getSeatNumber() {
         return this.seatNumber;
     }
 
     /**
-     * Changes representation of an empty seat
+     * Setter function for EmptySquare
      * @param emptySquare
      */
     public void setEmptySquare(String emptySquare) {
@@ -71,7 +71,7 @@ public class Seat {
     }
 
     /**
-     * Changes representation of a filled seat
+     * Setter function for FilledSquare
      * @param filledSquare
      */
     public void setFilledSquare(String filledSquare) {
@@ -79,7 +79,7 @@ public class Seat {
     }
 
     /**
-     * Prints seat
+     * Print function for Seat
      */
     public void print() {
         if (!isSeat) {

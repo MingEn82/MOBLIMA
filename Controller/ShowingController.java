@@ -5,19 +5,23 @@ import java.util.Scanner;
 
 import Utils.DateParser;
 
+/**
+ * ShowingController is a controller class that handles showings
+ */
 public class ShowingController {
     private ShowingsDatabaseController showingsDC;
-    private BookingController bookingsController;
     Scanner sc;
     DateParser dp;
 
     public ShowingController() {
         showingsDC = new ShowingsDatabaseController();
-        bookingsController = new BookingController();
         sc = new Scanner(System.in);
         dp = new DateParser("yyyyMMddHHmm");
     }
 
+    /**
+     * Function that serves the UI for the admin and handles choice
+     */
     public void displayMenu() {
         int choice;
 
@@ -49,6 +53,9 @@ public class ShowingController {
         } while (choice != 4);
     }
     
+    /**
+     * Creates new showing
+     */
     public void createShowing() {
         sc.nextLine();
         System.out.println("Enter movie Title: ");
@@ -77,6 +84,9 @@ public class ShowingController {
         }
     }
 
+    /**
+     * Updates showing
+     */
     public void updateShowing() {
         sc.nextLine();
         System.out.println("Enter movie Title: ");
@@ -95,7 +105,7 @@ public class ShowingController {
         System.out.println(oldStartDate);
 
         // Checks if there are existing bookings for showing
-        if (bookingsController.bookingExistForShowing(oldCineplexName, oldCinemaName, oldMovieTitle, oldStartDate)) {
+        if (new BookingController().bookingExistForShowing(oldCineplexName, oldCinemaName, oldMovieTitle, oldStartDate)) {
             System.out.println("Error! There exist bookings for this showing. Cancelling update...");
             return;
         }
@@ -177,6 +187,9 @@ public class ShowingController {
         } while (choice != 0);
     }
 
+    /**
+     * Deletes a showing
+     */
     public void deleteShowing() {
         sc.nextLine();
         System.out.println("Enter movie Title: ");
@@ -189,7 +202,7 @@ public class ShowingController {
         Date startDate = dp.parseDate(sc.nextLine(), "yyyyMMddHHmm");
 
         // Checks if there are existing bookings for showing
-        if (bookingsController.bookingExistForShowing(cineplexName, cinemaName, movieTitle, startDate)) {
+        if (new BookingController().bookingExistForShowing(cineplexName, cinemaName, movieTitle, startDate)) {
             System.out.println("Error! There exist bookings for this showing. Cancelling update...");
             return;
         }
@@ -202,9 +215,5 @@ public class ShowingController {
 
         showingsDC.deleteShowing(movieTitle, cineplexName, cinemaName, dp.formatDate(startDate, "yyyyMMddHHmm"));
         System.out.println("Successfully deleted showing");
-    }
-
-    public void addBookedSeats() {
-
     }
 }
