@@ -8,7 +8,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -53,109 +52,6 @@ public class CineplexDatabaseController implements DatabaseController {
                 br.close();
             } catch (Exception e) {}
         }
-    }
-
-    // Prints all cineplexes with their respective cinemas and showings
-    public void printAllCineplexes() {
-        for (Cineplex cineplex : cineplexes) {
-            cineplex.print();
-        }
-    }
-
-    // For creating a new cinema
-    public void createNewCinema(String cineplexName, String cineplexID, String cinemaName, String cinemaNumber, CinemaType cinemaDetails) {
-        for (Cineplex cineplex : cineplexes) {
-            if (cineplex.getCineplexID().equals(cineplexID)) {
-                for (Cinema cinema : cineplex.getCinemas()) {
-                    if (cinema.getCinemaNumber().equals(cinemaNumber)) {
-                        System.out.println("Error! Duplicate Cinema!");
-                        return;
-                    }
-                }
-            }
-        }
-
-        // Not a duplicate cinema, appending to file
-        try {
-            PrintWriter pw = new PrintWriter(new FileOutputStream(file, true));
-            ArrayList<String> outputArray = new ArrayList<String>();
-            outputArray.add(cineplexName);
-            outputArray.add(cineplexID);
-            outputArray.add(cinemaName);
-            outputArray.add(cinemaNumber);
-            outputArray.add(cinemaDetails.toString());
-
-            String output = String.join(", ", outputArray);
-            pw.append("\n");
-            pw.append(output);
-            pw.close();
-
-            // Update cineplexes
-            this.addNewCinema(output.split(", "));
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * Function to get the unique code for a cinema
-     * @param cineplexName
-     * @param cinemaName
-     * @return              UID of cinema
-     */
-    public String getIDs(String cineplexName, String cinemaName) {
-        for (Cineplex cineplex : cineplexes) {
-            if (!cineplex.getCineplexName().equals(cineplexName))
-                continue;
-            for (Cinema cinema : cineplex.getCinemas()) {
-                if (!cinema.getCinemaName().equals(cinemaName))
-                    continue;
-                return cineplex.getCineplexID() + cinema.getCinemaNumber();
-            }
-        }
-
-        System.out.println("Couldn't find this cinema!");
-        return "";
-    }
-
-    /**
-     * Returns showing information for booking tickets
-     * @param cineplexName
-     * @param cinemaName
-     * @param movieTitle
-     * @param startDate
-     * @return              ArrayList of String containing CinemaType, UID and MovieType
-     */
-    public String[] getShowingInformation(String cineplexName, String cinemaName, String movieTitle, Date startDate) {
-        ArrayList<String> info = new ArrayList<String>();
-        DateParser dp = new DateParser("yyyyMMddHHmm");
-
-        for (Cineplex cineplex : cineplexes) {
-            if (!cineplex.getCineplexName().equals(cineplexName))
-                continue;
-            for (Cinema cinema : cineplex.getCinemas()) {
-                if (!cinema.getCinemaName().equals(cinemaName))
-                    continue;
-                // Add Cinema Type
-                info.add(cinema.getCinemaType());
-                // Add UID
-                info.add(cineplex.getCineplexID() + cinema.getCinemaNumber() + dp.formatDate(new Date()));
-                for (Showing showing : cinema.getShowings()) {
-                    if (showing.getStartDate().compareTo(startDate) == 0 && showing.getMovieTitle().equals(movieTitle)) {
-                        // Add Movie Type
-                        info.add(showing.getMovieType());
-                        // Print cinema arrangement for this showing
-                        System.out.println(cinema.getScreenLayout());
-                        showing.printSeats(cinema.getAisles());
-                        System.out.println(cinema.getEntranceLayout());
-                        return info.toArray(new String[0]);
-                    }
-                }
-            }
-        }
-
-        return null;
     }
 
     public ArrayList<Cineplex> getCineplexes() {
@@ -246,7 +142,7 @@ public class CineplexDatabaseController implements DatabaseController {
                 }
                 seatRow.addSeat(seat);
             } else {
-                seat = new Seat(false);
+                seat = new Seat();
                 seatRow.addSeat(seat);
                 i--;
             }
@@ -255,4 +151,108 @@ public class CineplexDatabaseController implements DatabaseController {
 
         return seatRows;
     }
+
+    // LEGACY CODE - TO DELETE
+    // Prints all cineplexes with their respective cinemas and showings
+    // public void printAllCineplexes() {
+    //     for (Cineplex cineplex : cineplexes) {
+    //         cineplex.print();
+    //     }
+    // }
+
+    // // For creating a new cinema
+    // public void createNewCinema(String cineplexName, String cineplexID, String cinemaName, String cinemaNumber, CinemaType cinemaDetails) {
+    //     for (Cineplex cineplex : cineplexes) {
+    //         if (cineplex.getCineplexID().equals(cineplexID)) {
+    //             for (Cinema cinema : cineplex.getCinemas()) {
+    //                 if (cinema.getCinemaNumber().equals(cinemaNumber)) {
+    //                     System.out.println("Error! Duplicate Cinema!");
+    //                     return;
+    //                 }
+    //             }
+    //         }
+    //     }
+
+    //     // Not a duplicate cinema, appending to file
+    //     try {
+    //         PrintWriter pw = new PrintWriter(new FileOutputStream(file, true));
+    //         ArrayList<String> outputArray = new ArrayList<String>();
+    //         outputArray.add(cineplexName);
+    //         outputArray.add(cineplexID);
+    //         outputArray.add(cinemaName);
+    //         outputArray.add(cinemaNumber);
+    //         outputArray.add(cinemaDetails.toString());
+
+    //         String output = String.join(", ", outputArray);
+    //         pw.append("\n");
+    //         pw.append(output);
+    //         pw.close();
+
+    //         // Update cineplexes
+    //         this.addNewCinema(output.split(", "));
+
+    //     } catch (IOException e) {
+    //         e.printStackTrace();
+    //     }
+    // }
+
+    // /**
+    //  * Function to get the unique code for a cinema
+    //  * @param cineplexName
+    //  * @param cinemaName
+    //  * @return              UID of cinema
+    //  */
+    // public String getIDs(String cineplexName, String cinemaName) {
+    //     for (Cineplex cineplex : cineplexes) {
+    //         if (!cineplex.getCineplexName().equals(cineplexName))
+    //             continue;
+    //         for (Cinema cinema : cineplex.getCinemas()) {
+    //             if (!cinema.getCinemaName().equals(cinemaName))
+    //                 continue;
+    //             return cineplex.getCineplexID() + cinema.getCinemaNumber();
+    //         }
+    //     }
+
+    //     System.out.println("Couldn't find this cinema!");
+    //     return "";
+    // }
+
+    // /**
+    //  * Returns showing information for booking tickets
+    //  * @param cineplexName
+    //  * @param cinemaName
+    //  * @param movieTitle
+    //  * @param startDate
+    //  * @return              ArrayList of String containing CinemaType, UID and MovieType
+    //  */
+    // public String[] getShowingInformation(String cineplexName, String cinemaName, String movieTitle, Date startDate) {
+    //     ArrayList<String> info = new ArrayList<String>();
+    //     DateParser dp = new DateParser("yyyyMMddHHmm");
+
+    //     for (Cineplex cineplex : cineplexes) {
+    //         if (!cineplex.getCineplexName().equals(cineplexName))
+    //             continue;
+    //         for (Cinema cinema : cineplex.getCinemas()) {
+    //             if (!cinema.getCinemaName().equals(cinemaName))
+    //                 continue;
+    //             // Add Cinema Type
+    //             info.add(cinema.getCinemaType());
+    //             // Add UID
+    //             info.add(cineplex.getCineplexID() + cinema.getCinemaNumber() + dp.formatDate(new Date()));
+    //             for (Showing showing : cinema.getShowings()) {
+    //                 if (showing.getStartDate().compareTo(startDate) == 0 && showing.getMovieTitle().equals(movieTitle)) {
+    //                     // Add Movie Type
+    //                     info.add(showing.getMovieType());
+    //                     // Print cinema arrangement for this showing
+    //                     System.out.println(cinema.getScreenLayout());
+    //                     showing.printSeats(cinema.getAisles());
+    //                     System.out.println(cinema.getEntranceLayout());
+    //                     return info.toArray(new String[0]);
+    //                 }
+    //             }
+    //         }
+    //     }
+
+    //     return null;
+    // }
 }

@@ -1,7 +1,9 @@
-Cineplex 1, 1, Cinema 1, 01, Standard
-Cineplex 1, 1, Cinema 2, 02, Standard
-Cineplex 2, 2, Cinema 1, 01, Standard
-Cineplex 2, 2, Cinema 2, 02, Standard
-Cineplex 3, 3, Cinema 1, 01, Standard
-Cineplex 3, 3, Cinema 2, 02, Platinum Movie Suite
-Cineplex 4, 4, Cinema 1, 01, IMAX
+Golden Village Bedok, A, Cinema 1, 01, Standard
+Golden Village Bedok, A, Cinema 2, 02, IMAX
+Golden Village Bedok, A, Cinema 2, 03, Platinum Movie Suite
+Golden Village Paya Lebar, B, Cinema 1, 01, Standard
+Golden Village Paya Lebar, B, Cinema 2, 02, IMAX
+Golden Village Paya Lebar, B, Cinema 2, 03, Platinum Movie Suite
+Golden Village Jurong Point, C, Cinema 1, 01, Standard
+Golden Village Jurong Point, C, Cinema 1, 02, IMAX
+Golden Village Jurong Point, C, Cinema 1, 03, Platinum Movie Suite

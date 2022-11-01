@@ -63,10 +63,10 @@ public class ShowingsDatabaseController implements DatabaseController {
         return filteredShowings;
     }
 
-    public ArrayList<String[]> filterShowings(String cineplexName, String cinemaName, String movieName) {
+    public ArrayList<String[]> filterShowings(String cineplexName, String cinemaName, String movieTitle) {
         ArrayList<String[]> filteredShowings = new ArrayList<String[]>();
         for (String[] showing : showingsData) {
-            if (showing[0].equals(movieName) && showing[1].equals(cineplexName) && showing[2].equals(cinemaName)) {
+            if (showing[0].equals(movieTitle) && showing[1].equals(cineplexName) && showing[2].equals(cinemaName)) {
                 filteredShowings.add(showing);
             }
         }
@@ -78,14 +78,14 @@ public class ShowingsDatabaseController implements DatabaseController {
      * Returns showing string array
      * @param cineplexName
      * @param cinemaName
-     * @param movieName
+     * @param movieTitle
      * @param date
      * @return                  String[] showing
      */
-    public String[] getShowing(String cineplexName, String cinemaName, String movieName, String date) {
-        System.out.println(cineplexName + " " + cinemaName + " " + movieName + " " + date);
+    public String[] getShowing(String cineplexName, String cinemaName, String movieTitle, String date) {
+        System.out.println(cineplexName + " " + cinemaName + " " + movieTitle + " " + date);
         for (String[] showing : showingsData) {
-            if (showing[0].equals(movieName) && showing[1].equals(cineplexName) && showing[2].equals(cinemaName) && showing[3].equals(date)) {
+            if (showing[0].equals(movieTitle) && showing[1].equals(cineplexName) && showing[2].equals(cinemaName) && showing[3].equals(date)) {
                 return showing;
             }
         }

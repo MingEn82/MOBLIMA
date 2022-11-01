@@ -65,7 +65,11 @@ public class Showing {
     }
 
     public void printSeats(ArrayList<Integer> aisleIndex) {
-        this.printSeatRows(aisleIndex);
+        for (SeatRow seatRow : seatRows) {
+            System.out.print(seatRow.getRowID() + " ");
+            seatRow.printSeats(aisleIndex);
+            System.out.println("");
+        }
         System.out.println("");
     }
 
@@ -75,13 +79,5 @@ public class Showing {
         System.out.println("Movie: " + movieTitle);
         System.out.println("Start date: " + dp.formatDate(startDate));
         System.out.println("");
-    }
-
-    public void printSeatRows(ArrayList<Integer> aisleIndex) {
-        for (SeatRow seatRow : seatRows) {
-            System.out.print(seatRow.getRowID() + " ");
-            seatRow.printSeats(aisleIndex);
-            System.out.println("");
-        }
     }
 }

@@ -17,24 +17,22 @@ public class MovieDatabaseController implements DatabaseController {
     private String filePath = "Database/MoviesDatabase.txt";
     private File file;
     private ArrayList<Movie> movies;
-    private BookingsDatabaseController bookingsDC;
 
     public MovieDatabaseController() {
         this.file = new File(filePath);
         this.movies = new ArrayList<Movie>();
-        bookingsDC = new BookingsDatabaseController();
         this.readFile();
     }
 
     public MovieDatabaseController(String filePath) {
         this.file = new File(filePath);
         this.movies = new ArrayList<Movie>();
-        bookingsDC = new BookingsDatabaseController();
         this.readFile();
     }
     
     public void readFile() {
         this.movies = new ArrayList<Movie>();
+        BookingsDatabaseController bookingsDC = new BookingsDatabaseController();
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
 
@@ -122,23 +120,18 @@ public class MovieDatabaseController implements DatabaseController {
         System.out.println("Movie not found");
     }
 
-    public void updateMovie(String oldMovieTitle, Movie updatedMovie) {
-        movies.removeIf(m -> m.getMovieTitle().equals(oldMovieTitle));
-        movies.add(updatedMovie);
-    }
+    // public boolean changeShowingStatus(String movieTitle, String showingStatus) {
+    //     for (Movie movie : movies) {
+    //         if (movie.getMovieTitle().equals(movieTitle)) {
+    //             movie.setShowingStatus(showingStatus);
+    //             this.updateDatabase();
+    //             return true;
+    //         }
+    //     }
 
-    public boolean changeShowingStatus(String movieTitle, String showingStatus) {
-        for (Movie movie : movies) {
-            if (movie.getMovieTitle().equals(movieTitle)) {
-                movie.setShowingStatus(showingStatus);
-                this.updateDatabase();
-                return true;
-            }
-        }
-
-        System.out.println("Movie was not found");
-        return false;
-    }
+    //     System.out.println("Movie was not found");
+    //     return false;
+    // }
 
     public void printReviews(String movieTitle) {
         System.out.println("|-------------------------------------------------------|");
@@ -147,10 +140,10 @@ public class MovieDatabaseController implements DatabaseController {
         for (Movie movie : movies) {
             if (movie.getMovieTitle().equals(movieTitle)) {
                 movie.printReviews();
+                System.out.println("|-------------------------------------------------------|\n");
                 return;
             }
         }
-        System.out.println("|-------------------------------------------------------|");
     }
 
     public void printReviews(String movieTitle, int phoneNumber) {

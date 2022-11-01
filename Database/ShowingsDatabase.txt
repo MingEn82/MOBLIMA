@@ -1,4 +1,4 @@
-Minority Report, Cineplex 1, Cinema 1, 202210221400, 3D, A05
-Minority Report, Cineplex 2, Cinema 1, 202210231400, 2D, A05
-Minions 2, Cineplex 1, Cinema 2, 202210231900, 2D, A09, B09, A01, E01, E01
-Minions 2, Cineplex 3, Cinema 2, 202210241900, 3D, B08, A01, E01
+Minority Report, Golden Village Bedok, Cinema 1, 202210221400, 3D, A05
+Minority Report, Golden Village Paya Lebar, Cinema 1, 202210231400, 2D, A05
+Minions 2, Golden Village Bedok, Cinema 2, 202210231900, 2D, A09, B09, A01, E01, E01
+Minions 2, Golden Village Jurong Point, Cinema 2, 202210241900, 3D, B08, A01, E01
