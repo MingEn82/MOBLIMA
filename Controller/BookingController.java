@@ -88,7 +88,7 @@ public class BookingController {
     public boolean bookingExistForShowing(String cineplexName, String cinemaName, String movieTitle, Date startDate)
     {
         for (Booking b : bookings) {
-            if (b.getCineplexName().toLowerCase().trim().equals(cineplexName.toLowerCase().trim()) && b.getCinemaName().toLowerCase().trim().equals(cinemaName.toLowerCase().trim()) && b.getMovieTitle().toLowerCase().trim().equals(movieTitle.toLowerCase().trim()) && b.getStartDate() == startDate)
+            if (b.getCineplexName().toLowerCase().trim().equals(cineplexName.toLowerCase().trim()) && b.getCinemaName().toLowerCase().trim().equals(cinemaName.toLowerCase().trim()) && b.getMovieTitle().toLowerCase().trim().equals(movieTitle.toLowerCase().trim()) && b.getStartDate().compareTo(startDate) == 0)
             {
                 return true;
             }

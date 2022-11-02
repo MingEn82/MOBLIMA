@@ -84,8 +84,6 @@ public class MainMenuUI {
             staffController.triggerLogin();
         }
 
-        
-
         do {
             System.out.println(""); // print empty line
             System.out.println("+-------------------------------------------------------+");
@@ -107,6 +105,8 @@ public class MainMenuUI {
                 staffController.processStaffChoice(choice);
             }
         } while (choice != 0);
+
+        staffController.triggerLogout();
 
     }
 

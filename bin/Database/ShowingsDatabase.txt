@@ -2,3 +2,5 @@ Minority Report, Golden Village Bedok, Cinema 1, 202210221400, 3D, E10
 Minority Report, Golden Village Paya Lebar, Cinema 1, 202210231400, 2D, D10
 Minions 2, Golden Village Bedok, Cinema 2, 202210231900, 2D, A09, A03, H01
 Minions 2, Golden Village Jurong Point, Cinema 2, 202210241900, 3D, B08
+Minions 2, Golden Village Paya Lebar, Cinema 2, 202211021900, 2D
+Minority Report, Golden Village Jurong Point, Cinema 1, 202211021900, Blockbuster

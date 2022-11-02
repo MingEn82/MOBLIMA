@@ -90,7 +90,6 @@ public class SystemSettingController {
                     System.out.println("Returning to Staff Portal...");
                     break;
 
-
                 default:
                     System.out.println("");
                     System.out.println("Please enter a valid choice");

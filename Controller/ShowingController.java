@@ -1,9 +1,14 @@
 package Controller;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
+import Entities.Cinema;
+import Entities.Cineplex;
+import Entities.Movie;
 import Utils.DateParser;
+import Utils.InputGetter;
 
 /**
  * ShowingController is a controller class that handles showings
@@ -12,11 +17,13 @@ public class ShowingController {
     private ShowingsDatabaseController showingsDC;
     Scanner sc;
     DateParser dp;
+    InputGetter ip;
 
     public ShowingController() {
         showingsDC = new ShowingsDatabaseController();
         sc = new Scanner(System.in);
         dp = new DateParser("yyyyMMddHHmm");
+        ip = new InputGetter();
     }
 
     /**
@@ -34,7 +41,7 @@ public class ShowingController {
             System.out.println("==============================================");
             System.out.println("");
             System.out.println("Enter choice:");
-            choice = sc.nextInt();
+            choice = ip.getInt();
 
             switch (choice) {
                 case 1:
@@ -57,27 +64,82 @@ public class ShowingController {
      * Creates new showing
      */
     public void createShowing() {
-        sc.nextLine();
-        System.out.println("Enter movie Title: ");
-        String movieTitle = sc.nextLine();
-        System.out.println("Enter Cineplex Name: ");
-        String cineplexName = sc.nextLine();
-        System.out.println("Enter Cinema Name: ");
-        String cinemaName = sc.nextLine();
-        System.out.println("Enter Date (yyyyMMddHHmm format): ");
-        String date = sc.nextLine();
-        System.out.println("Enter movie type (3D, 2D, Blockbuster): ");
-        String movieType = sc.nextLine();
-
-        // Sanity Check
-        if (!movieType.equals("2D") && !movieType.equals("3D") && !movieType.equals("Blockbuster")) {
-            System.out.println("Invalid Movie Type");
-            return;
+        ArrayList<Movie> movies = new AdminMovieController().filterCurrentMovies();
+        int i = 0;
+        int choice;
+        String movieTitle = null;
+        System.out.println("Select movie (type 0 to exit):");
+        for (Movie m : movies) {
+            System.out.println(++i + ") " + m.getMovieTitle());
         }
+        do {
+            choice = ip.getInt();
+            if (choice == 0) {
+                return;
+            } else if (choice >= 1 && choice <= i) {
+                movieTitle = movies.get(choice-1).getMovieTitle();
+            } else {
+                System.out.println("Invalid choice! Try Again");
+            }
+        } while (choice < 0 || choice > i);
+
+        ArrayList<Cineplex> cineplexes = new CineplexDatabaseController().getCineplexes();
+        i = 0;
+        Cineplex chosenCineplex = null;
+        Cinema chosenCinema = null;
+        System.out.println("Select Cinema (type 0 to exist):");
+        for (Cineplex cineplex : cineplexes) {
+            for (Cinema cinema : cineplex.getCinemas()) {
+                System.out.println(++i + ") " + cineplex.getCineplexName() + " " + cinema.getCinemaName());
+            }
+        }
+        do {
+            choice = ip.getInt();
+            if (choice == 0) {
+                return;
+            } else if (choice >= 1 && choice <= i) {
+                int cineplexIndex, cinemaIndex;
+                cineplexIndex = Math.floorDiv(choice-1, cineplexes.size());
+                chosenCineplex = cineplexes.get(cineplexIndex);
+                cinemaIndex = (choice-1) % chosenCineplex.getCinemas().size();
+                chosenCinema = chosenCineplex.getCinemas().get(cinemaIndex);
+            } else {
+                System.out.println("Invalid choice! Try Again");
+            }
+        } while (choice < 0 || choice > i);
+
+        System.out.println("Enter Date (yyyyMMddHHmm format): ");
+        String date = ip.getString();
+
+        i = 0;
+        String movieType = null;
+        System.out.println("Enter movie type (type 0 to exit): ");
+        System.out.println("1. 2D");
+        System.out.println("2. 3D");
+        System.out.println("3. Blockbuster");
+        do {
+            choice = ip.getInt();
+            switch (choice) {
+                case 1:
+                    movieType = "2D";
+                    break;
+                case 2:
+                    movieType = "3D";
+                    break;
+                case 3:
+                    movieType = "Blockbuster";
+                    break;
+                case 0:
+                    break;
+                default:
+                    System.out.println("Invalid choice!");
+
+            }
+        } while (choice < 0 || choice > 3);
 
         System.out.println("Creating New Showing");
         // To do: Add time check
-        if (showingsDC.addNewShowing(movieTitle, cineplexName, cinemaName, date, movieType)) {
+        if (showingsDC.addNewShowing(movieTitle, chosenCineplex.getCineplexName(), chosenCinema.getCinemaName(), date, movieType)) {
             System.out.println("Showing successfully created");
         } else {
             System.out.println("Error! Showing already exists");
@@ -88,41 +150,65 @@ public class ShowingController {
      * Updates showing
      */
     public void updateShowing() {
-        sc.nextLine();
-        System.out.println("Enter movie Title: ");
-        String oldMovieTitle = sc.nextLine();
-        System.out.println("Enter Cineplex Name: ");
-        String oldCineplexName = sc.nextLine();
-        System.out.println("Enter Cinema name: ");
-        String oldCinemaName = sc.nextLine();
-        Date oldStartDate = null;
+        ArrayList<Movie> movies = new AdminMovieController().filterCurrentMovies();
+        int i = 0;
+        int choice;
+        String oldMovieTitle = null;
+        String[] oldShowing = null;
+        System.out.println("\nSelect movie (type 0 to exit):");
+        for (Movie m : movies) {
+            System.out.println(++i + ") " + m.getMovieTitle());
+        }
         do {
-            System.out.println("Enter Date (yyyyMMddHHmm format): ");
-            String date = sc.nextLine();
-            System.out.println(date);
-            oldStartDate = dp.parseDate(date, "yyyyMMddHHmm");
-        } while (oldStartDate == null);
-        System.out.println(oldStartDate);
+            choice = ip.getInt();
+            if (choice == 0) {
+                return;
+            } else if (choice >= 1 && choice <= i) {
+                oldMovieTitle = movies.get(choice-1).getMovieTitle();
+            } else {
+                System.out.println("Invalid choice! Try Again");
+            }
+        } while (choice < 0 || choice > i);
 
-        // Checks if there are existing bookings for showing
-        if (new BookingController().bookingExistForShowing(oldCineplexName, oldCinemaName, oldMovieTitle, oldStartDate)) {
-            System.out.println("Error! There exist bookings for this showing. Cancelling update...");
+        ArrayList<String[]> showings = showingsDC.filterShowings(oldMovieTitle);
+        if (showings.size() == 0) {
+            System.out.println("No showings found for " + oldMovieTitle);
+            System.out.println("Returning to menu...");
             return;
         }
 
-        // Checks if showing exists
-        String[] oldShowing = showingsDC.getShowing(oldCineplexName, oldCinemaName, oldMovieTitle, dp.formatDate(oldStartDate, "yyyyMMddHHmm"));
-        if (oldShowing == null) {
-            System.out.println("Error! Showing is not found");
+        i = 0;
+        String oldCineplexName = null, oldCinemaName = null, oldStartDate = null, oldMovieType = null;
+        System.out.println("\nAll showings for " + oldMovieTitle);
+        for (String[] s : showings) {
+            System.out.println(++i + ") " + s[1] + ", " + s[2] + ", " + s[3]);
+        }
+        do {
+            choice = ip.getInt();
+            if (choice == 0) {
+                return;
+            } else if (choice >= 1 && choice <= i) {
+                oldShowing = showings.get(choice - 1);
+                oldCineplexName = oldShowing[1];
+                oldCinemaName = oldShowing[2];
+                oldStartDate = oldShowing[3];
+                oldMovieType = oldShowing[4];
+            } else {
+                System.out.println("Invalid choice! Try Again");
+            }
+        } while (choice < 0 || choice > i);
+
+        // Checks if there are existing bookings for showing
+        if (new BookingController().bookingExistForShowing(oldCineplexName, oldCinemaName, oldMovieTitle, dp.parseDate(oldStartDate, "yyyyMMddHHmm"))) {
+            System.out.println("Error! There exist bookings for this showing. Cancelling update...");
             return;
         }
 
         String newMovieTitle = oldMovieTitle, 
             newCineplexName = oldCineplexName, 
             newCinemaName = oldCinemaName, 
-            newStartDate = oldShowing[3], 
-            newMovieType = oldShowing[4];
-        int choice;
+            newStartDate = oldStartDate, 
+            newMovieType = oldMovieType;
         do {
             System.out.println("""
                 +-----------------------------------------------------------+

@@ -1,3 +1,4 @@
 Minions 2, Preview, 87, PG, Synopsis_Of_Minions_2, Kyle Balda, Steve Carell & Pierre Coffin, 3.0, 3.0 & 92315166 & Decent Movie
 Incantation, Coming Soon, 111, NC16, Synopsis_Of_Incantation, Kevin Ko, Tsai Hsuan-yen & Huang Sin-ting & Kao Ying-hsuan
 Minority Report, Now Showing, 145, PG13, Synopsis_Of_Minority_Report, Steven Spielberg, Tom Cruise & Colin Farrell, 4.3333335, 5.0 & 98765432 & Best Movie I have ever watched!, 5.0 & 91234568 & I love Tom Cruise as much as I love NTU!, 3.0 & 92315166 & Decent Movie
+Black Adam, Now Showing, 124, PG13, Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods -- and imprisoned just as quickly -- Black Adam is freed from his earthly tomb and ready to unleash his unique form of justice on the modern world., Jaume Collet-Serra, Dwayne Johnson & Aldis Hodge & Noah Centineo

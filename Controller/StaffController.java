@@ -21,14 +21,14 @@ public class StaffController {
         switch (choice) {
             case 1:
                 System.out.println("");
-                System.out.println("Entering Movie Mangement System...");
+                System.out.println("Entering Movie Management System...");
                 System.out.println("");
                 adminMovieController.displayMenu();
                 break;
 
             case 2:
                 System.out.println("");
-                System.out.println("Entering Showing Mangement System...");
+                System.out.println("Entering Showing Management System...");
                 System.out.println("");
                 showingController.displayMenu();
                 break;
@@ -83,9 +83,16 @@ public class StaffController {
     }
 
     /**
-     * This method will call loginControlelr to display the LoginUI
+     * This method will call loginController to display the LoginUI
      */
     public void triggerLogin() {
         loginController.displayLogin();
+    }
+
+    /**
+     * This method will log the current staff out upon exiting staff menu
+     */
+    public void triggerLogout() {
+        loginController.logout();
     }
 }
