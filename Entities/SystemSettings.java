@@ -135,6 +135,13 @@ public class SystemSettings {
      * @param date new date to be added
      */
     public void addPublicHolidays(Date date) {
+        for (Date ph : publicHolidays) {
+            if (ph.compareTo(date) == 0) {
+                System.out.println("Duplicate public holiday!");
+                return;
+            }
+        }
+
         SimpleDateFormat dateFormatter = new SimpleDateFormat("EEE dd MMM yyyy");
         String dateString = dateFormatter.format(date);
         System.out.println("");
