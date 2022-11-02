@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 
 /**
  * This is an entity class that is deisgned to create a SystemSettings object
+ * 
  * @author Soh Zu Wei
  * @version 1.0
  * @since 2022-11-02
@@ -68,23 +69,36 @@ public class SystemSettings {
     private float platinumAddOn;
 
     /**
+     * Show options for Top 5 Movies by Sales for Movie Goer
+     */
+    private int displayTop5bySales;
+
+    /**
+     * Show options for Top 5 Movies by Rating for Movie Goer
+     */
+    private int displayTop5byRating;
+
+    /**
      * Constructor with attributes
      * 
-     * @param publicHolidays   array list of public holidays
-     * @param weekdayPrices    regular ticket price for weekday
-     * @param weekendPrices    regular ticket price for weekend
-     * @param pHPrices         regular ticket price for public holiday
-     * @param studentDiscount  discount for student
-     * @param seniorDiscount   discount for seniors
-     * @param threeDAddOn      additional price for 3D movies
-     * @param blockbusterAddOn additional price for blockbuster movies
-     * @param IMAXAddOn        additional price for IMAX movies
-     * @param platinumAddOn    additional price for platinum movie suite
+     * @param publicHolidays      array list of public holidays
+     * @param weekdayPrices       regular ticket price for weekday
+     * @param weekendPrices       regular ticket price for weekend
+     * @param pHPrices            regular ticket price for public holiday
+     * @param studentDiscount     discount for student
+     * @param seniorDiscount      discount for seniors
+     * @param threeDAddOn         additional price for 3D movies
+     * @param blockbusterAddOn    additional price for blockbuster movies
+     * @param IMAXAddOn           additional price for IMAX movies
+     * @param platinumAddOn       additional price for platinum movie suite
+     * @param displayTop5bySales  display top5 by sales
+     * @param displayTop5byRating display top5 by rating
      */
     public SystemSettings(ArrayList<Date> publicHolidays, float weekdayPrices,
             float weekendPrices, float pHPrices,
             float studentDiscount, float seniorDiscount, float threeDAddOn,
-            float blockbusterAddOn, float IMAXAddOn, float platinumAddOn) {
+            float blockbusterAddOn, float IMAXAddOn, float platinumAddOn, int displayTop5bySales,
+            int displayTop5byRating) {
         this.publicHolidays = publicHolidays;
         this.weekdayPrices = weekdayPrices;
         this.weekendPrices = weekendPrices;
@@ -95,6 +109,8 @@ public class SystemSettings {
         this.blockbusterAddOn = blockbusterAddOn;
         this.IMAXAddOn = IMAXAddOn;
         this.platinumAddOn = platinumAddOn;
+        this.displayTop5byRating = displayTop5byRating;
+        this.displayTop5bySales = displayTop5bySales;
     }
 
     /**
@@ -106,30 +122,39 @@ public class SystemSettings {
 
     /** This method prints out the existing ticket prices */
     public void printTicketSettings() {
-        System.out.println(""); 
+        System.out.println("");
         System.out.println("+-------------------------------------------------------+");
         System.out.println("|            Ticket Price Management System             |");
         System.out.println("---------------------------------------------------------");
         System.out.println("|____________________ Ticket Prices ____________________|");
         System.out.println("|                                                       |");
-        System.out.println("| Weekday Ticket:                                $  " + String.format("%.2f", weekdayPrices) + "|");               
-        System.out.println("| Weekend Ticket:                                $  " + String.format("%.2f", weekendPrices) + "|"); 
-        System.out.println("| Public Holiday Ticket:                         $ " + String.format("%.2f", pHPrices) + "|");
+        System.out.println(
+                "| Weekday Ticket:                                $  " + String.format("%.2f", weekdayPrices) + "|");
+        System.out.println(
+                "| Weekend Ticket:                                $  " + String.format("%.2f", weekendPrices) + "|");
+        System.out
+                .println("| Public Holiday Ticket:                         $ " + String.format("%.2f", pHPrices) + "|");
         System.out.println("|                                                       |");
         System.out.println("|______________________ Discounts ______________________|");
         System.out.println("|                                                       |");
-        System.out.println("| Student Discount:                            - $  " + String.format("%.2f", studentDiscount) + "|"); 
-        System.out.println("| Senior Citizen Discount:                     - $  " + String.format("%.2f", seniorDiscount) + "|");
+        System.out.println(
+                "| Student Discount:                            - $  " + String.format("%.2f", studentDiscount) + "|");
+        System.out.println(
+                "| Senior Citizen Discount:                     - $  " + String.format("%.2f", seniorDiscount) + "|");
         System.out.println("|                                                       |");
-        System.out.println("|__________________ Additional Charges _________________|"); 
+        System.out.println("|__________________ Additional Charges _________________|");
         System.out.println("|                                                       |");
-        System.out.println("| 3D Movie:                                    + $  " + String.format("%.2f", threeDAddOn) + "|"); 
-        System.out.println("| Blockbuster Movie:                           + $  " + String.format("%.2f", blockbusterAddOn) + "|"); 
-        System.out.println("| IMAX Movie:                                  + $  " + String.format("%.2f", IMAXAddOn) + "|"); 
-        System.out.println("| Platinum Movie Suite:                        + $  " + String.format("%.2f", platinumAddOn) + "|");  
+        System.out.println(
+                "| 3D Movie:                                    + $  " + String.format("%.2f", threeDAddOn) + "|");
+        System.out.println(
+                "| Blockbuster Movie:                           + $  " + String.format("%.2f", blockbusterAddOn) + "|");
+        System.out.println(
+                "| IMAX Movie:                                  + $  " + String.format("%.2f", IMAXAddOn) + "|");
+        System.out.println(
+                "| Platinum Movie Suite:                        + $  " + String.format("%.2f", platinumAddOn) + "|");
         System.out.println("|                                                       |");
         System.out.println("+-------------------------------------------------------+");
-        System.out.println(""); 
+        System.out.println("");
         System.out.println("Returning to previous menu...");
     }
 
@@ -137,17 +162,18 @@ public class SystemSettings {
      * This method prints out the list of public holidays
      */
     public void printPHSettings() {
-        System.out.println(""); 
+        System.out.println("");
         System.out.println("+-------------------------------------------------------+");
         System.out.println("|           Public Holiday Management System            |");
         System.out.println("---------------------------------------------------------");
         SimpleDateFormat dateFormatter = new SimpleDateFormat("EEE dd MMM yyyy");
         for (int i = 1; i <= getPublicHolidays().size(); i++) {
-            if(i>=10){
-                System.out.println("| " + i + ". " + dateFormatter.format(getPublicHolidays().get(i - 1))+"                                   |");
-            }
-            else {
-                System.out.println("| " + i + ". " + dateFormatter.format(getPublicHolidays().get(i - 1))+"                                    |");
+            if (i >= 10) {
+                System.out.println("| " + i + ". " + dateFormatter.format(getPublicHolidays().get(i - 1))
+                        + "                                   |");
+            } else {
+                System.out.println("| " + i + ". " + dateFormatter.format(getPublicHolidays().get(i - 1))
+                        + "                                    |");
 
             }
         }
@@ -389,6 +415,42 @@ public class SystemSettings {
      */
     public void setplatinumAddOn(float platinumAddOn) {
         this.platinumAddOn = platinumAddOn;
+    }
+
+    /**
+     * Getter method for displaying top 5 movies menu by sales
+     * 
+     * @return 1 to display or 0 to hide the menu
+     */
+    public int getdisplayTop5bySales() {
+        return this.displayTop5bySales;
+    }
+
+    /**
+     * Getter method for displaying top 5 movies menu by sales
+     * 
+     * @param displayTop5bySales 1 to display or 0 to hide the menu
+     */
+    public void setdisplayTop5bySales(int displayTop5bySales) {
+        this.displayTop5bySales = displayTop5bySales;
+    }
+
+    /**
+     * Getter method for displaying top 5 movies menu by rating
+     * 
+     * @return 1 to display or 0 to hide the menu
+     */
+    public int getdisplayTop5byRating() {
+        return this.displayTop5byRating;
+    }
+
+    /**
+     * Getter method for displaying top 5 movies menu by sales
+     * 
+     * @param displayTop5byRating 1 to display or 0 to hide the menu
+     */
+    public void setdisplayTop5byRating(int displayTop5byRating) {
+        this.displayTop5byRating = displayTop5byRating;
     }
 
 }

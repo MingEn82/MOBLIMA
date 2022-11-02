@@ -65,6 +65,7 @@ public class SystemSettingController {
             System.out.println("| 3. Remove Public Holidays                             |");
             System.out.println("| 4. Display Ticket Prices                              |");
             System.out.println("| 5. Edit Ticket Prices                                 |");
+            System.out.println("| 6. Edit [List Top 5 Movies] UI for Movie Goer         |");
             System.out.println("---------------------------------------------------------");
             System.out.println("|           Enter 0 to return to Staff Portal           |");
             System.out.println("+-------------------------------------------------------+");
@@ -104,6 +105,12 @@ public class SystemSettingController {
                     updateTicketSetting();
                     break;
 
+                case 6:
+                    System.out.println(""); // print empty line
+                    System.out.println("Entering [List Top 5 Movies] UI Settings...");
+                    updateTop5MoviesSetting();
+                    break;
+
                 case 0:
                     System.out.println(""); // print empty line
                     System.out.println("Returning to Staff Portal...");
@@ -118,6 +125,9 @@ public class SystemSettingController {
 
     }
 
+    /**
+     * Method to add a new PH to ss object and update by calling sSDB controller
+     */
     public void addPHSetting() {
         System.out.println("");
         System.out.println("+-------------------------------------------------------+");
@@ -138,6 +148,9 @@ public class SystemSettingController {
 
     }
 
+    /**
+     * Method to delete a PH to ss object and update by calling sSDB controller
+     */
     public void removePHSetting() {
         ss.printPHSettings();
         System.out.println("Please select the date to be removed from the system: ");
@@ -153,6 +166,98 @@ public class SystemSettingController {
 
     }
 
+    /**
+     * Method to change the view settings for movie goer when viewing top 5 movies
+     */
+    public void updateTop5MoviesSetting() {
+        int choice;
+
+        do {
+            System.out.println("");
+            System.out.println("+-------------------------------------------------------+");
+            System.out.println("|        Existing Top 5 Movies UI for Movie Goer        |");
+            System.out.println("---------------------------------------------------------");
+            System.out.println("|                               | Displayed |   Hidden  |");
+            System.out.print("| 1. Sort by total sales        ");
+            if (ss.getdisplayTop5bySales() == 1) {
+                System.out.println("|     *     |           |");
+            } else {
+                System.out.println("|           |     *     |");
+            }
+            System.out.print("| 2. Sort by overall rating     ");
+            if (ss.getdisplayTop5byRating() == 1) {
+                System.out.println("|     *     |           |");
+            } else {
+                System.out.println("|           |     *     |");
+            }
+            System.out.println("|                                                       |");
+            System.out.println("---------------------------------------------------------");
+            System.out.println("|           Enter 0 to return to previous menu          |");
+            System.out.println("+-------------------------------------------------------+");
+            System.out.println("");
+            System.out.println("Please select the item above to Hide / Display.");
+            System.out.println("");
+            System.out.print("Choice chosen is: ");
+            System.out.print("");
+
+            choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    if (ss.getdisplayTop5bySales() == 1) {
+                        System.out.println(""); // print empty line
+                        System.out.println("Hiding [Sort by total sales] option for Movie Goer...");
+                        ss.setdisplayTop5bySales(0);
+                        sSDBCtrl.writeFile(ss);
+                        System.out.println(""); // print empty line
+                        System.out.println("[Sort by total sales] option has been successfully hidden for Movie Goer.");
+                    } else {
+                        System.out.println(""); // print empty line
+                        System.out.println("Hiding [Sort by total sales] option for Movie Goer...");
+                        ss.setdisplayTop5bySales(1);
+                        sSDBCtrl.writeFile(ss);
+                        System.out.println(""); // print empty line
+                        System.out.println("[Sort by total sales] option has been successfully hidden for Movie Goer.");
+                    }
+                    break;
+
+                case 2:
+                    if (ss.getdisplayTop5byRating() == 1) {
+                        System.out.println(""); // print empty line
+                        System.out.println("Hiding [Sort by overall rating] option for Movie Goer...");
+                        ss.setdisplayTop5byRating(0);
+                        sSDBCtrl.writeFile(ss);
+                        System.out.println(""); // print empty line
+                        System.out.println(
+                                "[Sort by overall rating] option has been successfully hidden for Movie Goer.");
+                    } else {
+                        System.out.println(""); // print empty line
+                        System.out.println("Hiding [Sort by overall rating] option for Movie Goer...");
+                        ss.setdisplayTop5byRating(1);
+                        sSDBCtrl.writeFile(ss);
+                        System.out.println(""); // print empty line
+                        System.out.println(
+                                "[Sort by overall rating] option has been successfully hidden for Movie Goer.");
+                    }
+                    break;
+                case 0:
+                    System.out.println(""); // print empty line
+                    System.out.println("Returning to previous menu...");
+                    break;
+
+                default:
+                    System.out.println("");
+                    System.out.println("Please enter a valid choice");
+                    break;
+            }
+
+        } while (choice != 0);
+
+    }
+
+    /**
+     * Method to update Ticket Pricing and call ssDB Controller to udpate DB
+     */
     public void updateTicketSetting() {
         int choice;
 

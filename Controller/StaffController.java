@@ -56,7 +56,7 @@ public class StaffController {
                 System.out.println("");
                 System.out.println("Showing Top 5 Movies...");
                 System.out.println("");
-                adminMovieController.viewTopMovies();
+                adminMovieController.viewTopMoviesForStaff();
                 break;
 
             case 4:

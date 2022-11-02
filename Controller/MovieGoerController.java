@@ -2,6 +2,7 @@ package Controller;
 
 /**
  * MovieGoerController class handles the choice of the movie goer
+ * 
  * @author Soh Zu Wei
  * @version 1.0
  * @since 2022-11-02
@@ -15,11 +16,11 @@ public class MovieGoerController {
 
     /**
      * Handles the choice of movie goer
+     * 
      * @param choice
      */
-    public void processMovieGoerChoice(int choice)
-    {
-        switch(choice){
+    public void processMovieGoerChoice(int choice) {
+        switch (choice) {
             case 1:
                 movieGoerMovieController.displayMenu();
                 break;
@@ -29,7 +30,7 @@ public class MovieGoerController {
                 break;
 
             case 3:
-                movieGoerMovieController.viewTopMovies();
+                movieGoerMovieController.viewTopMoviesForMovieGoer();
                 break;
 
             default:
@@ -38,7 +39,4 @@ public class MovieGoerController {
         }
     }
 
-    
-
-    
 }

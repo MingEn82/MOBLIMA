@@ -7,27 +7,53 @@ import java.util.Scanner;
 
 import Entities.Movie;
 
+/**
+ * This is a controller class that is deisgn to interact with Movie Database
+ * Controller, Movie Object Entity and System Setting Controller
+ * 
+ * @author Teoh Xi Sheng
+ * @version 1.0
+ * @since 2022-11-02
+ */
 public abstract class MovieController {
+    /**
+     * Initialise Movie Database Controller object
+     */
     private MovieDatabaseController movieDC;
+    /**
+     * Initialise System Setting Controller object
+     */
+    private SystemSettingController sSCtrl;
+
+    /**
+     * Initialise an Array of Movies object
+     */
     ArrayList<Movie> allMovies;
 
+    /**
+     * Constructor
+     */
     public MovieController() {
         movieDC = new MovieDatabaseController();
         allMovies = movieDC.getMovies();
     }
 
+    /**
+     * This is an abstract class for displaying menu
+     */
     public abstract void displayMenu();
 
     /**
      * Displays movies using choice and returns the movie chosen
-     * @param choice
+     * 
+     * @param choice is the user input
      * @return chosen movie, null if no movie was chosen
      */
     public Movie displayMovies(int choice) {
         Scanner sc = new Scanner(System.in);
         ArrayList<Movie> filteredMovies;
         movieDC.readFile();
-        
+
         switch (choice) {
             case 1:
                 System.out.println("");
@@ -60,6 +86,7 @@ public abstract class MovieController {
 
     /**
      * finds movies and return chosen movie
+     * 
      * @return chosen movie, null otherwise
      */
     public Movie findMovies() {
@@ -80,7 +107,7 @@ public abstract class MovieController {
             System.out.println("");
 
             System.out.print("Choice chosen is: ");
-            
+
             choice = sc.nextInt();
             System.out.println("");
 
@@ -102,9 +129,9 @@ public abstract class MovieController {
     };
 
     /**
-     * View top movies by either total sales or overall rating
+     * View top movies by either total sales or overall rating for staff
      */
-    public void viewTopMovies() {
+    public void viewTopMoviesForStaff() {
         // Create deep copy of allMovies
         ArrayList<Movie> sortedMovies = new ArrayList<Movie>();
         for (Movie m : filterCurrentMovies()) {
@@ -115,25 +142,28 @@ public abstract class MovieController {
         Scanner sc = new Scanner(System.in);
         do {
             System.out.println("""
-                +-------------------------------------------------------+
-                |                 Viewing Top Movies                    |
-                |-------------------------------------------------------|
-                | 1. Sort by total sales                                |
-                | 2. Sort by overall rating                             |
-                |-------------------------------------------------------|
-                |         Enter 0 to go back to Movie Goer Menu         |
-                +-------------------------------------------------------+
-                """);
+                    +-------------------------------------------------------+
+                    |                 Viewing Top Movies                    |
+                    |-------------------------------------------------------|
+                    | 1. Sort by total sales                                |
+                    | 2. Sort by overall rating                             |
+                    |-------------------------------------------------------|
+                    |         Enter 0 to go back to Movie Goer Menu         |
+                    +-------------------------------------------------------+
+                    """);
+            System.out.print("Choice chosen is: ");
             choice = sc.nextInt();
             switch (choice) {
                 case 1:
-                    Collections.sort(sortedMovies, Comparator.comparingInt(m -> ((Movie) m).getTotalSales()).reversed());
+                    Collections.sort(sortedMovies,
+                            Comparator.comparingInt(m -> ((Movie) m).getTotalSales()).reversed());
                     for (int i = 0; i < end; i++) {
                         sortedMovies.get(i).print();
                     }
                     break;
                 case 2:
-                    Collections.sort(sortedMovies, Comparator.comparingDouble(m -> ((Movie) m).getOverallRating()).reversed());
+                    Collections.sort(sortedMovies,
+                            Comparator.comparingDouble(m -> ((Movie) m).getOverallRating()).reversed());
                     for (int i = 0; i < end; i++) {
                         sortedMovies.get(i).print();
                     }
@@ -147,7 +177,137 @@ public abstract class MovieController {
     };
 
     /**
+     * View top movies by either total sales or overall rating for movie goer
+     */
+    public void viewTopMoviesForMovieGoer() {
+        // staff will display all options, movie goer will need to check
+        // Get display options
+        sSCtrl = new SystemSettingController();
+        int showBySales = sSCtrl.getSystemSetting().getdisplayTop5bySales();
+        int showByRating = sSCtrl.getSystemSetting().getdisplayTop5byRating();
+        int showBySales2 = sSCtrl.getSystemSetting().getdisplayTop5bySales();
+        ArrayList<Integer> showList = new ArrayList<Integer>();
+        // if (showBySales == 1) {
+        // showList.add(showBySales);
+        // }
+        // if (showByRating == 1) {
+        // showList.add(showByRating);
+        // }
+        ArrayList<Integer> showList2 = new ArrayList<Integer>();
+        showList2.add(showBySales);
+        showList2.add(showByRating);
+        // Create deep copy of allMovies
+        ArrayList<Movie> sortedMovies = new ArrayList<Movie>();
+        for (Movie m : filterCurrentMovies()) {
+            sortedMovies.add(m.clone());
+        }
+        int end = sortedMovies.size() > 5 ? 5 : sortedMovies.size();
+        int choice;
+        Scanner sc = new Scanner(System.in);
+        do {
+            int empty = 0;
+            showBySales = sSCtrl.getSystemSetting().getdisplayTop5bySales();
+            showByRating = sSCtrl.getSystemSetting().getdisplayTop5byRating();
+            if (showBySales == 1) {
+                showList.add(showBySales);
+            }
+            if (showByRating == 1) {
+                showList.add(showByRating);
+            }
+            System.out.println("""
+                    +-------------------------------------------------------+
+                    |                 Viewing Top Movies                    |
+                    |-------------------------------------------------------|""");
+            for (int i = 1; i <= showList.size(); i++) {
+                // if setting is to display
+                if (showList.get(i - 1) == 1) {
+
+                    if (showBySales == 1) {
+                        empty++;
+                        System.out.print("| " + i + ". ");
+                        System.out.println("Sort by total sales                                |");
+                        showBySales--;
+                    } else if (showByRating == 1) {
+                        empty++;
+                        System.out.print("| " + i + ". ");
+                        System.out.println("Sort by overall rating                             |");
+                        showByRating--;
+                    }
+                }
+            }
+            if (empty == 0) {
+                System.out.println("| No options available                                  |");
+            }
+            System.out.println("""
+                    |-------------------------------------------------------|
+                    |         Enter 0 to go back to Movie Goer Menu         |
+                    +-------------------------------------------------------+
+                    """);
+            System.out.print("Choice chosen is: ");
+            choice = sc.nextInt();
+            switch (choice) {
+                case 1:
+                    if (empty != 0) {
+                        if (showList2.get(0) == 1) {
+                            if (showBySales2 == 1) {
+                                Collections.sort(sortedMovies,
+                                        Comparator.comparingInt(m -> ((Movie) m).getTotalSales()).reversed());
+                                for (int i = 0; i < end; i++) {
+                                    sortedMovies.get(i).print();
+                                }
+                            } else {
+                                Collections.sort(sortedMovies,
+                                        Comparator.comparingDouble(m -> ((Movie) m).getOverallRating()).reversed());
+                                for (int i = 0; i < end; i++) {
+                                    sortedMovies.get(i).print();
+                                }
+                            }
+                            break;
+                        } else if (showList2.get(1) == 1) {
+                            if (showBySales2 == 1) {
+                                Collections.sort(sortedMovies,
+                                        Comparator.comparingInt(m -> ((Movie) m).getTotalSales()).reversed());
+                                for (int i = 0; i < end; i++) {
+                                    sortedMovies.get(i).print();
+                                }
+                            } else {
+                                Collections.sort(sortedMovies,
+                                        Comparator.comparingDouble(m -> ((Movie) m).getOverallRating()).reversed());
+                                for (int i = 0; i < end; i++) {
+                                    sortedMovies.get(i).print();
+                                }
+                            }
+                            break;
+                        }
+
+                    }
+                    System.out.println("Invalid Input! Please try again.");
+                    break;
+
+                case 2:
+                    if (empty > 1) {
+                        if (showList2.get(1) == 1) {
+                            Collections.sort(sortedMovies,
+                                    Comparator.comparingDouble(m -> ((Movie) m).getOverallRating()).reversed());
+                            for (int i = 0; i < end; i++) {
+                                sortedMovies.get(i).print();
+                            }
+                            break;
+                        }
+                    }
+                    System.out.println("Invalid Input! Please try again.");
+                    break;
+                case 0:
+                    break;
+                default:
+                    System.out.println("Invalid Input! Please try again.");
+            }
+        } while (choice != 0);
+    };
+
+    /**
      * Prints all movies and returns chosen movie
+     * 
      * @param movies
      * @return chosen movie object, null otherwise
      */
@@ -173,16 +333,17 @@ public abstract class MovieController {
             else if (movieIdx < 0 || movieIdx > allMovies.size())
                 ;
             else {
-                m = movies.get(movieIdx-1);
+                m = movies.get(movieIdx - 1);
                 m.print();
             }
         }
-        
+
         return m;
     }
 
     /**
      * filters movies by showing status
+     * 
      * @param showingStatus
      * @return ArrayList of Movies
      */
@@ -194,12 +355,13 @@ public abstract class MovieController {
                 filteredMovies.add(movie);
             }
         }
-        
+
         return filteredMovies;
     }
 
     /**
      * Filters movies with showing status of "Now Showing" and "Preview"
+     * 
      * @return ArrayList of Movies
      */
     public ArrayList<Movie> filterCurrentMovies() {
@@ -211,12 +373,13 @@ public abstract class MovieController {
                 filteredMovies.add(movie);
             }
         }
-        
+
         return filteredMovies;
     }
 
     /**
      * Filters movies with movie name
+     * 
      * @param movieName
      * @return ArrayList of Movies
      */
@@ -234,6 +397,7 @@ public abstract class MovieController {
 
     /**
      * Adds a sale to movie
+     * 
      * @param movieTitle
      */
     public void addOneToTotalSales(String movieTitle) {
