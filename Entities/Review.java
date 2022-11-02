@@ -2,10 +2,25 @@ package Entities;
 
 /**
  * This is the class for defining a Review Object.
+ * @author Soh Zu Wei
+ * @version 1.0
+ * @since 2022-11-02
  */
 public class Review {
+
+    /**
+     * Rating of Review
+     */
     private float rating;
+
+    /**
+     * Phone Number of Review
+     */
     private int phoneNumber;
+
+    /**
+     * Review Text
+     */
     private String reviewText;
 
     /**
@@ -34,7 +49,7 @@ public class Review {
 
     /**
      * This method converts the review object to string.
-     * @return
+     * @return String Of Review Object
      */
     public String toString() {
         String s = rating + " & " + phoneNumber;
@@ -58,7 +73,7 @@ public class Review {
 
     /**
      * This is getter function for getting rating.
-     * @return
+     * @return Rating
      */
     public float getRating() {
         return this.rating;
@@ -74,7 +89,7 @@ public class Review {
 
     /**
      * This is a getter function for getting phone number.
-     * @return
+     * @return Phone Number
      */
     public int getPhoneNumber() {
         return this.phoneNumber;
@@ -90,7 +105,7 @@ public class Review {
 
     /**
      * This is a getter function for getting review text.
-     * @return
+     * @return Review Text
      */
     public String getReviewText() {
         return this.reviewText;

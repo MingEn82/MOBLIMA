@@ -4,15 +4,37 @@ import java.util.Scanner;
 import Controller.StaffController;
 import Controller.MovieGoerController;
 
+/**
+ * Main Menu UI Class 
+ * @author Soh Zu Wei
+ * @version 1.0
+ * @since 2022-11-02
+ */
 public class MainMenuUI {
+    /**
+     * Variable holding a staff controller object
+     */
     StaffController staffController = new StaffController();
+
+    /**
+     * Variable holding a moviegoercontroller object
+     */
     MovieGoerController movieGoerController = new MovieGoerController();
 
+    /**
+     * Scanner to take in inputs
+     */
     Scanner scanner = new Scanner(System.in);
 
+    /**
+     * Constructor
+     */
     public MainMenuUI() {
     }
 
+    /**
+     * Function to display the Main Menu
+     */
     public void displayMainMenu() {
         System.out.println(""); // print empty line
         int choice;
@@ -74,6 +96,9 @@ public class MainMenuUI {
 
     }
 
+    /**
+     * Function to display staff menu
+     */
     public void displayStaffMenu() {
 
         int choice;
@@ -110,6 +135,9 @@ public class MainMenuUI {
 
     }
 
+    /**
+     * Function to display Movie Goer Menu
+     */
     public void displayMovieGoerMenu() {
         int choice;
         do {

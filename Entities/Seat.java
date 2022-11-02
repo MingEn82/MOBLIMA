@@ -4,10 +4,29 @@ package Entities;
  * This class is the Seat class entity for defining the seat object attributes and methods.
  */
 public class Seat {
+    /**
+     * Check whether seat is booked
+     */
     private boolean isBooked;
+
+    /**
+     * Seat Number
+     */
     private String seatNumber;
+
+    /**
+     * Check whether seat exists
+     */
     private boolean isSeat;
+
+    /**
+     * String to represent empty seat
+     */
     private String emptySquare = "[ ]";
+
+    /**
+     * String to represent filled seat
+     */
     private String filledSquare = "[x]";
 
     /**
@@ -32,7 +51,7 @@ public class Seat {
 
     /**
      * Getter function for IsBooked
-     * @return
+     * @return True/false whether if seat is booked
      */
     public boolean getIsBooked() {
         return this.isBooked;
@@ -40,7 +59,7 @@ public class Seat {
 
     /**
      * Getter function for IsSeat
-     * @return
+     * @return True/false whether seat exist
      */
     public boolean getIsSeat() {
         return this.isSeat;
@@ -56,7 +75,7 @@ public class Seat {
 
     /**
      * Getter function for SeatNumber
-     * @return
+     * @return Seat Number
      */
     public String getSeatNumber() {
         return this.seatNumber;

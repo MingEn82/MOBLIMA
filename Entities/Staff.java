@@ -2,10 +2,19 @@ package Entities;
 
 /**
  * Staff class that extend user.
+ * @author Soh Zu Wei
+ * @version 1.0
+ * @since 2022-11-02
  */
 public class Staff extends User {
+    /**
+     * Password of staff
+     */
     private String password;
 
+    /**
+     * Constructor for Staff Class
+     */
     public Staff () {
 
     }
@@ -21,7 +30,7 @@ public class Staff extends User {
 
     /**
      * Getter method for password.
-     * @return
+     * @return password
      */
     public String getPassword() {
         return this.password;

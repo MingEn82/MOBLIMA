@@ -6,19 +6,74 @@ import java.util.List;
 
 /**
  * This is the class used to define a Movie Object and it's methods.
+ * @author Soh Zu Wei
+ * @version 1.0
+ * @since 2022-11-02
  */
 public class Movie {
+
+    /**
+     * Title of the Movie
+     */
     private String movieTitle;
+    /**
+     * Status of the Showing
+     */
     private String showingStatus;
+
+    /**
+     * Synopsis of the Movie
+     */
     private String synopsis;
+
+    /**
+     * Age Rating of Movie
+     */
     private AgeRating ageRating;
+
+    /**
+     * Director of Movie
+     */
     private String director;
+
+    /**
+     * List of Casts
+     */
     private String[] cast;
+
+    /**
+     * Duration of Movie
+     */
     private int duration;
+
+    /**
+     * Reviews Array
+     */
     private ArrayList<Review> reviews;
+    
+    /**
+     * Overall Rating of Movie
+     */
     private float overallRating;
+
+    /**
+     * Total Sales of Movie
+     */
     private int totalSales;
 
+    /**
+     * Constructor of the Movie
+     * @param movieTitle
+     * @param showingStatus
+     * @param synopsis
+     * @param ageRating
+     * @param director
+     * @param cast
+     * @param duration
+     * @param reviews
+     * @param overallRating
+     * @param totalSales
+     */
     public Movie(String movieTitle, String showingStatus, String synopsis, AgeRating ageRating, String director, String[] cast, int duration, ArrayList<Review> reviews, float overallRating, int totalSales) {
         this.movieTitle = movieTitle;
         this.showingStatus = showingStatus;
@@ -34,7 +89,7 @@ public class Movie {
 
     /**
      * This is a getter function for retrieving Movie Title.
-     * @return
+     * @return Movie Title
      */
     public String getMovieTitle() {
         return this.movieTitle;
@@ -50,7 +105,7 @@ public class Movie {
 
     /**
      * This is a getter function for retrieving Showing Status.
-     * @return
+     * @return Showing Status
      */
     public String getShowingStatus() {
         return this.showingStatus;
@@ -66,7 +121,7 @@ public class Movie {
 
     /**
      * This is a getter function for retrieving Sypnosis.
-     * @return
+     * @return Synopsis
      */
     public String getSynopsis() {
         return this.synopsis;
@@ -82,7 +137,7 @@ public class Movie {
 
     /**
      * This is a getter function for retrieving Age Rating.
-     * @return
+     * @return Age Rating
      */
     public AgeRating getAgeRating() {
         return this.ageRating;
@@ -98,7 +153,7 @@ public class Movie {
 
     /**
      * This is a getter function for retrieving Director of the movie.
-     * @return
+     * @return Director of Movie
      */
     public String getDirector() {
         return this.director;
@@ -114,7 +169,7 @@ public class Movie {
 
     /**
      * This is a getter function for retrieving all casts (string) of the movie.
-     * @return
+     * @return Casts of the Movie
      */
     public String getCast() {
         return String.join(" & ", cast);
@@ -122,7 +177,7 @@ public class Movie {
 
     /**
      * This is a getter function for retrieving all the casts (object) of the movie.
-     * @return
+     * @return Arraylist of Casts
      */
     public List<String> getAllCast() {
         return Arrays.asList(cast);
@@ -138,7 +193,7 @@ public class Movie {
 
     /**
      * This is a getter function for retrieving the duration of the movie.
-     * @return
+     * @return Duration of Movie
      */
     public int getDuration() {
         return this.duration;
@@ -154,7 +209,7 @@ public class Movie {
 
     /**
      * This is a getter function for retrieving Reviews (string) of the movie.
-     * @return
+     * @return Reviews in a string format
      */
     public String getReviews() {
         String s = ", ";
@@ -166,7 +221,7 @@ public class Movie {
 
     /**
      * This is a getter function for retrieving Reviews (object) of the movie.
-     * @return
+     * @return Review in a Object format (array)
      */
     public ArrayList<Review> getReviewArray() {
         return this.reviews;
@@ -196,7 +251,7 @@ public class Movie {
     /**
      * This function checks whether a user has reviews based on a phone number.
      * @param phoneNumber
-     * @return
+     * @return True/False
      */
     public boolean hasReview(int phoneNumber) {
         for (Review r : reviews) {
@@ -210,7 +265,7 @@ public class Movie {
     /**
      * This function checks whether this movie has reviews
      * @param phoneNumber
-     * @return
+     * @return True/False
      */
     public boolean hasReview() {
         return reviews.size() > 0;
@@ -247,7 +302,7 @@ public class Movie {
 
     /**
      * This is a getter function for retrieving the overall rating.
-     * @return
+     * @return Overall Rating
      */
     public float getOverallRating() {
         return this.overallRating;
@@ -263,7 +318,7 @@ public class Movie {
 
     /**
      * This is a getter function for retrieving Total Sales.
-     * @return
+     * @return Total Sales
      */
     public int getTotalSales() {
         return this.totalSales;
@@ -285,7 +340,7 @@ public class Movie {
 
     /**
      * This function converts the movie object to string and returns a string.
-     * @return
+     * @return String of Movie Object
      */
     public String toString() {
         String s = movieTitle + ", " + showingStatus + ", " + duration + ", " + ageRating.toString() + ", " + synopsis + ", " + director + ", " + getCast();

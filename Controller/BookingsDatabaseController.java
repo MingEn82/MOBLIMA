@@ -16,26 +16,60 @@ import java.io.PrintWriter;
 
 /**
  * BookingsDatabaseController is a controller that is used to write and read from the booking text file.
+ * @author Soh Zu Wei
+ * @version 1.0
+ * @since 2022-11-02
  */
 public class BookingsDatabaseController implements DatabaseController {
+
+    /**
+     * Variable holds the location of Text File
+     */
     private String fileString = "./Database/BookingsDatabase.txt";
+
+    /**
+     * Variable for File Object
+     */
     private File file;
+
+    /**
+     * Variable for BufferedWriter
+     */
     private BufferedWriter bf;
+
+    /**
+     * Variable for PrintWriter
+     */
     private PrintWriter pw;
+
+    /**
+     * Array List of Booking
+     */
     private ArrayList<Booking> bookings;
 
+    /**
+     * Constructor for Class
+     */
     public BookingsDatabaseController() {
         file = new File(fileString);    
         this.bookings = new ArrayList<Booking>();
         this.readFile();
     }
 
+    /**
+     * Constructor for Class, but takes in filepath.
+     * @param filePath
+     */
     public BookingsDatabaseController(String filePath) {
         file = new File(filePath);
         this.bookings = new ArrayList<Booking>();
         this.readFile();
     }
 
+    /**
+     * Function to fetch array list of booking
+     * @return
+     */
     public ArrayList<Booking> fetchBookings() {
         this.readFile();
         return this.bookings;

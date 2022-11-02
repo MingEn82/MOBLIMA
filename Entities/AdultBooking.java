@@ -6,9 +6,28 @@ import Controller.SystemSettingController;
 
 /**
  * This class extends the existing booking class and implement its own calculate price method.
+ * @author Soh Zu Wei
+ * @version 1.0
+ * @since 2022-11-02
  */
 public class AdultBooking extends Booking{
 
+    /**
+     * This is a constructor for the Adult Booking class.
+     * @param tID
+     * @param phoneNumberOfMovieGoer
+     * @param nameOfMovieGoer
+     * @param emailOfMovieGoer
+     * @param cineplexName
+     * @param cinemaName
+     * @param seatID
+     * @param movieTitle
+     * @param movieDuration
+     * @param movieType
+     * @param cinemaType
+     * @param startDate
+     * @param price
+     */
     public AdultBooking(String tID, int phoneNumberOfMovieGoer, String nameOfMovieGoer, String emailOfMovieGoer,
             String cineplexName, String cinemaName, String seatID, String movieTitle, int movieDuration,
             String movieType, String cinemaType, Date startDate, float price) {

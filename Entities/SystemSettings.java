@@ -6,20 +6,65 @@ import java.text.SimpleDateFormat;
 
 /**
  * This is an entity class that is deisgned to create a SystemSettings object
+ * @author Soh Zu Wei
+ * @version 1.0
+ * @since 2022-11-02
  */
 public class SystemSettings {
 
+    /**
+     * Variable to store filepath
+     */
     private String filePath = "Database/SystemSettingsDatabase.txt";
+
+    /**
+     * Arraylist of public holidays
+     */
     private ArrayList<Date> publicHolidays;
 
+    /**
+     * Weekday Price
+     */
     private float weekdayPrices;
+
+    /**
+     * Weekend Price
+     */
     private float weekendPrices;
+
+    /**
+     * Public Holiday Price
+     */
     private float pHPrices;
+
+    /*
+     * Student Discount Price
+     */
     private float studentDiscount;
+
+    /**
+     * Senior Discount Price
+     */
     private float seniorDiscount;
+
+    /**
+     * 3D Add on price
+     */
     private float threeDAddOn;
+
+    /**
+     * Block Buster Add on price
+     */
     private float blockbusterAddOn;
+
+    /**
+     * IMAX add on price
+     */
     private float IMAXAddOn;
+
+    /**
+     * Platinum add on price
+     */
     private float platinumAddOn;
 
     /**

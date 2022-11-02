@@ -5,12 +5,23 @@ import java.util.Arrays;
 
 /**
  * This is a concrete class that extends the abstract Cinema class to implement it's own methods.
+ * @author Soh Zu Wei
+ * @version 1.0
+ * @since 2022-11-02
  */
 public class IMAXCinema extends Cinema {
+
+    /**
+     * Screen layout
+     */
     private String screenLayout = """
               |               IMAX Screen               |
               |_________________________________________|
             """;
+
+    /**
+     * Seat Arrangement
+     */
     private String seatArrangement = 
         "A, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, " + 
         "B, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, " + 
@@ -21,13 +32,31 @@ public class IMAXCinema extends Cinema {
         "G, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, " + 
         "H, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, " +
         "I, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14";
+
+    /**
+     * Seat Numbers
+     */
     private String seatNumbers = "\n   1  2  3  4   5  6  7  8   9  10 11 12 13 14";
+
+    /**
+     * Entrance Layout
+     */
     private String entranceLayout = """
                           _________________
                           |   Entrance    |
             """;
+
+    /**
+     * Aisles 
+     */
     private ArrayList<Integer> aisles = new ArrayList<Integer>(Arrays.asList(4, 8));
 
+    /**
+     * Constructor For Cinema
+     * @param showings
+     * @param cinemaName
+     * @param cinemaNumber
+     */
     public IMAXCinema(ArrayList<Showing> showings, String cinemaName, String cinemaNumber) {
         super(CinemaType.IMAX, showings, cinemaName, cinemaNumber);
     }
@@ -56,7 +85,7 @@ public class IMAXCinema extends Cinema {
 
     /**
      * This is a getter function for retrieving the Seat Arrangement.
-     * @return
+     * @return Seat Arrangement
      */
     public String getSeatArrangement() {
         return this.seatArrangement;
@@ -72,7 +101,7 @@ public class IMAXCinema extends Cinema {
 
     /**
      * This is a getter function for retrieving the Seat Arrangement.
-     * @return
+     * @return Seat Numbers
      */
     public String getSeatNumbers() {
         return this.seatNumbers;
@@ -88,7 +117,7 @@ public class IMAXCinema extends Cinema {
 
     /**
      * Print function for seatNumbers
-     * @return
+     * @return Seat Numbers
      */
     public void printSeatNumbers() {
         System.out.println(this.seatNumbers);
@@ -97,7 +126,7 @@ public class IMAXCinema extends Cinema {
 
     /**
      * This is a getter function for getting the Entrance Layout.
-     * @return
+     * @return Entrance Layout
      */
     public String getEntranceLayout() {
         return this.entranceLayout;
@@ -120,7 +149,7 @@ public class IMAXCinema extends Cinema {
 
     /**
      * This is the getter function for retrieving Aisles.
-     * @return
+     * @return ArrayList of Aisles
      */
     public ArrayList<Integer> getAisles() {
         return this.aisles;

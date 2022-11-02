@@ -8,11 +8,29 @@ import Utils.DateParser;
 
 /**
  * This is a class for defining the Showing object.
+ * @author Soh Zu Wei
+ * @version 1.0
+ * @since 2022-11-02
  */
 public class Showing {
+    /**
+     * Title of Movie
+     */
     private String movieTitle;
+
+    /**
+     * Type of Movie
+     */
     private String movieType;
+
+    /**
+     * Start Date of Movie
+     */
     private Date startDate;
+
+    /**
+     * Seat Rows
+     */
     private ArrayList<SeatRow> seatRows;
 
     /**
@@ -31,7 +49,7 @@ public class Showing {
 
     /**
      * This is a getter function for the Movie Title.
-     * @return
+     * @return Movie Title
      */
     public String getMovieTitle() {
         return movieTitle;
@@ -39,7 +57,7 @@ public class Showing {
 
     /**
      * This is a getter function for Movie Type.
-     * @return
+     * @return Movie Type
      */
     public String getMovieType() {
         return movieType;
@@ -47,7 +65,7 @@ public class Showing {
 
     /**
      * This is a getter function for start date.
-     * @return
+     * @return Start Date
      */
     public Date getStartDate() {
         return startDate;
@@ -55,7 +73,7 @@ public class Showing {
 
     /**
      * This is a getter function for retrieving the seat rows.
-     * @return
+     * @return Seat Rows
      */
     public ArrayList<SeatRow> getSeatRows() {
         return seatRows;
@@ -64,7 +82,7 @@ public class Showing {
     /**
      * This is a function to check whether if a seat is already booked or not.
      * @param seatID
-     * @return
+     * @return True/false whether seat is booked
      */
     public boolean isSeatBooked(String seatID) {
         String row = seatID.substring(0, 1).toUpperCase();

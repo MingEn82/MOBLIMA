@@ -8,22 +8,92 @@ import Utils.DateParser;
 
 /**
  * This class is the Booking class entity for defining the booking object attributes and methods.
+ * @author Soh Zu Wei
+ * @version 1.0
+ * @since 2022-11-02
  */
 public class Booking {
+    /**
+     * TID of booking
+     */
     private String TID;
+
+    /**
+     * Phone Number of Movie Goer
+     */
     private int phoneNumberOfMovieGoer;
+
+    /**
+     * Name of Movie Goer
+     */
     private String nameOfMovieGoer;
+
+    /**
+     * Email of Movie Goer
+     */
     private String emailOfMovieGoer;
+
+    /**
+     * Cineplex Name
+     */
     private String cineplexName;
+
+    /**
+     * Cinema Name
+     */
     private String cinemaName;
+
+    /**
+     * Seat ID
+     */
     private String seatID;
+
+    /**
+     * Title of Movie
+     */
     private String movieTitle;
+
+    /**
+     * Movie Duration
+     */
     private int movieDuration;
+
+    /**
+     * Type of Movie
+     */
     private String movieType;
+
+    /**
+     * Type of Cinema
+     */
     private String cinemaType;
+
+    /**
+     * Start Date of the Booking
+     */
     private Date startDate;
+
+    /**
+     * Price of the booking
+     */
     private float price;
     
+    /**
+     * Constructor for the booking class.
+     * @param TID
+     * @param phoneNumberOfMovieGoer
+     * @param nameOfMovieGoer
+     * @param emailOfMovieGoer
+     * @param cineplexName
+     * @param cinemaName
+     * @param seatID
+     * @param movieTitle
+     * @param movieDuration
+     * @param movieType
+     * @param cinemaType
+     * @param startDate
+     * @param price
+     */
     public Booking(String TID, int phoneNumberOfMovieGoer, String nameOfMovieGoer, String emailOfMovieGoer, String cineplexName, String cinemaName, String seatID, String movieTitle, int movieDuration, String movieType, String cinemaType, Date startDate, float price) {
         this.TID = TID;
         this.phoneNumberOfMovieGoer = phoneNumberOfMovieGoer;
@@ -40,6 +110,9 @@ public class Booking {
         this.price = price;
     }
 
+    /**
+     * Constructor
+     */
     public Booking() {}
 
     /**
@@ -78,7 +151,7 @@ public class Booking {
 
     /**
      * Convert date format to string.
-     * @param d
+     * @param d date
      * @return
      */
     public static String dateToString(Date d) {
@@ -88,7 +161,7 @@ public class Booking {
 
     /**
      * Calculates the day of the week of a showing and return the day of the week.
-     * @param d
+     * @param d date
      * @return
      */
     public String getDayOfWeek(Date d)
@@ -100,7 +173,7 @@ public class Booking {
 
     /**
      * Getter function for TID.
-     * @return
+     * @return  TID
      */
     public String getTID() {
         return TID;
@@ -109,7 +182,7 @@ public class Booking {
 
     /**
      * Setterfunction for TID.
-     * @param tID
+     * @param tID TID
      */
     public void setTID(String tID) {
         TID = tID;
@@ -117,7 +190,7 @@ public class Booking {
 
     /**
      * Getter function for Phone Number.
-     * @return
+     * @return Phone Number
      */
     public int getPhoneNumberOfMovieGoer() {
         return phoneNumberOfMovieGoer;
@@ -125,7 +198,7 @@ public class Booking {
 
     /**
      * Setter function for Phone number.
-     * @param phoneNumberOfMovieGoer
+     * @param phoneNumberOfMovieGoer phone Number
      */
     public void setPhoneNumberOfMovieGoer(int phoneNumberOfMovieGoer) {
         this.phoneNumberOfMovieGoer = phoneNumberOfMovieGoer;
@@ -133,7 +206,7 @@ public class Booking {
 
     /**
      * Getter function for Name.
-     * @return
+     * @return Name
      */
     public String getNameOfMovieGoer() {
         return nameOfMovieGoer;
@@ -141,7 +214,7 @@ public class Booking {
 
     /**
      * Setter function for Movie Goer Name.
-     * @param nameOfMovieGoer
+     * @param nameOfMovieGoer Name Of Movie Goer
      */
     public void setNameOfMovieGoer(String nameOfMovieGoer) {
         this.nameOfMovieGoer = nameOfMovieGoer;
@@ -149,7 +222,7 @@ public class Booking {
 
     /**
      * Getter function for Email Address.
-     * @return
+     * @return EmailAddress Of Movie Goer
      */
     public String getEmailOfMovieGoer() {
         return emailOfMovieGoer;
@@ -157,7 +230,7 @@ public class Booking {
 
     /**
      * Setter function for Email Address.
-     * @param emailOfMovieGoer
+     * @param emailOfMovieGoer Email of Movie Goer
      */
     public void setEmailOfMovieGoer(String emailOfMovieGoer) {
         this.emailOfMovieGoer = emailOfMovieGoer;
@@ -165,7 +238,7 @@ public class Booking {
 
     /**
      * Getter function for Cineplex Name.
-     * @return
+     * @return Cineplex Name
      */
     public String getCineplexName() {
         return cineplexName;
@@ -173,7 +246,7 @@ public class Booking {
 
     /**
      * Setter function for Cineplex Name.
-     * @param cineplexName
+     * @param cineplexName Cineplex Name
      */
     public void setCineplexName(String cineplexName) {
         this.cineplexName = cineplexName;
@@ -181,7 +254,7 @@ public class Booking {
 
     /**
      * Getter function for Cinema Name.
-     * @return
+     * @return Cinema Name
      */
     public String getCinemaName() {
         return cinemaName;
@@ -189,7 +262,7 @@ public class Booking {
 
     /**
      * Setter function for Cinema Name.
-     * @param cinemaName
+     * @param cinemaName Cinema Name
      */
     public void setCinemaName(String cinemaName) {
         this.cinemaName = cinemaName;
@@ -197,7 +270,7 @@ public class Booking {
 
     /**
      * Getter function for Seat ID.
-     * @return
+     * @return Seat ID
      */
     public String getSeatID() {
         return seatID;
@@ -205,7 +278,7 @@ public class Booking {
 
     /**
      * Setter function for Seat ID.
-     * @param seatID
+     * @param seatID Seat ID
      */
     public void setSeatID(String seatID) {
         this.seatID = seatID;
@@ -214,7 +287,7 @@ public class Booking {
 
     /**
      * Getter function for Movie Title
-     * @return
+     * @return Movie Title
      */
     public String getMovieTitle() {
         return movieTitle;
@@ -231,7 +304,7 @@ public class Booking {
 
     /**
      * Getter function for Movie Duration.
-     * @return
+     * @return Movie Duration
      */
     public int getMovieDuration() {
         return movieDuration;
@@ -247,7 +320,7 @@ public class Booking {
 
     /**
      * Getter function for Movie Type.
-     * @return 
+     * @return Movie Type
      */
     public String getMovieType() {
         return movieType;
@@ -264,7 +337,7 @@ public class Booking {
 
     /**
      * Getter function for Cinema Type.
-     * @return 
+     * @return Cinema Type
      */
     public String getCinemaType() {
         return cinemaType;
@@ -280,7 +353,7 @@ public class Booking {
 
     /**
      * Getter function for Start Date.
-     * @return 
+     * @return Start Date
      */
     public Date getStartDate() {
         return startDate;
@@ -296,7 +369,7 @@ public class Booking {
 
     /**
      * Getter function for Price.
-     * @return 
+     * @return Price
      */
     public float getPrice() {
         return price;

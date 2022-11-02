@@ -2,8 +2,15 @@ package Controller;
 
 /**
  * MovieGoerController class handles the choice of the movie goer
+ * @author Soh Zu Wei
+ * @version 1.0
+ * @since 2022-11-02
  */
 public class MovieGoerController {
+
+    /**
+     * Variable that holds the Movie Controller Object
+     */
     private MovieController movieGoerMovieController = new MovieGoerMovieController();
 
     /**

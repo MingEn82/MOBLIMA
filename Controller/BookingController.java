@@ -17,6 +17,9 @@ import java.util.Scanner;
 
 /**
  * BookingController is a controller class that holds the logic to view bookings and make new booking.
+ * @author Soh Zu Wei
+ * @version 1.0
+ * @since 2022-11-02
  */
 public class BookingController {
     BookingsDatabaseController bookingsDatabaseController =  new BookingsDatabaseController();
@@ -25,6 +28,9 @@ public class BookingController {
 
 
 
+    /**
+     * Constructor for Booking Controller
+     */
     BookingController(){
         //reads all the booking data from databasecontroller.
         bookings = bookingsDatabaseController.fetchBookings();

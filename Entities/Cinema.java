@@ -4,13 +4,38 @@ import java.util.ArrayList;
 
 /**
  * This is an abstract class for the Cinema. 
+ * @author Soh Zu Wei
+ * @version 1.0
+ * @since 2022-11-02
  */
 public abstract class Cinema {
+    /**
+     * Type of Cinema
+     */
     protected CinemaType cinemaType;
+
+    /**
+     * Arraylist of Showings
+     */
     protected ArrayList<Showing> showings;
+
+    /**
+     * Name of Cinema
+     */
     protected String cinemaName;
+
+    /**
+     * Number of Cinema
+     */
     protected String cinemaNumber;
 
+    /**
+     * Constructor for the Cinema
+     * @param cinemaType
+     * @param showings
+     * @param cinemaName
+     * @param cinemaNumber
+     */
     public Cinema(CinemaType cinemaType, ArrayList<Showing> showings, String cinemaName, String cinemaNumber) {
         this.cinemaType = cinemaType;
         this.showings = showings;
@@ -47,7 +72,7 @@ public abstract class Cinema {
 
     /**
      * This is a getter function for the Cinema Name.
-     * @return
+     * @return Cinema Name
      */
     public String getCinemaName() {
         return this.cinemaName;
@@ -55,7 +80,7 @@ public abstract class Cinema {
 
     /**
      * This is a getter function for the Cinema Number.
-     * @return
+     * @return Cinema Number
      */
     public String getCinemaNumber() {
         return this.cinemaNumber;
@@ -63,7 +88,7 @@ public abstract class Cinema {
 
     /**
      * This is a getter function for the showings.
-     * @return
+     * @return Showings Array
      */
     public ArrayList<Showing> getShowings() {
         return this.showings;
@@ -79,7 +104,7 @@ public abstract class Cinema {
 
     /**
      * This is a function to add a new showing into the showing list.
-     * @param s
+     * @param s Showing Object
      */
     public void addShowing(Showing s) {
         showings.add(s);
@@ -87,7 +112,7 @@ public abstract class Cinema {
 
     /**
      * This is a function to remove a showing from the showing list.
-     * @param s
+     * @param s Showing Object
      */
     public void removeShowing(Showing s) {
         int idx = -1;
@@ -104,6 +129,7 @@ public abstract class Cinema {
             showings.remove(idx);
         }
     }
+
 
     abstract public ArrayList<Integer> getAisles();
     abstract public String getSeatArrangement();

@@ -4,10 +4,24 @@ import java.util.ArrayList;
 
 /**
  * This class is used for defining the Cineplex Objects and it's classes.
+ * @author Soh Zu Wei
+ * @version 1.0
+ * @since 2022-11-02
  */
 public class Cineplex {
+    /**
+     * Array List of Cinemas
+     */
     private ArrayList<Cinema> cinemas;
+
+    /**
+     * Name of Cinema
+     */
     private String cineplexName;
+
+    /**
+     * ID of Cineplex
+     */
     private String cineplexID;
 
     /**
@@ -36,7 +50,7 @@ public class Cineplex {
 
     /**
      * This is a getter function for retrieving Cinemas.
-     * @return
+     * @return Cinemas Array
      */
     public ArrayList<Cinema> getCinemas() {
         return this.cinemas;
@@ -61,7 +75,7 @@ public class Cineplex {
 
     /**
      * This is a function to remove a cinema from the cinema list.
-     * @param c
+     * @param c CinemaObject
      */
     public void removeCinema(Cinema c) {
         int idx = -1;
@@ -81,7 +95,7 @@ public class Cineplex {
 
     /**
      * This is a getter function for retrieving the Cineplex Name.
-     * @return
+     * @return Cineplex Name
      */
     public String getCineplexName() {
         return this.cineplexName;
@@ -89,7 +103,7 @@ public class Cineplex {
 
     /**
      * This is a getter function for retrieving the Cineplex ID.
-     * @return
+     * @return Cineplex ID
      */
     public String getCineplexID() {
         return this.cineplexID;

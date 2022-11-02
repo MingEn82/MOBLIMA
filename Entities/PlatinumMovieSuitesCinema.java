@@ -5,12 +5,23 @@ import java.util.Arrays;
 
 /**
  * This class extends the Cinema Class to overwites existing methods and define new methods.
+ * @author Soh Zu Wei
+ * @version 1.0
+ * @since 2022-11-02
  */
 public class PlatinumMovieSuitesCinema extends Cinema{
+
+    /**
+     * Screen Layout of Platinum Cinema
+     */
     private String screenLayout = """
              |       Screen       |
              |____________________|
             """;
+
+    /**
+     * Seat Arrangement of Platinum Cinema
+     */
     private String seatArrangement = 
         "A, 1, 2, 3, 4, 5, 6, "+
         "B, 1, 2, 3, 4, 5, 6, "+
@@ -18,20 +29,38 @@ public class PlatinumMovieSuitesCinema extends Cinema{
         "D, 1, 2, 3, 4, 5, 6, "+
         "E, 1, 2, 3, 4, 5, 6, "+
         "F, 1, 2, 3, 4, 5, 6";
+
+    /**
+     * Seat Numbers of Platinum Cinema
+     */
     private String seatNumbers = "\n   1  2  3   4  5  6";
+
+    /**
+     * Entrance Layout of Platinum Cinema
+     */
     private String entranceLayout = """
             _________________
             |   Entrance    |
             """;
+
+    /**
+     * Array List of Aisles
+     */
     private ArrayList<Integer> aisles = new ArrayList<Integer>(Arrays.asList(3));
 
+    /**
+     * Constructor for Platinum Cinema
+     * @param showings
+     * @param cinemaName
+     * @param cinemaNumber
+     */
     public PlatinumMovieSuitesCinema(ArrayList<Showing> showings, String cinemaName, String cinemaNumber) {
         super(CinemaType.PLATINUM_MOVIE_SUITE, showings, cinemaName, cinemaNumber);
     }
 
     /**
      * This is the getter function for retrieving Screen Layout.
-     * @return
+     * @return ScreenLayout
      */
     public String getScreenLayout() {
         return this.screenLayout;
@@ -69,7 +98,7 @@ public class PlatinumMovieSuitesCinema extends Cinema{
 
     /**
      * This is a getter function for retrieving the Seat Arrangement.
-     * @return
+     * @return Seat Numbers
      */
     public String getSeatNumbers() {
         return this.seatNumbers;
@@ -85,7 +114,6 @@ public class PlatinumMovieSuitesCinema extends Cinema{
 
     /**
      * Print function for seatNumbers
-     * @return
      */
     public void printSeatNumbers() {
         System.out.println(this.seatNumbers);
@@ -116,6 +144,7 @@ public class PlatinumMovieSuitesCinema extends Cinema{
 
     /**
      * This is the function to retrieve Aisles.
+     * @return ArrayList of Aisles
      */
     public ArrayList<Integer> getAisles() {
         return this.aisles;

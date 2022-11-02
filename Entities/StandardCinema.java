@@ -4,12 +4,22 @@ import java.util.ArrayList;
 import java.util.Arrays;
 /**
  * This is the class for StandardCinema it extends the Cinema class
+ * @author Soh Zu Wei
+ * @version 1.0
+ * @since 2022-11-02
  */
 public class StandardCinema extends Cinema{
+
+    /**
+     * String for screenlayout
+     */
     private String screenLayout = """
                     |          Screen          |
                     |__________________________|
             """;
+    /**
+     * String for Seat Arrangement
+     */
     private String seatArrangement = 
         "A, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, "+
         "B, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, "+
@@ -17,21 +27,38 @@ public class StandardCinema extends Cinema{
         "D, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, "+
         "E, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, "+
         "F, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12";
+
+    /**
+     * String for seat Numbers
+     */
     private String seatNumbers = "\n   1  2  3  4   5  6  7  8   9  10 11 12";
+
+    /**
+     * String for Entrance Layout
+     */
     private String entranceLayout = """
                         _________________
                         |   Entrance    |
             """;
+
+    /**
+     * Array List of Aisles
+     */
     private ArrayList<Integer> aisles = new ArrayList<Integer>(Arrays.asList(4, 8));
 
-    
+    /**
+     * Constructor for Standard Cinema
+     * @param showings
+     * @param cinemaName
+     * @param cinemaNumber
+     */
     public StandardCinema(ArrayList<Showing> showings, String cinemaName, String cinemaNumber) {
         super(CinemaType.STANDARD, showings, cinemaName, cinemaNumber);
     }
 
     /**
      * Getter function for ScreenLayout
-     * @return
+     * @return Screen Layout
      */
     public String getScreenLayout() {
         return this.screenLayout;
@@ -54,7 +81,7 @@ public class StandardCinema extends Cinema{
 
     /**
      * Getter function for SeatArrangement
-     * @return
+     * @return Seat Arrangement
      */
     public String getSeatArrangement() {
         return this.seatArrangement;
@@ -70,7 +97,7 @@ public class StandardCinema extends Cinema{
 
     /**
      * Getter function for seatNumbers
-     * @return
+     * @return Seat Numbers
      */
     public String getSeatNumbers() {
         return this.seatNumbers;
@@ -86,7 +113,7 @@ public class StandardCinema extends Cinema{
 
     /**
      * Print function for seatNumbers
-     * @return
+     * @return Seat Numbers
      */
     public void printSeatNumbers() {
         System.out.println(this.seatNumbers);
@@ -94,7 +121,7 @@ public class StandardCinema extends Cinema{
 
     /**
      * Getter function for EntranceLayout
-     * @return
+     * @return Entrance Layout
      */
     public String getEntranceLayout() {
         return this.entranceLayout;
@@ -118,7 +145,7 @@ public class StandardCinema extends Cinema{
 
     /**
      * Getter function for Aisles
-     * @return
+     * @return Aisles
      */
     public ArrayList<Integer> getAisles() {
         return this.aisles;

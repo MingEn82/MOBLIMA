@@ -4,9 +4,19 @@ import java.util.ArrayList;
 
 /**
  * This is a class for defining the SeatRow Object.
+ * @author Soh Zu Wei
+ * @version 1.0
+ * @since 2022-11-02
  */
 public class SeatRow {
+    /**
+     * ID of Row
+     */
     private String rowID;
+
+    /**
+     * Array of Seat
+     */
     private ArrayList<Seat> seatArray;
 
     /**
@@ -20,7 +30,7 @@ public class SeatRow {
 
     /**
      * This is a setter function for retrieving Row ID.
-     * @return
+     * @return Row ID
      */
     public String getRowID() {
         return rowID;
@@ -41,7 +51,7 @@ public class SeatRow {
 
     /**
      * This is a function to add a new seat.
-     * @param s
+     * @param s SeatObject
      */
     public void addSeat(Seat s) {
         seatArray.add(s);
@@ -49,7 +59,7 @@ public class SeatRow {
 
     /**
      * This is a setter function to get the seats.
-     * @return
+     * @return Arraylist of Seat
      */
     public ArrayList<Seat> getSeats() {
         return this.seatArray;
