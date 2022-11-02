@@ -3,12 +3,31 @@ package Controller;
 /**
  * This class is a controller class that is designed to handle the different
  * options of a cinema staff.
+ * 
+ * @author Teoh Xi Sheng
+ * @version 1.0
+ * @since 2022-11-02
  */
 public class StaffController {
 
+    /**
+     * Create a login controller object
+     */
     LoginController loginController = new LoginController();
+
+    /**
+     * Create a adminMovieController object
+     */
     MovieController adminMovieController = new AdminMovieController();
+
+    /**
+     * Create a showingController object
+     */
     ShowingController showingController = new ShowingController();
+
+    /**
+     * Create a systemSettingController object
+     */
     SystemSettingController systemSettingController = new SystemSettingController();
 
     /**

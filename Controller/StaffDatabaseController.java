@@ -12,12 +12,35 @@ import java.util.HashMap;
 /**
  * This is an controller class that handles the reading and writing of database
  * for Staff
+ * 
+ * @author Teoh Xi Sheng
+ * @version 1.0
+ * @since 2022-11-02
  */
 public class StaffDatabaseController implements DatabaseController {
+    /**
+     * Directory of the StaffDatabase text file
+     */
     private String filePath = "Database/StaffDatabase.txt";
+
+    /**
+     * File object
+     */
     private File file;
+
+    /**
+     * Writes text to character output stream
+     */
     private BufferedWriter bf;
+
+    /**
+     * Prints objects to text-output stream
+     */
     private PrintWriter pw;
+
+    /**
+     * HashMap class obejct to store all the staff data
+     */
     private HashMap<String, String> allStaff;
 
     /**
