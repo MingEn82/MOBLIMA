@@ -116,7 +116,7 @@ public class SystemSettingController {
         }
         System.out.println("Returning to previous menu...");
         System.out.println("");
-        displaySystemSetting();
+        
     }
 
     public void removePHSetting() {
@@ -131,7 +131,7 @@ public class SystemSettingController {
         System.out.println("");
         System.out.println("Returning to previous menu...");
         System.out.println("");
-        displaySystemSetting();
+        
     }
 
 
