@@ -39,7 +39,7 @@ public class SystemSettingController {
         do {
             System.out.println(""); 
             System.out.println("+-------------------------------------------------------+");
-            System.out.println("|             Please select the your option             |");
+            System.out.println("|              Please select your option                |");
             System.out.println("---------------------------------------------------------");
             System.out.println("| 1. Display Public Holidays                            |");
             System.out.println("| 2. Add Public Holidays                                |");
