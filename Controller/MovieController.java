@@ -236,7 +236,7 @@ public abstract class MovieController {
                 }
             }
             if (empty == 0) {
-                System.out.println("| No options available                                  |");
+                System.out.println("| No option available                                  |");
             }
             System.out.println("""
                     |-------------------------------------------------------|
