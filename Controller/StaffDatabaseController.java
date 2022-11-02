@@ -118,6 +118,16 @@ public class StaffDatabaseController implements DatabaseController {
             System.out.println("Error! User already exists!");
             return;
         }
+        // username
+        if (newUsername.length() < 8) {
+            System.out.println("Error! Username needs to have at least 8 characters!");
+            return;
+        }
+        // username
+        if (newPassword.length() < 8) {
+            System.out.println("Error! Password needs to have at least 8 characters!");
+            return;
+        }
 
         // insert the mapping into allStaff map
         allStaff.put(newUsername, newPassword);
