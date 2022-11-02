@@ -19,6 +19,10 @@ import Utils.DateParser;
 /**
  * This is an controller class that handles the reading and writing of database
  * for SystemSetings
+ * 
+ * @author Teoh Xi Sheng
+ * @version 1.0
+ * @since 2022-11-02
  */
 public class SystemSettingsDatabaseController implements DatabaseController {
     /*
@@ -35,10 +39,29 @@ public class SystemSettingsDatabaseController implements DatabaseController {
      * platinumAddOn
      */
 
+    /**
+     * Directory of the SystemSettingsDatabase text file
+     */
     private String filePath = "Database/SystemSettingsDatabase.txt";
+
+    /**
+     * File object
+     */
     private File file;
+
+    /**
+     * Writes text to character output stream
+     */
     private BufferedWriter bf;
+
+    /**
+     * Prints objects to text-output stream
+     */
     private PrintWriter pw;
+
+    /**
+     * Initiate a SystemSettings object
+     */
     private SystemSettings ss;
 
     /**

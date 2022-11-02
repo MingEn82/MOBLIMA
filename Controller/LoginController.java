@@ -6,11 +6,30 @@ import Entities.Staff;
 
 /**
  * This is a controller class that handles the Login UI
+ * 
+ * @author Teoh Xi Sheng
+ * @version 1.0
+ * @since 2022-11-02
  */
 public class LoginController {
+    /**
+     * Initialise a Staff object for currentStaff
+     */
     Staff currentStaff;
+
+    /**
+     * Initialise a Staff object for newStaff
+     */
     Staff newStaff;
+
+    /**
+     * Craete a new object for StaffDatabaseController
+     */
     StaffDatabaseController sDBCtrl = new StaffDatabaseController();
+
+    /**
+     * Scanner class for user input
+     */
     Scanner sc = new Scanner(System.in);
 
     /**
@@ -35,14 +54,11 @@ public class LoginController {
         System.out.print("  Enter Password: ");
         password = sc.next();
         System.out.println("");
-        
-        if (loginUser(username, password) == true)
-        {
+
+        if (loginUser(username, password) == true) {
             this.currentStaff = new Staff(username, password);
             System.out.println("Login successful!");
-        }
-        else
-        {
+        } else {
             System.out.println("Login unsuccessful. Please try again.");
         }
 
@@ -50,12 +66,12 @@ public class LoginController {
 
     /**
      * This method will call Staff DB Controller to login
+     * 
      * @param username username input
      * @param password password input
      * @return True if login successful, else False if login unsuccessful
      */
-    public boolean loginUser(String username, String password)
-    {
+    public boolean loginUser(String username, String password) {
         return sDBCtrl.login(username, password);
     }
 
@@ -98,12 +114,10 @@ public class LoginController {
     public boolean getIsLoggedIn() {
         if (currentStaff == null) {
             return false;
-        }
-        else
-        {
+        } else {
             return true;
         }
-        
+
     }
 
     public void logout() {
