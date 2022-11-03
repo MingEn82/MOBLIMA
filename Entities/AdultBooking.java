@@ -4,6 +4,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Scanner;
+
 import Controller.SystemSettingController;
 
 /**
@@ -44,8 +46,30 @@ public class AdultBooking extends Booking{
         SystemSettings currentSettings = new SystemSettingController().getSystemSetting();
         //System.out.println("currentSettings = " + currentSettings.getSeniorRegularTicketPrices());
         float priceOfTicket;
+        int loyaltyDiscount = 0;
+        Scanner scanner = new Scanner(System.in);
+        boolean tries = true;
+        while (tries) {
+            System.out.println("Do you have preferred credit or loyalty card?");
+            System.out.println("1. Yes");
+            System.out.println("2. No");
+            System.out.print("Enter your option:");
+            loyaltyDiscount = scanner.nextInt();
+            if (loyaltyDiscount == 1) {
+                tries = false;
+                break;
+            } else if (loyaltyDiscount == 2){
+                tries = false;
+                break;
+            }
+            else{
+                System.out.println("");
+                System.out.println("Please enter the correct option.");
+                System.out.println("");
+            }
+        }
 
-        
+
         
         ArrayList<Date> publicHolidays = currentSettings.getPublicHolidays();
         DateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
@@ -69,14 +93,14 @@ public class AdultBooking extends Booking{
                 case "Wed":
                 case "Thu":
                 priceOfTicket = currentSettings.getweekdayPrices();
-                System.out.println("Is weekday and weekday price is "+currentSettings.getweekdayPrices());
+                //System.out.println("Is weekday and weekday price is "+currentSettings.getweekdayPrices());
                 break;
     
                 case "Fri":
                 case "Sat":
                 case "Sun":
                 priceOfTicket = currentSettings.getweekendPrices();
-                System.out.println("Is weekend and weekend price is "+currentSettings.getweekendPrices());
+                //System.out.println("Is weekend and weekend price is "+currentSettings.getweekendPrices());
                 break;
     
                 default:
@@ -88,9 +112,24 @@ public class AdultBooking extends Booking{
         else
         {
             priceOfTicket = currentSettings.getpHPrices();
-            System.out.println("Is public holiday and ph price is: "+currentSettings.getweekendPrices());
+            //System.out.println("Is public holiday and ph price is: "+currentSettings.getweekendPrices());
         }
         
+
+        int hourOfDay = this.getStartDate().getHours();
+        if (hourOfDay >= 18)
+        {
+            //System.out.println("Testing, hour of day > 6pm");
+            priceOfTicket = priceOfTicket + currentSettings.getsixPMAddOn();
+        }
+        
+
+
+        if(loyaltyDiscount == 1)
+        {
+            //System.out.println("Testing, loyalty discount is true");
+            priceOfTicket -= currentSettings.getprefCreditLoyaltyDiscount();
+        }
         
 
         switch(this.getCinemaType())

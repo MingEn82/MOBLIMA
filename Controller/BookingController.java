@@ -183,6 +183,7 @@ public class BookingController {
                 
                 bookingsDatabaseController.addNewBooking(newBooking);
                 cineplexController.bookSeat(cineplexName, cinemaName, movieTitle, startDate, seatID);
+                System.out.println("");
                 System.out.println("Booking is successful!\n");
                 return true;
                 
@@ -192,6 +193,7 @@ public class BookingController {
                 //System.out.println("The new booking object is " +newBooking);
                 bookingsDatabaseController.addNewBooking(newBooking);
                 cineplexController.bookSeat(cineplexName, cinemaName, movieTitle, startDate, seatID);
+                System.out.println("");
                 System.out.println("Booking is successful!\n");
                 return true;
                 
@@ -201,16 +203,19 @@ public class BookingController {
                 newBooking.calBookingPrice();
                 bookingsDatabaseController.addNewBooking(newBooking);
                 cineplexController.bookSeat(cineplexName, cinemaName, movieTitle, startDate, seatID);
+                System.out.println("");
                 System.out.println("Booking is successful!\n");
                 return true;
                 
 
                 case 4:
+                System.out.println("");
                 System.out.println("Exiting booking....");
                 System.out.println(""); // print empty line
                 return false;
                 
                 default:
+                System.out.println("");
                 System.out.println("You've entered an invalid choice. Please enter a choice again.");
                 System.out.println(""); // print empty line
                 break;
