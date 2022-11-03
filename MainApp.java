@@ -2,11 +2,11 @@
 
 import Boundary.MainMenuUI;
 
-
-// import UI.MainMenuUI;
-
 /**
  * Main App that is executed when the program first runs.
+ * @author Soh Zu Wei
+ * @version 1.0
+ * @since 2022-11-02
  */
 public class MainApp {
 

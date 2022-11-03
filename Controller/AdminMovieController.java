@@ -10,19 +10,31 @@ import Utils.InputGetter;
 
 /**
  * This class extends the MovieController class and implements additional functionalities for admin staff only
+ * @author Koh Ming En
+ * @version 1.0
+ * @since 2022-11-03
  */
 public class AdminMovieController extends MovieController{
-    private ShowingsDatabaseController showingsDC;
+    /**
+     * Create a movieDatabaseController instance
+     */
     private MovieDatabaseController moviesDC;
-    private BookingController bookingController;
+
+    /**
+     * Create scanner to System.in
+     */
     Scanner sc;
+
+    /*
+     * Create utility input getter class to parse inputs
+     */
     InputGetter ip;
 
-    
+    /**
+     * Constructor for AdminMovieController class
+     */
     public AdminMovieController() {
-        showingsDC = new ShowingsDatabaseController();
         moviesDC = new MovieDatabaseController();
-        bookingController = new BookingController();
         sc = new Scanner(System.in);
         ip = new InputGetter();
     }
@@ -31,7 +43,7 @@ public class AdminMovieController extends MovieController{
      * Main menu UI for AdminMovieController
      */
     public void displayMenu() {
-        int choice;
+        int choice = -1;
 
         do {
             System.out.println("============= Admin Movie Controller =============");
@@ -50,18 +62,22 @@ public class AdminMovieController extends MovieController{
                     this.displayMovies(1);
                     break;
                 case 2:
+                    System.out.println("\n=============== Creating new movie ===============");
                     this.createMovie();
                     break;
                 case 3:
+                    System.out.println("\n=============== Updating movie ===============");
                     this.updateMovie();
                     break;
                 case 4:
+                    System.out.println("\n=============== Deleting movie ===============");
                     this.deleteMovie();
                     break;
                 case 5:
+                    System.out.println("\nReturning to main menu..");
                     break;
                 default:
-                    System.out.println("Invalid choice.");
+                    System.out.println("\nInvalid choice.");
             }
         } while (choice != 5);
     }
@@ -70,7 +86,6 @@ public class AdminMovieController extends MovieController{
      * Creates a new movie
      */
     public void createMovie() {
-        sc.nextLine();
         System.out.println("Enter movie title: ");
         String movieTitle = ip.getString();
         int choice;
@@ -397,7 +412,7 @@ public class AdminMovieController extends MovieController{
         }
 
         moviesDC.deleteMovie(movieToDelete.getMovieTitle());
-        showingsDC.deleteShowings(movieToDelete.getMovieTitle());
-        bookingController.deleteBookings(movieToDelete.getMovieTitle());
+        new ShowingsDatabaseController().deleteShowings(movieToDelete.getMovieTitle());
+        new BookingController().deleteBookings(movieToDelete.getMovieTitle());
     }
 }

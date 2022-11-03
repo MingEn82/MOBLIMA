@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 /**
  * This is a concrete class that extends the abstract Cinema class to implement it's own methods.
- * @author Soh Zu Wei
+ * @author Koh Ming En
  * @version 1.0
  * @since 2022-11-02
  */

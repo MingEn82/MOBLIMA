@@ -28,6 +28,11 @@ public class BookingsDatabaseController implements DatabaseController {
     private String fileString = "./Database/BookingsDatabase.txt";
 
     /**
+     * Delimiter
+     */
+    private static final String delimiter = "<b>";
+
+    /**
      * Variable for File Object
      */
     private File file;
@@ -90,7 +95,7 @@ public class BookingsDatabaseController implements DatabaseController {
             Booking booking;
             DateParser dp = new DateParser("yyyyMMddHHmm");
             while (line != null) {
-                bookingLine = line.split(", ");
+                bookingLine = line.split(delimiter);
                 if (bookingLine.length < 12)
                     continue;
 

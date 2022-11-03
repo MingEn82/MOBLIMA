@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * This is an abstract class for the Cinema. 
- * @author Soh Zu Wei
+ * @author Koh Ming En
  * @version 1.0
  * @since 2022-11-02
  */

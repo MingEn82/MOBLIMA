@@ -8,7 +8,7 @@ import Utils.DateParser;
 
 /**
  * This is a class for defining the Showing object.
- * @author Soh Zu Wei
+ * @author Koh Ming En
  * @version 1.0
  * @since 2022-11-02
  */

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 /**
  * This is the class for StandardCinema it extends the Cinema class
- * @author Soh Zu Wei
+ * @author Koh Ming En
  * @version 1.0
  * @since 2022-11-02
  */

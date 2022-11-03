@@ -12,13 +12,34 @@ import Utils.InputGetter;
 
 /**
  * ShowingController is a controller class that handles showings
+ * @author Koh Ming En
+ * @version 1.0
+ * @since 2022-11-03
  */
 public class ShowingController {
+    /**
+     * Create ShowingsDatabaseController instance
+     */
     private ShowingsDatabaseController showingsDC;
+
+    /**
+     * Scanner to take in inputs
+     */
     Scanner sc;
+
+    /**
+     * Utility class to parse dates
+     */
     DateParser dp;
+
+    /**
+     * Utility class to parse inputs
+     */
     InputGetter ip;
 
+    /**
+     * Constructor for ShowingController instance
+     */
     public ShowingController() {
         showingsDC = new ShowingsDatabaseController();
         sc = new Scanner(System.in);
@@ -90,7 +111,7 @@ public class ShowingController {
         System.out.println("Select Cinema (type 0 to exist):");
         for (Cineplex cineplex : cineplexes) {
             for (Cinema cinema : cineplex.getCinemas()) {
-                System.out.println(++i + ") " + cineplex.getCineplexName() + " " + cinema.getCinemaName());
+                System.out.println(++i + ") " + cineplex.getCineplexName() + ", " + cinema.getCinemaName() + " (" + cinema.getCinemaType() + ")");
             }
         }
         do {

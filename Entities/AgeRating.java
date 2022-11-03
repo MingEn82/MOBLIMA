@@ -2,7 +2,7 @@ package Entities;
 
 /**
  * This is a enumeration for Age Rating.
- * @author Soh Zu Wei
+ * @author Koh Ming En
  * @version 1.0
  * @since 2022-11-02
  */

@@ -10,11 +10,24 @@ import Utils.DateParser;
 
 /**
  * Controller for cineplexes
+ * @author Koh Ming En
+ * @version 1.0
+ * @since 2022-11-03
  */
 public class CineplexController {
+    /**
+     * Create CineplexDatabaseController instance
+     */
     CineplexDatabaseController cineplexDC;
+
+    /**
+     * Create an arraylist of cineplexes
+     */
     ArrayList<Cineplex> cineplexes;
 
+    /**
+     * Constructor for CineplexController object
+     */
     public CineplexController() {
         cineplexDC = new CineplexDatabaseController();
         cineplexes = cineplexDC.getCineplexes();

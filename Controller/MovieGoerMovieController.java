@@ -13,15 +13,44 @@ import Utils.InputGetter;
 
 /**
  * MovieGoerMovieController is a controller class that handles the movie goer
+ * @author Koh Ming En
+ * @version 1.0
+ * @since 2022-11-03
  */
 public class MovieGoerMovieController extends MovieController {
+    /**
+     * Scanner to take in inputs
+     */
     private Scanner sc;
+
+    /**
+     * Utility class to parse inputs
+     */
     private InputGetter ip;
+
+    /**
+     * Create CineplexController instance
+     */
     private CineplexController cineplexController = new CineplexController();
+
+    /**
+     * Create ShowingsDatabaseController instance
+     */
     private ShowingsDatabaseController showingsDC = new ShowingsDatabaseController();
+
+    /**
+     * Create MovieDatabaseController instance
+     */
     private MovieDatabaseController movieDC = new MovieDatabaseController();
+
+    /**
+     * Create Arraylist of showing data (in array string format)
+     */
     ArrayList<String[]> filteredShowings;
 
+    /**
+     * Constructor for MovieGoerMovieController instance
+     */
     public MovieGoerMovieController() {
         sc = new Scanner(System.in);
         ip = new InputGetter();
@@ -198,7 +227,6 @@ public class MovieGoerMovieController extends MovieController {
         for (String[] s : filteredShowings) {
             String cineplexName = s[1];
             String cinemaName = s[2];
-            System.out.println(cinemaName);
             Date showingTime = dp.parseDate(s[3], "yyyyMMddhhmm");
             System.out.println(i + ") Location: " + cineplexName + ", " + cinemaName + " ("
                     + cineplexController.getCinemaType(cineplexName, cinemaName) + ")");
@@ -211,7 +239,6 @@ public class MovieGoerMovieController extends MovieController {
 
     /**
      * Books a ticket
-     * 
      * @param cineplexName
      * @param cinemaName
      * @param movieTitle

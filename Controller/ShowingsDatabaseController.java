@@ -11,18 +11,44 @@ import java.util.ArrayList;
 
 /**
  * ShowingsDatabaseController is a controller class that is used to write and read from the showing text file.
+ * @author Koh Ming En
+ * @version 1.0
+ * @since 2022-11-03
  */
 public class ShowingsDatabaseController implements DatabaseController {
+    /**
+     * Default path for Showings Database
+     */
     private String filePath = "Database/ShowingsDatabase.txt";
+
+    /**
+     * Delimiter for database text file
+     */
+    private static final String delimiter = "<b>";
+
+    /**
+     * Create file instance
+     */
     private File file;
+
+    /**
+     * Create ArrayList of showing data (in String array format)
+     */
     private ArrayList<String[]> showingsData;
 
+    /**
+     * Constructor for ShowingsDatabaseController instance
+     */
     public ShowingsDatabaseController() {
         file = new File(this.filePath);
         showingsData = new ArrayList<String[]>();
         this.readFile();
     }
 
+    /**
+     * Overloaded constructor for ShowingsDatabaseController in case database files are found elsewhere
+     * @param filePath
+     */
     public ShowingsDatabaseController(String filePath) {
         file = new File(filePath);
         showingsData = new ArrayList<String[]>();
@@ -37,7 +63,7 @@ public class ShowingsDatabaseController implements DatabaseController {
             BufferedReader br = new BufferedReader(new FileReader(file));
             String showingDataLine = br.readLine();
             while (showingDataLine != null) {
-                showingsData.add(showingDataLine.split(", "));
+                showingsData.add(showingDataLine.split(delimiter));
                 showingDataLine = br.readLine();
             }
             br.close();
@@ -83,8 +109,8 @@ public class ShowingsDatabaseController implements DatabaseController {
      * This function filters the showings for a particular movie in a particular cinema
      * @param cineplexName
      * @param cinemaName
-     * @param movieTitle ArrayList of showings details
-     * @return
+     * @param movieTitle 
+     * @return ArrayList of showings details
      */
     public ArrayList<String[]> filterShowings(String cineplexName, String cinemaName, String movieTitle) {
         ArrayList<String[]> filteredShowings = new ArrayList<String[]>();
@@ -186,8 +212,8 @@ public class ShowingsDatabaseController implements DatabaseController {
 
         for (String[] showing : showingsData) {
             if (showing[0].equals(movieTitle) && showing[1].equals(cineplexName) && showing[2].equals(cinemaName) && showing[3].equals(date)) {
-                String updatedShowing = String.join(", ", showing) + ", " + seatID;
-                updatedShowings.add(updatedShowing.split(", "));
+                String updatedShowing = String.join(delimiter, showing) + delimiter + seatID;
+                updatedShowings.add(updatedShowing.split(delimiter));
             } else {
                 updatedShowings.add(showing);
             }
@@ -204,7 +230,7 @@ public class ShowingsDatabaseController implements DatabaseController {
             BufferedWriter bw = new BufferedWriter(new FileWriter(file));
             PrintWriter pw = new PrintWriter(bw);
             for (String[] showing : showingsData) {
-                pw.println(String.join(", ", showing));
+                pw.println(String.join(delimiter, showing));
             }
             pw.close();
         } catch (IOException e) {

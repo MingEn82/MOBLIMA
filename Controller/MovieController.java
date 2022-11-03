@@ -53,6 +53,7 @@ public abstract class MovieController {
         Scanner sc = new Scanner(System.in);
         ArrayList<Movie> filteredMovies;
         movieDC.readFile();
+        allMovies = movieDC.getMovies();
 
         switch (choice) {
             case 1:

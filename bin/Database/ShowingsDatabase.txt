@@ -1,13 +1,13 @@
-Minority Report, Golden Village Bedok, Cinema 1, 202210221400, 3D, E10
-Minority Report, Golden Village Paya Lebar, Cinema 1, 202210231400, 2D, D10
-Minions 2, Golden Village Bedok, Cinema 2, 202210231900, 2D, A09, A03, H01
-Minions 2, Golden Village Jurong Point, Cinema 2, 202210241900, 3D, B08
-Minions 2, Golden Village Paya Lebar, Cinema 2, 202211021900, 2D
-Minority Report, Golden Village Jurong Point, Cinema 1, 202211021900, Blockbuster
-The Godfather, Golden Village Bedok, Cinema 1, 20221217, 2D
-The Shawshank Redemption, Golden Village Bedok, Cinema 2, 20221217, 3D
-The Shawshank Redemption, Golden Village Paya Lebar, Cinema 2, 20221217, Blockbuster
-The Shawshank Redemption, Golden Village Jurong Point, Cinema 1, 20221217, Blockbuster
-The Godfather, Golden Village Jurong Point, Cinema 3, 20221202, 2D
-The Godfather, Golden Village Paya Lebar, Cinema 1, 20221202, Blockbuster
-The Godfather, Golden Village Bedok, Cinema 2, 20221203, 3D
+Minority Report<b>Golden Village Bedok<b>Cinema 1<b>202210221400<b>3D<b>E10
+Minority Report<b>Golden Village Paya Lebar<b>Cinema 1<b>202210231400<b>2D<b>D10
+Minions 2<b>Golden Village Bedok<b>Cinema 2<b>202210231900<b>2D<b>A09<b>A03<b>H01
+Minions 2<b>Golden Village Jurong Point<b>Cinema 2<b>202210241900<b>3D<b>B08
+Minions 2<b>Golden Village Paya Lebar<b>Cinema 2<b>202211021900<b>2D
+Minority Report<b>Golden Village Jurong Point<b>Cinema 1<b>202211021900<b>Blockbuster
+The Godfather<b>Golden Village Bedok<b>Cinema 1<b>202212119007<b>2D
+The Shawshank Redemption<b>Golden Village Bedok<b>Cinema 2<b>202212171900<b>3D
+The Shawshank Redemption<b>Golden Village Paya Lebar<b>Cinema 2<b>202212171900<b>Blockbuster
+The Shawshank Redemption<b>Golden Village Jurong Point<b>Cinema 1<b>202212171900<b>Blockbuster
+The Godfather<b>Golden Village Jurong Point<b>Cinema 3<b>202212021900<b>2D
+The Godfather<b>Golden Village Paya Lebar<b>Cinema 1<b>202212021900<b>Blockbuster
+The Godfather<b>Golden Village Bedok<b>Cinema 2<b>202212031900<b>3D<b>G06

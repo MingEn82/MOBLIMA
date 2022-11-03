@@ -15,18 +15,49 @@ import Entities.Review;
 
 /**
  * MovieDatabaseController is a controller that is used to write and read from the movie text file.
+ * @author Koh Ming En
+ * @version 1.0
+ * @since 2022-11-03
  */
 public class MovieDatabaseController implements DatabaseController {
+    /**
+     * Default path for Movie Database
+     */
     private String filePath = "Database/MoviesDatabase.txt";
+
+    /**
+     * Delimiter for database text file
+     */
+    private static final String delimiter = "<b>";
+
+    /**
+     * Delimiter for database text file for reviews and cast
+     */
+    private static final String attributeDelimiter = "<s>";
+
+    /**
+     * Create file instance
+     */
     private File file;
+
+    /**
+     * Create ArrayList of movies
+     */
     private ArrayList<Movie> movies;
 
+    /**
+     * Constructor for MovieDatabaseController instance
+     */
     public MovieDatabaseController() {
         this.file = new File(filePath);
         this.movies = new ArrayList<Movie>();
         this.readFile();
     }
 
+    /**
+     * Overloaded constructor for MovieDatabaseController in case database files are found elsewhere
+     * @param filePath
+     */
     public MovieDatabaseController(String filePath) {
         this.file = new File(filePath);
         this.movies = new ArrayList<Movie>();
@@ -52,7 +83,7 @@ public class MovieDatabaseController implements DatabaseController {
             String[] movieData, reviewData;
 
             while (movieLine != null) {
-                movieData = movieLine.split(", ");
+                movieData = movieLine.split(delimiter);
                 size = movieData.length;
                 if (size < 6) {
                     continue;
@@ -67,13 +98,13 @@ public class MovieDatabaseController implements DatabaseController {
                 ageRating = AgeRating.valueOf(movieData[3]);
                 synopsis = movieData[4];
                 director = movieData[5];
-                cast = movieData[6].split(" & ");
+                cast = movieData[6].split(attributeDelimiter);
                 totalSales = bookingsDC.getTotalSales(movieTitle);
 
                 if (size > 7) {
                     overallRating = Float.parseFloat(movieData[7]);
                     for (int i = 8; i < size; i++) {
-                        reviewData = movieData[i].split(" & ");
+                        reviewData = movieData[i].split(attributeDelimiter);
                         // Checks whether there is a review text body
                         if (reviewData.length == 3) {
                             reviews.add(new Review(Float.parseFloat(reviewData[0]), Integer.parseInt(reviewData[1]), reviewData[2]));
@@ -175,7 +206,7 @@ public class MovieDatabaseController implements DatabaseController {
      * Checks whether person with phone number has left a review on movie
      * @param movieTitle
      * @param phoneNumber
-     * @return
+     * @return true if person has left a review for this movie, false otherwise
      */
     public boolean hasReview(String movieTitle, int phoneNumber) {
         for (Movie movie : movies) {
@@ -188,6 +219,7 @@ public class MovieDatabaseController implements DatabaseController {
 
     /**
      * Checks whether movie has at least one review
+     * @return true if movie has at least one review, false otherwise
      */
     public boolean hasReview(String movieTitle) {
         for (Movie movie : movies) {
@@ -267,7 +299,7 @@ public class MovieDatabaseController implements DatabaseController {
             BufferedWriter bf = new BufferedWriter(new FileWriter(file, false));
             PrintWriter pw = new PrintWriter(bf);
             for (Movie movie : movies) {
-                pw.println(movie.toString());
+                pw.println(movie.toString(delimiter, attributeDelimiter));
             }
             pw.close();
         } catch (IOException e) {

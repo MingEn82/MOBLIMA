@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * This class is used for defining the Cineplex Objects and it's classes.
- * @author Soh Zu Wei
+ * @author Koh Ming En
  * @version 1.0
  * @since 2022-11-02
  */

@@ -13,13 +13,39 @@ import java.util.Date;
 
 /**
  * Database Controller for cineplexes
+ * @author Koh Ming En
+ * @version 1.0
+ * @since 2022-11-03
  */
 public class CineplexDatabaseController implements DatabaseController {
+    /**
+     * Default path for Cineplex Database
+     */
     private String filePath = "Database/CineplexDatabase.txt";
+
+    /**
+     * Delimiter for database text file
+     */
+    private static final String delimiter = "<b>";
+
+    /**
+     * Create file instance
+     */
     private File file;
+
+    /**
+     * Create ArrayList of cineplexes
+     */
     private ArrayList<Cineplex> cineplexes;
+
+    /**
+     * Create Arraylist of ID of added cineplexes
+     */
     private ArrayList<String> addedCineplexesID;
 
+    /**
+     * Constructor for CineplexDatabaseController instance
+     */
     public CineplexDatabaseController() {
         file = new File(this.filePath);
         cineplexes = new ArrayList<Cineplex>();
@@ -27,6 +53,10 @@ public class CineplexDatabaseController implements DatabaseController {
         this.readFile();
     }
 
+    /**
+     * Overloaded constructor for cineplexDatabaseController in case database files are found elsewhere
+     * @param filePath
+     */
     public CineplexDatabaseController(String filePath) {
         file = new File(filePath);
         cineplexes = new ArrayList<Cineplex>();
@@ -44,7 +74,7 @@ public class CineplexDatabaseController implements DatabaseController {
             String cinemaLineData = br.readLine();
             String[] cinemaData;
             while (cinemaLineData != null) {
-                cinemaData = cinemaLineData.split(", ");
+                cinemaData = cinemaLineData.split(delimiter);
                 this.addNewCinema(cinemaData);
                 cinemaLineData = br.readLine();
             }
@@ -108,7 +138,7 @@ public class CineplexDatabaseController implements DatabaseController {
      * @param cineplexName
      * @param cinemaName
      * @param seatsData
-     * @return
+     * @return ArrayList of Showings of that particular cinema
      */
     private ArrayList<Showing> generateShowings(String cineplexName, String cinemaName, String[] seatsData) {
         ArrayList<Showing> showings = new ArrayList<Showing>();
@@ -135,7 +165,7 @@ public class CineplexDatabaseController implements DatabaseController {
      * Helper function to parse seat data
      * @param seatsData
      * @param bookedSeats
-     * @return
+     * @return ArrayList of SeatRows
      */
     private ArrayList<SeatRow> generateSeatRows(String[] seatsData, String[] bookedSeats) {
         String rowID = "", currentString, paddedSeatNumber;

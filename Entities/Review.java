@@ -2,7 +2,7 @@ package Entities;
 
 /**
  * This is the class for defining a Review Object.
- * @author Soh Zu Wei
+ * @author Koh Ming En
  * @version 1.0
  * @since 2022-11-02
  */
@@ -51,10 +51,10 @@ public class Review {
      * This method converts the review object to string.
      * @return String Of Review Object
      */
-    public String toString() {
-        String s = rating + " & " + phoneNumber;
+    public String toString(String delimiter) {
+        String s = rating + delimiter + phoneNumber;
         if (!reviewText.equals(""))
-            s += " & " + reviewText;
+            s += delimiter + reviewText;
         return s;
     }
 

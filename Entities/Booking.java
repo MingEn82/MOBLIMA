@@ -77,6 +77,11 @@ public class Booking {
      * Price of the booking
      */
     private float price;
+
+    /**
+     * Delimiter
+     */
+    private static final String delimiter = "<b>";
     
     /**
      * Constructor for the booking class.
@@ -139,7 +144,8 @@ public class Booking {
      */
     public String toString() {
         DateParser dp = new DateParser("yyyyMMddHHmm");
-        return TID + ", " + phoneNumberOfMovieGoer + ", " + nameOfMovieGoer + ", " + emailOfMovieGoer + ", " + cineplexName + ", " + cinemaName + ", " + seatID + ", " + movieTitle + ", " + movieDuration + ", " + movieType + ", " + cinemaType + ", " + dp.formatDate(startDate) + ", " + price;
+        return TID + delimiter + phoneNumberOfMovieGoer + delimiter + nameOfMovieGoer + delimiter + emailOfMovieGoer + delimiter + cineplexName + delimiter + cinemaName + delimiter +
+         seatID + delimiter + movieTitle + delimiter + movieDuration + delimiter + movieType + delimiter + cinemaType + delimiter + dp.formatDate(startDate) + delimiter + price;
     }
 
     /**

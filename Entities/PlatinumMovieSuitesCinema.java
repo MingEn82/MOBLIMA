@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 /**
  * This class extends the Cinema Class to overwites existing methods and define new methods.
- * @author Soh Zu Wei
+ * @author Koh Ming En
  * @version 1.0
  * @since 2022-11-02
  */

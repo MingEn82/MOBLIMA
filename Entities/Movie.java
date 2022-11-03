@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * This is the class used to define a Movie Object and it's methods.
- * @author Soh Zu Wei
+ * @author Koh Ming En
  * @version 1.0
  * @since 2022-11-02
  */
@@ -171,8 +171,8 @@ public class Movie {
      * This is a getter function for retrieving all casts (string) of the movie.
      * @return Casts of the Movie
      */
-    public String getCast() {
-        return String.join(" & ", cast);
+    public String getCast(String attributeDelimiter) {
+        return String.join(attributeDelimiter, cast);
     }
 
     /**
@@ -211,12 +211,12 @@ public class Movie {
      * This is a getter function for retrieving Reviews (string) of the movie.
      * @return Reviews in a string format
      */
-    public String getReviews() {
-        String s = ", ";
+    public String getReviews(String delimiter, String attributeDelimiter) {
+        String s = delimiter;
         for (Review r : reviews) {
-            s += r.toString() + ", ";
+            s += r.toString(attributeDelimiter) + delimiter;
         }
-        return s.substring(0, s.length() - 2);
+        return s.substring(0, s.length() - 3);
     }
 
     /**
@@ -342,11 +342,11 @@ public class Movie {
      * This function converts the movie object to string and returns a string.
      * @return String of Movie Object
      */
-    public String toString() {
-        String s = movieTitle + ", " + showingStatus + ", " + duration + ", " + ageRating.toString() + ", " + synopsis + ", " + director + ", " + getCast();
+    public String toString(String delimiter, String attributeDelimiter) {
+        String s = movieTitle + delimiter + showingStatus + delimiter + duration + delimiter + ageRating.toString() + delimiter + synopsis + delimiter + director + delimiter + getCast(attributeDelimiter);
         if (overallRating >= 0) {
-            s += ", " + overallRating;
-            s += getReviews();
+            s += delimiter + overallRating;
+            s += getReviews(delimiter, attributeDelimiter);
         }
         return s;
     }

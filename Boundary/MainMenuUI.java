@@ -2,6 +2,7 @@ package Boundary;
 
 import java.util.Scanner;
 import Controller.StaffController;
+import Utils.InputGetter;
 import Controller.MovieGoerController;
 
 /**
@@ -27,10 +28,14 @@ public class MainMenuUI {
     Scanner scanner = new Scanner(System.in);
 
     /**
+     * Utility class to parse inputs
+     */
+    InputGetter ip = new InputGetter();
+
+    /**
      * Constructor
      */
-    public MainMenuUI() {
-    }
+    public MainMenuUI() {}
 
     /**
      * Function to display the Main Menu
@@ -124,7 +129,7 @@ public class MainMenuUI {
             System.out.println("+-------------------------------------------------------+");
             System.out.println(""); // print empty line
             System.out.print("Choice chosen is: ");
-            choice = scanner.nextInt();
+            choice = ip.getInt();
 
             if (choice != 0) {
                 staffController.processStaffChoice(choice);

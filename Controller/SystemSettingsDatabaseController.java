@@ -67,6 +67,11 @@ public class SystemSettingsDatabaseController implements DatabaseController {
     private SystemSettings ss;
 
     /**
+     * Delimiter
+     */
+    private static final String delimiter = "<b>";
+
+    /**
      * Constructor
      */
     public SystemSettingsDatabaseController() {
@@ -117,7 +122,7 @@ public class SystemSettingsDatabaseController implements DatabaseController {
             float platinumAddOn;
             int displayTop5bySales;
             int displayTop5byRating;
-            String[] dates = brStream.readLine().split(", ");
+            String[] dates = brStream.readLine().split(delimiter);
             SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyyMMdd");
             for (String date : dates) {
                 try {
@@ -184,7 +189,7 @@ public class SystemSettingsDatabaseController implements DatabaseController {
             bf = new BufferedWriter(new FileWriter(file, false));
             pw = new PrintWriter(bf);
             pw.println(this.ss.getPublicHolidays().stream().map(date -> dp.formatDate(date))
-                    .collect(Collectors.joining(", ")));
+                    .collect(Collectors.joining(delimiter)));
             pw.println(this.ss.getweekdayPrices());
             pw.println(this.ss.getweekendPrices());
             pw.println(this.ss.getpHPrices());

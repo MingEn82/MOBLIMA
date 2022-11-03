@@ -2,6 +2,9 @@ package Entities;
 
 /**
  * This class is the Seat class entity for defining the seat object attributes and methods.
+ * @author Koh Ming En
+ * @version 1.0
+ * @since 2022-11-02
  */
 public class Seat {
     /**
