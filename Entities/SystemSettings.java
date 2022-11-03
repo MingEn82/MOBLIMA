@@ -49,6 +49,16 @@ public class SystemSettings {
     private float seniorDiscount;
 
     /**
+     * Preferred Credit Card / Loyalty Card Discount
+     */
+    private float prefCreditLoyaltyDiscount;
+
+    /**
+     * Add on for 6PM onwards
+     */
+    private float sixPMAddOn;
+
+    /**
      * 3D Add on price
      */
     private float threeDAddOn;
@@ -81,22 +91,25 @@ public class SystemSettings {
     /**
      * Constructor with attributes
      * 
-     * @param publicHolidays      array list of public holidays
-     * @param weekdayPrices       regular ticket price for weekday
-     * @param weekendPrices       regular ticket price for weekend
-     * @param pHPrices            regular ticket price for public holiday
-     * @param studentDiscount     discount for student
-     * @param seniorDiscount      discount for seniors
-     * @param threeDAddOn         additional price for 3D movies
-     * @param blockbusterAddOn    additional price for blockbuster movies
-     * @param IMAXAddOn           additional price for IMAX movies
-     * @param platinumAddOn       additional price for platinum movie suite
-     * @param displayTop5bySales  display top5 by sales
-     * @param displayTop5byRating display top5 by rating
+     * @param publicHolidays            array list of public holidays
+     * @param weekdayPrices             regular ticket price for weekday
+     * @param weekendPrices             regular ticket price for weekend
+     * @param pHPrices                  regular ticket price for public holiday
+     * @param studentDiscount           discount for student
+     * @param seniorDiscount            discount for seniors
+     * @param prefCreditLoyaltyDiscount discount for credit / loyalty card
+     * @param sixPMAddon                additional price for showing after 6PM
+     * @param threeDAddOn               additional price for 3D movies
+     * @param blockbusterAddOn          additional price for blockbuster movies
+     * @param IMAXAddOn                 additional price for IMAX movies
+     * @param platinumAddOn             additional price for platinum movie suite
+     * @param displayTop5bySales        display top5 by sales
+     * @param displayTop5byRating       display top5 by rating
      */
     public SystemSettings(ArrayList<Date> publicHolidays, float weekdayPrices,
             float weekendPrices, float pHPrices,
-            float studentDiscount, float seniorDiscount, float threeDAddOn,
+            float studentDiscount, float seniorDiscount, float prefCreditLoyaltyDiscount, float sixPMAddon,
+            float threeDAddOn,
             float blockbusterAddOn, float IMAXAddOn, float platinumAddOn, int displayTop5bySales,
             int displayTop5byRating) {
         this.publicHolidays = publicHolidays;
@@ -105,6 +118,8 @@ public class SystemSettings {
         this.pHPrices = pHPrices;
         this.studentDiscount = studentDiscount;
         this.seniorDiscount = seniorDiscount;
+        this.prefCreditLoyaltyDiscount = prefCreditLoyaltyDiscount;
+        this.sixPMAddOn = sixPMAddon;
         this.threeDAddOn = threeDAddOn;
         this.blockbusterAddOn = blockbusterAddOn;
         this.IMAXAddOn = IMAXAddOn;
@@ -141,9 +156,13 @@ public class SystemSettings {
                 "| Student Discount:                            - $  " + String.format("%.2f", studentDiscount) + "|");
         System.out.println(
                 "| Senior Citizen Discount:                     - $  " + String.format("%.2f", seniorDiscount) + "|");
+        System.out.println("| Preferred Credit / Loyalty Card Discount:    - $  "
+                + String.format("%.2f", prefCreditLoyaltyDiscount) + "|");
         System.out.println("|                                                       |");
         System.out.println("|__________________ Additional Charges _________________|");
         System.out.println("|                                                       |");
+        System.out.println("| Showing after 6PM:                           + $  "
+                + String.format("%.2f", sixPMAddOn) + "|");
         System.out.println(
                 "| 3D Movie:                                    + $  " + String.format("%.2f", threeDAddOn) + "|");
         System.out.println(
@@ -343,6 +362,42 @@ public class SystemSettings {
      */
     public void setseniorDiscount(float seniorDiscount) {
         this.seniorDiscount = seniorDiscount;
+    }
+
+    /**
+     * Getter method for discount price for credit / loyalty card
+     * 
+     * @return discount price for credit / loyalty card
+     */
+    public float getprefCreditLoyaltyDiscount() {
+        return this.prefCreditLoyaltyDiscount;
+    }
+
+    /**
+     * Setter method for discount price for credit / loyalty card
+     * 
+     * @param prefCreditLoyaltyDiscount discount price for credit / loyalty card
+     */
+    public void setprefCreditLoyaltyDiscount(float prefCreditLoyaltyDiscount) {
+        this.prefCreditLoyaltyDiscount = prefCreditLoyaltyDiscount;
+    }
+
+    /**
+     * Getter method for additional price for showing after 6pm
+     * 
+     * @return additional price for showing after 6pm
+     */
+    public float getsixPMAddOn() {
+        return this.sixPMAddOn;
+    }
+
+    /**
+     * Setter method for additional price for showing after 6pm
+     * 
+     * @param sixPMAddOn additional price for showing after 6pm
+     */
+    public void setsixPMAddOn(float sixPMAddOn) {
+        this.sixPMAddOn = sixPMAddOn;
     }
 
     /**

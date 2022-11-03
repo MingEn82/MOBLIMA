@@ -33,6 +33,8 @@ public class SystemSettingsDatabaseController implements DatabaseController {
      * pHPrices
      * studentDiscount
      * seniorDiscount
+     * prefCreditLoyaltyDiscount
+     * sixPMAddOn
      * threeDAddOn
      * blockbusterAddOn
      * IMAXAddOn
@@ -116,6 +118,8 @@ public class SystemSettingsDatabaseController implements DatabaseController {
             float pHPrices;
             float studentDiscount;
             float seniorDiscount;
+            float prefCreditLoyaltyDiscount;
+            float sixPMAddOn;
             float threeDAddOn;
             float blockbusterAddOn;
             float IMAXAddOn;
@@ -136,6 +140,8 @@ public class SystemSettingsDatabaseController implements DatabaseController {
             pHPrices = Float.parseFloat(brStream.readLine());
             studentDiscount = Float.parseFloat(brStream.readLine());
             seniorDiscount = Float.parseFloat(brStream.readLine());
+            prefCreditLoyaltyDiscount = Float.parseFloat(brStream.readLine());
+            sixPMAddOn = Float.parseFloat(brStream.readLine());
             threeDAddOn = Float.parseFloat(brStream.readLine());
             blockbusterAddOn = Float.parseFloat(brStream.readLine());
             IMAXAddOn = Float.parseFloat(brStream.readLine());
@@ -145,7 +151,8 @@ public class SystemSettingsDatabaseController implements DatabaseController {
 
             // Construct ss using the variables above
             this.ss = new SystemSettings(publicHolidays, weekdayPrices, weekendPrices, pHPrices, studentDiscount,
-                    seniorDiscount, threeDAddOn, blockbusterAddOn, IMAXAddOn, platinumAddOn, displayTop5bySales,
+                    seniorDiscount, prefCreditLoyaltyDiscount, sixPMAddOn, threeDAddOn, blockbusterAddOn, IMAXAddOn,
+                    platinumAddOn, displayTop5bySales,
                     displayTop5byRating);
 
             brStream.close();
@@ -169,6 +176,8 @@ public class SystemSettingsDatabaseController implements DatabaseController {
         this.ss.setpHPrices(ss.getpHPrices());
         this.ss.setstudentDiscount(ss.getstudentDiscount());
         this.ss.setseniorDiscount(ss.getseniorDiscount());
+        this.ss.setprefCreditLoyaltyDiscount(ss.getprefCreditLoyaltyDiscount());
+        this.ss.setsixPMAddOn(ss.getsixPMAddOn());
         this.ss.setthreeDAddOn(ss.getthreeDAddOn());
         this.ss.setblockbusterAddOn(ss.getblockbusterAddOn());
         this.ss.setIMAXAddOn(ss.getIMAXAddOn());
@@ -195,6 +204,8 @@ public class SystemSettingsDatabaseController implements DatabaseController {
             pw.println(this.ss.getpHPrices());
             pw.println(this.ss.getstudentDiscount());
             pw.println(this.ss.getseniorDiscount());
+            pw.println(this.ss.getprefCreditLoyaltyDiscount());
+            pw.println(this.ss.getsixPMAddOn());
             pw.println(this.ss.getthreeDAddOn());
             pw.println(this.ss.getblockbusterAddOn());
             pw.println(this.ss.getIMAXAddOn());
