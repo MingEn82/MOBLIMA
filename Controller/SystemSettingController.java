@@ -1,7 +1,9 @@
 package Controller;
 
+import java.util.Date;
 import java.util.Scanner;
 import Entities.SystemSettings;
+
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
 
@@ -45,6 +47,20 @@ public class SystemSettingController {
      */
     public SystemSettings getSystemSetting() {
         return this.ss;
+    }
+
+    /**
+     * This method will check whether date is public holiday
+     * @param date
+     * @return true if date falls on a public holiday, false otherwise
+     */
+    public boolean isPublicHoliday(Date date) {
+        SimpleDateFormat fmt = new SimpleDateFormat("yyyyMMdd");
+        for (Date d : ss.getPublicHolidays()) {
+            if (fmt.format(date).equals(fmt.format(d)))
+                return true;
+        }
+        return false;
     }
 
     /**

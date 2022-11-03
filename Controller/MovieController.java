@@ -388,7 +388,7 @@ public abstract class MovieController {
         ArrayList<Movie> filteredMovies = new ArrayList<Movie>();
 
         for (Movie movie : allMovies) {
-            if (movie.getMovieTitle().contains(movieName)) {
+            if (movie.getMovieTitle().contains(movieName) && !movie.getShowingStatus().equals("End of Showing")) {
                 filteredMovies.add(movie);
             }
         }

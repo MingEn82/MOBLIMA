@@ -35,7 +35,7 @@ public class SystemSettingsDatabaseController implements DatabaseController {
      * seniorDiscount
      * threeDAddOn
      * blockbusterAddOn
-     * IMAXAddOnÍ
+     * IMAXAddOn
      * platinumAddOn
      * displayTop5bySales
      * displayTop5byRating

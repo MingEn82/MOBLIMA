@@ -1,6 +1,7 @@
 package Controller;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -227,11 +228,34 @@ public class MovieGoerMovieController extends MovieController {
         for (String[] s : filteredShowings) {
             String cineplexName = s[1];
             String cinemaName = s[2];
+
             Date showingTime = dp.parseDate(s[3], "yyyyMMddhhmm");
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(showingTime);
+            int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+            String day = "";
+            switch (dayOfWeek) {
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                    day = "Weekday";
+                    break;
+                case 1:
+                case 6:
+                case 7:
+                    day = "Weekend";
+                    break;
+                default:
+                    day = "";
+            }
+
+            if (new SystemSettingController().isPublicHoliday(showingTime)) { day = "Public Holiday"; }
+            
             System.out.println(i + ") Location: " + cineplexName + ", " + cinemaName + " ("
                     + cineplexController.getCinemaType(cineplexName, cinemaName) + ")");
             System.out.println("   Movie Type: " + s[4]);
-            System.out.println("   When: " + dp.formatDate(showingTime, "dd/MM/yyyy HH:mm"));
+            System.out.println("   When: " + dp.formatDate(showingTime, "dd/MM/yyyy HH:mm") + " (" + day + ")");
             System.out.println("");
             i++;
         }
