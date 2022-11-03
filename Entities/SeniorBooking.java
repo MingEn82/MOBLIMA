@@ -1,5 +1,7 @@
 package Entities;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -47,7 +49,19 @@ public class SeniorBooking extends Booking {
         float priceOfTicket;
 
         ArrayList<Date> publicHolidays = currentSettings.getPublicHolidays();
-        if (publicHolidays.contains(this.getStartDate())) {
+
+        DateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
+        boolean isPh = false;
+
+        for(int i = 0; i <publicHolidays.size(); i++)
+        {
+            if (DATE_FORMAT.format(publicHolidays.get(i)).equals(DATE_FORMAT.format(this.getStartDate())))
+            {
+                isPh = true;
+                break;
+            }
+        }
+        if (isPh == false) {
             switch (this.getDayOfWeek(getStartDate())) {
                 case "Mon":
                 case "Tue":

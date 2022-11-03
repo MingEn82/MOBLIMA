@@ -1,5 +1,7 @@
 package Entities;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import Controller.SystemSettingController;
@@ -42,22 +44,39 @@ public class AdultBooking extends Booking{
         SystemSettings currentSettings = new SystemSettingController().getSystemSetting();
         //System.out.println("currentSettings = " + currentSettings.getSeniorRegularTicketPrices());
         float priceOfTicket;
+
+        
         
         ArrayList<Date> publicHolidays = currentSettings.getPublicHolidays();
-        if (publicHolidays.contains(this.getStartDate()))
+        DateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
+        boolean isPh = false;
+
+        for(int i = 0; i <publicHolidays.size(); i++)
         {
+            if (DATE_FORMAT.format(publicHolidays.get(i)).equals(DATE_FORMAT.format(this.getStartDate())))
+            {
+                isPh = true;
+                break;
+            }
+        }
+
+        if (isPh == false)
+        {
+            
             switch(this.getDayOfWeek(getStartDate())){
                 case "Mon":
                 case "Tue":
                 case "Wed":
                 case "Thu":
                 priceOfTicket = currentSettings.getweekdayPrices();
+                System.out.println("Is weekday and weekday price is "+currentSettings.getweekdayPrices());
                 break;
     
                 case "Fri":
                 case "Sat":
                 case "Sun":
                 priceOfTicket = currentSettings.getweekendPrices();
+                System.out.println("Is weekend and weekend price is "+currentSettings.getweekendPrices());
                 break;
     
                 default:
@@ -69,6 +88,7 @@ public class AdultBooking extends Booking{
         else
         {
             priceOfTicket = currentSettings.getpHPrices();
+            System.out.println("Is public holiday and ph price is: "+currentSettings.getweekendPrices());
         }
         
         
