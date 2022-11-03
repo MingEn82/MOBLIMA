@@ -1,19 +1,13 @@
 package Controller;
 
-import java.util.ArrayList; // import the ArrayList class
+import java.util.ArrayList;
 import java.util.Date;
-
+import java.util.Scanner;
 
 import Entities.Booking;
 import Entities.StudentBooking;
 import Entities.AdultBooking;
 import Entities.SeniorBooking;
-
-
-import java.util.Scanner;
-
-
-
 
 /**
  * BookingController is a controller class that holds the logic to view bookings and make new booking.

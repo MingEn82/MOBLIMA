@@ -8,9 +8,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Date;
-
-import Utils.DateParser;
 
 /**
  * ShowingsDatabaseController is a controller class that is used to write and read from the showing text file.
