@@ -1,8 +1,8 @@
 Minority Report<b>Golden Village Bedok<b>Cinema 1<b>202210221400<b>3D<b>E10<b>B02<b>C01
 Minority Report<b>Golden Village Paya Lebar<b>Cinema 1<b>202210231400<b>2D<b>D10
-Minions 2<b>Golden Village Bedok<b>Cinema 2<b>202210231900<b>2D<b>A09<b>A03<b>H01<b>F01
+Minions 2<b>Golden Village Bedok<b>Cinema 2<b>202210231900<b>2D<b>A09<b>A03<b>H01<b>F01<b>A04
 Minions 2<b>Golden Village Jurong Point<b>Cinema 2<b>202210241900<b>3D<b>B08
-Minions 2<b>Golden Village Paya Lebar<b>Cinema 2<b>202211021900<b>2D
+Minions 2<b>Golden Village Paya Lebar<b>Cinema 2<b>202211021900<b>2D<b>A03
 Minority Report<b>Golden Village Jurong Point<b>Cinema 1<b>202211021900<b>Blockbuster<b>D04
 The Godfather<b>Golden Village Bedok<b>Cinema 1<b>202212119007<b>2D
 The Shawshank Redemption<b>Golden Village Bedok<b>Cinema 2<b>202212171900<b>3D
