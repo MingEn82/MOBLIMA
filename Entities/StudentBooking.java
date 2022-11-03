@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Scanner;
 
 import Controller.SystemSettingController;
 
@@ -47,6 +48,28 @@ public class StudentBooking extends Booking {
         // System.out.println("currentSettings = " +
         // currentSettings.getSeniorRegularTicketPrices());
         float priceOfTicket;
+        int loyaltyDiscount = 0;
+        Scanner scanner = new Scanner(System.in);
+        boolean tries = true;
+        while (tries) {
+            System.out.println("Do you have preferred credit or loyalty card?");
+            System.out.println("1. Yes");
+            System.out.println("2. No");
+            System.out.print("Enter your option:");
+            loyaltyDiscount = scanner.nextInt();
+            if (loyaltyDiscount == 1) {
+                tries = false;
+                break;
+            } else if (loyaltyDiscount == 2){
+                tries = false;
+                break;
+            }
+            else{
+                System.out.println("");
+                System.out.println("Please enter the correct option.");
+                System.out.println("");
+            }
+        }
 
         ArrayList<Date> publicHolidays = currentSettings.getPublicHolidays();
         DateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
@@ -82,6 +105,17 @@ public class StudentBooking extends Booking {
             }
         } else {
             priceOfTicket = currentSettings.getpHPrices();
+        }
+        int hourOfDay = this.getStartDate().getHours();
+        if (hourOfDay >= 18)
+        {
+            priceOfTicket = priceOfTicket + currentSettings.getsixPMAddOn();
+        }
+        
+
+        if(loyaltyDiscount == 1)
+        {
+            priceOfTicket -= currentSettings.getprefCreditLoyaltyDiscount();
         }
 
         switch (this.getCinemaType()) {
