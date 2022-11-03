@@ -64,6 +64,8 @@ public class MovieGoerMovieController extends MovieController {
         int choice;
         Movie movieChoice = super.findMovies();
 
+        showingsDC.readFile();
+
         if (movieChoice != null) {
             String movieTitle = movieChoice.getMovieTitle();
             int subChoice;

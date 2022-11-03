@@ -8,6 +8,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Date;
+
+import Utils.DateParser;
 
 /**
  * ShowingsDatabaseController is a controller class that is used to write and read from the showing text file.
@@ -60,10 +63,16 @@ public class ShowingsDatabaseController implements DatabaseController {
      */
     public void readFile() {
         try {
+            showingsData = new ArrayList<String[]>();
             BufferedReader br = new BufferedReader(new FileReader(file));
             String showingDataLine = br.readLine();
+            String[] showingData;
+            // DateParser dp = new DateParser("yyyyMMddHHmm");
             while (showingDataLine != null) {
-                showingsData.add(showingDataLine.split(delimiter));
+                showingData = showingDataLine.split(delimiter);
+                // if (dp.parseDate(showingData[3]).compareTo(new Date()) >= 0)
+                    // showingsData.add(showingData);
+                showingsData.add(showingData);
                 showingDataLine = br.readLine();
             }
             br.close();

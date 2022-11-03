@@ -9,3 +9,5 @@ A02202211031715<b>92315166<b>ming en<b>mingen@test.com<b>Golden Village Bedok<b>
 C01202211031717<b>83214563<b>mongo<b>mongo@test.com<b>Golden Village Jurong Point<b>Cinema 1<b>D04<b>Minority Report<b>145<b>Blockbuster<b>Standard<b>202211021900<b>16.55
 A01202211031750<b>94321532<b>rick<b>adultswim@test.com<b>Golden Village Bedok<b>Cinema 1<b>B02<b>Minority Report<b>145<b>3D<b>Standard<b>202210221400<b>15.0
 A01202211031755<b>84321234<b>leemin<b>test@test.com<b>Golden Village Bedok<b>Cinema 1<b>C01<b>Minority Report<b>145<b>3D<b>Standard<b>202210221400<b>17.0
+A01202211031922<b>92315166<b>mingen<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 1<b>C10<b>The Shawshank Redemption<b>142<b>2D<b>Standard<b>202211071400<b>11.0
+C01202211031924<b>92315166<b>ming en<b>mingen@test.com<b>Golden Village Jurong Point<b>Cinema 1<b>E01<b>The Shawshank Redemption<b>142<b>2D<b>Standard<b>202211051300<b>11.0
