@@ -170,6 +170,7 @@ public class AdultBooking extends Booking{
         //there will be no discount
 
         this.setPrice(priceOfTicket);
+        System.out.println("The price of booking is: $"+priceOfTicket);
     }
     
 }

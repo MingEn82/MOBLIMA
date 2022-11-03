@@ -153,5 +153,6 @@ public class StudentBooking extends Booking {
         // since im an student class booking class.
         priceOfTicket -= currentSettings.getstudentDiscount();
         this.setPrice(priceOfTicket);
+        System.out.println("The price of booking is: $"+priceOfTicket);
     }
 }

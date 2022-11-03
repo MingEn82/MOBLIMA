@@ -156,6 +156,7 @@ public class SeniorBooking extends Booking {
         // since im an senior class booking class.
         priceOfTicket -= currentSettings.getseniorDiscount();
         this.setPrice(priceOfTicket);
+        System.out.println("The price of booking is: $"+priceOfTicket);
     }
 
 }
