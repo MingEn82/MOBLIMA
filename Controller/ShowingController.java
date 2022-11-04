@@ -89,7 +89,7 @@ public class ShowingController {
         int i = 0;
         int choice;
         String movieTitle = null;
-        System.out.println("Select movie (type 0 to exit):");
+        System.out.println("\nSelect movie (type 0 to exit):");
         for (Movie m : movies) {
             System.out.println(++i + ") " + m.getMovieTitle());
         }
@@ -108,7 +108,7 @@ public class ShowingController {
         i = 0;
         Cineplex chosenCineplex = null;
         Cinema chosenCinema = null;
-        System.out.println("Select Cinema (type 0 to exist):");
+        System.out.println("\nSelect Cinema (type 0 to exist):");
         for (Cineplex cineplex : cineplexes) {
             for (Cinema cinema : cineplex.getCinemas()) {
                 System.out.println(++i + ") " + cineplex.getCineplexName() + ", " + cinema.getCinemaName() + " (" + cinema.getCinemaType() + ")");
@@ -125,16 +125,16 @@ public class ShowingController {
                 cinemaIndex = (choice-1) % chosenCineplex.getCinemas().size();
                 chosenCinema = chosenCineplex.getCinemas().get(cinemaIndex);
             } else {
-                System.out.println("Invalid choice! Try Again");
+                System.out.println("\nInvalid choice! Try Again");
             }
         } while (choice < 0 || choice > i);
 
-        System.out.println("Enter Date (yyyyMMddHHmm format): ");
+        System.out.println("\nEnter Date (yyyyMMddHHmm format): ");
         String date = ip.getString();
 
         i = 0;
         String movieType = null;
-        System.out.println("Enter movie type (type 0 to exit): ");
+        System.out.println("\nEnter movie type (type 0 to exit): ");
         System.out.println("1. 2D");
         System.out.println("2. 3D");
         System.out.println("3. Blockbuster");
@@ -158,12 +158,11 @@ public class ShowingController {
             }
         } while (choice < 0 || choice > 3);
 
-        System.out.println("Creating New Showing");
         // To do: Add time check
         if (showingsDC.addNewShowing(movieTitle, chosenCineplex.getCineplexName(), chosenCinema.getCinemaName(), date, movieType)) {
-            System.out.println("Showing successfully created");
+            System.out.println("\nShowing successfully created");
         } else {
-            System.out.println("Error! Showing already exists");
+            System.out.println("\nError! Showing already exists");
         }
     }
 

@@ -162,6 +162,15 @@ public class MovieDatabaseController implements DatabaseController {
     }
 
     /**
+     * Deletes movie from database
+     * @param movieTitle
+     */
+    public void removeMovieFromDatabase(String movieTitle) {
+        movies.removeIf(m -> m.getMovieTitle().equals(movieTitle));
+        this.updateDatabase();
+    }
+
+    /**
      * Prints all reviews of the movie
      * @param movieTitle
      */
@@ -289,6 +298,20 @@ public class MovieDatabaseController implements DatabaseController {
             return movie.getDuration();
         }
         return -1;
+    }
+
+    /**
+     * Getter function for movie
+     * @param movieTitle
+     * @return movie duration in minutes
+     */
+    public Movie getMovie(String movieTitle) {
+        for (Movie movie : movies) {
+            if (!movie.getMovieTitle().equals(movieTitle))
+                continue;
+            return movie;
+        }
+        return null;
     }
 
     /**

@@ -51,7 +51,8 @@ public class AdminMovieController extends MovieController{
             System.out.println("2. Create New Movie");
             System.out.println("3. Update Movie");
             System.out.println("4. Delete Movie");
-            System.out.println("5. Return");
+            System.out.println("==================================================");
+            System.out.println("|          Type 0 to return to main menu         |");
             System.out.println("==================================================");
             System.out.println("");
             System.out.println("Enter choice:");
@@ -59,7 +60,7 @@ public class AdminMovieController extends MovieController{
 
             switch (choice) {
                 case 1:
-                    this.displayMovies(1);
+                    this.displayMovies(6);
                     break;
                 case 2:
                     System.out.println("\n=============== Creating new movie ===============");
@@ -73,13 +74,13 @@ public class AdminMovieController extends MovieController{
                     System.out.println("\n=============== Deleting movie ===============");
                     this.deleteMovie();
                     break;
-                case 5:
+                case 0:
                     System.out.println("\nReturning to main menu..");
                     break;
                 default:
                     System.out.println("\nInvalid choice.");
             }
-        } while (choice != 5);
+        } while (choice != 0);
     }
 
     /**
@@ -88,6 +89,11 @@ public class AdminMovieController extends MovieController{
     public void createMovie() {
         System.out.println("Enter movie title: ");
         String movieTitle = ip.getString();
+        String showingStatus = null;
+        int movieDuration = -1;
+        AgeRating ageRating = null;
+        String director;
+        String synopsis;
         int choice;
 
         if (moviesDC.movieExists(movieTitle)) {
@@ -95,13 +101,12 @@ public class AdminMovieController extends MovieController{
             return;
         }
         
-        String showingStatus = null;
+        
         do {
             System.out.println("\nSelect showing status");
             System.out.println("1. Coming Soon");
             System.out.println("2. Preview");
             System.out.println("3. Now Showing");
-            System.out.println("4. End of Showing");
             System.out.println("0. Go back\n");
             
             choice = ip.getInt();
@@ -116,9 +121,6 @@ public class AdminMovieController extends MovieController{
                 case 3:
                     showingStatus = "Now Showing";
                     break;
-                case 4:
-                    showingStatus = "End of Showing";
-                    break;
                 case 0:
                     break;
                 default:
@@ -127,7 +129,7 @@ public class AdminMovieController extends MovieController{
             }
         } while (choice < 0 || choice > 4);
         
-        int movieDuration = -1;
+        
         do {
             System.out.println("\nEnter movie duration (in mins): ");
             movieDuration = ip.getInt();
@@ -136,7 +138,7 @@ public class AdminMovieController extends MovieController{
             }
         } while (movieDuration == -1);
         
-        AgeRating ageRating = null;
+        
         do {
             System.out.println("\n1. G");
             System.out.println("2. PG");
@@ -176,10 +178,10 @@ public class AdminMovieController extends MovieController{
         } while (choice < 0 || choice > 6);
         
         System.out.println("\nEnter movie synopsis: ");
-        String synopsis = ip.getString();
+        synopsis = ip.getString();
         
         System.out.println("\nEnter director: ");
-        String director = ip.getString();
+        director = ip.getString();
         
         ArrayList<String> casts = new ArrayList<String>();
         String cast;
@@ -287,6 +289,15 @@ public class AdminMovieController extends MovieController{
                         }
                     } while (subChoice < 0 || subChoice > 4);
                     System.out.println();
+
+                    if (subChoice == 4) {
+                        System.out.println("Deleting " + newMovieTitle + " from databases");
+                        moviesDC.deleteMovie(newMovieTitle);
+                        new ShowingsDatabaseController().deleteShowings(newMovieTitle);
+                        new BookingController().deleteBookings(newMovieTitle);
+                        return;
+                    }
+
                     break;
                 
                 case 3:
@@ -401,18 +412,19 @@ public class AdminMovieController extends MovieController{
         do {
             System.out.println("Enter movie choice (0 to exit): ");
             choice = ip.getInt();
-            if (choice < 0 || choice >= size)
+            if (choice < 0 || choice > size)
                 System.out.println("Invalid Choice");
-        } while (choice < 0 || choice >= size);
+        } while (choice < 0 || choice > size);
 
         if (choice == 0) {
             System.out.println("No changes made to movies. Returning to menu..");
-        } else {
-            movieToDelete = movies.get(choice - 1);
+            return;
         }
 
-        moviesDC.deleteMovie(movieToDelete.getMovieTitle());
+        movieToDelete = movies.get(choice - 1);
+        moviesDC.removeMovieFromDatabase(movieToDelete.getMovieTitle());
         new ShowingsDatabaseController().deleteShowings(movieToDelete.getMovieTitle());
         new BookingController().deleteBookings(movieToDelete.getMovieTitle());
+        System.out.println(movieToDelete.getMovieTitle() + " has been removed from the database");
     }
 }

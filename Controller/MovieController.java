@@ -59,7 +59,7 @@ public abstract class MovieController {
             case 1:
                 System.out.println("");
                 System.out.println("================== List All Movies =====================");
-                return printMovies(movieDC.getMovies());
+                return printMovies(getMovies());
             case 2:
                 System.out.println("");
                 System.out.println("================== Movies Coming Soon ==================");
@@ -80,6 +80,10 @@ public abstract class MovieController {
                 String movieTitle = sc.nextLine();
                 filteredMovies = filterMoviesByName(movieTitle);
                 return printMovies(filteredMovies);
+            case 6:
+                System.out.println("");
+                System.out.println("================== List All Movies =====================");
+                return printMovies(allMovies);
             default:
                 return null;
         }
@@ -103,7 +107,8 @@ public abstract class MovieController {
             System.out.println("| 3. Preview                                            |");
             System.out.println("| 4. Now Showing                                        |");
             System.out.println("| 5. Search movie by title                              |");
-            System.out.println("| 6. Back to Main Menu                                  |");
+            System.out.println("+-------------------------------------------------------+");
+            System.out.println("|            Type 0 to return to main menu              |");
             System.out.println("+-------------------------------------------------------+");
             System.out.println("");
 
@@ -120,12 +125,12 @@ public abstract class MovieController {
                 case 5:
                     movie = displayMovies(choice);
                     break;
-                case 6:
+                case 0:
                     break;
                 default:
                     System.out.println("Invalid selection!");
             }
-        } while (choice < 1 || choice > 6);
+        } while (choice < 0 || choice > 5);
         return movie;
     };
 
@@ -376,6 +381,17 @@ public abstract class MovieController {
         }
 
         return filteredMovies;
+    }
+
+    /**
+     * Filters movies with showing status of "Coming Soon", "Now Showing" and "Preview"
+     * 
+     * @return ArrayList of Movies
+     */
+    public ArrayList<Movie> getMovies() {
+        allMovies = new MovieDatabaseController().getMovies();
+        allMovies.removeIf(m -> m.getShowingStatus().equals("End of Showing"));
+        return allMovies;
     }
 
     /**

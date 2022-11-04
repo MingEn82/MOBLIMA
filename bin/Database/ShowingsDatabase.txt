@@ -13,3 +13,11 @@ The Godfather<b>Golden Village Paya Lebar<b>Cinema 1<b>202212021900<b>Blockbuste
 The Godfather<b>Golden Village Bedok<b>Cinema 2<b>202212031900<b>3D<b>G06
 The Shawshank Redemption<b>Golden Village Bedok<b>Cinema 1<b>202211071400<b>2D
 The Shawshank Redemption<b>Golden Village Jurong Point<b>Cinema 1<b>202211051300<b>2D<b>E01
+The Godfather<b>Golden Village Paya Lebar<b>Cinema 1<b>202211240700<b>2D
+Black Adam<b>Golden Village Jurong Point<b>Cinema 1<b>202211091400<b>3D<b>C09
+Minority Report<b>Golden Village Paya Lebar<b>Cinema 1<b>202211051300<b>3D
+Minions 2<b>Golden Village Bedok<b>Cinema 2<b>202211161200<b>3D
+Black Adam<b>Golden Village Bedok<b>Cinema 2<b>202211161000<b>3D
+Black Adam<b>Golden Village Bedok<b>Cinema 3<b>202211161000<b>3D
+Black Adam<b>Golden Village Paya Lebar<b>Cinema 3<b>202211051300<b>3D
+The Godfather<b>Golden Village Jurong Point<b>Cinema 2<b>202211061100<b>Blockbuster<b>H05

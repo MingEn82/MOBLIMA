@@ -1,6 +1,6 @@
 Golden Village Bedok<b>A<b>Cinema 1<b>01<b>Standard
 Golden Village Bedok<b>A<b>Cinema 2<b>02<b>IMAX
-Golden Village Bedok<b>A<b>Cinema 2<b>03<b>Platinum Movie Suite
+Golden Village Bedok<b>A<b>Cinema 3<b>03<b>Platinum Movie Suite
 Golden Village Paya Lebar<b>B<b>Cinema 1<b>01<b>Standard
 Golden Village Paya Lebar<b>B<b>Cinema 2<b>02<b>IMAX
 Golden Village Paya Lebar<b>B<b>Cinema 3<b>03<b>Platinum Movie Suite

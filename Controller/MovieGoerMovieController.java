@@ -307,10 +307,11 @@ public class MovieGoerMovieController extends MovieController {
                     String seatID = ip.getString();
 
                     if (!showing.isSeatBooked(seatID)) {
-                        showingsDC.addBooking(movieTitle, cineplexName, cinemaName, startDate, seatID);
                         addOneToTotalSales(movieTitle);
-                        new BookingController().newBooking(UID, cineplexName, cinemaName, seatID, movieTitle,
-                                movieDuration, movieType, cinemaType, dp.parseDate(startDate), -1);
+                        if (new BookingController().newBooking(UID, cineplexName, cinemaName, seatID, movieTitle,
+                            movieDuration, movieType, cinemaType, dp.parseDate(startDate), -1)) {
+                            showingsDC.addBooking(movieTitle, cineplexName, cinemaName, startDate, seatID);
+                        }
                         break;
                     } else {
                         System.out.println("Invalid seat chosen!");

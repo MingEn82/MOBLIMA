@@ -1,7 +1,7 @@
-A01202210192250<b>98765432<b>Subra Suresh<b>NTU-President@ntu.edu.sg<b>Golden Village Bedok<b>Cinema 1<b>E10<b>Minority Report<b>145<b> 3D<b>IMAX<b>202210221400<b>11.0
+A01202210192250<b>98765432<b>Subra Suresh<b>NTU-President@ntu.edu.sg<b>Golden Village Bedok<b>Cinema 1<b>E10<b>Minority Report<b>145<b>3D<b>IMAX<b>202210221400<b>11.0
 A02202210202250<b>98765432<b>Subra Suresh<b>NTU-President@ntu.edu.sg<b>Golden Village Bedok<b>Cinema 2<b>A09<b>Minions 2<b>87<b> 2D<b>IMAX<b>202210231900<b>11.0
-B01202210212250<b>91234567<b>Ling San<b>NTU-Provost@ntu.edu.sg<b>Golden Village Paya Lebar<b>Cinema 1<b>D10<b>Minority Report<b>145<b> 2D<b>Standard<b>202210231400<b>11.0
-C02202210222250<b>91234567<b>Ling San<b>NTU-Provost@ntu.edu.sg<b>Golden Village Jurong Point<b>Cinema 2<b>B08<b>Minions 2<b>87<b> 3D<b>Standard<b>202210241900<b>8.5
+B01202210212250<b>91234567<b>Ling San<b>NTU-Provost@ntu.edu.sg<b>Golden Village Paya Lebar<b>Cinema 1<b>D10<b>Minority Report<b>145<b>2D<b>Standard<b>202210231400<b>11.0
+C02202210222250<b>91234567<b>Ling San<b>NTU-Provost@ntu.edu.sg<b>Golden Village Jurong Point<b>Cinema 2<b>B08<b>Minions 2<b>87<b>3D<b>Standard<b>202210241900<b>8.5
 A02202211020034<b>92315166<b>mingen<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>A03<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>13.5
 A02202211020034<b>92315166<b>mingen<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>H01<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>13.5
 A02202211031545<b>92315166<b>ming en<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>G06<b>The Godfather<b>175<b>3D<b>IMAX<b>202212031900<b>19.5
@@ -11,10 +11,10 @@ A01202211031750<b>94321532<b>rick<b>adultswim@test.com<b>Golden Village Bedok<b>
 A01202211031755<b>84321234<b>leemin<b>test@test.com<b>Golden Village Bedok<b>Cinema 1<b>C01<b>Minority Report<b>145<b>3D<b>Standard<b>202210221400<b>17.0
 A01202211031922<b>92315166<b>mingen<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 1<b>C10<b>The Shawshank Redemption<b>142<b>2D<b>Standard<b>202211071400<b>11.0
 C01202211031924<b>92315166<b>ming en<b>mingen@test.com<b>Golden Village Jurong Point<b>Cinema 1<b>E01<b>The Shawshank Redemption<b>142<b>2D<b>Standard<b>202211051300<b>11.0
-A01202210192250<b>98765432<b>Subra Suresh<b>NTU-President@ntu.edu.sg<b>Golden Village Bedok<b>Cinema 1<b>E10<b>Minority Report<b>145<b> 3D<b>IMAX<b>202210221400<b>11.0
-A02202210202250<b>98765432<b>Subra Suresh<b>NTU-President@ntu.edu.sg<b>Golden Village Bedok<b>Cinema 2<b>A09<b>Minions 2<b>87<b> 2D<b>IMAX<b>202210231900<b>11.0
-B01202210212250<b>91234567<b>Ling San<b>NTU-Provost@ntu.edu.sg<b>Golden Village Paya Lebar<b>Cinema 1<b>D10<b>Minority Report<b>145<b> 2D<b>Standard<b>202210231400<b>11.0
-C02202210222250<b>91234567<b>Ling San<b>NTU-Provost@ntu.edu.sg<b>Golden Village Jurong Point<b>Cinema 2<b>B08<b>Minions 2<b>87<b> 3D<b>Standard<b>202210241900<b>8.5
+A01202210192250<b>98765432<b>Subra Suresh<b>NTU-President@ntu.edu.sg<b>Golden Village Bedok<b>Cinema 1<b>E10<b>Minority Report<b>145<b>3D<b>IMAX<b>202210221400<b>11.0
+A02202210202250<b>98765432<b>Subra Suresh<b>NTU-President@ntu.edu.sg<b>Golden Village Bedok<b>Cinema 2<b>A09<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>11.0
+B01202210212250<b>91234567<b>Ling San<b>NTU-Provost@ntu.edu.sg<b>Golden Village Paya Lebar<b>Cinema 1<b>D10<b>Minority Report<b>145<b>2D<b>Standard<b>202210231400<b>11.0
+C02202210222250<b>91234567<b>Ling San<b>NTU-Provost@ntu.edu.sg<b>Golden Village Jurong Point<b>Cinema 2<b>B08<b>Minions 2<b>87<b>3D<b>Standard<b>202210241900<b>8.5
 A02202211020034<b>92315166<b>mingen<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>A03<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>13.5
 A02202211020034<b>92315166<b>mingen<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>H01<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>13.5
 A02202211031545<b>92315166<b>ming en<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>G06<b>The Godfather<b>175<b>3D<b>IMAX<b>202212031900<b>19.5
@@ -28,3 +28,133 @@ A02202211032238<b>98374321<b>nicholas<b>nicholas@gmail.com<b>Golden Village Bedo
 B02202211032248<b>98374321<b>nicholas<b>nicholas@gmail.com<b>Golden Village Paya Lebar<b>Cinema 2<b>A03<b>Minions 2<b>87<b>2D<b>IMAX<b>202211021900<b>11.0
 A02202211032313<b>98374321<b>nicholas<b>nicholas@gmail.com<b>Golden Village Bedok<b>Cinema 2<b>A05<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>10.6
 A02202211032314<b>98374321<b>nicholas<b>nicholas@gmail.com<b>Golden Village Bedok<b>Cinema 2<b>A06<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>12.7
+B01202211040832<b>91122334<b>mingen<b>mingen@test.xyz<b>Golden Village Paya Lebar<b>Cinema 1<b>A04<b>The Godfather<b>175<b>2D<b>Standard<b>202211240700<b>11.0
+A01202211040833<b>91122334<b>mingen<b>mingen@test.xyz<b>Golden Village Bedok<b>Cinema 1<b>A09<b>The Godfather<b>175<b>2D<b>Standard<b>202212141807<b>6.7
+A01202211040835<b>94433221<b>mongo<b>mongo@test.com<b>Golden Village Bedok<b>Cinema 1<b>C01<b>The Godfather<b>175<b>2D<b>Standard<b>202212141807<b>6.2
+C01202211040839<b>95544332<b>qwerty<b>qwerty@test.com<b>Golden Village Jurong Point<b>Cinema 1<b>C09<b>Black Adam<b>124<b>3D<b>Standard<b>202211091400<b>12.5
+B01202211040842<b>98877665<b>james<b>qwerty@test.xyz<b>Golden Village Paya Lebar<b>Cinema 1<b>D06<b>Minority Report<b>145<b>3D<b>Standard<b>202211051300<b>14.5
+A02202211040844<b>91122334<b>kris<b>kris@test.com<b>Golden Village Bedok<b>Cinema 2<b>H01<b>Minions 2<b>87<b>3D<b>IMAX<b>202211161200<b>16.5
+A03202211040851<b>93322332<b>richard<b>richard@test.com<b>Golden Village Bedok<b>Cinema 3<b>A04<b>Black Adam<b>124<b>3D<b>Platinum Movie Suite<b>202211161000<b>17.0
+B03202211040852<b>91122778<b>richard<b>richard@test.com<b>Golden Village Paya Lebar<b>Cinema 3<b>E01<b>Black Adam<b>124<b>3D<b>Platinum Movie Suite<b>202211051300<b>19.0
+A01202211040853<b>93322112<b>billy<b>billy@test.com<b>Golden Village Bedok<b>Cinema 1<b>E01<b>Minority Report<b>145<b>3D<b>Standard<b>202210221400<b>12.5
+C02202211040856<b>92314433<b>steven<b>steven@test.com<b>Golden Village Jurong Point<b>Cinema 2<b>H05<b>The Godfather<b>175<b>Blockbuster<b>IMAX<b>202211061100<b>16.55
+A01202210192250<b>98765432<b>Subra Suresh<b>NTU-President@ntu.edu.sg<b>Golden Village Bedok<b>Cinema 1<b>E10<b>Minority Report<b>145<b>3D<b>IMAX<b>202210221400<b>11.0
+A02202210202250<b>98765432<b>Subra Suresh<b>NTU-President@ntu.edu.sg<b>Golden Village Bedok<b>Cinema 2<b>A09<b>Minions 2<b>87<b> 2D<b>IMAX<b>202210231900<b>11.0
+B01202210212250<b>91234567<b>Ling San<b>NTU-Provost@ntu.edu.sg<b>Golden Village Paya Lebar<b>Cinema 1<b>D10<b>Minority Report<b>145<b>2D<b>Standard<b>202210231400<b>11.0
+C02202210222250<b>91234567<b>Ling San<b>NTU-Provost@ntu.edu.sg<b>Golden Village Jurong Point<b>Cinema 2<b>B08<b>Minions 2<b>87<b>3D<b>Standard<b>202210241900<b>8.5
+A02202211020034<b>92315166<b>mingen<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>A03<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>13.5
+A02202211020034<b>92315166<b>mingen<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>H01<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>13.5
+A02202211031545<b>92315166<b>ming en<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>G06<b>The Godfather<b>175<b>3D<b>IMAX<b>202212031900<b>19.5
+A02202211031715<b>92315166<b>ming en<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>F01<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>13.5
+C01202211031717<b>83214563<b>mongo<b>mongo@test.com<b>Golden Village Jurong Point<b>Cinema 1<b>D04<b>Minority Report<b>145<b>Blockbuster<b>Standard<b>202211021900<b>16.55
+A01202211031750<b>94321532<b>rick<b>adultswim@test.com<b>Golden Village Bedok<b>Cinema 1<b>B02<b>Minority Report<b>145<b>3D<b>Standard<b>202210221400<b>15.0
+A01202211031755<b>84321234<b>leemin<b>test@test.com<b>Golden Village Bedok<b>Cinema 1<b>C01<b>Minority Report<b>145<b>3D<b>Standard<b>202210221400<b>17.0
+A01202211031922<b>92315166<b>mingen<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 1<b>C10<b>The Shawshank Redemption<b>142<b>2D<b>Standard<b>202211071400<b>11.0
+C01202211031924<b>92315166<b>ming en<b>mingen@test.com<b>Golden Village Jurong Point<b>Cinema 1<b>E01<b>The Shawshank Redemption<b>142<b>2D<b>Standard<b>202211051300<b>11.0
+A01202210192250<b>98765432<b>Subra Suresh<b>NTU-President@ntu.edu.sg<b>Golden Village Bedok<b>Cinema 1<b>E10<b>Minority Report<b>145<b>3D<b>IMAX<b>202210221400<b>11.0
+A02202210202250<b>98765432<b>Subra Suresh<b>NTU-President@ntu.edu.sg<b>Golden Village Bedok<b>Cinema 2<b>A09<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>11.0
+B01202210212250<b>91234567<b>Ling San<b>NTU-Provost@ntu.edu.sg<b>Golden Village Paya Lebar<b>Cinema 1<b>D10<b>Minority Report<b>145<b>2D<b>Standard<b>202210231400<b>11.0
+C02202210222250<b>91234567<b>Ling San<b>NTU-Provost@ntu.edu.sg<b>Golden Village Jurong Point<b>Cinema 2<b>B08<b>Minions 2<b>87<b>3D<b>Standard<b>202210241900<b>8.5
+A02202211020034<b>92315166<b>mingen<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>A03<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>13.5
+A02202211020034<b>92315166<b>mingen<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>H01<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>13.5
+A02202211031545<b>92315166<b>ming en<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>G06<b>The Godfather<b>175<b>3D<b>IMAX<b>202212031900<b>19.5
+A02202211031715<b>92315166<b>ming en<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>F01<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>13.5
+C01202211031717<b>83214563<b>mongo<b>mongo@test.com<b>Golden Village Jurong Point<b>Cinema 1<b>D04<b>Minority Report<b>145<b>Blockbuster<b>Standard<b>202211021900<b>16.55
+A01202211031750<b>94321532<b>rick<b>adultswim@test.com<b>Golden Village Bedok<b>Cinema 1<b>B02<b>Minority Report<b>145<b>3D<b>Standard<b>202210221400<b>15.0
+A01202211031755<b>84321234<b>leemin<b>test@test.com<b>Golden Village Bedok<b>Cinema 1<b>C01<b>Minority Report<b>145<b>3D<b>Standard<b>202210221400<b>17.0
+A01202211031922<b>92315166<b>mingen<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 1<b>C10<b>The Shawshank Redemption<b>142<b>2D<b>Standard<b>202211071400<b>11.0
+C01202211031924<b>92315166<b>ming en<b>mingen@test.com<b>Golden Village Jurong Point<b>Cinema 1<b>E01<b>The Shawshank Redemption<b>142<b>2D<b>Standard<b>202211051300<b>11.0
+A02202211032238<b>98374321<b>nicholas<b>nicholas@gmail.com<b>Golden Village Bedok<b>Cinema 2<b>A04<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>13.0
+B02202211032248<b>98374321<b>nicholas<b>nicholas@gmail.com<b>Golden Village Paya Lebar<b>Cinema 2<b>A03<b>Minions 2<b>87<b>2D<b>IMAX<b>202211021900<b>11.0
+A02202211032313<b>98374321<b>nicholas<b>nicholas@gmail.com<b>Golden Village Bedok<b>Cinema 2<b>A05<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>10.6
+A02202211032314<b>98374321<b>nicholas<b>nicholas@gmail.com<b>Golden Village Bedok<b>Cinema 2<b>A06<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>12.7
+B01202211040832<b>91122334<b>mingen<b>mingen@test.xyz<b>Golden Village Paya Lebar<b>Cinema 1<b>A04<b>The Godfather<b>175<b>2D<b>Standard<b>202211240700<b>11.0
+A01202211040833<b>91122334<b>mingen<b>mingen@test.xyz<b>Golden Village Bedok<b>Cinema 1<b>A09<b>The Godfather<b>175<b>2D<b>Standard<b>202212141807<b>6.7
+A01202211040835<b>94433221<b>mongo<b>mongo@test.com<b>Golden Village Bedok<b>Cinema 1<b>C01<b>The Godfather<b>175<b>2D<b>Standard<b>202212141807<b>6.2
+C01202211040839<b>95544332<b>qwerty<b>qwerty@test.com<b>Golden Village Jurong Point<b>Cinema 1<b>C09<b>Black Adam<b>124<b>3D<b>Standard<b>202211091400<b>12.5
+B01202211040842<b>98877665<b>james<b>qwerty@test.xyz<b>Golden Village Paya Lebar<b>Cinema 1<b>D06<b>Minority Report<b>145<b>3D<b>Standard<b>202211051300<b>14.5
+A02202211040844<b>91122334<b>kris<b>kris@test.com<b>Golden Village Bedok<b>Cinema 2<b>H01<b>Minions 2<b>87<b>3D<b>IMAX<b>202211161200<b>16.5
+A03202211040851<b>93322332<b>richard<b>richard@test.com<b>Golden Village Bedok<b>Cinema 3<b>A04<b>Black Adam<b>124<b>3D<b>Platinum Movie Suite<b>202211161000<b>17.0
+B03202211040852<b>91122778<b>richard<b>richard@test.com<b>Golden Village Paya Lebar<b>Cinema 3<b>E01<b>Black Adam<b>124<b>3D<b>Platinum Movie Suite<b>202211051300<b>19.0
+A01202211040853<b>93322112<b>billy<b>billy@test.com<b>Golden Village Bedok<b>Cinema 1<b>E01<b>Minority Report<b>145<b>3D<b>Standard<b>202210221400<b>12.5
+C02202211040856<b>92314433<b>steven<b>steven@test.com<b>Golden Village Jurong Point<b>Cinema 2<b>H05<b>The Godfather<b>175<b>Blockbuster<b>IMAX<b>202211061100<b>16.55
+A01202210192250<b>98765432<b>Subra Suresh<b>NTU-President@ntu.edu.sg<b>Golden Village Bedok<b>Cinema 1<b>E10<b>Minority Report<b>145<b>3D<b>IMAX<b>202210221400<b>11.0
+A02202210202250<b>98765432<b>Subra Suresh<b>NTU-President@ntu.edu.sg<b>Golden Village Bedok<b>Cinema 2<b>A09<b>Minions 2<b>87<b> 2D<b>IMAX<b>202210231900<b>11.0
+B01202210212250<b>91234567<b>Ling San<b>NTU-Provost@ntu.edu.sg<b>Golden Village Paya Lebar<b>Cinema 1<b>D10<b>Minority Report<b>145<b>2D<b>Standard<b>202210231400<b>11.0
+C02202210222250<b>91234567<b>Ling San<b>NTU-Provost@ntu.edu.sg<b>Golden Village Jurong Point<b>Cinema 2<b>B08<b>Minions 2<b>87<b>3D<b>Standard<b>202210241900<b>8.5
+A02202211020034<b>92315166<b>mingen<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>A03<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>13.5
+A02202211020034<b>92315166<b>mingen<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>H01<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>13.5
+A02202211031545<b>92315166<b>ming en<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>G06<b>The Godfather<b>175<b>3D<b>IMAX<b>202212031900<b>19.5
+A02202211031715<b>92315166<b>ming en<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>F01<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>13.5
+C01202211031717<b>83214563<b>mongo<b>mongo@test.com<b>Golden Village Jurong Point<b>Cinema 1<b>D04<b>Minority Report<b>145<b>Blockbuster<b>Standard<b>202211021900<b>16.55
+A01202211031750<b>94321532<b>rick<b>adultswim@test.com<b>Golden Village Bedok<b>Cinema 1<b>B02<b>Minority Report<b>145<b>3D<b>Standard<b>202210221400<b>15.0
+A01202211031755<b>84321234<b>leemin<b>test@test.com<b>Golden Village Bedok<b>Cinema 1<b>C01<b>Minority Report<b>145<b>3D<b>Standard<b>202210221400<b>17.0
+A01202211031922<b>92315166<b>mingen<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 1<b>C10<b>The Shawshank Redemption<b>142<b>2D<b>Standard<b>202211071400<b>11.0
+C01202211031924<b>92315166<b>ming en<b>mingen@test.com<b>Golden Village Jurong Point<b>Cinema 1<b>E01<b>The Shawshank Redemption<b>142<b>2D<b>Standard<b>202211051300<b>11.0
+A01202210192250<b>98765432<b>Subra Suresh<b>NTU-President@ntu.edu.sg<b>Golden Village Bedok<b>Cinema 1<b>E10<b>Minority Report<b>145<b>3D<b>IMAX<b>202210221400<b>11.0
+A02202210202250<b>98765432<b>Subra Suresh<b>NTU-President@ntu.edu.sg<b>Golden Village Bedok<b>Cinema 2<b>A09<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>11.0
+B01202210212250<b>91234567<b>Ling San<b>NTU-Provost@ntu.edu.sg<b>Golden Village Paya Lebar<b>Cinema 1<b>D10<b>Minority Report<b>145<b>2D<b>Standard<b>202210231400<b>11.0
+C02202210222250<b>91234567<b>Ling San<b>NTU-Provost@ntu.edu.sg<b>Golden Village Jurong Point<b>Cinema 2<b>B08<b>Minions 2<b>87<b>3D<b>Standard<b>202210241900<b>8.5
+A02202211020034<b>92315166<b>mingen<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>A03<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>13.5
+A02202211020034<b>92315166<b>mingen<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>H01<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>13.5
+A02202211031545<b>92315166<b>ming en<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>G06<b>The Godfather<b>175<b>3D<b>IMAX<b>202212031900<b>19.5
+A02202211031715<b>92315166<b>ming en<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>F01<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>13.5
+C01202211031717<b>83214563<b>mongo<b>mongo@test.com<b>Golden Village Jurong Point<b>Cinema 1<b>D04<b>Minority Report<b>145<b>Blockbuster<b>Standard<b>202211021900<b>16.55
+A01202211031750<b>94321532<b>rick<b>adultswim@test.com<b>Golden Village Bedok<b>Cinema 1<b>B02<b>Minority Report<b>145<b>3D<b>Standard<b>202210221400<b>15.0
+A01202211031755<b>84321234<b>leemin<b>test@test.com<b>Golden Village Bedok<b>Cinema 1<b>C01<b>Minority Report<b>145<b>3D<b>Standard<b>202210221400<b>17.0
+A01202211031922<b>92315166<b>mingen<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 1<b>C10<b>The Shawshank Redemption<b>142<b>2D<b>Standard<b>202211071400<b>11.0
+C01202211031924<b>92315166<b>ming en<b>mingen@test.com<b>Golden Village Jurong Point<b>Cinema 1<b>E01<b>The Shawshank Redemption<b>142<b>2D<b>Standard<b>202211051300<b>11.0
+A02202211032238<b>98374321<b>nicholas<b>nicholas@gmail.com<b>Golden Village Bedok<b>Cinema 2<b>A04<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>13.0
+B02202211032248<b>98374321<b>nicholas<b>nicholas@gmail.com<b>Golden Village Paya Lebar<b>Cinema 2<b>A03<b>Minions 2<b>87<b>2D<b>IMAX<b>202211021900<b>11.0
+A02202211032313<b>98374321<b>nicholas<b>nicholas@gmail.com<b>Golden Village Bedok<b>Cinema 2<b>A05<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>10.6
+A02202211032314<b>98374321<b>nicholas<b>nicholas@gmail.com<b>Golden Village Bedok<b>Cinema 2<b>A06<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>12.7
+B01202211040832<b>91122334<b>mingen<b>mingen@test.xyz<b>Golden Village Paya Lebar<b>Cinema 1<b>A04<b>The Godfather<b>175<b>2D<b>Standard<b>202211240700<b>11.0
+A01202211040833<b>91122334<b>mingen<b>mingen@test.xyz<b>Golden Village Bedok<b>Cinema 1<b>A09<b>The Godfather<b>175<b>2D<b>Standard<b>202212141807<b>6.7
+A01202211040835<b>94433221<b>mongo<b>mongo@test.com<b>Golden Village Bedok<b>Cinema 1<b>C01<b>The Godfather<b>175<b>2D<b>Standard<b>202212141807<b>6.2
+C01202211040839<b>95544332<b>qwerty<b>qwerty@test.com<b>Golden Village Jurong Point<b>Cinema 1<b>C09<b>Black Adam<b>124<b>3D<b>Standard<b>202211091400<b>12.5
+B01202211040842<b>98877665<b>james<b>qwerty@test.xyz<b>Golden Village Paya Lebar<b>Cinema 1<b>D06<b>Minority Report<b>145<b>3D<b>Standard<b>202211051300<b>14.5
+A02202211040844<b>91122334<b>kris<b>kris@test.com<b>Golden Village Bedok<b>Cinema 2<b>H01<b>Minions 2<b>87<b>3D<b>IMAX<b>202211161200<b>16.5
+A03202211040851<b>93322332<b>richard<b>richard@test.com<b>Golden Village Bedok<b>Cinema 3<b>A04<b>Black Adam<b>124<b>3D<b>Platinum Movie Suite<b>202211161000<b>17.0
+B03202211040852<b>91122778<b>richard<b>richard@test.com<b>Golden Village Paya Lebar<b>Cinema 3<b>E01<b>Black Adam<b>124<b>3D<b>Platinum Movie Suite<b>202211051300<b>19.0
+A01202211040853<b>93322112<b>billy<b>billy@test.com<b>Golden Village Bedok<b>Cinema 1<b>E01<b>Minority Report<b>145<b>3D<b>Standard<b>202210221400<b>12.5
+C02202211040856<b>92314433<b>steven<b>steven@test.com<b>Golden Village Jurong Point<b>Cinema 2<b>H05<b>The Godfather<b>175<b>Blockbuster<b>IMAX<b>202211061100<b>16.55
+A01202210192250<b>98765432<b>Subra Suresh<b>NTU-President@ntu.edu.sg<b>Golden Village Bedok<b>Cinema 1<b>E10<b>Minority Report<b>145<b>3D<b>IMAX<b>202210221400<b>11.0
+A02202210202250<b>98765432<b>Subra Suresh<b>NTU-President@ntu.edu.sg<b>Golden Village Bedok<b>Cinema 2<b>A09<b>Minions 2<b>87<b> 2D<b>IMAX<b>202210231900<b>11.0
+B01202210212250<b>91234567<b>Ling San<b>NTU-Provost@ntu.edu.sg<b>Golden Village Paya Lebar<b>Cinema 1<b>D10<b>Minority Report<b>145<b>2D<b>Standard<b>202210231400<b>11.0
+C02202210222250<b>91234567<b>Ling San<b>NTU-Provost@ntu.edu.sg<b>Golden Village Jurong Point<b>Cinema 2<b>B08<b>Minions 2<b>87<b>3D<b>Standard<b>202210241900<b>8.5
+A02202211020034<b>92315166<b>mingen<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>A03<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>13.5
+A02202211020034<b>92315166<b>mingen<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>H01<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>13.5
+A02202211031545<b>92315166<b>ming en<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>G06<b>The Godfather<b>175<b>3D<b>IMAX<b>202212031900<b>19.5
+A02202211031715<b>92315166<b>ming en<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>F01<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>13.5
+C01202211031717<b>83214563<b>mongo<b>mongo@test.com<b>Golden Village Jurong Point<b>Cinema 1<b>D04<b>Minority Report<b>145<b>Blockbuster<b>Standard<b>202211021900<b>16.55
+A01202211031750<b>94321532<b>rick<b>adultswim@test.com<b>Golden Village Bedok<b>Cinema 1<b>B02<b>Minority Report<b>145<b>3D<b>Standard<b>202210221400<b>15.0
+A01202211031755<b>84321234<b>leemin<b>test@test.com<b>Golden Village Bedok<b>Cinema 1<b>C01<b>Minority Report<b>145<b>3D<b>Standard<b>202210221400<b>17.0
+A01202211031922<b>92315166<b>mingen<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 1<b>C10<b>The Shawshank Redemption<b>142<b>2D<b>Standard<b>202211071400<b>11.0
+C01202211031924<b>92315166<b>ming en<b>mingen@test.com<b>Golden Village Jurong Point<b>Cinema 1<b>E01<b>The Shawshank Redemption<b>142<b>2D<b>Standard<b>202211051300<b>11.0
+A01202210192250<b>98765432<b>Subra Suresh<b>NTU-President@ntu.edu.sg<b>Golden Village Bedok<b>Cinema 1<b>E10<b>Minority Report<b>145<b>3D<b>IMAX<b>202210221400<b>11.0
+A02202210202250<b>98765432<b>Subra Suresh<b>NTU-President@ntu.edu.sg<b>Golden Village Bedok<b>Cinema 2<b>A09<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>11.0
+B01202210212250<b>91234567<b>Ling San<b>NTU-Provost@ntu.edu.sg<b>Golden Village Paya Lebar<b>Cinema 1<b>D10<b>Minority Report<b>145<b>2D<b>Standard<b>202210231400<b>11.0
+C02202210222250<b>91234567<b>Ling San<b>NTU-Provost@ntu.edu.sg<b>Golden Village Jurong Point<b>Cinema 2<b>B08<b>Minions 2<b>87<b>3D<b>Standard<b>202210241900<b>8.5
+A02202211020034<b>92315166<b>mingen<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>A03<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>13.5
+A02202211020034<b>92315166<b>mingen<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>H01<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>13.5
+A02202211031545<b>92315166<b>ming en<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>G06<b>The Godfather<b>175<b>3D<b>IMAX<b>202212031900<b>19.5
+A02202211031715<b>92315166<b>ming en<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>F01<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>13.5
+C01202211031717<b>83214563<b>mongo<b>mongo@test.com<b>Golden Village Jurong Point<b>Cinema 1<b>D04<b>Minority Report<b>145<b>Blockbuster<b>Standard<b>202211021900<b>16.55
+A01202211031750<b>94321532<b>rick<b>adultswim@test.com<b>Golden Village Bedok<b>Cinema 1<b>B02<b>Minority Report<b>145<b>3D<b>Standard<b>202210221400<b>15.0
+A01202211031755<b>84321234<b>leemin<b>test@test.com<b>Golden Village Bedok<b>Cinema 1<b>C01<b>Minority Report<b>145<b>3D<b>Standard<b>202210221400<b>17.0
+A01202211031922<b>92315166<b>mingen<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 1<b>C10<b>The Shawshank Redemption<b>142<b>2D<b>Standard<b>202211071400<b>11.0
+C01202211031924<b>92315166<b>ming en<b>mingen@test.com<b>Golden Village Jurong Point<b>Cinema 1<b>E01<b>The Shawshank Redemption<b>142<b>2D<b>Standard<b>202211051300<b>11.0
+A02202211032238<b>98374321<b>nicholas<b>nicholas@gmail.com<b>Golden Village Bedok<b>Cinema 2<b>A04<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>13.0
+B02202211032248<b>98374321<b>nicholas<b>nicholas@gmail.com<b>Golden Village Paya Lebar<b>Cinema 2<b>A03<b>Minions 2<b>87<b>2D<b>IMAX<b>202211021900<b>11.0
+A02202211032313<b>98374321<b>nicholas<b>nicholas@gmail.com<b>Golden Village Bedok<b>Cinema 2<b>A05<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>10.6
+A02202211032314<b>98374321<b>nicholas<b>nicholas@gmail.com<b>Golden Village Bedok<b>Cinema 2<b>A06<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>12.7
+B01202211040832<b>91122334<b>mingen<b>mingen@test.xyz<b>Golden Village Paya Lebar<b>Cinema 1<b>A04<b>The Godfather<b>175<b>2D<b>Standard<b>202211240700<b>11.0
+A01202211040833<b>91122334<b>mingen<b>mingen@test.xyz<b>Golden Village Bedok<b>Cinema 1<b>A09<b>The Godfather<b>175<b>2D<b>Standard<b>202212141807<b>6.7
+A01202211040835<b>94433221<b>mongo<b>mongo@test.com<b>Golden Village Bedok<b>Cinema 1<b>C01<b>The Godfather<b>175<b>2D<b>Standard<b>202212141807<b>6.2
+C01202211040839<b>95544332<b>qwerty<b>qwerty@test.com<b>Golden Village Jurong Point<b>Cinema 1<b>C09<b>Black Adam<b>124<b>3D<b>Standard<b>202211091400<b>12.5
+B01202211040842<b>98877665<b>james<b>qwerty@test.xyz<b>Golden Village Paya Lebar<b>Cinema 1<b>D06<b>Minority Report<b>145<b>3D<b>Standard<b>202211051300<b>14.5
+A02202211040844<b>91122334<b>kris<b>kris@test.com<b>Golden Village Bedok<b>Cinema 2<b>H01<b>Minions 2<b>87<b>3D<b>IMAX<b>202211161200<b>16.5
+A03202211040851<b>93322332<b>richard<b>richard@test.com<b>Golden Village Bedok<b>Cinema 3<b>A04<b>Black Adam<b>124<b>3D<b>Platinum Movie Suite<b>202211161000<b>17.0
+B03202211040852<b>91122778<b>richard<b>richard@test.com<b>Golden Village Paya Lebar<b>Cinema 3<b>E01<b>Black Adam<b>124<b>3D<b>Platinum Movie Suite<b>202211051300<b>19.0
+A01202211040853<b>93322112<b>billy<b>billy@test.com<b>Golden Village Bedok<b>Cinema 1<b>E01<b>Minority Report<b>145<b>3D<b>Standard<b>202210221400<b>12.5
+C02202211040856<b>92314433<b>steven<b>steven@test.com<b>Golden Village Jurong Point<b>Cinema 2<b>H05<b>The Godfather<b>175<b>Blockbuster<b>IMAX<b>202211061100<b>16.55
