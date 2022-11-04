@@ -79,6 +79,11 @@ public class SystemSettings {
     private float platinumAddOn;
 
     /**
+     * Platinum add on price
+     */
+    private float wideSeatAddOn;
+
+    /**
      * Show options for Top 5 Movies by Sales for Movie Goer
      */
     private int displayTop5bySales;
@@ -103,15 +108,15 @@ public class SystemSettings {
      * @param blockbusterAddOn          additional price for blockbuster movies
      * @param IMAXAddOn                 additional price for IMAX movies
      * @param platinumAddOn             additional price for platinum movie suite
+     * @param wideSeatAddOn             additional price for wide seat
      * @param displayTop5bySales        display top5 by sales
      * @param displayTop5byRating       display top5 by rating
      */
     public SystemSettings(ArrayList<Date> publicHolidays, float weekdayPrices,
             float weekendPrices, float pHPrices,
             float studentDiscount, float seniorDiscount, float prefCreditLoyaltyDiscount, float sixPMAddon,
-            float threeDAddOn,
-            float blockbusterAddOn, float IMAXAddOn, float platinumAddOn, int displayTop5bySales,
-            int displayTop5byRating) {
+            float threeDAddOn, float blockbusterAddOn, float IMAXAddOn, float platinumAddOn, float wideSeatAddOn,
+            int displayTop5bySales, int displayTop5byRating) {
         this.publicHolidays = publicHolidays;
         this.weekdayPrices = weekdayPrices;
         this.weekendPrices = weekendPrices;
@@ -124,6 +129,7 @@ public class SystemSettings {
         this.blockbusterAddOn = blockbusterAddOn;
         this.IMAXAddOn = IMAXAddOn;
         this.platinumAddOn = platinumAddOn;
+        this.wideSeatAddOn = wideSeatAddOn;
         this.displayTop5byRating = displayTop5byRating;
         this.displayTop5bySales = displayTop5bySales;
     }
@@ -171,6 +177,8 @@ public class SystemSettings {
                 "| IMAX Movie:                                  + $  " + String.format("%.2f", IMAXAddOn) + "|");
         System.out.println(
                 "| Platinum Movie Suite:                        + $  " + String.format("%.2f", platinumAddOn) + "|");
+        System.out.println(
+            "| Additional cost for wide seat                    + $  " + String.format("%.2f", wideSeatAddOn) + "|");
         System.out.println("|                                                       |");
         System.out.println("+-------------------------------------------------------+");
         System.out.println("");
@@ -470,6 +478,24 @@ public class SystemSettings {
      */
     public void setplatinumAddOn(float platinumAddOn) {
         this.platinumAddOn = platinumAddOn;
+    }
+
+    /**
+     * Getter method for additional price for wide seat
+     * 
+     * @return additional price for wide seat
+     */
+    public float getWideSeatAddOn() {
+        return this.wideSeatAddOn;
+    }
+
+    /**
+     * Setter method for additional price for wide seat
+     * 
+     * @param platinumAddOn additional price for wide seat
+     */
+    public void setWideSeatAddOn(float wideSeatAddOn) {
+        this.wideSeatAddOn = wideSeatAddOn;
     }
 
     /**

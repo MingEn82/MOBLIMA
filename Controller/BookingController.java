@@ -25,7 +25,7 @@ public class BookingController {
     /**
      * Constructor for Booking Controller
      */
-    BookingController(){
+    BookingController() {
         //reads all the booking data from databasecontroller.
         bookings = bookingsDatabaseController.fetchBookings();
         //System.out.print(bookings.get(0)); 
@@ -112,7 +112,7 @@ public class BookingController {
      * @param price             
      * @return                  true if successful, false if unsuccessful
      */
-    public boolean newBooking(String TID, String cineplexName, String cinemaName, String seatID, String movieTitle, int movieDuration, String movieType, String cinemaType, Date startDate, float price)
+    public boolean newBooking(String TID, String cineplexName, String cinemaName, String seatID, String movieTitle, int movieDuration, String movieType, String cinemaType, Date startDate, float price, boolean isWideSeat)
     {
         int choice, tries;
         int phoneNumberOfMovieGoer = -1;
@@ -178,7 +178,7 @@ public class BookingController {
             switch(choice)
             {
                 case 1:
-                newBooking = new StudentBooking(TID, phoneNumberOfMovieGoer, nameOfMovieGoer,emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, movieDuration, movieType, cinemaType, startDate, price);
+                newBooking = new StudentBooking(TID, phoneNumberOfMovieGoer, nameOfMovieGoer,emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, movieDuration, movieType, cinemaType, startDate, price, isWideSeat);
                 newBooking.calBookingPrice();
                 
                 bookingsDatabaseController.addNewBooking(newBooking);
@@ -188,7 +188,7 @@ public class BookingController {
                 return true;
                 
                 case 2:
-                newBooking = new AdultBooking(TID, phoneNumberOfMovieGoer, nameOfMovieGoer,emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, movieDuration, movieType, cinemaType, startDate, price);
+                newBooking = new AdultBooking(TID, phoneNumberOfMovieGoer, nameOfMovieGoer,emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, movieDuration, movieType, cinemaType, startDate, price, isWideSeat);
                 newBooking.calBookingPrice();
                 //System.out.println("The new booking object is " +newBooking);
                 bookingsDatabaseController.addNewBooking(newBooking);
@@ -199,7 +199,7 @@ public class BookingController {
                 
 
                 case 3:
-                newBooking = new SeniorBooking(TID, phoneNumberOfMovieGoer, nameOfMovieGoer,emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, movieDuration, movieType, cinemaType, startDate, price);
+                newBooking = new SeniorBooking(TID, phoneNumberOfMovieGoer, nameOfMovieGoer,emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, movieDuration, movieType, cinemaType, startDate, price, isWideSeat);
                 newBooking.calBookingPrice();
                 bookingsDatabaseController.addNewBooking(newBooking);
                 cineplexController.bookSeat(cineplexName, cinemaName, movieTitle, startDate, seatID);

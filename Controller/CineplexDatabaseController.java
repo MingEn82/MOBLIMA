@@ -117,7 +117,7 @@ public class CineplexDatabaseController implements DatabaseController {
                 break;
         }
 
-        ArrayList<Showing> showings = this.generateShowings(cineplexName, cinemaName, newCinema.getSeatArrangement().split(", "));
+        ArrayList<Showing> showings = this.generateShowings(cineplexName, cinemaName, newCinema.getSeatArrangement().split(", "), newCinema.getWideSeatRows());
         newCinema.setShowings(showings);
 
         int cineplexIndex = addedCineplexesID.indexOf(cineplexID);
@@ -140,7 +140,7 @@ public class CineplexDatabaseController implements DatabaseController {
      * @param seatsData
      * @return ArrayList of Showings of that particular cinema
      */
-    private ArrayList<Showing> generateShowings(String cineplexName, String cinemaName, String[] seatsData) {
+    private ArrayList<Showing> generateShowings(String cineplexName, String cinemaName, String[] seatsData, String[] wideSeatRows) {
         ArrayList<Showing> showings = new ArrayList<Showing>();
         ShowingsDatabaseController sdc = new ShowingsDatabaseController();
         ArrayList<String[]> allShowings = sdc.filterShowings(cineplexName, cinemaName);
@@ -153,7 +153,7 @@ public class CineplexDatabaseController implements DatabaseController {
             if (showingData.length > 5) {
                 bookedSeats = Arrays.copyOfRange(showingData, 5, showingData.length);
             }
-            ArrayList<SeatRow> seatRows = this.generateSeatRows(seatsData, bookedSeats);
+            ArrayList<SeatRow> seatRows = this.generateSeatRows(seatsData, bookedSeats, wideSeatRows);
             Showing showing = new Showing(movieTitle, movieType, startDate, seatRows);
             showings.add(showing);
         }
@@ -167,18 +167,21 @@ public class CineplexDatabaseController implements DatabaseController {
      * @param bookedSeats
      * @return ArrayList of SeatRows
      */
-    private ArrayList<SeatRow> generateSeatRows(String[] seatsData, String[] bookedSeats) {
+    private ArrayList<SeatRow> generateSeatRows(String[] seatsData, String[] bookedSeats, String[] wideSeatRows) {
         String rowID = "", currentString, paddedSeatNumber;
         int rowStart = 0;
         int current = 0;
         ArrayList<SeatRow> seatRows = new ArrayList<SeatRow>();
         SeatRow seatRow = null;
         Seat seat;
+        boolean isWideRow = false;
+        float wideSeatAddOn = new SystemSettingController().getSystemSetting().getWideSeatAddOn();
 
         for (int i = 0; i < seatsData.length; i++) {
             currentString = seatsData[i];
             if (currentString.matches("[A-Z]")) {
-                rowID = seatsData[i];
+                rowID = currentString;
+                isWideRow = Arrays.asList(wideSeatRows).contains(rowID);
                 rowStart = current = i;
                 if (seatRow != null) {
                     seatRows.add(seatRow);
@@ -187,18 +190,21 @@ public class CineplexDatabaseController implements DatabaseController {
             } else if (Integer.parseInt(currentString) == (current - rowStart)) {
                 paddedSeatNumber = String.format("%02d", Integer.parseInt(currentString));
                 if (bookedSeats == null) {
-                    seat = new Seat(rowID+paddedSeatNumber, false);
+                    seat = isWideRow ? new WideSeat(rowID+paddedSeatNumber, false, wideSeatAddOn) : new StandardSeat(rowID+paddedSeatNumber, false);
                 } else {
-                    seat = new Seat(rowID+paddedSeatNumber, Arrays.asList(bookedSeats).contains(rowID+paddedSeatNumber));
+                    seat = isWideRow 
+                    ? new WideSeat(rowID+paddedSeatNumber, Arrays.asList(bookedSeats).contains(rowID+paddedSeatNumber), wideSeatAddOn)
+                    : new StandardSeat(rowID+paddedSeatNumber, Arrays.asList(bookedSeats).contains(rowID+paddedSeatNumber));
                 }
                 seatRow.addSeat(seat);
             } else {
-                seat = new Seat();
+                seat = new StandardSeat();
                 seatRow.addSeat(seat);
                 i--;
             }
             current++;
         }
+        seatRows.add(seatRow);
 
         return seatRows;
     }

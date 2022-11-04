@@ -35,11 +35,6 @@ public class MovieGoerMovieController extends MovieController {
     private CineplexController cineplexController = new CineplexController();
 
     /**
-     * Create ShowingsDatabaseController instance
-     */
-    private ShowingsDatabaseController showingsDC = new ShowingsDatabaseController();
-
-    /**
      * Create MovieDatabaseController instance
      */
     private MovieDatabaseController movieDC = new MovieDatabaseController();
@@ -64,7 +59,7 @@ public class MovieGoerMovieController extends MovieController {
         int choice;
         Movie movieChoice = super.findMovies();
 
-        showingsDC.readFile();
+        ShowingsDatabaseController showingsDC = new ShowingsDatabaseController();
 
         if (movieChoice != null) {
             String movieTitle = movieChoice.getMovieTitle();
@@ -309,8 +304,8 @@ public class MovieGoerMovieController extends MovieController {
                     if (!showing.isSeatBooked(seatID)) {
                         addOneToTotalSales(movieTitle);
                         if (new BookingController().newBooking(UID, cineplexName, cinemaName, seatID, movieTitle,
-                            movieDuration, movieType, cinemaType, dp.parseDate(startDate), -1)) {
-                            showingsDC.addBooking(movieTitle, cineplexName, cinemaName, startDate, seatID);
+                            movieDuration, movieType, cinemaType, dp.parseDate(startDate), -1, showing.isWideSeat(seatID))) {
+                            new ShowingsDatabaseController().addBooking(movieTitle, cineplexName, cinemaName, startDate, seatID);
                         }
                         break;
                     } else {

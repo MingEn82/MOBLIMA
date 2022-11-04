@@ -6,7 +6,7 @@ package Entities;
  * @version 1.0
  * @since 2022-11-02
  */
-public class Seat {
+public abstract class Seat {
     /**
      * Check whether seat is booked
      */
@@ -21,16 +21,6 @@ public class Seat {
      * Check whether seat exists
      */
     private boolean isSeat;
-
-    /**
-     * String to represent empty seat
-     */
-    private String emptySquare = "[ ]";
-
-    /**
-     * String to represent filled seat
-     */
-    private String filledSquare = "[x]";
 
     /**
      * Constructor for seat
@@ -85,31 +75,8 @@ public class Seat {
     }
 
     /**
-     * Setter function for EmptySquare
-     * @param emptySquare
-     */
-    public void setEmptySquare(String emptySquare) {
-        this.emptySquare = emptySquare;
-    }
-
-    /**
-     * Setter function for FilledSquare
-     * @param filledSquare
-     */
-    public void setFilledSquare(String filledSquare) {
-        this.filledSquare = filledSquare;
-    }
-
-    /**
      * Print function for Seat
      */
-    public void print() {
-        if (!isSeat) {
-            System.out.print("   ");
-        } else if (isBooked) {
-            System.out.print(filledSquare);
-        } else {
-            System.out.print(emptySquare);
-        }
-    }
+    abstract public void print();
+
 }

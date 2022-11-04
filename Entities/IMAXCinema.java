@@ -39,6 +39,11 @@ public class IMAXCinema extends Cinema {
     private String seatNumbers = "\n   1  2  3  4   5  6  7  8   9  10 11 12 13 14";
 
     /**
+     * String for rows with wide seats
+     */
+    private String[] wideSeatRows = { "H", "I" };
+
+    /**
      * Entrance Layout
      */
     private String entranceLayout = """
@@ -97,6 +102,22 @@ public class IMAXCinema extends Cinema {
      */
     public void setSeatArrangement(String seatArrangement) {
         this.seatArrangement = seatArrangement;
+    }
+
+    /**
+     * Setter function for SeatArrangement
+     * @param seatArrangement
+     */
+    public void setWideSeatRows(String[] wideSeatRows) {
+        this.wideSeatRows = wideSeatRows;
+    }
+
+    /**
+     * Getter function for wide seats rows
+     * @return Seat Arrangement
+     */
+    public String[] getWideSeatRows() {
+        return this.wideSeatRows;
     }
 
     /**

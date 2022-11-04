@@ -1,5 +1,5 @@
 A01202210192250<b>98765432<b>Subra Suresh<b>NTU-President@ntu.edu.sg<b>Golden Village Bedok<b>Cinema 1<b>E10<b>Minority Report<b>145<b>3D<b>IMAX<b>202210221400<b>11.0
-A02202210202250<b>98765432<b>Subra Suresh<b>NTU-President@ntu.edu.sg<b>Golden Village Bedok<b>Cinema 2<b>A09<b>Minions 2<b>87<b> 2D<b>IMAX<b>202210231900<b>11.0
+A02202210202250<b>98765432<b>Subra Suresh<b>NTU-President@ntu.edu.sg<b>Golden Village Bedok<b>Cinema 2<b>A09<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>11.0
 B01202210212250<b>91234567<b>Ling San<b>NTU-Provost@ntu.edu.sg<b>Golden Village Paya Lebar<b>Cinema 1<b>D10<b>Minority Report<b>145<b>2D<b>Standard<b>202210231400<b>11.0
 C02202210222250<b>91234567<b>Ling San<b>NTU-Provost@ntu.edu.sg<b>Golden Village Jurong Point<b>Cinema 2<b>B08<b>Minions 2<b>87<b>3D<b>Standard<b>202210241900<b>8.5
 A02202211020034<b>92315166<b>mingen<b>mingen@test.com<b>Golden Village Bedok<b>Cinema 2<b>A03<b>Minions 2<b>87<b>2D<b>IMAX<b>202210231900<b>13.5

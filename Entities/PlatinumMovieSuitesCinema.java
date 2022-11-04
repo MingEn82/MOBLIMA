@@ -36,6 +36,11 @@ public class PlatinumMovieSuitesCinema extends Cinema{
     private String seatNumbers = "\n   1  2  3   4  5  6";
 
     /**
+     * String for rows with wide seats
+     */
+    private String[] wideSeatRows = { "C", "D", "E", "F" };
+
+    /**
      * Entrance Layout of Platinum Cinema
      */
     private String entranceLayout = """
@@ -94,6 +99,22 @@ public class PlatinumMovieSuitesCinema extends Cinema{
      */
     public void setSeatArrangement(String seatArrangement) {
         this.seatArrangement = seatArrangement;
+    }
+
+    /**
+     * Setter function for SeatArrangement
+     * @param seatArrangement
+     */
+    public void setWideSeatRows(String[] wideSeatRows) {
+        this.wideSeatRows = wideSeatRows;
+    }
+
+    /**
+     * Getter function for wide seats rows
+     * @return Seat Arrangement
+     */
+    public String[] getWideSeatRows() {
+        return this.wideSeatRows;
     }
 
     /**
