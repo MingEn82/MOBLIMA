@@ -18,11 +18,6 @@ public class LoginController {
     Staff currentStaff;
 
     /**
-     * Initialise a Staff object for newStaff
-     */
-    Staff newStaff;
-
-    /**
      * Craete a new object for StaffDatabaseController
      */
     StaffDatabaseController sDBCtrl = new StaffDatabaseController();
@@ -81,6 +76,7 @@ public class LoginController {
      */
     public void displaySignup() {
         String username, password;
+        Staff newStaff1;
         System.out.println("+-------------------------------------------------------+");
         System.out.println("|              Staff Account Registration               |");
         System.out.println("+-------------------------------------------------------+");
@@ -91,15 +87,15 @@ public class LoginController {
         System.out.print("  Enter Password: ");
         password = sc.next();
         System.out.println("");
-        this.newStaff = new Staff(username, password);
-        createNewStaff();
+        newStaff1 = new Staff(username, password);
+        createNewStaff(newStaff1);
     }
 
     /**
      * This method calls the SystemSettingDatabaseController to create a new staff
      * on the database
      */
-    public void createNewStaff() {
+    public void createNewStaff(Staff newStaff) {
         System.out.println("Registering a new account for [" + newStaff.getUsername() + "] ...");
         System.out.println("");
         sDBCtrl.addNewStaff(newStaff.getUsername(), newStaff.getPassword());

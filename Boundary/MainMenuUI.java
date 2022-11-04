@@ -107,7 +107,7 @@ public class MainMenuUI {
     public void displayStaffMenu() {
 
         int choice;
-
+        
         while (!staffController.checkLoggedin()) {
             System.out.println("Redirecting to Staff Portal Login Page");
             System.out.println(""); // print empty line
@@ -144,6 +144,7 @@ public class MainMenuUI {
      * Function to display Movie Goer Menu
      */
     public void displayMovieGoerMenu() {
+        
         int choice;
         do {
             System.out.println(""); // print empty line
