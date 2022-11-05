@@ -1,28 +1,60 @@
-Minority Report<b>Golden Village Bedok<b>Cinema 1<b>202210221400<b>3D<b>E10<b>B02<b>C01
-Minority Report<b>Golden Village Paya Lebar<b>Cinema 1<b>202210231400<b>2D<b>D10
-Minions 2<b>Golden Village Bedok<b>Cinema 2<b>202210231900<b>2D<b>A09<b>A03<b>H01<b>F01<b>A04<b>A05<b>A06
-Minions 2<b>Golden Village Jurong Point<b>Cinema 2<b>202210241900<b>3D<b>B08
-Minions 2<b>Golden Village Paya Lebar<b>Cinema 2<b>202211021900<b>2D<b>A03
-Minority Report<b>Golden Village Jurong Point<b>Cinema 1<b>202211021900<b>Blockbuster<b>D04
-The Godfather<b>Golden Village Bedok<b>Cinema 1<b>202212119007<b>2D
-The Shawshank Redemption<b>Golden Village Bedok<b>Cinema 2<b>202212171900<b>3D
-The Shawshank Redemption<b>Golden Village Paya Lebar<b>Cinema 2<b>202212171900<b>Blockbuster
-The Shawshank Redemption<b>Golden Village Jurong Point<b>Cinema 1<b>202212171900<b>Blockbuster
-The Godfather<b>Golden Village Jurong Point<b>Cinema 3<b>202212021900<b>2D
-The Godfather<b>Golden Village Paya Lebar<b>Cinema 1<b>202212021900<b>Blockbuster
-The Godfather<b>Golden Village Bedok<b>Cinema 2<b>202212031900<b>3D<b>G06
-The Shawshank Redemption<b>Golden Village Bedok<b>Cinema 1<b>202211071400<b>2D
-The Shawshank Redemption<b>Golden Village Jurong Point<b>Cinema 1<b>202211051300<b>2D<b>E01
-The Godfather<b>Golden Village Paya Lebar<b>Cinema 1<b>202211240700<b>2D
-Black Adam<b>Golden Village Jurong Point<b>Cinema 1<b>202211091400<b>3D<b>C09
-Minority Report<b>Golden Village Paya Lebar<b>Cinema 1<b>202211051300<b>3D
-Minions 2<b>Golden Village Bedok<b>Cinema 2<b>202211161200<b>3D
-Black Adam<b>Golden Village Bedok<b>Cinema 2<b>202211161000<b>3D
-Black Adam<b>Golden Village Bedok<b>Cinema 3<b>202211161000<b>3D
-Black Adam<b>Golden Village Paya Lebar<b>Cinema 3<b>202211051300<b>3D
-The Godfather<b>Golden Village Jurong Point<b>Cinema 2<b>202211061100<b>Blockbuster<b>H05
-Minions 2<b>Golden Village Jurong Point<b>Cinema 1<b>202212051200<b>2D
-Minions 2<b>Golden Village Bedok<b>Cinema 1<b>202212041400<b>2D
-Minions 2<b>Golden Village Paya Lebar<b>Cinema 1<b>202212091400<b>2D
-Minions 2<b>Golden Village Jurong Point<b>Cinema 1<b>202212092000<b>2D
-Minions 2<b>Golden Village Bedok<b>Cinema 1<b>202212251300<b>2D<b>A01
+Minority Report<b>Golden Village Bedok<b>Cinema 1<b>202211120700<b>2D
+Minority Report<b>Golden Village Bedok<b>Cinema 1<b>202211110700<b>2D
+Minority Report<b>Golden Village Bedok<b>Cinema 1<b>202211111800<b>2D
+Minority Report<b>Golden Village Paya Lebar<b>Cinema 1<b>202211070700<b>2D
+Minority Report<b>Golden Village Paya Lebar<b>Cinema 1<b>202211240700<b>2D
+Minority Report<b>Golden Village Paya Lebar<b>Cinema 1<b>202211080700<b>2D
+Minority Report<b>Golden Village Jurong Point<b>Cinema 1<b>202211120700<b>3D
+Minority Report<b>Golden Village Bedok<b>Cinema 2<b>202211070700<b>3D
+Minority Report<b>Golden Village Bedok<b>Cinema 3<b>202211070700<b>3D
+Minority Report<b>Golden Village Paya Lebar<b>Cinema 2<b>202211070700<b>Blockbuster
+Black Adam<b>Golden Village Bedok<b>Cinema 1<b>202211121000<b>2D
+Black Adam<b>Golden Village Bedok<b>Cinema 1<b>202211111000<b>2D
+Black Adam<b>Golden Village Bedok<b>Cinema 1<b>202211112030<b>2D
+Black Adam<b>Golden Village Paya Lebar<b>Cinema 1<b>202211071000<b>2D
+Black Adam<b>Golden Village Paya Lebar<b>Cinema 1<b>202211241000<b>2D
+Black Adam<b>Golden Village Paya Lebar<b>Cinema 1<b>202211081000<b>2D
+Black Adam<b>Golden Village Jurong Point<b>Cinema 1<b>202211121000<b>3D
+Black Adam<b>Golden Village Bedok<b>Cinema 2<b>202211071000<b>3D
+Black Adam<b>Golden Village Bedok<b>Cinema 3<b>202211071000<b>3D
+Black Adam<b>Golden Village Paya Lebar<b>Cinema 2<b>202211071000<b>Blockbuster
+The Shawshank Redemption<b>Golden Village Bedok<b>Cinema 1<b>202211121300<b>2D
+The Shawshank Redemption<b>Golden Village Bedok<b>Cinema 1<b>202211111300<b>2D
+The Shawshank Redemption<b>Golden Village Bedok<b>Cinema 1<b>202211112300<b>2D
+The Shawshank Redemption<b>Golden Village Paya Lebar<b>Cinema 1<b>202211071300<b>2D
+The Shawshank Redemption<b>Golden Village Paya Lebar<b>Cinema 1<b>202211241300<b>2D
+The Shawshank Redemption<b>Golden Village Paya Lebar<b>Cinema 1<b>202211081300<b>2D
+The Shawshank Redemption<b>Golden Village Jurong Point<b>Cinema 1<b>202211121300<b>3D
+The Shawshank Redemption<b>Golden Village Bedok<b>Cinema 2<b>202211071300<b>3D
+The Shawshank Redemption<b>Golden Village Bedok<b>Cinema 3<b>202211071300<b>3D
+The Shawshank Redemption<b>Golden Village Paya Lebar<b>Cinema 2<b>202211071300<b>Blockbuster
+The Godfather<b>Golden Village Bedok<b>Cinema 1<b>202211121600<b>2D
+The Godfather<b>Golden Village Bedok<b>Cinema 1<b>202211111600<b>2D
+The Godfather<b>Golden Village Paya Lebar<b>Cinema 1<b>202211111800<b>2D
+The Godfather<b>Golden Village Paya Lebar<b>Cinema 1<b>202211071600<b>2D
+The Godfather<b>Golden Village Paya Lebar<b>Cinema 1<b>202211241600<b>2D
+The Godfather<b>Golden Village Paya Lebar<b>Cinema 1<b>202211081600<b>2D
+The Godfather<b>Golden Village Jurong Point<b>Cinema 1<b>202211121600<b>3D
+The Godfather<b>Golden Village Bedok<b>Cinema 2<b>202211071600<b>3D
+The Godfather<b>Golden Village Bedok<b>Cinema 3<b>202211071600<b>3D
+The Godfather<b>Golden Village Paya Lebar<b>Cinema 2<b>202211071600<b>Blockbuster
+Minions 2<b>Golden Village Bedok<b>Cinema 1<b>202211191600<b>2D
+Minions 2<b>Golden Village Bedok<b>Cinema 1<b>202211181600<b>2D
+Minions 2<b>Golden Village Paya Lebar<b>Cinema 1<b>202211181800<b>2D
+Minions 2<b>Golden Village Paya Lebar<b>Cinema 1<b>202211141600<b>2D
+Minions 2<b>Golden Village Paya Lebar<b>Cinema 1<b>202211241900<b>2D
+Minions 2<b>Golden Village Paya Lebar<b>Cinema 1<b>202211151600<b>2D
+Minions 2<b>Golden Village Jurong Point<b>Cinema 1<b>202211191600<b>3D
+Minions 2<b>Golden Village Bedok<b>Cinema 2<b>202211141600<b>3D
+Minions 2<b>Golden Village Bedok<b>Cinema 3<b>202211141600<b>3D
+Minions 2<b>Golden Village Paya Lebar<b>Cinema 2<b>202211141600<b>Blockbuster
+Ajoomma<b>Golden Village Bedok<b>Cinema 1<b>202211191300<b>2D
+Ajoomma<b>Golden Village Bedok<b>Cinema 1<b>202211181300<b>2D
+Ajoomma<b>Golden Village Paya Lebar<b>Cinema 1<b>202211182030<b>2D
+Ajoomma<b>Golden Village Paya Lebar<b>Cinema 1<b>202211141300<b>2D
+Ajoomma<b>Golden Village Jurong Point<b>Cinema 1<b>202211241300<b>2D
+Ajoomma<b>Golden Village Paya Lebar<b>Cinema 1<b>202211151300<b>2D
+Ajoomma<b>Golden Village Jurong Point<b>Cinema 1<b>202211191300<b>3D
+Ajoomma<b>Golden Village Bedok<b>Cinema 2<b>202211141300<b>3D
+Ajoomma<b>Golden Village Bedok<b>Cinema 3<b>202211141300<b>3D
+Ajoomma<b>Golden Village Paya Lebar<b>Cinema 2<b>202211141300<b>Blockbuster

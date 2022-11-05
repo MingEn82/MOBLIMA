@@ -102,7 +102,7 @@ public class ShowingController {
         i = 0;
         Cineplex chosenCineplex = null;
         Cinema chosenCinema = null;
-        System.out.println("\nSelect Cinema (type 0 to exist):");
+        System.out.println("\nSelect Cinema (type 0 to exit):");
         for (Cineplex cineplex : cineplexes) {
             for (Cinema cinema : cineplex.getCinemas()) {
                 System.out.println(++i + ") " + cineplex.getCineplexName() + ", " + cinema.getCinemaName() + " ("
@@ -124,8 +124,10 @@ public class ShowingController {
             }
         } while (choice < 0 || choice > i);
 
-        System.out.println("\nEnter Date (yyyyMMddHHmm format): ");
+        System.out.println("\nEnter Date in yyyyMMddHHmm format (type 0 to exit): ");
         String date = ip.getString();
+        if (date.equals("0"))
+            return;
 
         i = 0;
         String movieType = null;
@@ -146,7 +148,7 @@ public class ShowingController {
                     movieType = "Blockbuster";
                     break;
                 case 0:
-                    break;
+                    return;
                 default:
                     System.out.println("Invalid choice!");
 
