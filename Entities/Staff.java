@@ -20,8 +20,8 @@ public class Staff extends User {
     }
     /**
      * Constructor for Staff Class.
-     * @param username
-     * @param password
+     * @param username  username of staff
+     * @param password  password of staff
      */
     public Staff (String username, String password){
         this.setUsername(username);
@@ -37,7 +37,7 @@ public class Staff extends User {
     }
     /**
      * Setter method for password.
-     * @param password
+     * @param password  new password
      */
     public void setPassword(String password) {
         this.password = password;

@@ -94,6 +94,7 @@ public class LoginController {
     /**
      * This method calls the SystemSettingDatabaseController to create a new staff
      * on the database
+     * @param newStaff  new staff member
      */
     public void createNewStaff(Staff newStaff) {
         System.out.println("Registering a new account for [" + newStaff.getUsername() + "] ...");
@@ -116,6 +117,9 @@ public class LoginController {
 
     }
 
+    /**
+     * This function logs out current staff
+     */
     public void logout() {
         currentStaff = null;
     }

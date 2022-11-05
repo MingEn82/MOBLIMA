@@ -56,7 +56,7 @@ public class MovieDatabaseController implements DatabaseController {
 
     /**
      * Overloaded constructor for MovieDatabaseController in case database files are found elsewhere
-     * @param filePath
+     * @param filePath  path to movie database
      */
     public MovieDatabaseController(String filePath) {
         this.file = new File(filePath);
@@ -133,6 +133,16 @@ public class MovieDatabaseController implements DatabaseController {
         return movies;
     }
 
+    /**
+     * This function adds a new movie to the database
+     * @param movieTitle        name of movie
+     * @param showingStatus     showing status of movie
+     * @param synopsis          synopsis of movie
+     * @param ageRating         age rating of movie
+     * @param director          director of movie
+     * @param cast              cast members of movie
+     * @param duration          duration of movie
+     */
     public void addNewMovie(String movieTitle, String showingStatus, String synopsis, AgeRating ageRating, String director, String[] cast, int duration) {
         // Check for duplicate movie
         if (movieExists(movieTitle)) {
@@ -147,7 +157,7 @@ public class MovieDatabaseController implements DatabaseController {
 
     /**
      * Deletes movie by setting the showing status to End of Showing
-     * @param movieTitle
+     * @param movieTitle    name of movie
      */
     public void deleteMovie(String movieTitle) {
         for (Movie m : movies) {
@@ -163,7 +173,7 @@ public class MovieDatabaseController implements DatabaseController {
 
     /**
      * Deletes movie from database
-     * @param movieTitle
+     * @param movieTitle    name of movie
      */
     public void removeMovieFromDatabase(String movieTitle) {
         movies.removeIf(m -> m.getMovieTitle().equals(movieTitle));
@@ -172,7 +182,7 @@ public class MovieDatabaseController implements DatabaseController {
 
     /**
      * Prints all reviews of the movie
-     * @param movieTitle
+     * @param movieTitle    name of movie
      */
     public void printReviews(String movieTitle) {
         if (!hasReview(movieTitle)) {
@@ -194,8 +204,8 @@ public class MovieDatabaseController implements DatabaseController {
 
     /**
      * Prints review of movie, filtered by phone number
-     * @param movieTitle
-     * @param phoneNumber
+     * @param movieTitle    name of movie
+     * @param phoneNumber   phone number of reviewer
      */
     public void printReviews(String movieTitle, int phoneNumber) {
         if (!hasReview(movieTitle)) {
@@ -213,8 +223,8 @@ public class MovieDatabaseController implements DatabaseController {
 
     /**
      * Checks whether person with phone number has left a review on movie
-     * @param movieTitle
-     * @param phoneNumber
+     * @param movieTitle    name of movie
+     * @param phoneNumber   phone number of reviewer
      * @return true if person has left a review for this movie, false otherwise
      */
     public boolean hasReview(String movieTitle, int phoneNumber) {
@@ -228,7 +238,8 @@ public class MovieDatabaseController implements DatabaseController {
 
     /**
      * Checks whether movie has at least one review
-     * @return true if movie has at least one review, false otherwise
+     * @param movieTitle    name of movie
+     * @return              true if movie has at least one review, false otherwise
      */
     public boolean hasReview(String movieTitle) {
         for (Movie movie : movies) {
@@ -241,8 +252,8 @@ public class MovieDatabaseController implements DatabaseController {
 
     /**
      * Adds a review to movie
-     * @param movieTitle
-     * @param review
+     * @param movieTitle    name of movie
+     * @param review        new review
      */
     public void addReview(String movieTitle, Review review) {
         for (Movie movie : movies) {
@@ -259,8 +270,8 @@ public class MovieDatabaseController implements DatabaseController {
 
     /**
      * Updates review of movie
-     * @param movieTitle
-     * @param review
+     * @param movieTitle    name of movie
+     * @param review        updated review
      */
     public void updateReview(String movieTitle, Review review) {
         for (Movie movie : movies) {
@@ -277,8 +288,8 @@ public class MovieDatabaseController implements DatabaseController {
 
     /**
      * Updates movie details
-     * @param oldMovie
-     * @param newMovie
+     * @param oldMovie  old movie
+     * @param newMovie  updated movie
      */
     public void updateMovie(Movie oldMovie, Movie newMovie) {
         movies.removeIf(m -> m.getMovieTitle().equals(oldMovie.getMovieTitle()));
@@ -288,7 +299,7 @@ public class MovieDatabaseController implements DatabaseController {
 
     /**
      * Getter function for movie duration
-     * @param movieTitle
+     * @param movieTitle    name of movie
      * @return movie duration in minutes
      */
     public int getMovieDuration(String movieTitle) {
@@ -302,7 +313,7 @@ public class MovieDatabaseController implements DatabaseController {
 
     /**
      * Getter function for movie
-     * @param movieTitle
+     * @param movieTitle    name of movie
      * @return movie duration in minutes
      */
     public Movie getMovie(String movieTitle) {
@@ -332,7 +343,7 @@ public class MovieDatabaseController implements DatabaseController {
 
     /**
      * Checks whether movie exists
-     * @param movieTitle
+     * @param movieTitle    name of movie
      * @return true if movie exists, false otherwise
      */
     public boolean movieExists(String movieTitle) {
@@ -346,7 +357,7 @@ public class MovieDatabaseController implements DatabaseController {
 
     /**
      * Adds one to total sales
-     * @param movieTitle
+     * @param movieTitle    name of movie
      */
     public void addOneToTotalSales(String movieTitle) {
         for (Movie m : movies) {

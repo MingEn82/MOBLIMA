@@ -26,13 +26,13 @@ public class Cineplex {
 
     /**
      * Constructor for cineplex
-     * @param cineplexName
-     * @param cinepexID
+     * @param cineplexName   cineplex name
+     * @param cineplexID     cineplex ID
      */
-    public Cineplex(String cineplexName, String cinepexID) {
+    public Cineplex(String cineplexName, String cineplexID) {
         this.cinemas = new ArrayList<Cinema>();
         this.cineplexName = cineplexName;
-        this.cineplexID = cinepexID;
+        this.cineplexID = cineplexID;
     }
 
     /**
@@ -58,7 +58,7 @@ public class Cineplex {
 
     /**
      * This is a setter function for setting Cinemas.
-     * @param cinemas
+     * @param cinemas   new cinemas
      */
     public void setCinemas(ArrayList<Cinema> cinemas) {
         this.cinemas = cinemas;
@@ -67,7 +67,7 @@ public class Cineplex {
 
     /**
      * This is a function to add a new cinema into the cinema list.
-     * @param cinema
+     * @param cinema    new cinema
      */
     public void addCinema(Cinema cinema) {
         this.cinemas.add(cinema);

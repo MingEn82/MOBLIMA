@@ -8,6 +8,10 @@ import Boundary.MainMenuUI;
  */
 public class MainApp {
 
+    /**
+     * Main Application
+     * @param args  other arguments (none for this project)
+     */
     public static void main(String[] args) {
 
         try{

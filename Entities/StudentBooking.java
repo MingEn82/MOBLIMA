@@ -18,19 +18,20 @@ public class StudentBooking extends Booking {
 
     /**
      * Constructor for Student Booking
-     * @param tID
-     * @param phoneNumberOfMovieGoer
-     * @param nameOfMovieGoer
-     * @param emailOfMovieGoer
-     * @param cineplexName
-     * @param cinemaName
-     * @param seatID
-     * @param movieTitle
-     * @param movieDuration
-     * @param movieType
-     * @param cinemaType
-     * @param startDate
-     * @param price
+     * @param tID                       booking id
+     * @param phoneNumberOfMovieGoer    phone number
+     * @param nameOfMovieGoer           name
+     * @param emailOfMovieGoer          email address
+     * @param cineplexName              name of cineplex
+     * @param cinemaName                name of cinema
+     * @param seatID                    seat ID
+     * @param movieTitle                name of movie
+     * @param movieDuration             duration of movie
+     * @param movieType                 type of movie (2D, 3D, Blockbuster)
+     * @param cinemaType                type of cinema (Standard, IMAX, Platinum Movie Suite)
+     * @param startDate                 start date and time of showing
+     * @param price                     ticket price
+     * @param isWideSeat                whether user booked a wide seat
      */
     public StudentBooking(String tID, int phoneNumberOfMovieGoer, String nameOfMovieGoer, String emailOfMovieGoer,
             String cineplexName, String cinemaName, String seatID, String movieTitle, int movieDuration,

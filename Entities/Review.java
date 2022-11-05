@@ -25,9 +25,9 @@ public class Review {
 
     /**
      * This is the constructor for Review.
-     * @param rating
-     * @param phoneNumber
-     * @param reviewText
+     * @param rating        rating of movie from 1-5
+     * @param phoneNumber   phone number of reviewer
+     * @param reviewText    review body
      */
     public Review(float rating, int phoneNumber, String reviewText) {
         this.rating = rating;
@@ -37,8 +37,8 @@ public class Review {
 
     /**
      * This is a constructor for Review.
-     * @param rating
-     * @param phoneNumber
+     * @param rating        rating of movie from 1-5
+     * @param phoneNumber   phone number of reviewer
      */
     public Review(float rating, int phoneNumber) {
         this.rating = rating;
@@ -49,6 +49,7 @@ public class Review {
 
     /**
      * This method converts the review object to string.
+     * @param delimiter delimiter for concatenating review object
      * @return String Of Review Object
      */
     public String toString(String delimiter) {
@@ -81,7 +82,7 @@ public class Review {
 
     /**
      * This is a setter function for setting rating.
-     * @param rating
+     * @param rating    new rating of movie
      */
     public void setRating(float rating) {
         this.rating = rating;
@@ -97,7 +98,7 @@ public class Review {
 
     /**
      * This is a setter function for setting phone number.
-     * @param phoneNumber
+     * @param phoneNumber   new phone number of reviewer
      */
     public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
@@ -113,7 +114,7 @@ public class Review {
 
     /**
      * This is a setter function for setting review text.
-     * @param reviewText
+     * @param reviewText    new review body
      */
     public void setReviewText(String reviewText) {
         this.reviewText = reviewText;

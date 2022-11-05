@@ -19,8 +19,8 @@ public class StandardSeat extends Seat {
 
     /**
      * Constructor for StandardSeat
-     * @param SeatNumber
-     * @param isBooked
+     * @param seatNumber    seat number
+     * @param isBooked      whether seat is booked
      */
     public StandardSeat(String seatNumber, boolean isBooked) {
         super(seatNumber, isBooked);

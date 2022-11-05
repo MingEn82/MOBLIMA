@@ -17,7 +17,7 @@ public class MovieGoerController {
     /**
      * Handles the choice of movie goer
      * 
-     * @param choice
+     * @param choice    choice of movie goer
      */
     public void processMovieGoerChoice(int choice) {
         switch (choice) {

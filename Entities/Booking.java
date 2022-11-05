@@ -90,19 +90,20 @@ public class Booking {
     
     /**
      * Constructor for the booking class.
-     * @param TID
-     * @param phoneNumberOfMovieGoer
-     * @param nameOfMovieGoer
-     * @param emailOfMovieGoer
-     * @param cineplexName
-     * @param cinemaName
-     * @param seatID
-     * @param movieTitle
-     * @param movieDuration
-     * @param movieType
-     * @param cinemaType
-     * @param startDate
-     * @param price
+     * @param TID                       booking id
+     * @param phoneNumberOfMovieGoer    phone number
+     * @param nameOfMovieGoer           name
+     * @param emailOfMovieGoer          email address
+     * @param cineplexName              name of cineplex
+     * @param cinemaName                name of cinema
+     * @param seatID                    seat ID
+     * @param movieTitle                name of movie
+     * @param movieDuration             duration of movie
+     * @param movieType                 type of movie (2D, 3D, Blockbuster)
+     * @param cinemaType                type of cinema (Standard, IMAX, Platinum Movie Suite)
+     * @param startDate                 start date and time of showing
+     * @param price                     ticket price
+     * @param isWideSeat                whether user booked a wide seat
      */
     public Booking(String TID, int phoneNumberOfMovieGoer, String nameOfMovieGoer, String emailOfMovieGoer, String cineplexName, String cinemaName, String seatID, String movieTitle, int movieDuration, String movieType, String cinemaType, Date startDate, float price, boolean isWideSeat) {
         this.TID = TID;
@@ -121,6 +122,22 @@ public class Booking {
         this.isWideSeat = isWideSeat;
     }
 
+    /**
+     * Constructor for the booking class.
+     * @param TID                       booking id
+     * @param phoneNumberOfMovieGoer    phone number
+     * @param nameOfMovieGoer           name
+     * @param emailOfMovieGoer          email address
+     * @param cineplexName              name of cineplex
+     * @param cinemaName                name of cinema
+     * @param seatID                    seat ID
+     * @param movieTitle                name of movie
+     * @param movieDuration             duration of movie
+     * @param movieType                 type of movie (2D, 3D, Blockbuster)
+     * @param cinemaType                type of cinema (Standard, IMAX, Platinum Movie Suite)
+     * @param startDate                 start date and time of showing
+     * @param price                     ticket price
+     */
     public Booking(String TID, int phoneNumberOfMovieGoer, String nameOfMovieGoer, String emailOfMovieGoer, String cineplexName, String cinemaName, String seatID, String movieTitle, int movieDuration, String movieType, String cinemaType, Date startDate, float price) {
         this.TID = TID;
         this.phoneNumberOfMovieGoer = phoneNumberOfMovieGoer;
@@ -176,7 +193,7 @@ public class Booking {
     /**
      * Convert date format to string.
      * @param d date
-     * @return
+     * @return  string representation of date
      */
     public static String dateToString(Date d) {
         DateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmm");
@@ -185,8 +202,8 @@ public class Booking {
 
     /**
      * Calculates the day of the week of a showing and return the day of the week.
-     * @param d date
-     * @return
+     * @param d     date
+     * @return      day of week
      */
     public String getDayOfWeek(Date d)
     {
@@ -319,7 +336,7 @@ public class Booking {
 
     /**
      * Setter function for Movie Title
-     * @param movieTitle
+     * @param movieTitle    new movie name
      */
     public void setMovieTitle(String movieTitle) {
         this.movieTitle = movieTitle;
@@ -336,7 +353,7 @@ public class Booking {
 
     /**
      * Setter function for Movie Duration.
-     * @param movieDuration
+     * @param movieDuration new movie duration
      */
     public void setMovieDuration(int movieDuration) {
         this.movieDuration = movieDuration;
@@ -352,7 +369,7 @@ public class Booking {
 
     /**
      * Setter function for Movie Type.
-     * @param movieType
+     * @param movieType new movie type
      */
     public void setMovieType(String movieType) {
         this.movieType = movieType;
@@ -369,7 +386,7 @@ public class Booking {
 
     /**
      * Setter function for Cinema Type.
-     * @param cinemaType
+     * @param cinemaType    new cinema type
      */
     public void setCinemaType(String cinemaType) {
         this.cinemaType = cinemaType;
@@ -385,7 +402,7 @@ public class Booking {
 
     /**
      * Setter function for start date.
-     * @param startDate
+     * @param startDate new start date
      */
     public void setStartDate(Date startDate) {
         this.startDate = startDate;
@@ -401,7 +418,7 @@ public class Booking {
 
     /**
      * Setter function for price.
-     * @param price
+     * @param price new price
      */
     public void setPrice(float price) {
         this.price = price;
@@ -417,7 +434,7 @@ public class Booking {
 
     /**
      * Setter function for price.
-     * @param price
+     * @param isWideSeat    whether seat booked is a wide seat
      */
     public void setIsWideSeat(boolean isWideSeat) {
         this.isWideSeat = isWideSeat;

@@ -50,7 +50,7 @@ public class ShowingsDatabaseController implements DatabaseController {
 
     /**
      * Overloaded constructor for ShowingsDatabaseController in case database files are found elsewhere
-     * @param filePath
+     * @param filePath  filepath to showings database
      */
     public ShowingsDatabaseController(String filePath) {
         file = new File(filePath);
@@ -83,9 +83,9 @@ public class ShowingsDatabaseController implements DatabaseController {
 
     /**
      * This function filters the showings for a particular cinema
-     * @param cineplexName
-     * @param cinemaName
-     * @return ArrayList of showings details
+     * @param cineplexName  name of cineplex
+     * @param cinemaName    name of cinema
+     * @return              ArrayList of showings details
      */
     public ArrayList<String[]> filterShowings(String cineplexName, String cinemaName) {
         DateParser dp = new DateParser("yyyyMMddHHmm");
@@ -101,8 +101,8 @@ public class ShowingsDatabaseController implements DatabaseController {
 
     /**
      * This function filters the showings for a particular movie
-     * @param movieName
-     * @return ArrayList of showings details
+     * @param movieName name of movie
+     * @return          ArrayList of showings details
      */
     public ArrayList<String[]> filterShowings(String movieName) {
         DateParser dp = new DateParser("yyyyMMddHHmm");
@@ -118,10 +118,10 @@ public class ShowingsDatabaseController implements DatabaseController {
 
     /**
      * This function filters the showings for a particular movie in a particular cinema
-     * @param cineplexName
-     * @param cinemaName
-     * @param movieTitle 
-     * @return ArrayList of showings details
+     * @param cineplexName  cineplex name
+     * @param cinemaName    cinema name
+     * @param movieTitle    name of movie
+     * @return              ArrayList of showings details
      */
     public ArrayList<String[]> filterShowings(String cineplexName, String cinemaName, String movieTitle) {
         DateParser dp = new DateParser("yyyyMMddHHmm");
@@ -136,12 +136,12 @@ public class ShowingsDatabaseController implements DatabaseController {
     }
 
     /**
-     * This function eturns showing details
-     * @param cineplexName
-     * @param cinemaName
-     * @param movieTitle
-     * @param date
-     * @return String[] showing
+     * This function returns showing details
+     * @param cineplexName  cineplex name
+     * @param cinemaName    cinema name
+     * @param movieTitle    movie name
+     * @param date          date of showing
+     * @return              String[] showing
      */
     public String[] getShowing(String cineplexName, String cinemaName, String movieTitle, String date) {
         System.out.println(cineplexName + " " + cinemaName + " " + movieTitle + " " + date);
@@ -156,8 +156,8 @@ public class ShowingsDatabaseController implements DatabaseController {
 
     /**
      * This function updates a showing details
-     * @param oldShowing
-     * @param newShowing
+     * @param oldShowing    old showing
+     * @param newShowing    new showing
      */
     public void updateShowing(String[] oldShowing, String[] newShowing) {
         showingsData.removeIf(showing -> 
@@ -173,7 +173,7 @@ public class ShowingsDatabaseController implements DatabaseController {
 
     /**
      * This function deletes all showings of movie
-     * @param movieTitle
+     * @param movieTitle    name of movie
      */
     public void deleteShowings(String movieTitle) {
         showingsData.removeIf(showing -> showing[0].equals(movieTitle));
@@ -182,16 +182,25 @@ public class ShowingsDatabaseController implements DatabaseController {
 
     /**
      * This function deletes a particular showing
-     * @param movieTitle
-     * @param cineplexName
-     * @param cinemaName
-     * @param date
+     * @param movieTitle    movie name
+     * @param cineplexName  cineplex name
+     * @param cinemaName    cinema name
+     * @param date          date of showing
      */
     public void deleteShowing(String movieTitle, String cineplexName, String cinemaName, String date) {
         showingsData.removeIf(showing -> showing[0].equals(movieTitle) && showing[1].equals(cineplexName) && showing[2].equals(cinemaName) && showing[3].equals(date));
         this.updateDatabase();
     }   
 
+    /**
+     * This function adds a new showing to the database
+     * @param movieTitle        name of movie
+     * @param cineplexName      name of cineplex
+     * @param cinemaName        name of cinema
+     * @param date              date of showing
+     * @param movieType         type of movie (2D, 3D, blockbuster)
+     * @return                  true if showing was added, false otherwise
+     */
     public boolean addNewShowing(String movieTitle, String cineplexName, String cinemaName, String date, String movieType) {
         ArrayList<String[]> updatedShowings = new ArrayList<String[]>();
 
@@ -212,12 +221,12 @@ public class ShowingsDatabaseController implements DatabaseController {
     }
 
     /**
-     * This function adds a new booking to the database
-     * @param movieTitle
-     * @param cineplexName
-     * @param cinemaName
-     * @param date
-     * @param seatID
+     * This function adds a new booking to the showing database
+     * @param movieTitle    name of movie
+     * @param cineplexName  name of cineplex
+     * @param cinemaName    name of cinema
+     * @param date          date of showing
+     * @param seatID        seat ID
      */
     public void addBooking(String movieTitle, String cineplexName, String cinemaName, String date, String seatID) {
         ArrayList<String[]> updatedShowings = new ArrayList<String[]>();

@@ -7,5 +7,8 @@ package Controller;
  * @since 2022-11-03
  */
 public interface DatabaseController {
+    /**
+     * Read file
+     */
     public void readFile();
 }

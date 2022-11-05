@@ -316,7 +316,7 @@ public abstract class MovieController {
     /**
      * Prints all movies and returns chosen movie
      * 
-     * @param movies
+     * @param movies arraylist of movies
      * @return chosen movie object, null otherwise
      */
     private Movie printMovies(ArrayList<Movie> movies) {
@@ -357,7 +357,7 @@ public abstract class MovieController {
     /**
      * filters movies by showing status
      * 
-     * @param showingStatus
+     * @param showingStatus movie showing status
      * @return ArrayList of Movies
      */
     public ArrayList<Movie> filterMoviesByShowingStatus(String showingStatus) {
@@ -404,7 +404,7 @@ public abstract class MovieController {
     /**
      * Filters movies with movie name
      * 
-     * @param movieName
+     * @param movieName name of movie
      * @return ArrayList of Movies
      */
     public ArrayList<Movie> filterMoviesByName(String movieName) {
@@ -422,7 +422,7 @@ public abstract class MovieController {
     /**
      * Adds a sale to movie
      * 
-     * @param movieTitle
+     * @param movieTitle name of movie
      */
     public void addOneToTotalSales(String movieTitle) {
         movieDC.addOneToTotalSales(movieTitle);

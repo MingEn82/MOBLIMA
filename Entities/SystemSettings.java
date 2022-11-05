@@ -38,7 +38,7 @@ public class SystemSettings {
      */
     private float pHPrices;
 
-    /*
+    /**
      * Student Discount Price
      */
     private float studentDiscount;
@@ -165,7 +165,7 @@ public class SystemSettings {
         System.out.println(
                 "| Blockbuster Movie:                           + $  " + String.format("%.2f", blockbusterAddOn) + "|");
         System.out.println(
-                "| IMAX Movie:                                  + $  " + String.format("%.2f", IMAXAddOn) + "|");
+                "| IMAX Cinema:                                 + $  " + String.format("%.2f", IMAXAddOn) + "|");
         System.out.println(
                 "| Platinum Movie Suite:                        + $  " + String.format("%.2f", platinumAddOn) + "|");
         System.out.println(
@@ -464,7 +464,7 @@ public class SystemSettings {
     /**
      * Setter method for additional price for wide seat
      * 
-     * @param platinumAddOn additional price for wide seat
+     * @param wideSeatAddOn additional price for wide seat
      */
     public void setWideSeatAddOn(float wideSeatAddOn) {
         this.wideSeatAddOn = wideSeatAddOn;

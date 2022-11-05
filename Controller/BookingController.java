@@ -17,11 +17,20 @@ import Entities.SeniorBooking;
  * @since 2022-11-02
  */
 public class BookingController {
+    /**
+     * Creates BookingsDatabaseController object
+     */
     BookingsDatabaseController bookingsDatabaseController =  new BookingsDatabaseController();
+
+    /**
+     * Creates CineplexController object
+     */
     CineplexController cineplexController = new CineplexController();
+
+    /**
+     * Creates bookings arraylist
+     */
     ArrayList<Booking> bookings = new ArrayList<Booking>(); // Create an ArrayList object
-
-
 
     /**
      * Constructor for Booking Controller
@@ -80,11 +89,11 @@ public class BookingController {
      * This function checks whether if a booking already exist for a particular showing.
      * Staff is not supposed to update an existing showing details such as showtime once booking has happened.
      * Returns false if no booking is found. Else, returns true.
-     * @param cineplexName
-     * @param cinemaName
-     * @param movieTitle
-     * @param startDate
-     * @return
+     * @param cineplexName  name of cineplex
+     * @param cinemaName    name of cinema
+     * @param movieTitle    name of movie
+     * @param startDate     start date of showing
+     * @return              true if booking exists, else false
      */
     public boolean bookingExistForShowing(String cineplexName, String cinemaName, String movieTitle, Date startDate)
     {
@@ -102,16 +111,17 @@ public class BookingController {
      * This function prompts the user to select a movie, a cinema and choose one of the available showing.
      * He will also need to key in his/her name, email address and phone number.
      * Price will be calculated depending on the movie type, time/date of movie, cinema type and whether the type of ticket.
-     * @param TID
-     * @param cineplexName
-     * @param cinemaName
-     * @param seatID
-     * @param movieTitle
-     * @param movieDuration
-     * @param movieType
-     * @param cinemaType
-     * @param startDate
-     * @param price             
+     * @param TID               booking id
+     * @param cineplexName      name of cineplex
+     * @param cinemaName        name of cinema
+     * @param seatID            seat ID
+     * @param movieTitle        name of movie
+     * @param movieDuration     duration of movie in mins
+     * @param movieType         type of movie (2D, 3D, Blockbuster)
+     * @param cinemaType        type of cinema (Standard, IMAX, Platinum Movie Suite)
+     * @param startDate         start date and time of showing
+     * @param price             ticket price
+     * @param isWideSeat        whether movie goer booked a wide seat
      * @return                  true if successful, false if unsuccessful
      */
     public boolean newBooking(String TID, String cineplexName, String cinemaName, String seatID, String movieTitle, int movieDuration, String movieType, String cinemaType, Date startDate, float price, boolean isWideSeat)
@@ -232,20 +242,20 @@ public class BookingController {
     /**
      * This function will book multiple tickets based on inputted name, email address and phone number
      * Price will be calculated depending on the movie type, time/date of movie, cinema type and whether the type of ticket.
-     * @param TID
-     * @param cineplexName
-     * @param cinemaName
-     * @param seatID
-     * @param movieTitle
-     * @param movieDuration
-     * @param movieType
-     * @param cinemaType
-     * @param startDate
-     * @param price
-     * @param isWideSeat
-     * @param name
-     * @param emailAddress
-     * @param phoneNumber
+     * @param TID               booking id
+     * @param cineplexName      cineplex name
+     * @param cinemaName        cinema name
+     * @param seatID            seat ID
+     * @param movieTitle        name of movie
+     * @param movieDuration     duration of movie in mins
+     * @param movieType         type of movie (2D, 3D, Blockbuster)
+     * @param cinemaType        type of cinema (Standard, IMAX, Platinum Movie Suite)
+     * @param startDate         start date and time of showing
+     * @param price             ticket price
+     * @param isWideSeat        whether user booked a wide seat
+     * @param name              name of booker
+     * @param emailAddress      email address of booker
+     * @param phoneNumber       phone number of booker
      * @return                  true if successful, false if unsuccessful
      */
     public boolean newBooking(String TID, String cineplexName, String cinemaName, String seatID, String movieTitle, int movieDuration, String movieType, String cinemaType, Date startDate, float price, boolean isWideSeat, String name, String emailAddress, int phoneNumber)
@@ -321,7 +331,7 @@ public class BookingController {
 
     /**
      * Deletes all bookings of movie
-     * @param movieTitle
+     * @param movieTitle    name of movie
      */
     public void deleteBookings(String movieTitle) {
         bookingsDatabaseController.deleteBookings(movieTitle);

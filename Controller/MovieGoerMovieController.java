@@ -235,7 +235,7 @@ public class MovieGoerMovieController extends MovieController {
 
     /**
      * Helper function to print all showings of a movie
-     * @param filteredShowings
+     * @param filteredShowings  showings of movie
      */
     private void printShowings(ArrayList<String[]> filteredShowings) {
         DateParser dp = new DateParser("yyyyMMddhhmm");
@@ -281,10 +281,10 @@ public class MovieGoerMovieController extends MovieController {
 
     /**
      * Books a ticket
-     * @param cineplexName
-     * @param cinemaName
-     * @param movieTitle
-     * @param startDate
+     * @param cineplexName  cineplex name
+     * @param cinemaName    cinema name
+     * @param movieTitle    name of movie
+     * @param startDate     date of showing
      * @return true if booking is successful, false otherwise
      */
     private boolean bookTicket(String cineplexName, String cinemaName, String movieTitle, String startDate) {
@@ -347,10 +347,10 @@ public class MovieGoerMovieController extends MovieController {
 
     /**
      * Books multiple tickets
-     * @param cineplexName
-     * @param cinemaName
-     * @param movieTitle
-     * @param startDate
+     * @param cineplexName  name of cineplex
+     * @param cinemaName    name of cinema
+     * @param movieTitle    name of movie
+     * @param startDate     date of showing
      * @return true if booking is successful, false otherwise
      */
     private boolean bookTickets(String cineplexName, String cinemaName, String movieTitle, String startDate) {

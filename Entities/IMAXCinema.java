@@ -58,9 +58,9 @@ public class IMAXCinema extends Cinema {
 
     /**
      * Constructor For Cinema
-     * @param showings
-     * @param cinemaName
-     * @param cinemaNumber
+     * @param showings      all showings for cinema
+     * @param cinemaName    cinema name
+     * @param cinemaNumber  cinema number
      */
     public IMAXCinema(ArrayList<Showing> showings, String cinemaName, String cinemaNumber) {
         super(CinemaType.IMAX, showings, cinemaName, cinemaNumber);
@@ -75,7 +75,7 @@ public class IMAXCinema extends Cinema {
 
     /**
      * This is a setter function for setting a new Screen Layout.
-     * @param screenLayout
+     * @param screenLayout  new screen layout
      */
     public void setScreenLayout(String screenLayout) {
         this.screenLayout = screenLayout;
@@ -98,7 +98,7 @@ public class IMAXCinema extends Cinema {
 
     /**
      * This is a setter function for setting the Seat Arrangement.
-     * @param seatArrangement
+     * @param seatArrangement   new seat arrangement
      */
     public void setSeatArrangement(String seatArrangement) {
         this.seatArrangement = seatArrangement;
@@ -106,7 +106,7 @@ public class IMAXCinema extends Cinema {
 
     /**
      * Setter function for SeatArrangement
-     * @param seatArrangement
+     * @param wideSeatRows  array of seat rows with wide seats
      */
     public void setWideSeatRows(String[] wideSeatRows) {
         this.wideSeatRows = wideSeatRows;
@@ -130,7 +130,7 @@ public class IMAXCinema extends Cinema {
 
     /**
      * This is a setter function for setting the Seat Arrangement.
-     * @param seatNumbers
+     * @param seatNumbers   new seat numbers
      */
     public void setSeatNumbers(String seatNumbers) {
         this.seatNumbers = seatNumbers;
@@ -138,7 +138,6 @@ public class IMAXCinema extends Cinema {
 
     /**
      * Print function for seatNumbers
-     * @return Seat Numbers
      */
     public void printSeatNumbers() {
         System.out.println(this.seatNumbers);
@@ -155,7 +154,7 @@ public class IMAXCinema extends Cinema {
 
     /**
      * This is a setter function for setting the Entrance Layout.
-     * @param entranceLayout
+     * @param entranceLayout    new entrance layout
      */
     public void setEntranceLayout(String entranceLayout) {
         this.entranceLayout = entranceLayout;
@@ -178,7 +177,7 @@ public class IMAXCinema extends Cinema {
 
     /**
      * This is a setter function for setting Aisles.
-     * @param aisles
+     * @param aisles    new indexes for aisles
      */
     public void setAisles(ArrayList<Integer> aisles) {
         this.aisles = aisles;

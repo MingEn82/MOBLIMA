@@ -13,8 +13,8 @@ import Utils.InputGetter;
  * @since 2022-11-03
  */
 public class AdminMovieController extends MovieController{
-    /*
-     * Create utility input getter class to parse inputs
+    /**
+     * Create InputGetter utility class to get input from user
      */
     InputGetter ip;
 
@@ -406,10 +406,13 @@ public class AdminMovieController extends MovieController{
         this.deleteMovie(movieToDelete.getMovieTitle());
     }
 
+    /**
+     * Helper function to set movie status to End of Showing, remove showings and delete bookings
+     * @param movieTitle name of movie
+     */
     private void deleteMovie(String movieTitle) {
         new MovieDatabaseController().deleteMovie(movieTitle);
         new ShowingsDatabaseController().deleteShowings(movieTitle);
         new BookingController().deleteBookings(movieTitle);
-        System.out.println(movieTitle + " has been removed from the databases");
     }
 }

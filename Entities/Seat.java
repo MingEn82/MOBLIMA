@@ -24,8 +24,8 @@ public abstract class Seat {
 
     /**
      * Constructor for seat
-     * @param SeatNumber
-     * @param isBooked
+     * @param seatNumber    seat number
+     * @param isBooked      whether seat is booked
      */
     public Seat(String seatNumber, boolean isBooked) {
         this.seatNumber = seatNumber;
@@ -60,7 +60,7 @@ public abstract class Seat {
 
     /**
      * Setter function for IsBooked
-     * @param isBooked
+     * @param isBooked  booked status
      */
     public void setIsBooked(boolean isBooked) {
         this.isBooked = isBooked;

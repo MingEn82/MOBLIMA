@@ -19,17 +19,17 @@ public class WideSeat extends Seat {
 
     /**
      * Constructor for StandardSeat
-     * @param SeatNumber
-     * @param isBooked
+     * @param seatNumber    seat number
+     * @param isBooked      whether seat is booked
      */
-    public WideSeat(String seatNumber, boolean isBooked, float addOnPrice) {
+    public WideSeat(String seatNumber, boolean isBooked) {
         super(seatNumber, isBooked);
     }
 
     /**
      * Constructor for StandardSeat
      */
-    public WideSeat(float addOnPrice) {
+    public WideSeat() {
         super();
     }
 

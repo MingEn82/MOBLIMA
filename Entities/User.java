@@ -22,7 +22,7 @@ public abstract class User {
     }
     /**
      * Setter method for username.
-     * @param username
+     * @param username  new username of user
      */
     public void setUsername(String username) {
         this.username = username;

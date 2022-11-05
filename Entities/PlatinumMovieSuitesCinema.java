@@ -55,9 +55,9 @@ public class PlatinumMovieSuitesCinema extends Cinema{
 
     /**
      * Constructor for Platinum Cinema
-     * @param showings
-     * @param cinemaName
-     * @param cinemaNumber
+     * @param showings      all showings for this cinema
+     * @param cinemaName    name of cinema
+     * @param cinemaNumber  number of cinema
      */
     public PlatinumMovieSuitesCinema(ArrayList<Showing> showings, String cinemaName, String cinemaNumber) {
         super(CinemaType.PLATINUM_MOVIE_SUITE, showings, cinemaName, cinemaNumber);
@@ -73,7 +73,7 @@ public class PlatinumMovieSuitesCinema extends Cinema{
 
     /**
      * This is the setter function for setting Screen Layout.
-     * @param screenLayout
+     * @param screenLayout  new screen layout
      */
     public void setScreenLayout(String screenLayout) {
         this.screenLayout = screenLayout;
@@ -95,15 +95,15 @@ public class PlatinumMovieSuitesCinema extends Cinema{
 
     /**
      * This is the setter function for retrieving seat arrangement.
-     * @param seatArrangement
+     * @param seatArrangement   new seat arrangement
      */
     public void setSeatArrangement(String seatArrangement) {
         this.seatArrangement = seatArrangement;
     }
 
     /**
-     * Setter function for SeatArrangement
-     * @param seatArrangement
+     * Setter function for wideSeatRows
+     * @param wideSeatRows  String array of seat rows with wide seats
      */
     public void setWideSeatRows(String[] wideSeatRows) {
         this.wideSeatRows = wideSeatRows;
@@ -127,7 +127,7 @@ public class PlatinumMovieSuitesCinema extends Cinema{
 
     /**
      * This is a setter function for setting the Seat Arrangement.
-     * @param seatNumbers
+     * @param seatNumbers   new seat numbers
      */
     public void setSeatNumbers(String seatNumbers) {
         this.seatNumbers = seatNumbers;
@@ -150,7 +150,7 @@ public class PlatinumMovieSuitesCinema extends Cinema{
 
     /**
      * This is the setter function for setting entrance layout.
-     * @param entranceLayout
+     * @param entranceLayout    new entrance layout
      */
     public void setEntranceLayout(String entranceLayout) {
         this.entranceLayout = entranceLayout;
@@ -173,7 +173,7 @@ public class PlatinumMovieSuitesCinema extends Cinema{
 
     /**
      * This is the setter function for setting aisles.
-     * @param aisles
+     * @param aisles    new indexes for aisles
      */
     public void setAisles(ArrayList<Integer> aisles) {
         this.aisles = aisles;

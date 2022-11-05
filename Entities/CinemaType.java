@@ -7,8 +7,19 @@ package Entities;
  * @since 2022-11-02
  */
 public enum CinemaType {
+    /**
+     * Standard cinema type
+     */
     STANDARD( "Standard" ),
+
+    /**
+     * IMAX cinema type
+     */
     IMAX( "IMAX" ),
+
+    /**
+     * Platinum movie suite cinema type
+     */
     PLATINUM_MOVIE_SUITE( "Platinum Movie Suite" );
 
     /**
@@ -18,7 +29,7 @@ public enum CinemaType {
 
     /**
      * Constructor For Cinema
-     * @param type
+     * @param type  type of cinema
      */
     CinemaType( String type ) {
         this.type = type;

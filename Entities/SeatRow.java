@@ -21,7 +21,7 @@ public class SeatRow {
 
     /**
      * This is a constructor for the SeatRow Class.
-     * @param rowID
+     * @param rowID row ID
      */
     public SeatRow(String rowID) {
         this.rowID = rowID;
@@ -67,7 +67,7 @@ public class SeatRow {
 
     /**
      * This is a function to print all the seats.
-     * @param aisleArray
+     * @param aisleArray    indexes of aisles for cinema
      */
     public void printSeats(ArrayList<Integer> aisleArray) {
         for (int i = 0; i < seatArray.size(); i++) {

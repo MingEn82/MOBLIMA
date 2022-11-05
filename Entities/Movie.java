@@ -63,16 +63,16 @@ public class Movie {
 
     /**
      * Constructor of the Movie
-     * @param movieTitle
-     * @param showingStatus
-     * @param synopsis
-     * @param ageRating
-     * @param director
-     * @param cast
-     * @param duration
-     * @param reviews
-     * @param overallRating
-     * @param totalSales
+     * @param movieTitle        name of movie
+     * @param showingStatus     showing status of movie
+     * @param synopsis          synopsis of movie
+     * @param ageRating         age rating of movie
+     * @param director          director of movie
+     * @param cast              all casts of movie
+     * @param duration          duration of movie
+     * @param reviews           all reviews of movie
+     * @param overallRating     overall rating of movie
+     * @param totalSales        total bookings of movie
      */
     public Movie(String movieTitle, String showingStatus, String synopsis, AgeRating ageRating, String director, String[] cast, int duration, ArrayList<Review> reviews, float overallRating, int totalSales) {
         this.movieTitle = movieTitle;
@@ -97,7 +97,7 @@ public class Movie {
 
     /**
      * This is a setter function for setting Movie Title.
-     * @param movieTitle
+     * @param movieTitle    name of movie
      */
     public void setMovieTitle(String movieTitle) {
         this.movieTitle = movieTitle;
@@ -113,7 +113,7 @@ public class Movie {
 
     /**
      * This is a setter function for setting Showing Status.
-     * @param showingStatus
+     * @param showingStatus showing status of movie
      */
     public void setShowingStatus(String showingStatus) {
         this.showingStatus = showingStatus;
@@ -129,7 +129,7 @@ public class Movie {
 
     /**
      * This is a setter function for setting Sypnosis.
-     * @param synopsis
+     * @param synopsis  synopsis of movie
      */
     public void setSynopsis(String synopsis) {
         this.synopsis = synopsis;
@@ -145,7 +145,7 @@ public class Movie {
 
     /**
      * This is a setter function for setting Age Rating.
-     * @param ageRating
+     * @param ageRating age rating of movie
      */
     public void setAgeRating(AgeRating ageRating) {
         this.ageRating = ageRating;
@@ -161,7 +161,7 @@ public class Movie {
 
     /**
      * This is a setter function for setting director of movie.
-     * @param director
+     * @param director  director of movie
      */
     public void setDirector(String director) {
         this.director = director;
@@ -169,6 +169,7 @@ public class Movie {
 
     /**
      * This is a getter function for retrieving all casts (string) of the movie.
+     * @param attributeDelimiter    delimiter for joining casts
      * @return Casts of the Movie
      */
     public String getCast(String attributeDelimiter) {
@@ -185,7 +186,7 @@ public class Movie {
 
     /**
      * This is a setter function for setting the casts.
-     * @param cast
+     * @param cast  all cast members of movie
      */
     public void setCast(List<String> cast) {
         this.cast = cast.toArray(new String[0]);
@@ -201,7 +202,7 @@ public class Movie {
 
     /**
      * This is a setter function for setting duration.
-     * @param duration
+     * @param duration  length of movie
      */
     public void setDuration(int duration) {
         this.duration = duration;
@@ -209,6 +210,8 @@ public class Movie {
 
     /**
      * This is a getter function for retrieving Reviews (string) of the movie.
+     * @param delimiter             delimiter for joining to other movie details
+     * @param attributeDelimiter    delimiter for joining reviews
      * @return Reviews in a string format
      */
     public String getReviews(String delimiter, String attributeDelimiter) {
@@ -238,7 +241,7 @@ public class Movie {
 
     /**
      * This function prints reviews of a individual based on phone number.
-     * @param phoneNumber
+     * @param phoneNumber   phone number of person checking his review of this movie
      */
     public void printReviews(int phoneNumber) {
         for (Review r : reviews) {
@@ -252,7 +255,7 @@ public class Movie {
 
     /**
      * This function checks whether a user has reviews based on a phone number.
-     * @param phoneNumber
+     * @param phoneNumber   phone number of person checking his review of this movie
      * @return True/False
      */
     public boolean hasReview(int phoneNumber) {
@@ -266,7 +269,6 @@ public class Movie {
 
     /**
      * This function checks whether this movie has reviews
-     * @param phoneNumber
      * @return True/False
      */
     public boolean hasReview() {
@@ -275,7 +277,7 @@ public class Movie {
 
     /**
      * This is a setter function for setting Reviews.
-     * @param reviews
+     * @param reviews   all reviews of movie
      */
     public void setReviews(ArrayList<Review> reviews) {
         this.reviews = reviews;
@@ -283,7 +285,7 @@ public class Movie {
     
     /**
      * This is a function for adding new reviews.
-     * @param review
+     * @param review    new review
      */
     public void addReview(Review review) {
         overallRating = (overallRating * reviews.size() + review.getRating()) / (reviews.size() + 1);
@@ -292,7 +294,7 @@ public class Movie {
 
     /**
      * This is a function for updating a review.
-     * @param review
+     * @param review    updated review
      */
     public void updateReview(Review review) {
         reviews.removeIf(r -> r.getPhoneNumber() == review.getPhoneNumber());
@@ -312,7 +314,7 @@ public class Movie {
 
     /**
      * This is a setter function for setting Overall Rating.
-     * @param overallRating
+     * @param overallRating new overall rating
      */
     public void setOverallRating(float overallRating) {
         this.overallRating = overallRating;
@@ -342,7 +344,9 @@ public class Movie {
 
     /**
      * This function converts the movie object to string and returns a string.
-     * @return String of Movie Object
+     * @param delimiter             delimiter for joining movie details
+     * @param attributeDelimiter    delimiter for joining reviews
+     * @return                      String of Movie Object
      */
     public String toString(String delimiter, String attributeDelimiter) {
         String s = movieTitle + delimiter + showingStatus + delimiter + duration + delimiter + ageRating.toString() + delimiter + synopsis + delimiter + director + delimiter + getCast(attributeDelimiter);

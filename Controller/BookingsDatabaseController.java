@@ -63,7 +63,7 @@ public class BookingsDatabaseController implements DatabaseController {
 
     /**
      * Constructor for Class, but takes in filepath.
-     * @param filePath
+     * @param filePath  file path to booking database
      */
     public BookingsDatabaseController(String filePath) {
         file = new File(filePath);
@@ -73,7 +73,7 @@ public class BookingsDatabaseController implements DatabaseController {
 
     /**
      * Function to fetch array list of booking
-     * @return
+     * @return  all bookings
      */
     public ArrayList<Booking> fetchBookings() {
         this.readFile();
@@ -136,7 +136,7 @@ public class BookingsDatabaseController implements DatabaseController {
 
     /**
      * This function takes in a booking object and add the new booking object into database by writing into the text file.
-     * @param bookingObject
+     * @param bookingObject new booking object
      */
     public void addNewBooking(Booking bookingObject) {
         //System.out.println("The new booking object is " +newBooking);
@@ -154,7 +154,7 @@ public class BookingsDatabaseController implements DatabaseController {
 
     /**
      * This function deletes bookings if the bookings has the relevant movieTitle.
-     * @param movieTitle
+     * @param movieTitle    name of movie
      */
     public void deleteBookings(String movieTitle) {
         bookings.removeIf(b -> b.getMovieTitle().equals(movieTitle));
@@ -163,7 +163,10 @@ public class BookingsDatabaseController implements DatabaseController {
 
     /**
      * This function deletes bookings if movie title, cineplex name, cinema name and date is the same.
-     * @param movieTitle
+     * @param movieTitle    name of movie
+     * @param cineplexName  name of cineplex
+     * @param cinemaName    name of cinema
+     * @param date          date of showing
      */
     public void deleteBookings(String movieTitle, String cineplexName, String cinemaName, String date) {
         DateParser dp = new DateParser("yyyyMMddHHmm");
@@ -192,7 +195,7 @@ public class BookingsDatabaseController implements DatabaseController {
 
     /**
      * Get the total sales of the movie
-     * @param movieTitle
+     * @param movieTitle    name of movie
      * @return total sales
      */
     public int getTotalSales(String movieTitle) {

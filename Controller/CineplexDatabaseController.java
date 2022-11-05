@@ -55,7 +55,7 @@ public class CineplexDatabaseController implements DatabaseController {
 
     /**
      * Overloaded constructor for cineplexDatabaseController in case database files are found elsewhere
-     * @param filePath
+     * @param filePath  filepath to cineplex database
      */
     public CineplexDatabaseController(String filePath) {
         file = new File(filePath);
@@ -97,7 +97,7 @@ public class CineplexDatabaseController implements DatabaseController {
 
     /**
      * Helper function to create cinema and add it to its cineplex
-     * @param cinemaData
+     * @param cinemaData    cinema data
      */
     private void addNewCinema(String[] cinemaData) {
         String cineplexName = cinemaData[0];
@@ -135,10 +135,11 @@ public class CineplexDatabaseController implements DatabaseController {
 
     /**
      * Helper function to generate all showings for a particular cinema
-     * @param cineplexName
-     * @param cinemaName
-     * @param seatsData
-     * @return ArrayList of Showings of that particular cinema
+     * @param cineplexName  cineplex name
+     * @param cinemaName    cinema name
+     * @param seatsData     seat data
+     * @param wideSeatRows  all wide seats
+     * @return              ArrayList of Showings of that particular cinema
      */
     private ArrayList<Showing> generateShowings(String cineplexName, String cinemaName, String[] seatsData, String[] wideSeatRows) {
         ArrayList<Showing> showings = new ArrayList<Showing>();
@@ -163,8 +164,9 @@ public class CineplexDatabaseController implements DatabaseController {
 
     /**
      * Helper function to parse seat data
-     * @param seatsData
-     * @param bookedSeats
+     * @param seatsData     seat data
+     * @param bookedSeats   all booked seats
+     * @param wideSeatRows  all wide seats
      * @return ArrayList of SeatRows
      */
     private ArrayList<SeatRow> generateSeatRows(String[] seatsData, String[] bookedSeats, String[] wideSeatRows) {
@@ -175,7 +177,6 @@ public class CineplexDatabaseController implements DatabaseController {
         SeatRow seatRow = null;
         Seat seat;
         boolean isWideRow = false;
-        float wideSeatAddOn = new SystemSettingController().getSystemSetting().getWideSeatAddOn();
 
         for (int i = 0; i < seatsData.length; i++) {
             currentString = seatsData[i];
@@ -190,10 +191,10 @@ public class CineplexDatabaseController implements DatabaseController {
             } else if (Integer.parseInt(currentString) == (current - rowStart)) {
                 paddedSeatNumber = String.format("%02d", Integer.parseInt(currentString));
                 if (bookedSeats == null) {
-                    seat = isWideRow ? new WideSeat(rowID+paddedSeatNumber, false, wideSeatAddOn) : new StandardSeat(rowID+paddedSeatNumber, false);
+                    seat = isWideRow ? new WideSeat(rowID+paddedSeatNumber, false) : new StandardSeat(rowID+paddedSeatNumber, false);
                 } else {
                     seat = isWideRow 
-                    ? new WideSeat(rowID+paddedSeatNumber, Arrays.asList(bookedSeats).contains(rowID+paddedSeatNumber), wideSeatAddOn)
+                    ? new WideSeat(rowID+paddedSeatNumber, Arrays.asList(bookedSeats).contains(rowID+paddedSeatNumber))
                     : new StandardSeat(rowID+paddedSeatNumber, Arrays.asList(bookedSeats).contains(rowID+paddedSeatNumber));
                 }
                 seatRow.addSeat(seat);

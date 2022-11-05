@@ -35,10 +35,10 @@ public class Showing {
 
     /**
      * This is the constructor.
-     * @param movieTitle
-     * @param movieType
-     * @param startDate
-     * @param seatRows
+     * @param movieTitle    name of movie
+     * @param movieType     type of movie (2D, 3D, Blockbuster)
+     * @param startDate     date of showing
+     * @param seatRows      Seats for showing
      */
     public Showing(String movieTitle, String movieType, Date startDate, ArrayList<SeatRow> seatRows) {
         this.movieTitle = movieTitle;
@@ -81,8 +81,8 @@ public class Showing {
 
     /**
      * This is a function to check whether if a seat is already booked or not.
-     * @param seatID
-     * @return True/false whether seat is booked
+     * @param seatID    seat ID
+     * @return          True/false whether seat is booked
      */
     public boolean isSeatBooked(String seatID) {
         String row = seatID.substring(0, 1).toUpperCase();
@@ -101,7 +101,7 @@ public class Showing {
 
     /**
      * This is a function to check whether if a seat is already booked or not.
-     * @param seatID
+     * @param seatID seatID
      * @return True/false whether seat is booked
      */
     public boolean isWideSeat(String seatID) {
@@ -121,7 +121,7 @@ public class Showing {
 
     /**
      * This is a function for booking a seat based on Seat ID.
-     * @param seatID
+     * @param seatID seat ID
      */
     public void bookSeat(String seatID) {
         String row = seatID.substring(0, 1).toUpperCase();
@@ -139,7 +139,7 @@ public class Showing {
 
     /**
      * This is a function that prints the seats.
-     * @param aisleIndex
+     * @param aisleIndex indexes of all aisles of cinema
      */
     public void printSeats(ArrayList<Integer> aisleIndex) {
         for (SeatRow seatRow : seatRows) {

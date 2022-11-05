@@ -53,7 +53,7 @@ public class SystemSettingController {
     /**
      * This method will check whether date is public holiday
      * 
-     * @param date
+     * @param date  Date Object
      * @return true if date falls on a public holiday, false otherwise
      */
     public boolean isPublicHoliday(Date date) {
@@ -308,7 +308,7 @@ public class SystemSettingController {
                     + String.format("%.2f", ss.getthreeDAddOn()) + "|");
             System.out.println("| 8. Blockbuster Movie:                        + $  "
                     + String.format("%.2f", ss.getblockbusterAddOn()) + "|");
-            System.out.println("| 9. IMAX Movie:                               + $  "
+            System.out.println("| 9. IMAX Cinema:                              + $  "
                     + String.format("%.2f", ss.getIMAXAddOn()) + "|");
             System.out.println("| 10. Platinum Movie Suite:                    + $  "
                     + String.format("%.2f", ss.getplatinumAddOn()) + "|");
@@ -590,7 +590,7 @@ public class SystemSettingController {
                     System.out.println("|            Please enter the updated price             |");
                     System.out.println("---------------------------------------------------------");
                     System.out.println("|                                                       |");
-                    System.out.println("| Existing Charge for IMAX Movies:              + $ "
+                    System.out.println("| Existing Charge for IMAX Cinema:             + $ "
                             + String.format("%.2f", oldPrice) + "|");
                     System.out.println("|                                                       |");
                     System.out.println("---------------------------------------------------------");

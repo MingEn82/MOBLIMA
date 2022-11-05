@@ -35,8 +35,8 @@ public class CineplexController {
 
     /**
      * Finds Cinema using cineplex name and cinema name
-     * @param cineplexName
-     * @param cinemaName
+     * @param cineplexName  name of cineplex
+     * @param cinemaName    name of cinema
      * @return Cinema object if found, null otherwise
      */
     public Cinema findCinema(String cineplexName, String cinemaName) {
@@ -53,8 +53,8 @@ public class CineplexController {
 
     /**
      * Generates UID String using cineplex name and cinema name 
-     * @param cineplexName
-     * @param cinemaName
+     * @param cineplexName  name of cineplex
+     * @param cinemaName    name of cinema
      * @return UID String if found, empty string otherwise
      */
     public String generateUID(String cineplexName, String cinemaName) {
@@ -76,8 +76,8 @@ public class CineplexController {
 
     /**
      * Returns cinema type using cineplex name and cinema name
-     * @param cineplexName
-     * @param cinemaName
+     * @param cineplexName  name of cineplex
+     * @param cinemaName    name of cinema
      * @return cinemax type if found, null otherwise
      */
     public String getCinemaType(String cineplexName, String cinemaName) {
@@ -94,11 +94,11 @@ public class CineplexController {
 
     /**
      * Books seat for a particular showing
-     * @param cineplexName
-     * @param cinemaName
-     * @param movieTitle
-     * @param startDate
-     * @param seatID
+     * @param cineplexName  name of cineplex
+     * @param cinemaName    name of cinema
+     * @param movieTitle    name of movie
+     * @param startDate     date of showing
+     * @param seatID        seat ID
      */
     public void bookSeat(String cineplexName, String cinemaName, String movieTitle, Date startDate, String seatID) {
         for (Cineplex cineplex : cineplexes) {

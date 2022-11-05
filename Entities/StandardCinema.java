@@ -53,9 +53,9 @@ public class StandardCinema extends Cinema{
 
     /**
      * Constructor for Standard Cinema
-     * @param showings
-     * @param cinemaName
-     * @param cinemaNumber
+     * @param showings      all showings for this cinema
+     * @param cinemaName    name of cinema
+     * @param cinemaNumber  number of cinema
      */
     public StandardCinema(ArrayList<Showing> showings, String cinemaName, String cinemaNumber) {
         super(CinemaType.STANDARD, showings, cinemaName, cinemaNumber);
@@ -71,7 +71,7 @@ public class StandardCinema extends Cinema{
 
     /**
      * Setter function for ScreenLayout
-     * @param screenLayout
+     * @param screenLayout  screen position
      */
     public void setScreenLayout(String screenLayout) {
         this.screenLayout = screenLayout;
@@ -94,7 +94,7 @@ public class StandardCinema extends Cinema{
 
     /**
      * Setter function for SeatArrangement
-     * @param seatArrangement
+     * @param wideSeatRows  get seat rows with wide seats
      */
     public void setWideSeatRows(String[] wideSeatRows) {
         this.wideSeatRows = wideSeatRows;
@@ -110,7 +110,7 @@ public class StandardCinema extends Cinema{
 
     /**
      * Setter function for SeatArrangement
-     * @param seatArrangement
+     * @param seatArrangement   new seat arrangment
      */
     public void setSeatArrangement(String seatArrangement) {
         this.seatArrangement = seatArrangement;
@@ -126,7 +126,7 @@ public class StandardCinema extends Cinema{
 
     /**
      * Setter function for seatNumbers
-     * @param seatNumbers
+     * @param seatNumbers   new seatNumbers
      */
     public void setSeatNumbers(String seatNumbers) {
         this.seatNumbers = seatNumbers;
@@ -134,7 +134,6 @@ public class StandardCinema extends Cinema{
 
     /**
      * Print function for seatNumbers
-     * @return Seat Numbers
      */
     public void printSeatNumbers() {
         System.out.println(this.seatNumbers);
@@ -151,7 +150,7 @@ public class StandardCinema extends Cinema{
 
     /**
      * Setter function for EntranceLayout
-     * @param entranceLayout
+     * @param entranceLayout    new entrance layout
      */
     public void setEntranceLayout(String entranceLayout) {
         this.entranceLayout = entranceLayout;
@@ -174,7 +173,7 @@ public class StandardCinema extends Cinema{
 
     /**
      * Setter function for Aisles
-     * @param aisles
+     * @param aisles    new aisles
      */
     public void setAisles(ArrayList<Integer> aisles) {
         this.aisles = aisles;
