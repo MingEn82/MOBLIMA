@@ -304,17 +304,15 @@ public class SystemSettingController {
             System.out.println("|                                                       |");
             System.out.println("|__________________ Additional Charges _________________|");
             System.out.println("|                                                       |");
-            System.out.println("| 7. Showing after 6PM:                        + $  "
-                    + String.format("%.2f", ss.getsixPMAddOn()) + "|");
-            System.out.println("| 8. 3D Movie:                                 + $  "
+            System.out.println("| 7. 3D Movie:                                 + $  "
                     + String.format("%.2f", ss.getthreeDAddOn()) + "|");
-            System.out.println("| 9. Blockbuster Movie:                        + $  "
+            System.out.println("| 8. Blockbuster Movie:                        + $  "
                     + String.format("%.2f", ss.getblockbusterAddOn()) + "|");
-            System.out.println("| 10. IMAX Movie:                              + $  "
+            System.out.println("| 9. IMAX Movie:                               + $  "
                     + String.format("%.2f", ss.getIMAXAddOn()) + "|");
-            System.out.println("| 11. Platinum Movie Suite:                    + $  "
+            System.out.println("| 10. Platinum Movie Suite:                    + $  "
                     + String.format("%.2f", ss.getplatinumAddOn()) + "|");
-            System.out.println("| 12. Wide Seat:                               + $  "
+            System.out.println("| 11. Wide Seat:                               + $  "
                     + String.format("%.2f", ss.getplatinumAddOn()) + "|");
             System.out.println("|                                                       |");
             System.out.println("---------------------------------------------------------");
@@ -522,38 +520,6 @@ public class SystemSettingController {
                     break;
 
                 case 7:
-                    oldPrice = ss.getsixPMAddOn();
-                    System.out.println("");
-                    System.out.println("+-------------------------------------------------------+");
-                    System.out.println("|            Please enter the updated price             |");
-                    System.out.println("---------------------------------------------------------");
-                    System.out.println("|                                                       |");
-                    System.out.println("| Existing Charge for Showing After 6PM:        + $ "
-                            + String.format("%.2f", oldPrice) + "|");
-                    System.out.println("|                                                       |");
-                    System.out.println("---------------------------------------------------------");
-                    System.out.println("|    Enter any character to return to previous menu     |");
-                    System.out.println("+-------------------------------------------------------+");
-                    System.out.println("");
-                    System.out.print("Updated Charge: + $ ");
-                    if (scanner.hasNextFloat()) {
-                        newPrice = scanner.nextFloat();
-                        ss.setsixPMAddOn(newPrice);
-                        sSDBCtrl.writeFile(ss);
-                        System.out.println("");
-                        System.out
-                                .println("Charge has been updated sucessfully from $" + String.format("%.2f", oldPrice)
-                                        + " --> $" + String.format("%.2f", ss.getsixPMAddOn()));
-                        System.out.println("");
-                        System.out.println("Returning to previous menu...");
-                    } else {
-                        scanner.next().charAt(0);
-                        System.out.println("");
-                        System.out.println("Returning to previous menu...");
-                    }
-                    break;
-
-                case 8:
                     oldPrice = ss.getthreeDAddOn();
                     System.out.println("");
                     System.out.println("+-------------------------------------------------------+");
@@ -585,7 +551,7 @@ public class SystemSettingController {
                     }
                     break;
 
-                case 9:
+                case 8:
                     oldPrice = ss.getblockbusterAddOn();
                     System.out.println("");
                     System.out.println("+-------------------------------------------------------+");
@@ -617,7 +583,7 @@ public class SystemSettingController {
                     }
                     break;
 
-                case 10:
+                case 9:
                     oldPrice = ss.getIMAXAddOn();
                     System.out.println("");
                     System.out.println("+-------------------------------------------------------+");
@@ -649,7 +615,7 @@ public class SystemSettingController {
                     }
                     break;
 
-                case 11:
+                case 10:
                     oldPrice = ss.getplatinumAddOn();
                     System.out.println("");
                     System.out.println("+-------------------------------------------------------+");
@@ -681,7 +647,7 @@ public class SystemSettingController {
                     }
                     break;
                 
-                case 12:
+                case 11:
                     oldPrice = ss.getWideSeatAddOn();
                     System.out.println("");
                     System.out.println("+-------------------------------------------------------+");
