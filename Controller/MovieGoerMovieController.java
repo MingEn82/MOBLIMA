@@ -315,7 +315,7 @@ public class MovieGoerMovieController extends MovieController {
                     System.out.println("[ ] - normal seats");
                     System.out.println("\\ / - wide seats (extra cost needed)\n");
 
-                    System.out.println("Enter SeatID (e.g. A09): ");
+                    System.out.println("Enter SeatID - e.g. A09 (Type any character, followed by 0 to exit booking):");
                     String seatID = ip.getString();
 
                     if (!showing.isSeatBooked(seatID)) {
@@ -430,7 +430,7 @@ public class MovieGoerMovieController extends MovieController {
                         System.out.println("[ ] - normal seats");
                         System.out.println("\\ / - wide seats (extra cost needed)\n");
     
-                        System.out.println("Enter SeatID (e.g. A09): ");
+                        System.out.println("Enter SeatID - e.g. A09 (Type any character, followed by 0 to exit booking):");
                         String seatID = ip.getString();
     
                         if (!showing.isSeatBooked(seatID)) {
