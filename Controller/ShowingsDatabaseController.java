@@ -8,6 +8,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Date;
+
+import Utils.DateParser;
 
 /**
  * ShowingsDatabaseController is a controller class that is used to write and read from the showing text file.
@@ -85,9 +88,10 @@ public class ShowingsDatabaseController implements DatabaseController {
      * @return ArrayList of showings details
      */
     public ArrayList<String[]> filterShowings(String cineplexName, String cinemaName) {
+        DateParser dp = new DateParser("yyyyMMddHHmm");
         ArrayList<String[]> filteredShowings = new ArrayList<String[]>();
         for (String[] showing : showingsData) {
-            if (showing[1].equals(cineplexName) && showing[2].equals(cinemaName)) {
+            if (showing[1].equals(cineplexName) && showing[2].equals(cinemaName) && dp.parseDate(showing[3], "yyyyMMddHHmm").compareTo(new Date()) >= 0) {
                 filteredShowings.add(showing);
             }
         }
@@ -101,9 +105,10 @@ public class ShowingsDatabaseController implements DatabaseController {
      * @return ArrayList of showings details
      */
     public ArrayList<String[]> filterShowings(String movieName) {
+        DateParser dp = new DateParser("yyyyMMddHHmm");
         ArrayList<String[]> filteredShowings = new ArrayList<String[]>();
         for (String[] showing : showingsData) {
-            if (showing[0].equals(movieName)) {
+            if (showing[0].equals(movieName) && dp.parseDate(showing[3], "yyyyMMddHHmm").compareTo(new Date()) >= 0) {
                 filteredShowings.add(showing);
             }
         }
@@ -119,9 +124,10 @@ public class ShowingsDatabaseController implements DatabaseController {
      * @return ArrayList of showings details
      */
     public ArrayList<String[]> filterShowings(String cineplexName, String cinemaName, String movieTitle) {
+        DateParser dp = new DateParser("yyyyMMddHHmm");
         ArrayList<String[]> filteredShowings = new ArrayList<String[]>();
         for (String[] showing : showingsData) {
-            if (showing[0].equals(movieTitle) && showing[1].equals(cineplexName) && showing[2].equals(cinemaName)) {
+            if (showing[0].equals(movieTitle) && showing[1].equals(cineplexName) && showing[2].equals(cinemaName) && dp.parseDate(showing[3], "yyyyMMddHHmm").compareTo(new Date()) >= 0) {
                 filteredShowings.add(showing);
             }
         }
