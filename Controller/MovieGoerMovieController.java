@@ -292,6 +292,8 @@ public class MovieGoerMovieController extends MovieController {
                     showing.printSeats(cinema.getAisles());
                     cinema.printSeatNumbers();
                     cinema.printEntranceLayout();
+                    System.out.println("[ ] - normal seats");
+                    System.out.println("\\ / - wide seats (extra cost needed)\n");
 
                     System.out.println("Enter SeatID (e.g. A09): ");
                     String seatID = ip.getString();
