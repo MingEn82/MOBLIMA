@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
+
 import Controller.SystemSettingController;
 
 /**
@@ -83,6 +84,7 @@ public class AdultBooking extends Booking{
                 break;
             }
         }
+        int hourOfDay = this.getStartDate().getHours();
 
         if (isPh == false)
         {
@@ -96,7 +98,17 @@ public class AdultBooking extends Booking{
                 //System.out.println("Is weekday and weekday price is "+currentSettings.getweekdayPrices());
                 break;
     
+                //if friday, after 6pm, price of ticket is weekend price.
+                //before 6pm, is weekday price.
                 case "Fri":
+                    if (hourOfDay >= 18){
+                        priceOfTicket = currentSettings.getweekendPrices();
+                    }
+                    else{
+                        priceOfTicket = currentSettings.getweekdayPrices();
+                    }
+                    break;
+
                 case "Sat":
                 case "Sun":
                 priceOfTicket = currentSettings.getweekendPrices();
@@ -116,12 +128,7 @@ public class AdultBooking extends Booking{
         }
         
 
-        int hourOfDay = this.getStartDate().getHours();
-        if (hourOfDay >= 18)
-        {
-            //System.out.println("Testing, hour of day > 6pm");
-            priceOfTicket = priceOfTicket + currentSettings.getsixPMAddOn();
-        }
+        
         
 
 

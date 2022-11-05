@@ -83,6 +83,7 @@ public class StudentBooking extends Booking {
                 break;
             }
         }
+        int hourOfDay = this.getStartDate().getHours();
         if (isPh == false) {
             switch (this.getDayOfWeek(getStartDate())) {
                 case "Mon":
@@ -92,7 +93,17 @@ public class StudentBooking extends Booking {
                     priceOfTicket = currentSettings.getweekdayPrices();
                     break;
 
+                //if friday, after 6pm, price of ticket is weekend price.
+                //before 6pm, is weekday price.
                 case "Fri":
+                    if (hourOfDay >= 18){
+                        priceOfTicket = currentSettings.getweekendPrices();
+                    }
+                    else{
+                        priceOfTicket = currentSettings.getweekdayPrices();
+                    }
+                    break;
+
                 case "Sat":
                 case "Sun":
                     priceOfTicket = currentSettings.getweekendPrices();
@@ -105,11 +116,6 @@ public class StudentBooking extends Booking {
             }
         } else {
             priceOfTicket = currentSettings.getpHPrices();
-        }
-        int hourOfDay = this.getStartDate().getHours();
-        if (hourOfDay >= 18)
-        {
-            priceOfTicket = priceOfTicket + currentSettings.getsixPMAddOn();
         }
         
 
