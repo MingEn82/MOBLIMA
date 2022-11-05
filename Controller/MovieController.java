@@ -156,7 +156,7 @@ public abstract class MovieController {
                     | 1. Sort by total sales                                |
                     | 2. Sort by overall rating                             |
                     |-------------------------------------------------------|
-                    |         Enter 0 to go back to Movie Goer Menu         |
+                    |          Enter 0 to go back to previous menu          |
                     +-------------------------------------------------------+
                     """);
             System.out.print("Choice chosen is: ");
