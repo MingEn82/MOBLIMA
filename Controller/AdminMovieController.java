@@ -1,8 +1,6 @@
 package Controller;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 import Entities.AgeRating;
 import Entities.Movie;
@@ -15,11 +13,6 @@ import Utils.InputGetter;
  * @since 2022-11-03
  */
 public class AdminMovieController extends MovieController{
-    /**
-     * Create scanner to System.in
-     */
-    Scanner sc;
-
     /*
      * Create utility input getter class to parse inputs
      */
@@ -29,7 +22,6 @@ public class AdminMovieController extends MovieController{
      * Constructor for AdminMovieController class
      */
     public AdminMovieController() {
-        sc = new Scanner(System.in);
         ip = new InputGetter();
     }
 
@@ -180,7 +172,7 @@ public class AdminMovieController extends MovieController{
         String cast;
         do {
             System.out.println("\nEnter at least 2 cast members (0 to stop): ");
-            cast = sc.nextLine();
+            cast = ip.getString();
             if (!cast.equals("0"))
                 casts.add(cast);
             else if (cast.equals("0") && casts.size() < 2) {
@@ -204,7 +196,7 @@ public class AdminMovieController extends MovieController{
         }
         do {
             System.out.println("\nEnter movie choice (0 to exit): ");
-            choice = sc.nextInt();
+            choice = ip.getInt();
             if (choice < 0 || choice > size)
                 System.out.println("Invalid Choice");
         } while (choice < 0 || choice > size);
@@ -241,7 +233,7 @@ public class AdminMovieController extends MovieController{
             switch (choice) {
                 case 1:
                     System.out.println("Enter new movie title");
-                    String tmpMovieTitle = sc.nextLine();
+                    String tmpMovieTitle = ip.getString();
                     if (new MovieDatabaseController().movieExists(tmpMovieTitle)) {
                         System.out.println("Movie already exists. Change to movie name not saved");
                         break;

@@ -3,7 +3,6 @@ package Controller;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Scanner;
 
 import Entities.Cinema;
 import Entities.Movie;
@@ -19,11 +18,6 @@ import Utils.InputGetter;
  * @since 2022-11-03
  */
 public class MovieGoerMovieController extends MovieController {
-    /**
-     * Scanner to take in inputs
-     */
-    private Scanner sc;
-
     /**
      * Utility class to parse inputs
      */
@@ -48,7 +42,6 @@ public class MovieGoerMovieController extends MovieController {
      * Constructor for MovieGoerMovieController instance
      */
     public MovieGoerMovieController() {
-        sc = new Scanner(System.in);
         ip = new InputGetter();
     }
 
@@ -79,7 +72,7 @@ public class MovieGoerMovieController extends MovieController {
                 System.out.println("+-------------------------------------------------------+");
                 System.out.println("");
 
-                choice = sc.nextInt();
+                choice = ip.getInt();
                 int phoneNumber;
                 float rating;
                 String reviewText;
@@ -123,7 +116,6 @@ public class MovieGoerMovieController extends MovieController {
 
                     case 3:
                         // Leave a review
-                        sc.nextLine();
                         System.out.println("Enter phone number: ");
                         phoneNumber = ip.getInt();
                         while (phoneNumber < 9999999 || phoneNumber > 100000000) {
@@ -151,8 +143,7 @@ public class MovieGoerMovieController extends MovieController {
                                         }
                                         rating = Math.round(rating * 100) / 100;
                                         System.out.println("Enter comments (0 to not leave a comment): ");
-                                        sc.nextLine();
-                                        reviewText = sc.nextLine();
+                                        reviewText = ip.getString();
                                         if (reviewText.equals("0")) {
                                             newReview = new Review(rating, phoneNumber);
                                         } else {
@@ -182,7 +173,7 @@ public class MovieGoerMovieController extends MovieController {
                         }
                         rating = Math.round(rating * 100) / 100;
                         System.out.println("Enter comments (0 to not leave a comment): ");
-                        reviewText = sc.nextLine();
+                        reviewText = ip.getString();
                         if (reviewText.equals("0")) {
                             newReview = new Review(rating, phoneNumber);
                         } else {
@@ -192,7 +183,6 @@ public class MovieGoerMovieController extends MovieController {
                         break;
 
                     case 4:
-                        sc.nextLine();
                         System.out.println("Enter phone number: ");
                         phoneNumber = ip.getInt();
                         while (phoneNumber < 9999999 || phoneNumber > 100000000) {

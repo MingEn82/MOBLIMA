@@ -1,8 +1,6 @@
 package Controller;
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Scanner;
 
 import Entities.Cinema;
 import Entities.Cineplex;
@@ -24,11 +22,6 @@ public class ShowingController {
     private ShowingsDatabaseController showingsDC;
 
     /**
-     * Scanner to take in inputs
-     */
-    Scanner sc;
-
-    /**
      * Utility class to parse dates
      */
     DateParser dp;
@@ -43,7 +36,6 @@ public class ShowingController {
      */
     public ShowingController() {
         showingsDC = new ShowingsDatabaseController();
-        sc = new Scanner(System.in);
         dp = new DateParser("yyyyMMddHHmm");
         ip = new InputGetter();
     }
@@ -251,8 +243,7 @@ public class ShowingController {
                         |    Enter 0 to save changes and go back to Showing menu    |
                         +-----------------------------------------------------------+
                     """);
-            choice = sc.nextInt();
-            sc.nextLine();
+            choice = ip.getInt();
 
             switch (choice) {
                 case 1:
