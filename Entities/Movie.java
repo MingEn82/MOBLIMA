@@ -244,8 +244,10 @@ public class Movie {
         for (Review r : reviews) {
             if (r.getPhoneNumber() == phoneNumber) {
                 r.printReview();
+                return;
             }
         }
+        System.out.println("No reviews found for " + phoneNumber);
     }
 
     /**
