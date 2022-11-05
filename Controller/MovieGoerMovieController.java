@@ -90,7 +90,8 @@ public class MovieGoerMovieController extends MovieController {
                             System.out.println("No showings found for " + movieTitle + "\n");
                             break;
                         }
-
+                        
+                        // Sort by start date
                         Collections.sort(filteredShowings, Comparator.comparing(s -> s[3]));
 
                         System.out.println(movieTitle + " is showing at these locations");

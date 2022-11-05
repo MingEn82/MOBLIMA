@@ -323,7 +323,9 @@ public abstract class MovieController {
         Scanner sc = new Scanner(System.in);
         int i = 1;
         Movie m = null;
-        List<String> definedOrder = Arrays.asList("Coming Soon", "Preview", "Now Showing");
+
+        // Sort by Showing Status then movie title
+        List<String> definedOrder = Arrays.asList("Coming Soon", "Preview", "Now Showing", "End of Showing");
         Collections.sort(movies, Comparator.comparing(mov -> definedOrder.indexOf(((Movie) mov).getShowingStatus()))
         .thenComparing(mov -> ((Movie) mov).getMovieTitle()));
 
