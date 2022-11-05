@@ -76,3 +76,68 @@ B01202211051707<b>83729323<b>heria<b>heria@gmail.com<b>Golden Village Paya Lebar
 B01202211051708<b>92371138<b>george<b>george@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>E08<b>The Godfather<b>175<b>2D<b>Standard<b>202212271600<b>5.5 
 B01202211051708<b>92837774<b>joey<b>joey@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>D01<b>The Godfather<b>175<b>2D<b>Standard<b>202212271600<b>2.9 
 B01202211051709<b>92736222<b>terrie<b>terrie@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>B02<b>The Godfather<b>175<b>2D<b>Standard<b>202212271600<b>7.0
+C01202211051707<b>92349234<b>Hilmi<b>hilmi@hotmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>B05<b>Black Adam<b>124<b>3D<b>Standard<b>202212171000<b>14.5
+C01202211051711<b>92349234<b>Hilmi<b>hilmi@hotmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>B06<b>Black Adam<b>124<b>3D<b>Standard<b>202212171000<b>14.5
+C01202211051715<b>92349234<b>Hilmi<b>hilmi@hotmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>B07<b>Black Adam<b>124<b>3D<b>Standard<b>202212171000<b>14.5
+C01202211051717<b>92349234<b>Hilmi<b>hilmi@hotmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>B08<b>Black Adam<b>124<b>3D<b>Standard<b>202212171000<b>14.5
+C01202211051719<b>99121212<b>tony<b>tony@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>D03<b>Black Adam<b>124<b>3D<b>Standard<b>202212171000<b>12.4
+C01202211051720<b>99121212<b>tony<b>tony@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>D04<b>Black Adam<b>124<b>3D<b>Standard<b>202212171000<b>12.4
+C01202211051722<b>99121212<b>tony<b>tony@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>C03<b>Black Adam<b>124<b>3D<b>Standard<b>202212171000<b>12.4
+C01202211051725<b>99121212<b>tony<b>tony@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>C04<b>Black Adam<b>124<b>3D<b>Standard<b>202212171000<b>12.4
+C01202211051727<b>98761234<b>cheryl<b>cheryl@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>C09<b>Black Adam<b>124<b>3D<b>Standard<b>202212171000<b>12.4
+C01202211051728<b>98761234<b>cheryl<b>cheryl@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>C10<b>Black Adam<b>124<b>3D<b>Standard<b>202212171000<b>12.4
+C01202211051729<b>98761234<b>cheryl<b>cheryl@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>C11<b>Black Adam<b>124<b>3D<b>Standard<b>202212171000<b>12.4
+C01202211051730<b>98761234<b>cheryl<b>cheryl@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>C12<b>Black Adam<b>124<b>3D<b>Standard<b>202212171000<b>12.4
+C01202211051735<b>98129812<b>Janelle<b>janelle@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>E07<b>Black Adam<b>124<b>3D<b>Standard<b>202212171000<b>15.0
+C01202211051738<b>98129812<b>Janelle<b>janelle@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>E08<b>Black Adam<b>124<b>3D<b>Standard<b>202212171000<b>15.0
+C01202211051739<b>98129812<b>Janelle<b>janelle@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>E09<b>Black Adam<b>124<b>3D<b>Standard<b>202212171000<b>15.0
+C01202211051742<b>98129812<b>Janelle<b>janelle@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>E10<b>Black Adam<b>124<b>3D<b>Standard<b>202212171000<b>15.0
+C01202211051744<b>98459845<b>Edie<b>edie@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>D06<b>Black Adam<b>124<b>3D<b>Standard<b>202212171000<b>13.0
+C01202211051745<b>98459845<b>Edie<b>edie@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>D07<b>Black Adam<b>124<b>3D<b>Standard<b>202212171000<b>13.0
+C01202211051746<b>98459845<b>Edie<b>edie@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>D08<b>Black Adam<b>124<b>3D<b>Standard<b>202212171000<b>13.0
+C01202211051750<b>87651234<b>Richard<b>richard@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>F05<b>Black Adam<b>124<b>3D<b>Standard<b>202212171000<b>13.0
+C01202211051751<b>87651234<b>Richard<b>richard@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>F06<b>Black Adam<b>124<b>3D<b>Standard<b>202212171000<b>13.0
+C01202211051752<b>87651234<b>Richard<b>richard@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>F07<b>Black Adam<b>124<b>3D<b>Standard<b>202212171000<b>13.0
+C01202211051755<b>87651234<b>Richard<b>richard@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>F08<b>Black Adam<b>124<b>3D<b>Standard<b>202212171000<b>13.0
+C01202211051756<b>92219221<b>Mac Cree<b>mcree@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>E01<b>Black Adam<b>124<b>3D<b>Standard<b>202212171000<b>15.0
+C01202211051757<b>92219221<b>Mac Cree<b>mcree@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>E02<b>Black Adam<b>124<b>3D<b>Standard<b>202212171000<b>15.0
+C01202211051758<b>92219221<b>Mac Cree<b>mcree@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>E03<b>Black Adam<b>124<b>3D<b>Standard<b>202212171000<b>15.0
+C01202211051759<b>92219221<b>Mac Cree<b>mcree@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>E04<b>Black Adam<b>124<b>3D<b>Standard<b>202212171000<b>15.0
+A01202211051727<b>98371234<b>nicholas<b>nicholas@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>A01<b>Minority Report<b>145<b>2D<b>Standard<b>202212170700<b>9.0
+A01202211051727<b>98371234<b>nicholas<b>nicholas@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>A02<b>Minority Report<b>145<b>2D<b>Standard<b>202212170700<b>9.0
+A01202211051727<b>98371234<b>nicholas<b>nicholas@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>B01<b>Minority Report<b>145<b>2D<b>Standard<b>202212170700<b>9.0
+C01202211051728<b>98765432<b>claxton<b>claxton@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>A01<b>Minority Report<b>145<b>3D<b>Standard<b>202212170700<b>14.5
+C01202211051728<b>98765432<b>claxton<b>claxton@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>A02<b>Minority Report<b>145<b>3D<b>Standard<b>202212170700<b>14.5
+C01202211051729<b>87656785<b>james<b>james@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>B05<b>Minority Report<b>145<b>3D<b>Standard<b>202212170700<b>14.5
+C01202211051729<b>87656785<b>james<b>james@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>B06<b>Minority Report<b>145<b>3D<b>Standard<b>202212170700<b>14.5
+C01202211051729<b>87656785<b>james<b>james@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>B07<b>Minority Report<b>145<b>3D<b>Standard<b>202212170700<b>14.5
+A01202211051730<b>98986768<b>nick<b>nick@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>A05<b>Minority Report<b>145<b>2D<b>Standard<b>202212230700<b>7.0
+A01202211051730<b>98986768<b>nick<b>nick@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>A06<b>Minority Report<b>145<b>2D<b>Standard<b>202212230700<b>7.0
+A01202211051730<b>98986768<b>nick<b>nick@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>A07<b>Minority Report<b>145<b>2D<b>Standard<b>202212230700<b>7.0
+A01202211051730<b>98237647<b>jason<b>jason@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>C10<b>Minority Report<b>145<b>2D<b>Standard<b>202212230700<b>7.0
+A01202211051731<b>98123122<b>connor<b>connor@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>B05<b>Minority Report<b>145<b>2D<b>Standard<b>202212231800<b>9.0
+A01202211051731<b>98123122<b>connor<b>connor@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>B06<b>Minority Report<b>145<b>2D<b>Standard<b>202212231800<b>9.0
+A01202211051731<b>98123122<b>connor<b>connor@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>B07<b>Minority Report<b>145<b>2D<b>Standard<b>202212231800<b>9.0
+A01202211051731<b>98732823<b>houston<b>houston@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>C03<b>Minority Report<b>145<b>2D<b>Standard<b>202212231800<b>9.0
+B01202211051732<b>98764782<b>james<b>james@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>A05<b>Minority Report<b>145<b>2D<b>Standard<b>202212250700<b>11.0
+B01202211051732<b>98764782<b>james<b>james@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>A06<b>Minority Report<b>145<b>2D<b>Standard<b>202212250700<b>11.0
+B01202211051733<b>98764782<b>james<b>james@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>A07<b>Minority Report<b>145<b>2D<b>Standard<b>202212250700<b>11.0
+B01202211051733<b>98764782<b>james<b>james@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>A08<b>Minority Report<b>145<b>2D<b>Standard<b>202212250700<b>11.0
+B01202211051733<b>98287482<b>nick<b>nick@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>C09<b>Minority Report<b>145<b>2D<b>Standard<b>202212250700<b>11.0
+B01202211051733<b>98776723<b>nicholas<b>nicholas@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>A10<b>Minority Report<b>145<b>2D<b>Standard<b>202212260700<b>7.0
+B01202211051734<b>98776723<b>nicholas<b>nicholas@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>A11<b>Minority Report<b>145<b>2D<b>Standard<b>202212260700<b>7.0
+B01202211051734<b>98123728<b>potts<b>potts@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>C03<b>Minority Report<b>145<b>2D<b>Standard<b>202212260700<b>7.0
+A02202211051735<b>98512632<b>timmy<b>timmy@gmail.com<b>Golden Village Bedok<b>Cinema 2<b>B05<b>Minority Report<b>145<b>3D<b>IMAX<b>202212260700<b>16.5
+A02202211051735<b>98512632<b>timmy<b>timmy@gmail.com<b>Golden Village Bedok<b>Cinema 2<b>B06<b>Minority Report<b>145<b>3D<b>IMAX<b>202212260700<b>16.5
+A02202211051735<b>98512632<b>timmy<b>timmy@gmail.com<b>Golden Village Bedok<b>Cinema 2<b>B07<b>Minority Report<b>145<b>3D<b>IMAX<b>202212260700<b>16.5
+A02202211051735<b>91823897<b>reuben<b>reuben@gmail.com<b>Golden Village Bedok<b>Cinema 2<b>F10<b>Minority Report<b>145<b>3D<b>IMAX<b>202212260700<b>16.5
+A02202211051736<b>98172894<b>nige<b>nigel@gmail.com<b>Golden Village Bedok<b>Cinema 2<b>E03<b>Minority Report<b>145<b>3D<b>IMAX<b>202212260700<b>12.9
+A03202211051737<b>96785234<b>gibson<b>gibson@gmail.com<b>Golden Village Bedok<b>Cinema 3<b>A01<b>Minority Report<b>145<b>3D<b>Platinum Movie Suite<b>202212260700<b>18.5
+A03202211051737<b>96785234<b>gibson<b>gibson@gmail.com<b>Golden Village Bedok<b>Cinema 3<b>A02<b>Minority Report<b>145<b>3D<b>Platinum Movie Suite<b>202212260700<b>18.5
+A03202211051737<b>96785234<b>gibson<b>gibson@gmail.com<b>Golden Village Bedok<b>Cinema 3<b>A03<b>Minority Report<b>145<b>3D<b>Platinum Movie Suite<b>202212260700<b>18.5
+B01202211051738<b>98712323<b>nicholas<b>nicholas@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>A05<b>Minority Report<b>145<b>2D<b>Standard<b>202212270700<b>7.0
+B01202211051738<b>98712323<b>nicholas<b>nicholas@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>A06<b>Minority Report<b>145<b>2D<b>Standard<b>202212270700<b>7.0
+B01202211051739<b>98238012<b>houston<b>houston@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>C07<b>Minority Report<b>145<b>2D<b>Standard<b>202212270700<b>7.0
+B01202211051739<b>98238012<b>houston<b>houston@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>C08<b>Minority Report<b>145<b>2D<b>Standard<b>202212270700<b>7.0
+B01202211051739<b>89182732<b>dickson<b>dickson@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>B01<b>Minority Report<b>145<b>2D<b>Standard<b>202212270700<b>7.0
+B01202211051739<b>89182732<b>dickson<b>dickson@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>B02<b>Minority Report<b>145<b>2D<b>Standard<b>202212270700<b>7.0
