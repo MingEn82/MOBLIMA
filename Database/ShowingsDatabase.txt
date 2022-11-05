@@ -1,12 +1,12 @@
-Minority Report<b>Golden Village Bedok<b>Cinema 1<b>202212170700<b>2D<b>A05<b>A06<b>C05
-Minority Report<b>Golden Village Bedok<b>Cinema 1<b>202212230700<b>2D
-Minority Report<b>Golden Village Bedok<b>Cinema 1<b>202212231800<b>2D
-Minority Report<b>Golden Village Paya Lebar<b>Cinema 1<b>202212260700<b>2D
-Minority Report<b>Golden Village Paya Lebar<b>Cinema 1<b>202212250700<b>2D
-Minority Report<b>Golden Village Paya Lebar<b>Cinema 1<b>202212270700<b>2D
-Minority Report<b>Golden Village Jurong Point<b>Cinema 1<b>202212170700<b>3D
-Minority Report<b>Golden Village Bedok<b>Cinema 2<b>202212260700<b>3D
-Minority Report<b>Golden Village Bedok<b>Cinema 3<b>202212260700<b>3D
+Minority Report<b>Golden Village Bedok<b>Cinema 1<b>202212170700<b>2D<b>A05<b>A06<b>C05<b>A01<b>A02<b>B01
+Minority Report<b>Golden Village Bedok<b>Cinema 1<b>202212230700<b>2D<b>A05<b>A06<b>A07<b>C10
+Minority Report<b>Golden Village Bedok<b>Cinema 1<b>202212231800<b>2D<b>B05<b>B06<b>B07<b>C03
+Minority Report<b>Golden Village Paya Lebar<b>Cinema 1<b>202212260700<b>2D<b>A10<b>A11<b>C03
+Minority Report<b>Golden Village Paya Lebar<b>Cinema 1<b>202212250700<b>2D<b>A05<b>A06<b>A07<b>A08<b>C09
+Minority Report<b>Golden Village Paya Lebar<b>Cinema 1<b>202212270700<b>2D<b>A05<b>A06<b>C07<b>C08<b>B01<b>B02
+Minority Report<b>Golden Village Jurong Point<b>Cinema 1<b>202212170700<b>3D<b>A01<b>A02<b>B05<b>B06<b>B07
+Minority Report<b>Golden Village Bedok<b>Cinema 2<b>202212260700<b>3D<b>B05<b>B06<b>B07<b>F10<b>E03
+Minority Report<b>Golden Village Bedok<b>Cinema 3<b>202212260700<b>3D<b>A01<b>A02<b>A03
 Minority Report<b>Golden Village Paya Lebar<b>Cinema 2<b>202212260700<b>Blockbuster
 Black Adam<b>Golden Village Bedok<b>Cinema 1<b>202212171000<b>2D
 Black Adam<b>Golden Village Bedok<b>Cinema 1<b>202212231000<b>2D
@@ -14,7 +14,7 @@ Black Adam<b>Golden Village Bedok<b>Cinema 1<b>202212232030<b>2D
 Black Adam<b>Golden Village Paya Lebar<b>Cinema 1<b>202212261000<b>2D
 Black Adam<b>Golden Village Paya Lebar<b>Cinema 1<b>202212251000<b>2D
 Black Adam<b>Golden Village Paya Lebar<b>Cinema 1<b>202212271000<b>2D
-Black Adam<b>Golden Village Jurong Point<b>Cinema 1<b>202212171000<b>3D
+Black Adam<b>Golden Village Jurong Point<b>Cinema 1<b>202212171000<b>3D<b>B05<b>B06<b>B07<b>B08<b>D03<b>D04<b>C03<b>C04<b>C09<b>C10<b>C11<b>C12<b>E07<b>E08<b>E09<b>E10<b>D06<b>D07<b>D08<b>F05<b>F06<b>F07<b>F08<b>E01<b>E02<b>E03<b>E04
 Black Adam<b>Golden Village Bedok<b>Cinema 2<b>202212261000<b>3D
 Black Adam<b>Golden Village Bedok<b>Cinema 3<b>202212261000<b>3D
 Black Adam<b>Golden Village Paya Lebar<b>Cinema 2<b>202212261000<b>Blockbuster
