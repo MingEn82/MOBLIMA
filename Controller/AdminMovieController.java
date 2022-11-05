@@ -16,11 +16,6 @@ import Utils.InputGetter;
  */
 public class AdminMovieController extends MovieController{
     /**
-     * Create a movieDatabaseController instance
-     */
-    private MovieDatabaseController moviesDC;
-
-    /**
      * Create scanner to System.in
      */
     Scanner sc;
@@ -34,7 +29,6 @@ public class AdminMovieController extends MovieController{
      * Constructor for AdminMovieController class
      */
     public AdminMovieController() {
-        moviesDC = new MovieDatabaseController();
         sc = new Scanner(System.in);
         ip = new InputGetter();
     }
@@ -96,7 +90,7 @@ public class AdminMovieController extends MovieController{
         String synopsis;
         int choice;
 
-        if (moviesDC.movieExists(movieTitle)) {
+        if (new MovieDatabaseController().movieExists(movieTitle)) {
             System.out.println("Movie already exists!");
             return;
         }
@@ -193,7 +187,7 @@ public class AdminMovieController extends MovieController{
                 System.out.printf("You must enter at least %d more cast members\n", 2 - casts.size());
             }
         } while (casts.size() < 2 || !cast.equals("0"));
-        moviesDC.addNewMovie(movieTitle, showingStatus, synopsis, ageRating, director, casts.toArray(new String[0]), movieDuration);
+        new MovieDatabaseController().addNewMovie(movieTitle, showingStatus, synopsis, ageRating, director, casts.toArray(new String[0]), movieDuration);
         System.out.println("Movie created successfully. Returning to menu...\n");
     }
 
@@ -201,7 +195,7 @@ public class AdminMovieController extends MovieController{
      * Updates current movie
      */
     public void updateMovie() {   
-        ArrayList<Movie> movies = moviesDC.getMovies();
+        ArrayList<Movie> movies = new MovieDatabaseController().getMovies();
         Movie oldMovie = null;
         int i = 1, size = movies.size(), choice;
         for (Movie m : movies) {
@@ -248,7 +242,7 @@ public class AdminMovieController extends MovieController{
                 case 1:
                     System.out.println("Enter new movie title");
                     String tmpMovieTitle = sc.nextLine();
-                    if (moviesDC.movieExists(tmpMovieTitle)) {
+                    if (new MovieDatabaseController().movieExists(tmpMovieTitle)) {
                         System.out.println("Movie already exists. Change to movie name not saved");
                         break;
                     } else {
@@ -379,7 +373,7 @@ public class AdminMovieController extends MovieController{
                 
                 case 0:
                     Movie newMovie = new Movie(newMovieTitle, newShowingStatus, newSynopsis, newAgeRating, newDirector, newCast.toArray(new String[0]), newDuration, oldMovie.getReviewArray(), oldMovie.getOverallRating(), oldMovie.getTotalSales());
-                    moviesDC.updateMovie(oldMovie, newMovie);
+                    new MovieDatabaseController().updateMovie(oldMovie, newMovie);
                     if (newShowingStatus.equals("End of Showing")) {
                         this.deleteMovie(newMovieTitle);
                     }
@@ -397,7 +391,7 @@ public class AdminMovieController extends MovieController{
      * This function handles the UI and logic for deleting movie
      */
     public void deleteMovieUI() {
-        ArrayList<Movie> movies = moviesDC.getMovies();
+        ArrayList<Movie> movies = new MovieDatabaseController().getMovies();
         Movie movieToDelete = null;
         int i = 1, size = movies.size(), choice;
         for (Movie m : movies) {
@@ -421,7 +415,7 @@ public class AdminMovieController extends MovieController{
     }
 
     private void deleteMovie(String movieTitle) {
-        moviesDC.deleteMovie(movieTitle);
+        new MovieDatabaseController().deleteMovie(movieTitle);
         new ShowingsDatabaseController().deleteShowings(movieTitle);
         new BookingController().deleteBookings(movieTitle);
         System.out.println(movieTitle + " has been removed from the databases");
