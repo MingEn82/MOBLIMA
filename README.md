@@ -6,3 +6,6 @@
 3. [Zu Wei](https://github.com/seekerpig)
 4. [Xi Sheng](https://github.com/xeroxis-xs)
 5. [Ming En](https://github.com/MingEn82)
+
+## Requirements
+This version of MOBLIMA only works for JDK 17+
