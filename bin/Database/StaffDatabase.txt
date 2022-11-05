@@ -1,9 +1,1 @@
-test: 123
-staff: hunter2
-hello: world
-subra: suresh
-asd: asd
-username: password
-4: 123
-qwe: qwe
-zxc: zxc
+testing: password123
