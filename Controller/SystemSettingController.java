@@ -3,6 +3,7 @@ package Controller;
 import java.util.Date;
 import java.util.Scanner;
 import Entities.SystemSettings;
+import Utils.InputGetter;
 
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
@@ -88,7 +89,7 @@ public class SystemSettingController {
             System.out.println("+-------------------------------------------------------+");
             System.out.println("");
             System.out.print("Choice chosen is: ");
-            choice = scanner.nextInt();
+            choice = new InputGetter().getInt();
 
             switch (choice) {
                 case 1:
@@ -173,7 +174,7 @@ public class SystemSettingController {
         System.out.println("Please select the date to be removed from the system: ");
         System.out.println("");
         System.out.print("Choice chosen is: ");
-        int index = scanner.nextInt();
+        int index = new InputGetter().getInt();
         System.out.println("");
         ss.removePublicHolidays(index);
         sSDBCtrl.writeFile(ss);
@@ -325,7 +326,7 @@ public class SystemSettingController {
             System.out.print("Choice chosen is: ");
             System.out.print("");
 
-            choice = scanner.nextInt();
+            choice = new InputGetter().getInt();
 
             float newPrice;
             float oldPrice;
