@@ -1,6 +1,5 @@
 package Boundary;
 
-import java.util.Scanner;
 import Controller.StaffController;
 import Utils.InputGetter;
 import Controller.MovieGoerController;
@@ -21,11 +20,6 @@ public class MainMenuUI {
      * Variable holding a moviegoercontroller object
      */
     MovieGoerController movieGoerController = new MovieGoerController();
-
-    /**
-     * Scanner to take in inputs
-     */
-    Scanner scanner = new Scanner(System.in);
 
     /**
      * Utility class to parse inputs
@@ -66,7 +60,7 @@ public class MainMenuUI {
             System.out.println(""); // print empty line
 
             System.out.print("Choice chosen is: ");
-            choice = scanner.nextInt();
+            choice = ip.getInt();
             
 
             switch (choice) {
@@ -88,7 +82,6 @@ public class MainMenuUI {
                     System.out.println("░▀▀█░█▀▀░█▀▀░░░░█░░█░█░█░█░░░█▀█░█░█░█▀█░░█░░█░█");
                     System.out.println("░▀▀▀░▀▀▀░▀▀▀░░░░▀░░▀▀▀░▀▀▀░░░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░▀");
                     System.out.println(""); // print empty line
-                    scanner.close();
                     System.exit(0);
                     break;
 
@@ -159,7 +152,7 @@ public class MainMenuUI {
             System.out.println("+-------------------------------------------------------+");
             System.out.println(""); // print empty line
             System.out.print("Choice chosen is: ");
-            choice = scanner.nextInt();
+            choice = ip.getInt();
 
 
             if (choice != 0) {

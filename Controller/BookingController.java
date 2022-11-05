@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import Entities.Booking;
 import Entities.StudentBooking;
+import Utils.InputGetter;
 import Entities.AdultBooking;
 import Entities.SeniorBooking;
 
@@ -172,7 +173,7 @@ public class BookingController {
             System.out.println("---------------------------------------------------------");
             System.out.println(""); // print empty line
 
-            choice = scanner.nextInt();
+            choice = new InputGetter().getInt();
 
             Booking newBooking;
             switch(choice)
