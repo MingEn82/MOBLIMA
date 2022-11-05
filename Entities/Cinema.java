@@ -139,4 +139,6 @@ public abstract class Cinema {
     abstract public void printScreenLayout();
     abstract public void printSeatNumbers();
     abstract public void printEntranceLayout();
+    abstract public String[] getWideSeatRows();
+    abstract public void setWideSeatRows(String[] wideSeatRows);
 }

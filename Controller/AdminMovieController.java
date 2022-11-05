@@ -72,7 +72,7 @@ public class AdminMovieController extends MovieController{
                     break;
                 case 4:
                     System.out.println("\n=============== Deleting movie ===============");
-                    this.deleteMovie();
+                    this.deleteMovieUI();
                     break;
                 case 0:
                     System.out.println("\nReturning to main menu..");
@@ -100,7 +100,6 @@ public class AdminMovieController extends MovieController{
             System.out.println("Movie already exists!");
             return;
         }
-        
         
         do {
             System.out.println("\nSelect showing status");
@@ -227,7 +226,7 @@ public class AdminMovieController extends MovieController{
             newSynopsis = oldMovie.getSynopsis(),
             newDirector = oldMovie.getDirector();
         int newDuration = oldMovie.getDuration();
-        List<String> newCast = oldMovie.getAllCast();
+        ArrayList<String> newCast = new ArrayList<String>(oldMovie.getAllCast());
         AgeRating newAgeRating = oldMovie.getAgeRating();
 
         do {
@@ -289,14 +288,6 @@ public class AdminMovieController extends MovieController{
                         }
                     } while (subChoice < 0 || subChoice > 4);
                     System.out.println();
-
-                    if (subChoice == 4) {
-                        System.out.println("Deleting " + newMovieTitle + " from databases");
-                        moviesDC.deleteMovie(newMovieTitle);
-                        new ShowingsDatabaseController().deleteShowings(newMovieTitle);
-                        new BookingController().deleteBookings(newMovieTitle);
-                        return;
-                    }
 
                     break;
                 
@@ -389,6 +380,10 @@ public class AdminMovieController extends MovieController{
                 case 0:
                     Movie newMovie = new Movie(newMovieTitle, newShowingStatus, newSynopsis, newAgeRating, newDirector, newCast.toArray(new String[0]), newDuration, oldMovie.getReviewArray(), oldMovie.getOverallRating(), oldMovie.getTotalSales());
                     moviesDC.updateMovie(oldMovie, newMovie);
+                    if (newShowingStatus.equals("End of Showing")) {
+                        this.deleteMovie(newMovieTitle);
+                    }
+                    System.out.println(newMovieTitle + " successfully updated");
                     System.out.println();
                     break;
                 
@@ -399,9 +394,9 @@ public class AdminMovieController extends MovieController{
     }
 
     /**
-     * Delete movie
+     * This function handles the UI and logic for deleting movie
      */
-    public void deleteMovie() {
+    public void deleteMovieUI() {
         ArrayList<Movie> movies = moviesDC.getMovies();
         Movie movieToDelete = null;
         int i = 1, size = movies.size(), choice;
@@ -422,9 +417,13 @@ public class AdminMovieController extends MovieController{
         }
 
         movieToDelete = movies.get(choice - 1);
-        moviesDC.removeMovieFromDatabase(movieToDelete.getMovieTitle());
-        new ShowingsDatabaseController().deleteShowings(movieToDelete.getMovieTitle());
-        new BookingController().deleteBookings(movieToDelete.getMovieTitle());
-        System.out.println(movieToDelete.getMovieTitle() + " has been removed from the database");
+        this.deleteMovie(movieToDelete.getMovieTitle());
+    }
+
+    private void deleteMovie(String movieTitle) {
+        moviesDC.deleteMovie(movieTitle);
+        new ShowingsDatabaseController().deleteShowings(movieTitle);
+        new BookingController().deleteBookings(movieTitle);
+        System.out.println(movieTitle + " has been removed from the databases");
     }
 }

@@ -313,6 +313,8 @@ public class SystemSettingController {
                     + String.format("%.2f", ss.getIMAXAddOn()) + "|");
             System.out.println("| 11. Platinum Movie Suite:                    + $  "
                     + String.format("%.2f", ss.getplatinumAddOn()) + "|");
+            System.out.println("| 12. Wide Seat:                               + $  "
+                    + String.format("%.2f", ss.getplatinumAddOn()) + "|");
             System.out.println("|                                                       |");
             System.out.println("---------------------------------------------------------");
             System.out.println("|           Enter 0 to return to previous menu          |");
@@ -476,7 +478,7 @@ public class SystemSettingController {
                         System.out.println("");
                         System.out.println(
                                 "Discount has been updated sucessfully from $" + String.format("%.2f", oldPrice)
-                                        + " --> $" + String.format("%.2f", ss.getstudentDiscount()));
+                                        + " --> $" + String.format("%.2f", ss.getseniorDiscount()));
                         System.out.println("");
                         System.out.println("Returning to previous menu...");
                     } else {
@@ -604,7 +606,7 @@ public class SystemSettingController {
                         System.out.println("");
                         System.out
                                 .println("Charge has been updated sucessfully from $" + String.format("%.2f", oldPrice)
-                                        + " --> $" + String.format("%.2f", ss.getthreeDAddOn()));
+                                        + " --> $" + String.format("%.2f", ss.getblockbusterAddOn()));
                         System.out.println("");
                         System.out.println("Returning to previous menu...");
                     } else {
@@ -636,7 +638,7 @@ public class SystemSettingController {
                         System.out.println("");
                         System.out
                                 .println("Charge has been updated sucessfully from $" + String.format("%.2f", oldPrice)
-                                        + " --> $" + String.format("%.2f", ss.getthreeDAddOn()));
+                                        + " --> $" + String.format("%.2f", ss.getIMAXAddOn()));
                         System.out.println("");
                         System.out.println("Returning to previous menu...");
                     } else {
@@ -668,7 +670,39 @@ public class SystemSettingController {
                         System.out.println("");
                         System.out
                                 .println("Charge has been updated sucessfully from $" + String.format("%.2f", oldPrice)
-                                        + " --> $" + String.format("%.2f", ss.getthreeDAddOn()));
+                                        + " --> $" + String.format("%.2f", ss.getplatinumAddOn()));
+                        System.out.println("");
+                        System.out.println("Returning to previous menu...");
+                    } else {
+                        scanner.next().charAt(0);
+                        System.out.println("");
+                        System.out.println("Returning to previous menu...");
+                    }
+                    break;
+                
+                case 12:
+                    oldPrice = ss.getWideSeatAddOn();
+                    System.out.println("");
+                    System.out.println("+-------------------------------------------------------+");
+                    System.out.println("|            Please enter the updated price             |");
+                    System.out.println("---------------------------------------------------------");
+                    System.out.println("|                                                       |");
+                    System.out.println("| Existing Charge for Wide Seat:                + $ "
+                            + String.format("%.2f", oldPrice) + "|");
+                    System.out.println("|                                                       |");
+                    System.out.println("---------------------------------------------------------");
+                    System.out.println("|    Enter any character to return to previous menu     |");
+                    System.out.println("+-------------------------------------------------------+");
+                    System.out.println("");
+                    System.out.print("Updated Charge: + $ ");
+                    if (scanner.hasNextFloat()) {
+                        newPrice = scanner.nextFloat();
+                        ss.setWideSeatAddOn(newPrice);
+                        sSDBCtrl.writeFile(ss);
+                        System.out.println("");
+                        System.out
+                                .println("Charge has been updated sucessfully from $" + String.format("%.2f", oldPrice)
+                                        + " --> $" + String.format("%.2f", ss.getWideSeatAddOn()));
                         System.out.println("");
                         System.out.println("Returning to previous menu...");
                     } else {

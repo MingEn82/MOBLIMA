@@ -79,6 +79,11 @@ public class Booking {
     private float price;
 
     /**
+     * Whether seat is wide seat
+     */
+    private boolean isWideSeat;
+
+    /**
      * Delimiter
      */
     private static final String delimiter = "<b>";
@@ -99,6 +104,23 @@ public class Booking {
      * @param startDate
      * @param price
      */
+    public Booking(String TID, int phoneNumberOfMovieGoer, String nameOfMovieGoer, String emailOfMovieGoer, String cineplexName, String cinemaName, String seatID, String movieTitle, int movieDuration, String movieType, String cinemaType, Date startDate, float price, boolean isWideSeat) {
+        this.TID = TID;
+        this.phoneNumberOfMovieGoer = phoneNumberOfMovieGoer;
+        this.nameOfMovieGoer = nameOfMovieGoer;
+        this.emailOfMovieGoer = emailOfMovieGoer;
+        this.cineplexName = cineplexName;
+        this.cinemaName = cinemaName;
+        this.seatID = seatID;
+        this.movieTitle = movieTitle;
+        this.movieDuration = movieDuration;
+        this.movieType = movieType;
+        this.cinemaType = cinemaType;
+        this.startDate = startDate;
+        this.price = price;
+        this.isWideSeat = isWideSeat;
+    }
+
     public Booking(String TID, int phoneNumberOfMovieGoer, String nameOfMovieGoer, String emailOfMovieGoer, String cineplexName, String cinemaName, String seatID, String movieTitle, int movieDuration, String movieType, String cinemaType, Date startDate, float price) {
         this.TID = TID;
         this.phoneNumberOfMovieGoer = phoneNumberOfMovieGoer;
@@ -113,12 +135,8 @@ public class Booking {
         this.cinemaType = cinemaType;
         this.startDate = startDate;
         this.price = price;
+        this.isWideSeat = false;
     }
-
-    /**
-     * Constructor
-     */
-    public Booking() {}
 
     /**
      * Print all the attributes of a booking.
@@ -387,5 +405,21 @@ public class Booking {
      */
     public void setPrice(float price) {
         this.price = price;
+    }
+
+    /**
+     * Getter function for isWideSeat.
+     * @return Price
+     */
+    public boolean getIsWideSeat() {
+        return this.isWideSeat;
+    }
+
+    /**
+     * Setter function for price.
+     * @param price
+     */
+    public void setIsWideSeat(boolean isWideSeat) {
+        this.isWideSeat = isWideSeat;
     }
 }

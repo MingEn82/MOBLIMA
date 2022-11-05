@@ -100,6 +100,26 @@ public class Showing {
     }
 
     /**
+     * This is a function to check whether if a seat is already booked or not.
+     * @param seatID
+     * @return True/false whether seat is booked
+     */
+    public boolean isWideSeat(String seatID) {
+        String row = seatID.substring(0, 1).toUpperCase();
+        for (SeatRow seatRow : seatRows) {
+            if (!seatRow.getRowID().equals(row))
+                continue;
+            for (Seat seat : seatRow.getSeats()) {
+                if (seat.getSeatNumber() != null && seat.getSeatNumber().equals(seatID)) {
+                    return seat instanceof WideSeat;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    /**
      * This is a function for booking a seat based on Seat ID.
      * @param seatID
      */

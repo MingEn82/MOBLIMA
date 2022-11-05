@@ -35,9 +35,9 @@ public class AdultBooking extends Booking{
      */
     public AdultBooking(String tID, int phoneNumberOfMovieGoer, String nameOfMovieGoer, String emailOfMovieGoer,
             String cineplexName, String cinemaName, String seatID, String movieTitle, int movieDuration,
-            String movieType, String cinemaType, Date startDate, float price) {
+            String movieType, String cinemaType, Date startDate, float price, boolean isWideSeat) {
 
-            super(tID, phoneNumberOfMovieGoer, nameOfMovieGoer, emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, movieDuration, movieType, cinemaType, startDate, price);
+            super(tID, phoneNumberOfMovieGoer, nameOfMovieGoer, emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, movieDuration, movieType, cinemaType, startDate, price, isWideSeat);
     }
 
     /**
@@ -175,7 +175,7 @@ public class AdultBooking extends Booking{
 
         //since im an adult booking class.
         //there will be no discount
-
+        if (getIsWideSeat()) { priceOfTicket += new SystemSettingController().getSystemSetting().getWideSeatAddOn(); }
         this.setPrice(priceOfTicket);
         System.out.println("The price of booking is: $"+priceOfTicket);
     }

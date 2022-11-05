@@ -34,10 +34,10 @@ public class StudentBooking extends Booking {
      */
     public StudentBooking(String tID, int phoneNumberOfMovieGoer, String nameOfMovieGoer, String emailOfMovieGoer,
             String cineplexName, String cinemaName, String seatID, String movieTitle, int movieDuration,
-            String movieType, String cinemaType, Date startDate, float price) {
+            String movieType, String cinemaType, Date startDate, float price, boolean isWideSeat) {
 
         super(tID, phoneNumberOfMovieGoer, nameOfMovieGoer, emailOfMovieGoer, cineplexName, cinemaName, seatID,
-                movieTitle, movieDuration, movieType, cinemaType, startDate, price);
+                movieTitle, movieDuration, movieType, cinemaType, startDate, price, isWideSeat);
     }
 
     /**
@@ -158,6 +158,7 @@ public class StudentBooking extends Booking {
 
         // since im an student class booking class.
         priceOfTicket -= currentSettings.getstudentDiscount();
+        if (getIsWideSeat()) { priceOfTicket += new SystemSettingController().getSystemSetting().getWideSeatAddOn(); }
         this.setPrice(priceOfTicket);
         System.out.println("The price of booking is: $"+priceOfTicket);
     }

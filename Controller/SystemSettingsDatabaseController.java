@@ -124,6 +124,7 @@ public class SystemSettingsDatabaseController implements DatabaseController {
             float blockbusterAddOn;
             float IMAXAddOn;
             float platinumAddOn;
+            float wideSeatAddOn;
             int displayTop5bySales;
             int displayTop5byRating;
             String[] dates = brStream.readLine().split(delimiter);
@@ -146,13 +147,14 @@ public class SystemSettingsDatabaseController implements DatabaseController {
             blockbusterAddOn = Float.parseFloat(brStream.readLine());
             IMAXAddOn = Float.parseFloat(brStream.readLine());
             platinumAddOn = Float.parseFloat(brStream.readLine());
+            wideSeatAddOn = Float.parseFloat(brStream.readLine());
             displayTop5bySales = Integer.parseInt(brStream.readLine());
             displayTop5byRating = Integer.parseInt(brStream.readLine());
 
             // Construct ss using the variables above
             this.ss = new SystemSettings(publicHolidays, weekdayPrices, weekendPrices, pHPrices, studentDiscount,
                     seniorDiscount, prefCreditLoyaltyDiscount, sixPMAddOn, threeDAddOn, blockbusterAddOn, IMAXAddOn,
-                    platinumAddOn, displayTop5bySales,
+                    platinumAddOn, wideSeatAddOn, displayTop5bySales,
                     displayTop5byRating);
 
             brStream.close();
@@ -182,10 +184,10 @@ public class SystemSettingsDatabaseController implements DatabaseController {
         this.ss.setblockbusterAddOn(ss.getblockbusterAddOn());
         this.ss.setIMAXAddOn(ss.getIMAXAddOn());
         this.ss.setplatinumAddOn(ss.getplatinumAddOn());
+        this.ss.setWideSeatAddOn(ss.getWideSeatAddOn());
         this.ss.setdisplayTop5bySales(ss.getdisplayTop5bySales());
         this.ss.setdisplayTop5byRating(ss.getdisplayTop5byRating());
         this.writeToDatabase();
-
     }
 
     /**
@@ -210,6 +212,7 @@ public class SystemSettingsDatabaseController implements DatabaseController {
             pw.println(this.ss.getblockbusterAddOn());
             pw.println(this.ss.getIMAXAddOn());
             pw.println(this.ss.getplatinumAddOn());
+            pw.println(this.ss.getWideSeatAddOn());
             pw.println(this.ss.getdisplayTop5bySales());
             pw.print(this.ss.getdisplayTop5byRating());
 
