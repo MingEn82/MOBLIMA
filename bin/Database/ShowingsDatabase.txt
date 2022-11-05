@@ -21,3 +21,8 @@ Black Adam<b>Golden Village Bedok<b>Cinema 2<b>202211161000<b>3D
 Black Adam<b>Golden Village Bedok<b>Cinema 3<b>202211161000<b>3D
 Black Adam<b>Golden Village Paya Lebar<b>Cinema 3<b>202211051300<b>3D
 The Godfather<b>Golden Village Jurong Point<b>Cinema 2<b>202211061100<b>Blockbuster<b>H05
+Minions 2<b>Golden Village Jurong Point<b>Cinema 1<b>202212051200<b>2D
+Minions 2<b>Golden Village Bedok<b>Cinema 1<b>202212041400<b>2D
+Minions 2<b>Golden Village Paya Lebar<b>Cinema 1<b>202212091400<b>2D
+Minions 2<b>Golden Village Jurong Point<b>Cinema 1<b>202212092000<b>2D
+Minions 2<b>Golden Village Bedok<b>Cinema 1<b>202212251300<b>2D<b>A01

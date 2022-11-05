@@ -158,3 +158,10 @@ A03202211040851<b>93322332<b>richard<b>richard@test.com<b>Golden Village Bedok<b
 B03202211040852<b>91122778<b>richard<b>richard@test.com<b>Golden Village Paya Lebar<b>Cinema 3<b>E01<b>Black Adam<b>124<b>3D<b>Platinum Movie Suite<b>202211051300<b>19.0
 A01202211040853<b>93322112<b>billy<b>billy@test.com<b>Golden Village Bedok<b>Cinema 1<b>E01<b>Minority Report<b>145<b>3D<b>Standard<b>202210221400<b>12.5
 C02202211040856<b>92314433<b>steven<b>steven@test.com<b>Golden Village Jurong Point<b>Cinema 2<b>H05<b>The Godfather<b>175<b>Blockbuster<b>IMAX<b>202211061100<b>16.55
+A02202211051430<b>98374321<b>nicholas<b>nicholas@gmail.com<b>Golden Village Bedok<b>Cinema 2<b>A09<b>Minions 2<b>87<b>3D<b>IMAX<b>202211161200<b>16.5
+A01202211051432<b>98373214<b>nicholas<b>nicholas@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>A01<b>The Shawshank Redemption<b>142<b>2D<b>Standard<b>202211071400<b>7.0
+A02202211051435<b>98378321<b>nicholas<b>nicholas@gmail.com<b>Golden Village Bedok<b>Cinema 2<b>A08<b>Minions 2<b>87<b>3D<b>IMAX<b>202211161200<b>15.0
+A01202211051440<b>98378123<b>nicholas<b>nicholas@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>A04<b>Minions 2<b>87<b>2D<b>Standard<b>202212041400<b>9.0
+B01202211051443<b>98378321<b>nicholas<b>nicholas@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>A01<b>Minions 2<b>87<b>2D<b>Standard<b>202212091400<b>7.0
+C01202211051444<b>98378123<b>nicholas<b>nicholas@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>A02<b>Minions 2<b>87<b>2D<b>Standard<b>202212092000<b>9.0
+A01202211051451<b>98378312<b>nicholas<b>nicholas@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>A01<b>Minions 2<b>87<b>2D<b>Standard<b>202212251300<b>11.0
