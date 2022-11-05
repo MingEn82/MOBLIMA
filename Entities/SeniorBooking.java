@@ -164,7 +164,7 @@ public class SeniorBooking extends Booking {
         priceOfTicket -= currentSettings.getseniorDiscount();
         if (getIsWideSeat()) { priceOfTicket += new SystemSettingController().getSystemSetting().getWideSeatAddOn(); }
         this.setPrice(priceOfTicket);
-        System.out.println("The price of booking is: $"+priceOfTicket);
+        System.out.printf("\nThe price of booking is: $%.2f\n", priceOfTicket);
     }
 
 }

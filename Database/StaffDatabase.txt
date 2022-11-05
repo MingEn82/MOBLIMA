@@ -1,1 +1,2 @@
 testing: password123
+kristine: password123

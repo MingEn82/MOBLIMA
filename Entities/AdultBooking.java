@@ -177,7 +177,7 @@ public class AdultBooking extends Booking{
         //there will be no discount
         if (getIsWideSeat()) { priceOfTicket += new SystemSettingController().getSystemSetting().getWideSeatAddOn(); }
         this.setPrice(priceOfTicket);
-        System.out.println("The price of booking is: $"+priceOfTicket);
+        System.out.printf("\nThe price of booking is: $%.2f\n", priceOfTicket);
     }
     
 }
