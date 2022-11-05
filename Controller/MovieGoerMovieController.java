@@ -258,9 +258,11 @@ public class MovieGoerMovieController extends MovieController {
                     day = "Weekday";
                     break;
                 case 1:
-                case 6:
                 case 7:
                     day = "Weekend";
+                    break;
+                case 6:
+                    day = "Friday" + (cal.get(Calendar.HOUR_OF_DAY) < 18 ? " (before 6pm)" : " (after 6pm)");
                     break;
                 default:
                     day = "";
@@ -343,6 +345,14 @@ public class MovieGoerMovieController extends MovieController {
         return false;
     }
 
+    /**
+     * Books multiple tickets
+     * @param cineplexName
+     * @param cinemaName
+     * @param movieTitle
+     * @param startDate
+     * @return true if booking is successful, false otherwise
+     */
     private boolean bookTickets(String cineplexName, String cinemaName, String movieTitle, String startDate) {
         DateParser dp = new DateParser("yyyyMMddHHmm");
         cineplexController.refreshData();
