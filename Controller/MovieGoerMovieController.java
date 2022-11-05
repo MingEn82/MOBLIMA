@@ -111,7 +111,31 @@ public class MovieGoerMovieController extends MovieController {
                         }
 
                         showingChoice = filteredShowings.get(subChoice - 1);
-                        bookTicket(showingChoice[1], showingChoice[2], movieTitle, showingChoice[3]);
+
+                        do {
+                            System.out.println("How many tickets do you want to purchase?");
+                            System.out.println("1. Single Ticket");
+                            System.out.println("2. Multiple Ticket");
+                            System.out.println("3. Cancel booking");
+                            subChoice = ip.getInt();
+                            if (subChoice < 1 || subChoice > 3) {
+                                System.out.println("Invalid choice. Try Again");
+                            }
+                        } while (subChoice < 1 || subChoice > 3);
+
+                        switch (subChoice) {
+                            case 1:
+                            bookTicket(showingChoice[1], showingChoice[2], movieTitle, showingChoice[3]);
+                            break;
+
+                            case 2:
+                            bookTickets(showingChoice[1], showingChoice[2], movieTitle, showingChoice[3]);
+                            break;
+
+                            case 3:
+                            System.out.println("Cancelling booking...");
+                            break;
+                        }
                         break;
 
                     case 2:
@@ -266,10 +290,6 @@ public class MovieGoerMovieController extends MovieController {
         cineplexController.refreshData();
 
         Cinema cinema = cineplexController.findCinema(cineplexName, cinemaName);
-        if (cinema == null) {
-            System.out.println("Cinema not found. Something went wrong in MovieGoerMovieController.bookticket");
-            return false;
-        }
 
         // Get cinema type
         String cinemaType = cinema.getCinemaType();
@@ -317,6 +337,122 @@ public class MovieGoerMovieController extends MovieController {
                     }
                 } while (true);
                 
+            }
+        }
+
+        return false;
+    }
+
+    private boolean bookTickets(String cineplexName, String cinemaName, String movieTitle, String startDate) {
+        DateParser dp = new DateParser("yyyyMMddHHmm");
+        cineplexController.refreshData();
+        Cinema cinema = cineplexController.findCinema(cineplexName, cinemaName);
+
+        // Get cinema type
+        String cinemaType = cinema.getCinemaType();
+
+        int phoneNumberOfMovieGoer = -1;
+        String nameOfMovieGoer = "", emailOfMovieGoer = "";
+
+        // Get phone number of user
+        int tries = 3;
+        while (tries > 0) {
+            System.out.print("Enter your phone number: ");
+            phoneNumberOfMovieGoer = ip.getInt();
+            if (phoneNumberOfMovieGoer > 9999999 && phoneNumberOfMovieGoer < 100000000) {
+                break;
+            } else {
+                tries--;
+                System.out.println("Invalid phone number! Tries remaining: " + tries);
+            }
+        }
+        if (tries == 0) {
+            System.out.println("Maximum tries reached! Cancelling booking..");
+            return false;
+        }
+
+        // Get email address of user
+        tries = 3;
+        while (tries > 0) {
+            System.out.print("Enter your email address: ");
+            emailOfMovieGoer = ip.getString();
+            if (emailOfMovieGoer.contains("@")) {
+                break;
+            } else {
+                System.out.println("Invalid email address! Tries remaining: " + tries);
+                tries--;
+            }
+        }
+        if (tries == 0) {
+            System.out.println("Maximum tries reached! Cancelling booking..");
+            return false;
+        }
+
+        // Get name of user
+        System.out.print("Enter your name: ");
+        nameOfMovieGoer = ip.getString();
+
+        // Get Number of tickets
+        int numberOfTickets;
+        do {
+            System.out.println("How many tickets do you want to book? (type 0 to exit)");
+            numberOfTickets = ip.getInt();
+
+            if (numberOfTickets < 0) {
+                System.out.println("Invalid number of tickets. Try again");
+            } else if (numberOfTickets == 0) {
+                System.out.println("Cancelling bookings...");
+                return false;
+            }
+        } while (numberOfTickets < 0);
+
+        for (int j = 0; j < numberOfTickets; j++) {
+            cineplexController.refreshData();
+            cinema = cineplexController.findCinema(cineplexName, cinemaName);
+
+            for (Showing showing : cinema.getShowings()) {
+                if (showing.getStartDate().compareTo(dp.parseDate(startDate)) == 0
+                        && showing.getMovieTitle().equals(movieTitle)) {
+                    // Add Movie Type
+                    String movieType = showing.getMovieType();
+                    // Get Movie Duration
+                    int movieDuration = movieDC.getMovieDuration(movieTitle);
+                    // Get SeatID
+                    int choice;
+                    
+                    do {
+                        // Print seats
+                        showing.printShowingDetails();
+                        cinema.printScreenLayout();
+                        showing.printSeats(cinema.getAisles());
+                        cinema.printSeatNumbers();
+                        cinema.printEntranceLayout();
+                        System.out.println("[ ] - normal seats");
+                        System.out.println("\\ / - wide seats (extra cost needed)\n");
+    
+                        System.out.println("Enter SeatID (e.g. A09): ");
+                        String seatID = ip.getString();
+    
+                        if (!showing.isSeatBooked(seatID)) {
+                            addOneToTotalSales(movieTitle);
+                            if (new BookingController().newBooking(cineplexController.generateUID(cineplexName, cinemaName), cineplexName, cinemaName, seatID, movieTitle,
+                                movieDuration, movieType, cinemaType, dp.parseDate(startDate), -1, showing.isWideSeat(seatID), nameOfMovieGoer, emailOfMovieGoer, phoneNumberOfMovieGoer)) {
+                                new ShowingsDatabaseController().addBooking(movieTitle, cineplexName, cinemaName, startDate, seatID);
+                            }
+                            break;
+                        } else {
+                            System.out.println("Invalid seat chosen!");
+                            System.out.println("Type 1 to choose a different seat (0 to exit booking):");
+                            choice = ip.getInt();
+                            while (choice != 0 && choice != 1) {
+                                System.out.println("Invalid choice! Try again");
+                                choice = ip.getInt();
+                            }
+                            if (choice == 0) { break; }
+                        }
+                    } while (true);
+                    
+                }
             }
         }
 

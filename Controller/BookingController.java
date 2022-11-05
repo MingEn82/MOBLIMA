@@ -97,6 +97,7 @@ public class BookingController {
         }
         return false;
     }
+
     /**
      * This function prompts the user to select a movie, a cinema and choose one of the available showing.
      * He will also need to key in his/her name, email address and phone number.
@@ -201,6 +202,96 @@ public class BookingController {
 
                 case 3:
                 newBooking = new SeniorBooking(TID, phoneNumberOfMovieGoer, nameOfMovieGoer,emailOfMovieGoer, cineplexName, cinemaName, seatID, movieTitle, movieDuration, movieType, cinemaType, startDate, price, isWideSeat);
+                newBooking.calBookingPrice();
+                bookingsDatabaseController.addNewBooking(newBooking);
+                cineplexController.bookSeat(cineplexName, cinemaName, movieTitle, startDate, seatID);
+                System.out.println("");
+                System.out.println("Booking is successful!\n");
+                return true;
+                
+
+                case 4:
+                System.out.println("");
+                System.out.println("Exiting booking....");
+                System.out.println(""); // print empty line
+                return false;
+                
+                default:
+                System.out.println("");
+                System.out.println("You've entered an invalid choice. Please enter a choice again.");
+                System.out.println(""); // print empty line
+                break;
+            }
+        }
+        while (choice != 4);
+
+        
+        return false;
+    }
+
+    /**
+     * This function will book multiple tickets based on inputted name, email address and phone number
+     * Price will be calculated depending on the movie type, time/date of movie, cinema type and whether the type of ticket.
+     * @param TID
+     * @param cineplexName
+     * @param cinemaName
+     * @param seatID
+     * @param movieTitle
+     * @param movieDuration
+     * @param movieType
+     * @param cinemaType
+     * @param startDate
+     * @param price
+     * @param isWideSeat
+     * @param name
+     * @param emailAddress
+     * @param phoneNumber
+     * @return                  true if successful, false if unsuccessful
+     */
+    public boolean newBooking(String TID, String cineplexName, String cinemaName, String seatID, String movieTitle, int movieDuration, String movieType, String cinemaType, Date startDate, float price, boolean isWideSeat, String name, String emailAddress, int phoneNumber)
+    {
+        int choice;
+        do
+        {
+            System.out.println(""); // print empty line
+            System.out.println("---------------------------------------------------------");
+            System.out.println("Are you a student/adult/senior?");
+            System.out.println("---------------------------------------------------------");
+            System.out.println("1. Student");
+            System.out.println("2. Adult");
+            System.out.println("3. Senior Citizen");
+            System.out.println("4. Exit Booking");
+            System.out.println("---------------------------------------------------------");
+            System.out.println(""); // print empty line
+
+            choice = new InputGetter().getInt();
+
+            Booking newBooking;
+            switch(choice)
+            {
+                case 1:
+                newBooking = new StudentBooking(TID, phoneNumber, name, emailAddress, cineplexName, cinemaName, seatID, movieTitle, movieDuration, movieType, cinemaType, startDate, price, isWideSeat);
+                newBooking.calBookingPrice();
+                
+                bookingsDatabaseController.addNewBooking(newBooking);
+                cineplexController.bookSeat(cineplexName, cinemaName, movieTitle, startDate, seatID);
+                System.out.println("");
+                System.out.println("Booking is successful!\n");
+                return true;
+                
+                case 2:
+                newBooking = new AdultBooking(TID, phoneNumber, name, emailAddress, cineplexName, cinemaName, seatID, movieTitle, movieDuration, movieType, cinemaType, startDate, price, isWideSeat);
+                newBooking.calBookingPrice();
+                //System.out.println("The new booking object is " +newBooking);
+                bookingsDatabaseController.addNewBooking(newBooking);
+                cineplexController.bookSeat(cineplexName, cinemaName, movieTitle, startDate, seatID);
+                System.out.println("");
+                System.out.println("Booking is successful!\n");
+                return true;
+                
+
+                case 3:
+                newBooking = new SeniorBooking(TID, phoneNumber, name, emailAddress, cineplexName, cinemaName, seatID, movieTitle, movieDuration, movieType, cinemaType, startDate, price, isWideSeat);
                 newBooking.calBookingPrice();
                 bookingsDatabaseController.addNewBooking(newBooking);
                 cineplexController.bookSeat(cineplexName, cinemaName, movieTitle, startDate, seatID);
