@@ -1,8 +1,10 @@
 package Controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Scanner;
 
 import Entities.Movie;
@@ -321,6 +323,9 @@ public abstract class MovieController {
         Scanner sc = new Scanner(System.in);
         int i = 1;
         Movie m = null;
+        List<String> definedOrder = Arrays.asList("Coming Soon", "Preview", "Now Showing");
+        Collections.sort(movies, Comparator.comparing(mov -> definedOrder.indexOf(((Movie) mov).getShowingStatus()))
+        .thenComparing(mov -> ((Movie) mov).getMovieTitle()));
 
         if (movies.size() == 0) {
             System.out.println("No movies found");

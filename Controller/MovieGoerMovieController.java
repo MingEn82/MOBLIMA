@@ -2,6 +2,8 @@ package Controller;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 
 import Entities.Cinema;
@@ -88,6 +90,8 @@ public class MovieGoerMovieController extends MovieController {
                             System.out.println("No showings found for " + movieTitle + "\n");
                             break;
                         }
+
+                        Collections.sort(filteredShowings, Comparator.comparing(s -> s[3]));
 
                         System.out.println(movieTitle + " is showing at these locations");
                         printShowings(filteredShowings);
