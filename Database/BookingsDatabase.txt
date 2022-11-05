@@ -1,0 +1,78 @@
+A01202211051626<b>90184990<b>jamestan<b>james@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>A05<b>Minions 2<b>87<b>2D<b>Standard<b>202212101600<b>9.0
+A01202211051631<b>90184990<b>jamestan<b>james@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>B07<b>Minions 2<b>87<b>2D<b>Standard<b>202212101600<b>9.0
+C01202211051640<b>99288372<b>ken<b>ken123@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>A01<b>Minions 2<b>87<b>3D<b>Standard<b>202212101600<b>13.0
+C01202211051641<b>92832732<b>Jacky<b>abc123@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>C06<b>Minions 2<b>87<b>3D<b>Standard<b>202212101600<b>10.4
+B01202211051641<b>92225555<b>May Tan<b>may95@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>C05<b>Minions 2<b>87<b>2D<b>Standard<b>202212131600<b>4.9
+A01202211051642<b>92225555<b>May Tan<b>may95@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>D06<b>Minions 2<b>87<b>2D<b>Standard<b>202212161600<b>7.0
+A01202211051643<b>92225555<b>May Tan<b>may95@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>D07<b>Minions 2<b>87<b>2D<b>Standard<b>202212161600<b>7.0
+B01202211051643<b>92225555<b>May Tan<b>may95@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>C05<b>Minions 2<b>87<b>2D<b>Standard<b>202212161800<b>9.0
+B01202211051644<b>92929292<b>Jimmy<b>jimmy@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>A06<b>Minions 2<b>87<b>2D<b>Standard<b>202212161800<b>7.5
+B01202211051645<b>92929292<b>Jimmy<b>jimmy@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>C05<b>Minions 2<b>87<b>2D<b>Standard<b>202212191600<b>7.0
+B01202211051646<b>92929292<b>Jimmy<b>jimmy@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>A01<b>Minions 2<b>87<b>2D<b>Standard<b>202212191600<b>7.0
+B01202211051647<b>92929292<b>Jimmy<b>jimmy@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>D06<b>Minions 2<b>87<b>2D<b>Standard<b>202212191600<b>7.0
+A02202211051647<b>95959595<b>Pepper<b>pepper@gmail.com<b>Golden Village Bedok<b>Cinema 2<b>G06<b>Minions 2<b>87<b>3D<b>IMAX<b>202212191600<b>16.5
+A02202211051648<b>95959595<b>Pepper<b>pepper@gmail.com<b>Golden Village Bedok<b>Cinema 2<b>F06<b>Minions 2<b>87<b>3D<b>IMAX<b>202212191600<b>16.5
+A03202211051648<b>89998888<b>abe<b>abe@gmail.com<b>Golden Village Bedok<b>Cinema 3<b>C03<b>Minions 2<b>87<b>3D<b>Platinum Movie Suite<b>202212191600<b>17.5
+A03202211051649<b>89998888<b>abe<b>abe@gmail.com<b>Golden Village Bedok<b>Cinema 3<b>C04<b>Minions 2<b>87<b>3D<b>Platinum Movie Suite<b>202212191600<b>14.9
+B02202211051649<b>89998888<b>abe<b>abe@gmail.com<b>Golden Village Paya Lebar<b>Cinema 2<b>A06<b>Minions 2<b>87<b>Blockbuster<b>IMAX<b>202212191600<b>14.45
+B02202211051650<b>89998888<b>abe<b>abe@gmail.com<b>Golden Village Paya Lebar<b>Cinema 2<b>A07<b>Minions 2<b>87<b>Blockbuster<b>IMAX<b>202212191600<b>14.45
+B01202211051650<b>87778888<b>rachel<b>rach@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>A05<b>Minions 2<b>87<b>2D<b>Standard<b>202212251900<b>9.5
+B01202211051651<b>87778888<b>rachel<b>rach@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>A01<b>Minions 2<b>87<b>2D<b>Standard<b>202212251900<b>9.5
+A01202211051652<b>93333333<b>alice<b>alice@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>B05<b>Ajoomma<b>90<b>2D<b>Standard<b>202212101300<b>9.0
+A01202211051652<b>93333333<b>alice<b>alice@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>B04<b>Ajoomma<b>90<b>2D<b>Standard<b>202212101300<b>7.5
+C01202211051653<b>93333333<b>alice<b>alice@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>C06<b>Ajoomma<b>90<b>3D<b>Standard<b>202212101300<b>14.5
+B01202211051653<b>93333333<b>alice<b>alice@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>C06<b>Ajoomma<b>90<b>2D<b>Standard<b>202212131300<b>5.5
+A01202211051654<b>88888889<b>ken<b>ken@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>C07<b>Ajoomma<b>90<b>2D<b>Standard<b>202212161300<b>7.0
+B01202211051654<b>93827632<b>anon<b>lmai23@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>E06<b>Ajoomma<b>90<b>2D<b>Standard<b>202212162030<b>5.4
+A02202211051655<b>82736383<b>abe<b>abe@gmail.com<b>Golden Village Bedok<b>Cinema 2<b>F07<b>Ajoomma<b>90<b>3D<b>IMAX<b>202212191300<b>16.5
+A03202211051656<b>92783772<b>James Tan<b>james@gmail.com<b>Golden Village Bedok<b>Cinema 3<b>B03<b>Ajoomma<b>90<b>3D<b>Platinum Movie Suite<b>202212191300<b>16.4
+B02202211051656<b>92749273<b>Lizz<b>lizz@gmail.com<b>Golden Village Paya Lebar<b>Cinema 2<b>E08<b>Ajoomma<b>90<b>Blockbuster<b>IMAX<b>202212191300<b>15.049999
+C01202211051657<b>82736291<b>Jess<b>jess@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>A06<b>Ajoomma<b>90<b>2D<b>Standard<b>202212251300<b>11.0
+C01202211051648<b>97799779<b>john<b>john@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>B05<b>The Shawshank Redemption<b>142<b>3D<b>Standard<b>202212171300<b>13.0
+C01202211051650<b>97799779<b>john<b>john@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>B06<b>The Shawshank Redemption<b>142<b>3D<b>Standard<b>202212171300<b>13.0
+B01202211051650<b>97799779<b>john<b>john@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>E05<b>The Shawshank Redemption<b>142<b>2D<b>Standard<b>202212261300<b>7.5
+B01202211051651<b>97799779<b>john<b>john@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>E06<b>The Shawshank Redemption<b>142<b>2D<b>Standard<b>202212261300<b>7.5
+B01202211051653<b>91239123<b>Ahmad<b>ahmad@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>C07<b>The Shawshank Redemption<b>142<b>2D<b>Standard<b>202212261300<b>3.4
+B01202211051654<b>91239123<b>Ahmad<b>ahmad@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>C08<b>The Shawshank Redemption<b>142<b>2D<b>Standard<b>202212261300<b>3.4
+B01202211051656<b>91239123<b>Ahmad<b>ahmad@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>C05<b>The Shawshank Redemption<b>142<b>2D<b>Standard<b>202212261300<b>3.4
+B01202211051656<b>91239123<b>Ahmad<b>admad@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>C06<b>The Shawshank Redemption<b>142<b>2D<b>Standard<b>202212261300<b>3.4
+B01202211051658<b>90909090<b>Jordan Tan<b>jordan@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>F07<b>The Shawshank Redemption<b>142<b>2D<b>Standard<b>202212261300<b>5.5
+B01202211051659<b>90909090<b>Jardan Tan<b>jordan@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>F08<b>The Shawshank Redemption<b>142<b>2D<b>Standard<b>202212261300<b>5.5
+A01202211051707<b>87777777<b>charles<b>charles@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>A05<b>Minority Report<b>145<b>2D<b>Standard<b>202212170700<b>9.0
+A01202211051707<b>87777777<b>charles<b>charles@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>A06<b>Minority Report<b>145<b>2D<b>Standard<b>202212170700<b>9.0
+A01202211051708<b>87777777<b>charles<b>charles@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>C05<b>Minority Report<b>145<b>2D<b>Standard<b>202212170700<b>9.0
+A01202211051650<b>91236789<b>alba<b>alba@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>A01<b>The Godfather<b>175<b>2D<b>Standard<b>202212171600<b>5.4 
+A01202211051651<b>98980123<b>back<b>back@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>B02<b>The Godfather<b>175<b>2D<b>Standard<b>202212171600<b>9.0 
+A01202211051653<b>92721727<b>carrie<b>carrie@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>E12<b>The Godfather<b>175<b>2D<b>Standard<b>202212171600<b>7.5 
+A01202211051654<b>92627182<b>callista<b>callista@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>C03<b>The Godfather<b>175<b>2D<b>Standard<b>202212171600<b>7.5 
+A01202211051655<b>92772876<b>terrie<b>terrie@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>A12<b>The Godfather<b>175<b>2D<b>Standard<b>202212171600<b>9.0 
+C01202211051655<b>98721234<b>tec<b>tec@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>B01<b>The Godfather<b>175<b>3D<b>Standard<b>202212171600<b>14.5 
+C01202211051656<b>98270876<b>becky<b>becky@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>A03<b>The Godfather<b>175<b>3D<b>Standard<b>202212171600<b>10.9 
+C01202211051656<b>89871039<b>chor<b>chor@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>C11<b>The Godfather<b>175<b>3D<b>Standard<b>202212171600<b>12.5 
+C01202211051656<b>98999129<b>denma<b>denma@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>D09<b>The Godfather<b>175<b>3D<b>Standard<b>202212171600<b>13.0 
+C01202211051657<b>98793636<b>henry<b>henry@gmail.com<b>Golden Village Jurong Point<b>Cinema 1<b>E12<b>The Godfather<b>175<b>3D<b>Standard<b>202212171600<b>12.9 
+A01202211051657<b>98763453<b>ford<b>ford@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>F11<b>The Godfather<b>175<b>2D<b>Standard<b>202212231600<b>5.4 
+A01202211051658<b>89787787<b>dan<b>dan@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>C12<b>The Godfather<b>175<b>2D<b>Standard<b>202212231600<b>7.0 
+A01202211051659<b>97667234<b>bob<b>bob@gmail.com<b>Golden Village Bedok<b>Cinema 1<b>A03<b>The Godfather<b>175<b>2D<b>Standard<b>202212231600<b>7.0 
+B01202211051659<b>97232323<b>karina<b>karina@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>F12<b>The Godfather<b>175<b>2D<b>Standard<b>202212231800<b>7.5 
+B01202211051700<b>87627863<b>mark<b>mark@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>A02<b>The Godfather<b>175<b>2D<b>Standard<b>202212231800<b>5.4 
+B01202211051700<b>87922222<b>donkey<b>donkey@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>D12<b>The Godfather<b>175<b>2D<b>Standard<b>202212251600<b>9.0 
+B01202211051700<b>93445243<b>josh<b>josh@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>A05<b>The Godfather<b>175<b>2D<b>Standard<b>202212251600<b>9.0 
+B01202211051701<b>97652727<b>bobbie<b>bobbie@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>D11<b>The Godfather<b>175<b>2D<b>Standard<b>202212261600<b>5.0 
+B01202211051701<b>87629372<b>karie<b>happysmile@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>C05<b>The Godfather<b>175<b>2D<b>Standard<b>202212251600<b>9.5 
+B01202211051702<b>92882335<b>lucky<b>lucky@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>C04<b>The Godfather<b>175<b>2D<b>Standard<b>202212261600<b>7.0 
+B01202211051702<b>87281982<b>ellen<b>ellen@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>D06<b>The Godfather<b>175<b>2D<b>Standard<b>202212261600<b>4.9 
+A02202211051703<b>92883728<b>mary<b>mary@gmail.com<b>Golden Village Bedok<b>Cinema 2<b>I10<b>The Godfather<b>175<b>3D<b>IMAX<b>202212261600<b>15.0 
+A02202211051704<b>93810222<b>gary<b>gary@gmail.com<b>Golden Village Bedok<b>Cinema 2<b>A04<b>The Godfather<b>175<b>3D<b>IMAX<b>202212261600<b>16.5 
+A02202211051704<b>98237193<b>donkey<b>donkey@gmail.com<b>Golden Village Bedok<b>Cinema 2<b>D03<b>The Godfather<b>175<b>3D<b>IMAX<b>202212261600<b>16.5 
+A03202211051705<b>82352733<b>fab<b>fab@gmail.com<b>Golden Village Bedok<b>Cinema 3<b>F06<b>The Godfather<b>175<b>3D<b>Platinum Movie Suite<b>202212261600<b>16.9 
+A03202211051705<b>92872222<b>flora<b>flora@gmail.com<b>Golden Village Bedok<b>Cinema 3<b>B02<b>The Godfather<b>175<b>3D<b>Platinum Movie Suite<b>202212261600<b>16.5 
+B02202211051706<b>92736223<b>ira<b>ira@gmail.com<b>Golden Village Paya Lebar<b>Cinema 2<b>D12<b>The Godfather<b>175<b>Blockbuster<b>IMAX<b>202212261600<b>14.549999 
+A03202211051706<b>92783233<b>floretta<b>floretta@gmail.com<b>Golden Village Bedok<b>Cinema 3<b>D02<b>The Godfather<b>175<b>3D<b>Platinum Movie Suite<b>202212261600<b>15.4 
+B02202211051706<b>92736323<b>geogia<b>geogia@gmail.com<b>Golden Village Paya Lebar<b>Cinema 2<b>F12<b>The Godfather<b>175<b>Blockbuster<b>IMAX<b>202212261600<b>16.55 
+B02202211051707<b>92277272<b>marie<b>marie@gmail.com<b>Golden Village Paya Lebar<b>Cinema 2<b>H03<b>The Godfather<b>175<b>Blockbuster<b>IMAX<b>202212261600<b>17.05 
+B02202211051707<b>92372337<b>brown<b>brown@gmail.com<b>Golden Village Paya Lebar<b>Cinema 2<b>C13<b>The Godfather<b>175<b>Blockbuster<b>IMAX<b>202212261600<b>14.549999 
+B01202211051707<b>83729323<b>heria<b>heria@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>B10<b>The Godfather<b>175<b>2D<b>Standard<b>202212271600<b>5.0 
+B01202211051708<b>92371138<b>george<b>george@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>E08<b>The Godfather<b>175<b>2D<b>Standard<b>202212271600<b>5.5 
+B01202211051708<b>92837774<b>joey<b>joey@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>D01<b>The Godfather<b>175<b>2D<b>Standard<b>202212271600<b>2.9 
+B01202211051709<b>92736222<b>terrie<b>terrie@gmail.com<b>Golden Village Paya Lebar<b>Cinema 1<b>B02<b>The Godfather<b>175<b>2D<b>Standard<b>202212271600<b>7.0
